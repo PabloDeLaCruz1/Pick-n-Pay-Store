@@ -10,6 +10,7 @@
 //If you find yourself with structs that contain structs that contain structs that contain structs, you have probably made a wrong turn somewhere. You’ll discover that way the hell down there somewhere you forgot a mutating, and now you have to mark mutating for all the things.
 //Most types don’t need to be threadsafe. Most instances do. Use struct for the 10% of your types that make 90% of the instances. Use class for the 90% of your types that make up 10% of your instances.
 //If overloading == to compare two things elementwise sounds like a great idea, use a struct. If you hesitate, use a class.
+//https://www.swiftbysundell.com/articles/structuring-model-data-in-swift/
 
 import Foundation
 
@@ -33,12 +34,12 @@ struct User {
     }
 }
 
-class Cart {
+struct Cart {
 
 }
-class Wishlist {
+struct Wishlist {
 
 }
-class Order {
+struct Order {
 
 }
