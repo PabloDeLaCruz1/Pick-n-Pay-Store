@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let db = MainDBHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
