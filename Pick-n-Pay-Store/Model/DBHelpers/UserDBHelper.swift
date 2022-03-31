@@ -23,15 +23,17 @@ extension MainDBHelper {
     }
 
     func insertUser(userName: String, userEmail: String) {
-        _ = usersTable.insert(name <- userName, email <- userEmail)
+        let userInsertQuery = usersTable.insert(name <- userName, email <- userEmail)
 
-//        do {
+        do {
+            try db.run(userInsertQuery)
+
 //            for user in try db.prepare(usersTable) {
 //                print("id: \(user[id]), name: \(user[name] ?? ""), email: \(user[email])")
 //            }
-//        } catch {
-//            print (error)
-//        }
+        } catch {
+            print (error)
+        }
     }
 
     func getUsers() -> [User] {

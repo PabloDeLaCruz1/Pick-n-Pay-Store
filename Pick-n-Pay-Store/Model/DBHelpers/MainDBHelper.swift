@@ -21,7 +21,7 @@ class MainDBHelper {
         db = connectDatabase()
         createUserTable()
 //        insertUser(userName: "Foo", userEmail: "bar@mac.com")
-//        insertUser(userName: "Baz", userEmail: "foo@mac.com")
+        insertUser(userName: "Baz2", userEmail: "foo2@mac.com")
         print(getUsers())
     }
 
