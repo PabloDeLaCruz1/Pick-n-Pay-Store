@@ -19,7 +19,7 @@ struct User {
     var id: Int
     var guest = true
     
-    var emailId: String = ""
+    var email: String = ""
     var phoneNumber: String = ""
     var password: String = ""
     
@@ -29,8 +29,10 @@ struct User {
     var orders = [Order]()
     var creditcard : String = ""
     
-    init (id: Int){
+    init (id: Int, email: String, guest: Bool){
         self.id = id
+        self.email = email
+        self.guest = guest
     }
 }
 

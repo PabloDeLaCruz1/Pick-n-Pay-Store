@@ -17,6 +17,11 @@
 		FE64688727F5B3BE00795DB2 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = FE64688627F5B3BE00795DB2 /* SQLite */; };
 		FE64688927F5B4C100795DB2 /* MainDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688827F5B4C100795DB2 /* MainDBHelper.swift */; };
 		FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688A27F5C78400795DB2 /* UserDBHelper.swift */; };
+		FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688C27F741F800795DB2 /* UserTestViewModel.swift */; };
+		FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689027F74A5100795DB2 /* UserTestViewController.swift */; };
+		FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */; };
+		FE64689527F7536A00795DB2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689427F7536A00795DB2 /* Service.swift */; };
+		FE64689727F75B5C00795DB2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689627F75B5C00795DB2 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		FE64687F27F4FD9000795DB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FE64688827F5B4C100795DB2 /* MainDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDBHelper.swift; sourceTree = "<group>"; };
 		FE64688A27F5C78400795DB2 /* UserDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDBHelper.swift; sourceTree = "<group>"; };
+		FE64688C27F741F800795DB2 /* UserTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestViewModel.swift; sourceTree = "<group>"; };
+		FE64689027F74A5100795DB2 /* UserTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestViewController.swift; sourceTree = "<group>"; };
+		FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestTableViewCell.swift; sourceTree = "<group>"; };
+		FE64689427F7536A00795DB2 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FE64689627F75B5C00795DB2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +75,11 @@
 		FE64686227F4C69900795DB2 /* Pick-n-Pay-Store */ = {
 			isa = PBXGroup;
 			children = (
-				FE64687A27F4FB6000795DB2 /* Model */,
-				FE64687D27F4FD0000795DB2 /* Controller */,
-				FE64687B27F4FB6900795DB2 /* ViewModel */,
+				FE64687A27F4FB6000795DB2 /* Models */,
 				FE64687927F4FB5300795DB2 /* View */,
-				FE64687C27F4FB8100795DB2 /* Util */,
+				FE64687B27F4FB6900795DB2 /* ViewModels */,
+				FE64688E27F742A600795DB2 /* Services */,
+				FE64687C27F4FB8100795DB2 /* Utilities */,
 				FE64686327F4C69900795DB2 /* AppDelegate.swift */,
 				FE64686527F4C69900795DB2 /* SceneDelegate.swift */,
 				FE64686727F4C69900795DB2 /* ViewController.swift */,
@@ -85,38 +95,43 @@
 		FE64687927F4FB5300795DB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE64688F27F74A0600795DB2 /* Views */,
+				FE64687D27F4FD0000795DB2 /* Controllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		FE64687A27F4FB6000795DB2 /* Model */ = {
+		FE64687A27F4FB6000795DB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				FE64687E27F4FD2E00795DB2 /* DBHelpers */,
 				FE64687F27F4FD9000795DB2 /* User.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		FE64687B27F4FB6900795DB2 /* ViewModel */ = {
+		FE64687B27F4FB6900795DB2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FE64688C27F741F800795DB2 /* UserTestViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		FE64687C27F4FB8100795DB2 /* Util */ = {
+		FE64687C27F4FB8100795DB2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FE64689627F75B5C00795DB2 /* Util.swift */,
 			);
-			path = Util;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
-		FE64687D27F4FD0000795DB2 /* Controller */ = {
+		FE64687D27F4FD0000795DB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		FE64687E27F4FD2E00795DB2 /* DBHelpers */ = {
@@ -126,6 +141,22 @@
 				FE64688A27F5C78400795DB2 /* UserDBHelper.swift */,
 			);
 			path = DBHelpers;
+			sourceTree = "<group>";
+		};
+		FE64688E27F742A600795DB2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FE64689427F7536A00795DB2 /* Service.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FE64688F27F74A0600795DB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,11 +236,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE64689727F75B5C00795DB2 /* Util.swift in Sources */,
 				FE64688027F4FD9000795DB2 /* User.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
+				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
 				FE64688927F5B4C100795DB2 /* MainDBHelper.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
+				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */,
+				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
+				FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */,
 				FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
