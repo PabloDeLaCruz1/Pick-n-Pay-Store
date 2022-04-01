@@ -43,7 +43,6 @@ class UserTestViewController: UIViewController, UITableViewDelegate, UITableView
         cell.userTestViewModel = UserTestViewModel(userData[indexPath.row])
 
         return cell
-
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -15,6 +15,7 @@ class UserTestTableViewCell: UITableViewCell {
     @IBOutlet weak var userEmailLabel: UILabel!
     
     
+    //didSet is a 'property observer' that helps us keep our code syncronized. It executes code when a property has just been set
     var userTestViewModel: UserTestViewModel! {
         didSet {
             userEmailLabel?.text = userTestViewModel.email
