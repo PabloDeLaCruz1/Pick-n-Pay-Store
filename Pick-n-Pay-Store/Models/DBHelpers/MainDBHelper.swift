@@ -16,9 +16,18 @@ class MainDBHelper {
     let id = Expression<Int64>("id")
     let name = Expression<String?>("name")
     let email = Expression<String>("email")
+    
+    //Orders Table
+    let ordersTable = Table("orders")
+    let shippingAddress = Expression<String?>("shippingAddress")
+    let billingAddress = Expression<String?>("billingAddress")
+    let payOption = Expression<String?>("payOption")
+    let shippingOption = Expression<String?>("shippingOption")
+    let balance = Expression<Double>("balance")
 
     init() {
         db = connectDatabase()
+        createOrdersTable()
         createUserTable()
 //        insertUser(userName: "Foo", userEmail: "bar@mac.com")
         insertUser(userName: "Baz2", userEmail: "foo2@mac.com")
@@ -37,6 +46,8 @@ class MainDBHelper {
             return nil
         }
     }
+    
+    
 }
 
 

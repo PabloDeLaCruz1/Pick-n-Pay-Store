@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84AAD6B927F7AA5A0038B8B8 /* OrderTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AAD6B827F7AA5A0038B8B8 /* OrderTestViewController.swift */; };
+		84AAD6BB27FA100B0038B8B8 /* OrdersDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AAD6BA27FA100B0038B8B8 /* OrdersDBHelper.swift */; };
 		FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686327F4C69900795DB2 /* AppDelegate.swift */; };
 		FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686527F4C69900795DB2 /* SceneDelegate.swift */; };
 		FE64686827F4C69900795DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686727F4C69900795DB2 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84AAD6B827F7AA5A0038B8B8 /* OrderTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTestViewController.swift; sourceTree = "<group>"; };
+		84AAD6BA27FA100B0038B8B8 /* OrdersDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersDBHelper.swift; sourceTree = "<group>"; };
 		FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pick-n-Pay-Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE64686327F4C69900795DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE64686527F4C69900795DB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
+				84AAD6B827F7AA5A0038B8B8 /* OrderTestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			children = (
 				FE64688827F5B4C100795DB2 /* MainDBHelper.swift */,
 				FE64688A27F5C78400795DB2 /* UserDBHelper.swift */,
+				84AAD6BA27FA100B0038B8B8 /* OrdersDBHelper.swift */,
 			);
 			path = DBHelpers;
 			sourceTree = "<group>";
@@ -239,8 +245,10 @@
 				FE64689727F75B5C00795DB2 /* Util.swift in Sources */,
 				FE64688027F4FD9000795DB2 /* User.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
+				84AAD6B927F7AA5A0038B8B8 /* OrderTestViewController.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
 				FE64688927F5B4C100795DB2 /* MainDBHelper.swift in Sources */,
+				84AAD6BB27FA100B0038B8B8 /* OrdersDBHelper.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */,

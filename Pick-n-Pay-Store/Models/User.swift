@@ -43,5 +43,24 @@ struct Wishlist {
 
 }
 struct Order {
+    //var tracking : TrackingInfo
+    var status : String  //bought, refunded, pending, returned
+    var balance : String //should be double had to be string
+    var shippingAddress : String
+    var billingAddress : String // can select to fill from shipping (same as shipping address)
+    var payOption : String //Cash on Delievry/Payment on Delivery, credit card,net banking
+    var shippingOption : String //Overnight, express, standard, delayed
+    //var cart : Cart
+    //var comment : Comment
 
+    
+    init(status: String , balance : String ,shippingAddress : String ,billingAddress: String , payOption : String , shippingOption : String){
+        self.status = status
+        self.balance = balance
+        self.shippingAddress = shippingAddress
+        self.billingAddress = billingAddress
+        self.payOption = payOption
+        self.shippingOption = shippingOption
+    }
+    
 }
