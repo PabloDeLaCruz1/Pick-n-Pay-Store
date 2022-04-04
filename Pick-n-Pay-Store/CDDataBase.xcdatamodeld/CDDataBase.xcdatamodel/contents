@@ -10,9 +10,10 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="guest" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="usercart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="Cart" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Cart" positionX="-285.3687744140625" positionY="162.8057861328125" width="128" height="74"/>
     </elements>
 </model>

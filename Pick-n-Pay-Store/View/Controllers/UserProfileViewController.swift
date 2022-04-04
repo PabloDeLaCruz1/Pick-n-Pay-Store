@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 
 class UserProfileViewController: UIViewController{
+    let db = MainDBHelper.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()

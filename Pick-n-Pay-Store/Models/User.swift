@@ -44,9 +44,10 @@
 //If overloading == to compare two things elementwise sounds like a great idea, use a struct. If you hesitate, use a class.
 //https://www.swiftbysundell.com/articles/structuring-model-data-in-swift/
 import Foundation
+import CloudKit
 
 //going to keep
-struct User: Identifiable {
+struct User: Identifiable, Decodable {
 
     var id: Int
     var email: String
@@ -61,25 +62,30 @@ struct User: Identifiable {
 //
 //    let creditcard: String = ""
 //
-//    init (id: Int, email: String, guest: Bool) {
-//        self.id = id
-//        self.email = email
-//        self.guest = guest
-//    }
-//
-//    init(coder aDecoder: NSCoder)
-//    {
-//        self.cart = aDecoder.decodeObject(forKey: "cart") as! String
-//        self.wishlist = aDecoder.decodeObject(forKey: "wishlist") as! String
-//        self.orders = aDecoder.decodeObject(forKey: "orders") as! [String]
-//    }
-//
-//    func encode(with aCoder: NSCoder)
-//    {
-//        aCoder.encode(self.cart, forKey: "cart")
-//        aCoder.encode(self.wishlist, forKey: "wishlist")
-//        aCoder.encode(self.orders, forKey: "orders")
-//    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case email
+        case cart
+        
+    }
+    
+    init (id: Int, email: String, cart: String) {
+        self.id = id
+        self.email = email
+        self.cart = cart
+    }
+    
+    
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.email = try container.decode(String.self, forKey: .email)
+        self.cart = try container.decode(String.self, forKey: .cart)
+    }
+
+    
 }
 
 struct Cart {

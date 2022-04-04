@@ -43,8 +43,9 @@ extension MainDBHelper {
         do {
             let users = try db.prepare(usersTable)
             for user in users {
-                print("userId: \(user[id]), name: \(user[name]), email: \(user[email])")
-//                usersArray.append(User(id: Int(user[id]), guest: true, email: user[email]))
+//                print("userId: \(user[id]), email: \(user[email])")
+//                usersArray.append(encode User(id: Int(user[id]), email: user[email], cart: "cart"))
+                
             }
         } catch {
             print (error)
