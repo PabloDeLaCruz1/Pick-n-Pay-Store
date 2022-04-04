@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         //TODO: Add View
-        mainLabel.text = "Hello \(String(describing: viewModel.user?.guest))"
+//        mainLabel.text = "Hello \(String(describing: viewModel.user?.guest))"
     }
 
     @IBAction func signUpPressed(_ sender: Any) {

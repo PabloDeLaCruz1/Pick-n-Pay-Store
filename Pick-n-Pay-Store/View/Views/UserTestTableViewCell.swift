@@ -19,7 +19,7 @@ class UserTestTableViewCell: UITableViewCell {
     var userTestViewModel: UserTestViewModel! {
         didSet {
             userEmailLabel?.text = userTestViewModel.email
-            guestStatusLabel?.text = userTestViewModel.guest
+//            guestStatusLabel?.text = userTestViewModel.guest
         }
     }
 
