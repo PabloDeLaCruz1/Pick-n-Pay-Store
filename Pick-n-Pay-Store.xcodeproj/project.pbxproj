@@ -22,6 +22,8 @@
 		FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */; };
 		FE64689527F7536A00795DB2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689427F7536A00795DB2 /* Service.swift */; };
 		FE64689727F75B5C00795DB2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689627F75B5C00795DB2 /* Util.swift */; };
+		FE64689B27FB1B6B00795DB2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */; };
+		FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689C27FB202800795DB2 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestTableViewCell.swift; sourceTree = "<group>"; };
 		FE64689427F7536A00795DB2 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FE64689627F75B5C00795DB2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		FE64689C27FB202800795DB2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				FE64688C27F741F800795DB2 /* UserTestViewModel.swift */,
+				FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
+				FE64689C27FB202800795DB2 /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 				FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */,
+				FE64689B27FB1B6B00795DB2 /* SignUpViewModel.swift in Sources */,
+				FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */,
 				FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

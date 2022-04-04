@@ -16,6 +16,8 @@ extension MainDBHelper {
                     t.column(id, primaryKey: true) //     "id" INTEGER PRIMARY KEY NOT NULL,
                     t.column(name) //     "name" TEXT,
                     t.column(email, unique: true, check: email.like("%@%")) //     "email" TEXT NOT NULL UNIQUE CHECK ("email" LIKE '%@%')
+//                t.column(pass)
+                
                 }) // )
         } catch {
             print (error)

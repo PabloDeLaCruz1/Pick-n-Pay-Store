@@ -16,6 +16,14 @@ class MainDBHelper {
     let id = Expression<Int64>("id")
     let name = Expression<String?>("name")
     let email = Expression<String>("email")
+    let phoneNumber = Expression<String>("phone_number")
+    let password = Expression<String>("password")
+    
+    let cart = Expression<Cart>("cart")
+    let wishlist = Wishlist()
+    let history: [String] = []
+    let orders = [Order]()
+    let creditcard : String = ""
 
     init() {
         db = connectDatabase()

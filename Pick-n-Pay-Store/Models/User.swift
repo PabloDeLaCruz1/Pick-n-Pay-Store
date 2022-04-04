@@ -15,25 +15,41 @@
 import Foundation
 
 //going to keep
-struct User {
-    var id: Int
-    var guest = true
-    
-    var email: String = ""
-    var phoneNumber: String = ""
-    var password: String = ""
-    
-    var cart = Cart()
-    var wishlist = Wishlist()
-    var history: [String] = []
-    var orders = [Order]()
-    var creditcard : String = ""
-    
-    init (id: Int, email: String, guest: Bool){
+struct User: Codable {
+
+    let id: Int
+    let guest: Bool
+
+    let email: String
+    let phoneNumber: String = ""
+    let password: String = ""
+
+//    let cart: String
+//    let wishlist: String
+//    let orders: [String]
+    let history: [String] = []
+
+    let creditcard: String = ""
+
+    init (id: Int, email: String, guest: Bool) {
         self.id = id
         self.email = email
         self.guest = guest
     }
+
+//    init(coder aDecoder: NSCoder)
+//    {
+//        self.cart = aDecoder.decodeObject(forKey: "cart") as! String
+//        self.wishlist = aDecoder.decodeObject(forKey: "wishlist") as! String
+//        self.orders = aDecoder.decodeObject(forKey: "orders") as! [String]
+//    }
+//
+//    func encode(with aCoder: NSCoder)
+//    {
+//        aCoder.encode(self.cart, forKey: "cart")
+//        aCoder.encode(self.wishlist, forKey: "wishlist")
+//        aCoder.encode(self.orders, forKey: "orders")
+//    }
 }
 
 struct Cart {
