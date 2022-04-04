@@ -8,7 +8,7 @@
 import UIKit
 
 class UserTestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let db = MainDBHelper.init()
+//    let db = MainDBHelper.init()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -21,22 +21,22 @@ class UserTestViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         self.view.addSubview(tableView)
 
-        fetchUserData()
+//        fetchUserData()
     }
 
 //    let data = [id: 1]
-    func fetchUserData() {
-        Service.fetchData { result in
-            switch result {
-            case .success(let data):
-                self.userData = data
-                self.tableView.reloadData()
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
-
-        }
-    }
+//    func fetchUserData() {
+//        Service.fetchData { result in
+//            switch result {
+//            case .success(let data):
+//                self.userData = data
+//                self.tableView.reloadData()
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//
+//        }
+//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTestTableViewCell

@@ -9,18 +9,28 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
-    let persistentContainer: NSPersistentContainer
     static let shared = CoreDataManager()
 
+    let container: NSPersistentContainer
+    let context : NSManagedObjectContext
+
     private init() {
-        ValueTransformer.setValueTransformer(CartTransformer(), forName: NSValueTransformerName("CartTransformer"))
         
-        persistentContainer = NSPersistentContainer(name: "CDDataBase")
-        persistentContainer.loadPersistentStores { description, error in
+        
+        container = NSPersistentContainer(name: "CDDataBase")
+        container.loadPersistentStores { description, error in
             if let error = error {
                 fatalError("Unable to initialize Core Data \(error)")
             }
         }
-
+        context = container.viewContext
+    }
+    
+    func save(){
+        do{
+            try context.save()
+        }catch let error {
+            print("core data error \(error.localizedDescription)")
+        }
     }
 }

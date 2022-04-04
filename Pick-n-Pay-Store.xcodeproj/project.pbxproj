@@ -13,10 +13,7 @@
 		FE64686B27F4C69900795DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE64686927F4C69900795DB2 /* Main.storyboard */; };
 		FE64686D27F4C69C00795DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE64686C27F4C69C00795DB2 /* Assets.xcassets */; };
 		FE64687027F4C69C00795DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE64686E27F4C69C00795DB2 /* LaunchScreen.storyboard */; };
-		FE64688027F4FD9000795DB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64687F27F4FD9000795DB2 /* User.swift */; };
 		FE64688727F5B3BE00795DB2 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = FE64688627F5B3BE00795DB2 /* SQLite */; };
-		FE64688927F5B4C100795DB2 /* MainDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688827F5B4C100795DB2 /* MainDBHelper.swift */; };
-		FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688A27F5C78400795DB2 /* UserDBHelper.swift */; };
 		FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688C27F741F800795DB2 /* UserTestViewModel.swift */; };
 		FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689027F74A5100795DB2 /* UserTestViewController.swift */; };
 		FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */; };
@@ -26,11 +23,17 @@
 		FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689C27FB202800795DB2 /* SignUpViewController.swift */; };
 		FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */; };
 		FE6468A227FB3D8F00795DB2 /* CDDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A027FB3D8F00795DB2 /* CDDataBase.xcdatamodeld */; };
-		FE6468A427FB41C400795DB2 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A327FB41C400795DB2 /* Cart.swift */; };
 		FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A527FB426600795DB2 /* CoreDataManager.swift */; };
 		FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */; };
-		FE6468AB27FB48BA00795DB2 /* CartTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AA27FB48BA00795DB2 /* CartTransformer.swift */; };
 		FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */; };
+		FEAAF23227FB9D44000F2440 /* Cart+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF22E27FB9D44000F2440 /* Cart+CoreDataClass.swift */; };
+		FEAAF23327FB9D44000F2440 /* Cart+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF22F27FB9D44000F2440 /* Cart+CoreDataProperties.swift */; };
+		FEAAF23427FB9D44000F2440 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23027FB9D44000F2440 /* User+CoreDataClass.swift */; };
+		FEAAF23527FB9D44000F2440 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23127FB9D44000F2440 /* User+CoreDataProperties.swift */; };
+		FEAAF23A27FB9D8F000F2440 /* Wishlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23627FB9D8F000F2440 /* Wishlist+CoreDataClass.swift */; };
+		FEAAF23B27FB9D8F000F2440 /* Wishlist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23727FB9D8F000F2440 /* Wishlist+CoreDataProperties.swift */; };
+		FEAAF23C27FB9D8F000F2440 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23827FB9D8F000F2440 /* Item+CoreDataClass.swift */; };
+		FEAAF23D27FB9D8F000F2440 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23927FB9D8F000F2440 /* Item+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +46,6 @@
 		FE64686F27F4C69C00795DB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE64687127F4C69C00795DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE64687727F4C6B800795DB2 /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
-		FE64687F27F4FD9000795DB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FE64688827F5B4C100795DB2 /* MainDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDBHelper.swift; sourceTree = "<group>"; };
-		FE64688A27F5C78400795DB2 /* UserDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDBHelper.swift; sourceTree = "<group>"; };
 		FE64688C27F741F800795DB2 /* UserTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestViewModel.swift; sourceTree = "<group>"; };
 		FE64689027F74A5100795DB2 /* UserTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestViewController.swift; sourceTree = "<group>"; };
 		FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestTableViewCell.swift; sourceTree = "<group>"; };
@@ -55,11 +55,17 @@
 		FE64689C27FB202800795DB2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSwiftUIView.swift; sourceTree = "<group>"; };
 		FE6468A127FB3D8F00795DB2 /* CDDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDDataBase.xcdatamodel; sourceTree = "<group>"; };
-		FE6468A327FB41C400795DB2 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		FE6468A527FB426600795DB2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		FE6468AA27FB48BA00795DB2 /* CartTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTransformer.swift; sourceTree = "<group>"; };
 		FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		FEAAF22E27FB9D44000F2440 /* Cart+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cart+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEAAF22F27FB9D44000F2440 /* Cart+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Cart+CoreDataProperties.swift"; path = "../Cart+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FEAAF23027FB9D44000F2440 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEAAF23127FB9D44000F2440 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FEAAF23627FB9D8F000F2440 /* Wishlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wishlist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEAAF23727FB9D8F000F2440 /* Wishlist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wishlist+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FEAAF23827FB9D8F000F2440 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEAAF23927FB9D8F000F2440 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +129,8 @@
 		FE64687A27F4FB6000795DB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE64687E27F4FD2E00795DB2 /* DBHelpers */,
-				FE64687F27F4FD9000795DB2 /* User.swift */,
-				FE6468A327FB41C400795DB2 /* Cart.swift */,
+				FEAAF23E27FB9EA8000F2440 /* CDClasses */,
+				FE64687E27F4FD2E00795DB2 /* Model Props  */,
 				FE6468A527FB426600795DB2 /* CoreDataManager.swift */,
 			);
 			path = Models;
@@ -159,14 +164,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FE64687E27F4FD2E00795DB2 /* DBHelpers */ = {
+		FE64687E27F4FD2E00795DB2 /* Model Props  */ = {
 			isa = PBXGroup;
 			children = (
-				FE6468A927FB489600795DB2 /* Transformers */,
-				FE64688827F5B4C100795DB2 /* MainDBHelper.swift */,
-				FE64688A27F5C78400795DB2 /* UserDBHelper.swift */,
+				FEAAF23727FB9D8F000F2440 /* Wishlist+CoreDataProperties.swift */,
+				FEAAF23927FB9D8F000F2440 /* Item+CoreDataProperties.swift */,
+				FEAAF22F27FB9D44000F2440 /* Cart+CoreDataProperties.swift */,
+				FEAAF23127FB9D44000F2440 /* User+CoreDataProperties.swift */,
 			);
-			path = DBHelpers;
+			path = "Model Props ";
 			sourceTree = "<group>";
 		};
 		FE64688E27F742A600795DB2 /* Services */ = {
@@ -186,12 +192,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FE6468A927FB489600795DB2 /* Transformers */ = {
+		FEAAF23E27FB9EA8000F2440 /* CDClasses */ = {
 			isa = PBXGroup;
 			children = (
-				FE6468AA27FB48BA00795DB2 /* CartTransformer.swift */,
+				FEAAF23627FB9D8F000F2440 /* Wishlist+CoreDataClass.swift */,
+				FEAAF23827FB9D8F000F2440 /* Item+CoreDataClass.swift */,
+				FEAAF22E27FB9D44000F2440 /* Cart+CoreDataClass.swift */,
+				FEAAF23027FB9D44000F2440 /* User+CoreDataClass.swift */,
 			);
-			path = Transformers;
+			path = CDClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,17 +281,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE64689727F75B5C00795DB2 /* Util.swift in Sources */,
-				FE64688027F4FD9000795DB2 /* User.swift in Sources */,
-				FE6468AB27FB48BA00795DB2 /* CartTransformer.swift in Sources */,
+				FEAAF23527FB9D44000F2440 /* User+CoreDataProperties.swift in Sources */,
+				FEAAF23C27FB9D8F000F2440 /* Item+CoreDataClass.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
+				FEAAF23A27FB9D8F000F2440 /* Wishlist+CoreDataClass.swift in Sources */,
 				FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */,
-				FE64688927F5B4C100795DB2 /* MainDBHelper.swift in Sources */,
+				FEAAF23427FB9D44000F2440 /* User+CoreDataClass.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
+				FEAAF23227FB9D44000F2440 /* Cart+CoreDataClass.swift in Sources */,
 				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
+				FEAAF23D27FB9D8F000F2440 /* Item+CoreDataProperties.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
+				FEAAF23327FB9D44000F2440 /* Cart+CoreDataProperties.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
-				FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				FE6468A227FB3D8F00795DB2 /* CDDataBase.xcdatamodeld in Sources */,
 				FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */,
@@ -290,7 +302,7 @@
 				FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */,
 				FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */,
 				FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */,
-				FE6468A427FB41C400795DB2 /* Cart.swift in Sources */,
+				FEAAF23B27FB9D8F000F2440 /* Wishlist+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

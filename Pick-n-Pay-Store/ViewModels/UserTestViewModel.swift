@@ -13,7 +13,7 @@ struct UserTestViewModel {
 
     //Using dependency injection to add our User Model
     init (_ user: User) {
-        email = user.email
+        email = user.email ?? ""
     }
 
 }

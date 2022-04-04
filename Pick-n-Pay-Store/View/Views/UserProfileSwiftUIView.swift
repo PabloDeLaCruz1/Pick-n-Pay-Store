@@ -28,9 +28,9 @@ struct UserProfileSwiftUIView: View {
 
             if let user = vm.user {
                 Text("Hello!")
-                Text("\(user.id)")
+//                Text("\(user.id)")
 
-                Text("email: \(user.email)")
+//                Text("email: \(user.email)")
 //                Text("Cart! ", String(user.cart))
 
 

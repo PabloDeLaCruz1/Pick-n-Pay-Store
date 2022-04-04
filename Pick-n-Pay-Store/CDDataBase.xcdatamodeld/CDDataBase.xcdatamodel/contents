@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G417" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Cart" representedClassName="Cart" syncable="YES">
-        <attribute name="deliveryFee" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="deliveryFee" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="items" attributeType="String"/>
-        <attribute name="total" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
-        <attribute name="cart" optional="YES" attributeType="Transformable" valueTransformerName="CartTransformer" customClassName="Cart"/>
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="guest" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
-        <relationship name="usercart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
+        <relationship name="cartRel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
+        <relationship name="wishlistRel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wishlist"/>
     </entity>
+    <entity name="Wishlist" representedClassName="Wishlist" syncable="YES"/>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="104"/>
-        <element name="Cart" positionX="-285.3687744140625" positionY="162.8057861328125" width="128" height="74"/>
+        <element name="Cart" positionX="-386.9281005859375" positionY="-38.08807373046875" width="128" height="74"/>
+        <element name="Item" positionX="-68.0599365234375" positionY="188.1105651855469" width="128" height="44"/>
+        <element name="User" positionX="-72.0887451171875" positionY="5.58123779296875" width="128" height="104"/>
+        <element name="Wishlist" positionX="-266.56689453125" positionY="169.4319152832031" width="128" height="29"/>
     </elements>
 </model>
