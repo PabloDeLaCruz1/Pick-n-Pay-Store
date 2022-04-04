@@ -10,12 +10,10 @@ import Foundation
 
 struct UserTestViewModel {
     let email: String
-    let guest: String
 
     //Using dependency injection to add our User Model
     init (_ user: User) {
         email = user.email
-        guest = String(user.guest)
     }
 
 }

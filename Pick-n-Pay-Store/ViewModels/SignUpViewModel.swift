@@ -8,6 +8,6 @@
 import Foundation
 
 class SignUpViewModel: ObservableObject {
-    @Published var user: User? = User(id: 111, email: "dood@gmail.com", guest: true)
+//    @Published var user: User? = User(id: 111, email: "dood@gmail.com", guest: true)
     
 }

@@ -18,18 +18,22 @@ class MainDBHelper {
     let email = Expression<String>("email")
     let phoneNumber = Expression<String>("phone_number")
     let password = Expression<String>("password")
-    
+    let guest = Expression<String>("no status")
+
     let cart = Expression<Cart>("cart")
-    let wishlist = Wishlist()
-    let history: [String] = []
-    let orders = [Order]()
-    let creditcard : String = ""
+    
+
+//    let wishlist = Wishlist()
+//    let history: [String] = []
+//    let orders = [Order]()
+//    let creditcard : String = ""
 
     init() {
         db = connectDatabase()
         createUserTable()
 //        insertUser(userName: "Foo", userEmail: "bar@mac.com")
-        insertUser(userName: "Baz2", userEmail: "foo2@mac.com")
+//        insertUser(userName: "Yo", userEmail: "mama@gmail.com", userGuest: true, userCart: Cart())
+
         print(getUsers())
     }
 

@@ -24,6 +24,13 @@
 		FE64689727F75B5C00795DB2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689627F75B5C00795DB2 /* Util.swift */; };
 		FE64689B27FB1B6B00795DB2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */; };
 		FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689C27FB202800795DB2 /* SignUpViewController.swift */; };
+		FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */; };
+		FE6468A227FB3D8F00795DB2 /* CDDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A027FB3D8F00795DB2 /* CDDataBase.xcdatamodeld */; };
+		FE6468A427FB41C400795DB2 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A327FB41C400795DB2 /* Cart.swift */; };
+		FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A527FB426600795DB2 /* CoreDataManager.swift */; };
+		FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */; };
+		FE6468AB27FB48BA00795DB2 /* CartTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AA27FB48BA00795DB2 /* CartTransformer.swift */; };
+		FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,13 @@
 		FE64689627F75B5C00795DB2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		FE64689C27FB202800795DB2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSwiftUIView.swift; sourceTree = "<group>"; };
+		FE6468A127FB3D8F00795DB2 /* CDDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDDataBase.xcdatamodel; sourceTree = "<group>"; };
+		FE6468A327FB41C400795DB2 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		FE6468A527FB426600795DB2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		FE6468AA27FB48BA00795DB2 /* CartTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTransformer.swift; sourceTree = "<group>"; };
+		FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,7 @@
 				FE64686527F4C69900795DB2 /* SceneDelegate.swift */,
 				FE64686727F4C69900795DB2 /* ViewController.swift */,
 				FE64686927F4C69900795DB2 /* Main.storyboard */,
+				FE6468A027FB3D8F00795DB2 /* CDDataBase.xcdatamodeld */,
 				FE64686C27F4C69C00795DB2 /* Assets.xcassets */,
 				FE64686E27F4C69C00795DB2 /* LaunchScreen.storyboard */,
 				FE64687127F4C69C00795DB2 /* Info.plist */,
@@ -110,6 +125,8 @@
 			children = (
 				FE64687E27F4FD2E00795DB2 /* DBHelpers */,
 				FE64687F27F4FD9000795DB2 /* User.swift */,
+				FE6468A327FB41C400795DB2 /* Cart.swift */,
+				FE6468A527FB426600795DB2 /* CoreDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +136,7 @@
 			children = (
 				FE64688C27F741F800795DB2 /* UserTestViewModel.swift */,
 				FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */,
+				FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -136,6 +154,7 @@
 			children = (
 				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
 				FE64689C27FB202800795DB2 /* SignUpViewController.swift */,
+				FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +162,7 @@
 		FE64687E27F4FD2E00795DB2 /* DBHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				FE6468A927FB489600795DB2 /* Transformers */,
 				FE64688827F5B4C100795DB2 /* MainDBHelper.swift */,
 				FE64688A27F5C78400795DB2 /* UserDBHelper.swift */,
 			);
@@ -161,8 +181,17 @@
 			isa = PBXGroup;
 			children = (
 				FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */,
+				FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FE6468A927FB489600795DB2 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				FE6468AA27FB48BA00795DB2 /* CartTransformer.swift */,
+			);
+			path = Transformers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,17 +273,24 @@
 			files = (
 				FE64689727F75B5C00795DB2 /* Util.swift in Sources */,
 				FE64688027F4FD9000795DB2 /* User.swift in Sources */,
+				FE6468AB27FB48BA00795DB2 /* CartTransformer.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
+				FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */,
 				FE64688927F5B4C100795DB2 /* MainDBHelper.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
+				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
+				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
 				FE64688B27F5C78400795DB2 /* UserDBHelper.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
+				FE6468A227FB3D8F00795DB2 /* CDDataBase.xcdatamodeld in Sources */,
 				FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */,
 				FE64689B27FB1B6B00795DB2 /* SignUpViewModel.swift in Sources */,
 				FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */,
+				FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */,
 				FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */,
+				FE6468A427FB41C400795DB2 /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +527,19 @@
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FE6468A027FB3D8F00795DB2 /* CDDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE6468A127FB3D8F00795DB2 /* CDDataBase.xcdatamodel */,
+			);
+			currentVersion = FE6468A127FB3D8F00795DB2 /* CDDataBase.xcdatamodel */;
+			path = CDDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE64685827F4C69900795DB2 /* Project object */;
 }

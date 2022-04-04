@@ -24,6 +24,7 @@ class UserTestViewController: UIViewController, UITableViewDelegate, UITableView
         fetchUserData()
     }
 
+//    let data = [id: 1]
     func fetchUserData() {
         Service.fetchData { result in
             switch result {
