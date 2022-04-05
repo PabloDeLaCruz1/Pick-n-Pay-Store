@@ -9,11 +9,11 @@ import UIKit
 
 class CartViewController: UIViewController {
 
-    var cartNum = 0
-    var savedItems = 0
+    var cartNum = 1
+    var savedItems = 1
     var screenSize : CGRect!
     var screenWidth : CGFloat!
-    let segmentControl = UISegmentedControl(items: ["Cart","Saved"])
+    let mySegmentedControl = UISegmentedControl(items: ["Your Cart","Saved"])
     
     override func viewDidLoad() {
            
@@ -67,7 +67,55 @@ class CartViewController: UIViewController {
     
     func drawSegmentedControl() {
         
-        print("Cart and Saved Items are filled")
+        //print("Cart and Saved Items are filled")
+        //let mySegmentedControl = UISegmentedControl (items: ["One","Two","Three"])
+                
+        let xPostion:CGFloat = -5
+        let yPostion:CGFloat = (self.navigationController?.navigationBar.frame.height)! + 47
+        let elementWidth:CGFloat = screenSize.width + 10
+        let elementHeight:CGFloat = 35
+
+        mySegmentedControl.frame = CGRect(x: xPostion, y: yPostion, width: elementWidth, height: elementHeight)
+
+        // Make second segment selected
+        mySegmentedControl.selectedSegmentIndex = 0
+
+        //Change UISegmentedControl background colour
+        //mySegmentedControl.selectedSegmentTintColor = .purple
+
+        mySegmentedControl.layer.cornerRadius = 0.0
+        //mySegmentedControl.clipsToBounds = true
+
+        //Change text color of UISegmentedControl
+        mySegmentedControl.tintColor = .clear
+
+        //Unselected
+        mySegmentedControl.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray
+            ], for: .normal)
+
+        mySegmentedControl.setTitleTextAttributes([
+            NSAttributedString.Key.foregroundColor: UIColor.black
+            ], for: .selected)
+
+        // Add function to handle Value Changed events
+        mySegmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged(_:)), for: .valueChanged)
+
+        self.view.addSubview(mySegmentedControl)
+        
+    }
+    
+    @objc func segmentedValueChanged(_ sender:UISegmentedControl!) {
+        
+        switch sender.selectedSegmentIndex {
+            
+            case 0:
+                print("Zero Selected Segment Index is : \(sender.selectedSegmentIndex)")
+            default:
+                print("One Selected Segment Index is : \(sender.selectedSegmentIndex)")
+            
+        }
+        
         
     }
 
