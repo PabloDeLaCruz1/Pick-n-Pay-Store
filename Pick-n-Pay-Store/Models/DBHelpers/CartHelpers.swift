@@ -10,17 +10,29 @@ import CoreData
 
 extension DBHelper {
 
-//    func getCart() -> Cart {
-//        var cart = Cart()
-//        var fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Cart")
+    func getCart() -> Cart {
+        var cart = Cart()
+        var fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Cart")
+
+        do {
+            cart = try context?.fetch(fReq) as? Cart ?? Cart()
+        } catch {
+            print("Error Getting Cart from DB")
+        }
 //
 //        do {
-//            cart = try context?.fetch(fReq) as! Cart
+//            let req = try context?.fetch(fReq) as! Cart
+//            if(req.count != 0) {
+//                st = req.first as! Cart
+//            } else {
+//                print("Data Not Found")
+//            }
 //        } catch {
-//            print("Error Getting Cart from DB")
+//            print("try didnt work")
 //        }
-//        cart.total = 0
-//        cart.deliveryFee = 0
-//        return cart
-//    }
+//
+        return cart
+    }
+    
+
 }

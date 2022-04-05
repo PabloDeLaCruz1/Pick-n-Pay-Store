@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AEI-Cn-Az0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,112 +27,21 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="124.55357142857142"/>
         </scene>
-        <!--Wish List-->
+        <!--Item 2-->
         <scene sceneID="v1T-QE-8Nx">
             <objects>
-                <viewController title="Wish List" id="7GC-x7-xfm" customClass="WishListViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7GC-x7-xfm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM2-Ei-EXa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="92B-rR-PAF">
-                                <rect key="frame" x="29" y="88" width="369" height="290"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4jC-2q-bof">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="290"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WLItem" rowHeight="182" id="DqQ-uW-tzC" customClass="WishListTableViewCell" customModule="Pick_n_Pay_Store" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="369" height="182"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DqQ-uW-tzC" id="VKK-H5-cGU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="182"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztF-5y-1Jr">
-                                                            <rect key="frame" x="20" y="11" width="171" height="160"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="160" id="3nP-2w-zRh"/>
-                                                                <constraint firstAttribute="width" constant="171" id="Str-ms-c0S"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee2-zW-VIB">
-                                                            <rect key="frame" x="199" y="11" width="150" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Title">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="17" name="ArialMT"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4p-IH-EhT">
-                                                            <rect key="frame" x="199" y="75" width="150" height="32"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Discount">
-                                                                    <attributes>
-                                                                        <font key="NSFont" metaFont="system" size="17"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykC-4D-d5m">
-                                                            <rect key="frame" x="199" y="115" width="150" height="27"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sh-IF-Bih">
-                                                            <rect key="frame" x="310" y="142" width="39" height="29"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                                            <imageReference key="image" image="heart.circle" catalog="system" renderingMode="hierarchical-single">
-                                                                <hierarchicalColors>
-                                                                    <color systemColor="systemPinkColor"/>
-                                                                    <color systemColor="secondaryLabelColor"/>
-                                                                    <color systemColor="tertiaryLabelColor"/>
-                                                                </hierarchicalColors>
-                                                            </imageReference>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="ztF-5y-1Jr" firstAttribute="bottom" secondItem="VKK-H5-cGU" secondAttribute="bottomMargin" id="bqC-IF-HMd"/>
-                                                        <constraint firstItem="ztF-5y-1Jr" firstAttribute="top" secondItem="VKK-H5-cGU" secondAttribute="topMargin" id="g4K-3W-a3c"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="ztF-5y-1Jr" secondAttribute="trailing" constant="158" id="xG8-ZD-JPp"/>
-                                                        <constraint firstItem="ztF-5y-1Jr" firstAttribute="leading" secondItem="VKK-H5-cGU" secondAttribute="leadingMargin" id="zXJ-Cj-4Jx"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="itemDiscountLabel" destination="e4p-IH-EhT" id="10O-Di-PJs"/>
-                                                    <outlet property="itemImageView" destination="ztF-5y-1Jr" id="zeM-ou-uNg"/>
-                                                    <outlet property="itemPriceLabel" destination="ykC-4D-d5m" id="s7Z-Rm-rkg"/>
-                                                    <outlet property="itemTitleLabel" destination="Ee2-zW-VIB" id="rp5-2h-7qQ"/>
-                                                    <outlet property="itemWishListHeartImage" destination="0Sh-IF-Bih" id="Y5c-af-XRL"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DNh-Sp-t5V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Wish Lists" id="21A-EO-9Ft"/>
-                    <connections>
-                        <outlet property="table" destination="4jC-2q-bof" id="XSf-9h-8qm"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="JCl-31-sBR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a5-7t-zZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5257.971014492754" y="124.55357142857142"/>
+            <point key="canvasLocation" x="4348" y="125"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="DcU-mF-mC9">
@@ -145,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6C-gp-y40">
-                                <rect key="frame" x="92" y="335" width="223" height="102"/>
+                                <rect key="frame" x="92" y="122" width="223" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save Static Data"/>
@@ -154,13 +61,47 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-q0-4xI">
-                                <rect key="frame" x="92" y="551" width="223" height="102"/>
+                                <rect key="frame" x="92" y="193" width="223" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="View Users"/>
                                 <connections>
                                     <action selector="btn2:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="668-e1-1Am"/>
                                     <action selector="btn:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="xdD-qi-AGe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdD-6a-jlf">
+                                <rect key="frame" x="92" y="261" width="223" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update User"/>
+                                <connections>
+                                    <action selector="btn2:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="fob-5K-1Qu"/>
+                                    <action selector="btn3:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="g8t-Ox-hV7"/>
+                                    <action selector="btn:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="vhn-0b-TwR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZC-e2-MFh">
+                                <rect key="frame" x="92" y="343" width="223" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Delete User"/>
+                                <connections>
+                                    <action selector="btn2:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="T1y-dm-Lew"/>
+                                    <action selector="btn4:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="5yC-of-Lvd"/>
+                                    <action selector="btn:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="JEc-Mm-3J3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-cL-qZw">
+                                <rect key="frame" x="92" y="410" width="223" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Cart Total"/>
+                                <connections>
+                                    <action selector="addCartTotal:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="lbV-iX-0qD"/>
+                                    <action selector="btn2:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="n2P-r3-O68"/>
+                                    <action selector="btn4:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="wQr-Ca-PyU"/>
+                                    <action selector="btn:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="rnJ-Bd-hg0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8L-eH-aPT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4348" y="938"/>
+            <point key="canvasLocation" x="4347.826086956522" y="937.5"/>
         </scene>
         <!--Home-->
         <scene sceneID="Lu3-iY-HZm">
@@ -272,7 +213,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="RXy-19-3qc" kind="relationship" relationship="viewControllers" id="RtY-TI-BkN"/>
-                        <segue destination="th2-FR-PNf" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
+                        <segue destination="7GC-x7-xfm" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
                         <segue destination="rUb-kT-rjy" kind="relationship" relationship="viewControllers" id="dBE-QQ-iBb"/>
                         <segue destination="AEI-Cn-Az0" kind="relationship" relationship="viewControllers" id="Kbe-no-Gs9"/>
                         <segue destination="Y6W-Hg-yEb" kind="relationship" relationship="viewControllers" id="OMp-lW-CLd"/>
@@ -459,50 +400,9 @@
             </objects>
             <point key="canvasLocation" x="4347.826086956522" y="1660.7142857142856"/>
         </scene>
-        <!--Wish List-->
-        <scene sceneID="eUu-5T-dty">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="th2-FR-PNf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wish List" id="JCl-31-sBR">
-                        <imageReference key="image" image="heart" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color systemColor="systemPinkColor"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                        <color key="badgeColor" systemColor="systemPinkColor"/>
-                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color systemColor="systemPinkColor"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vG-68-cM5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7GC-x7-xfm" kind="relationship" relationship="rootViewController" id="qYe-Cf-hE7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ve5-54-61y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4347.826086956522" y="124.55357142857142"/>
-        </scene>
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.circle" catalog="system" width="128" height="121"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -511,15 +411,6 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
