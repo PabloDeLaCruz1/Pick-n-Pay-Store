@@ -12,8 +12,8 @@ struct UserTestViewModel {
     let email: String
 
     //Using dependency injection to add our User Model
-    init (_ user: User) {
-        email = user.email ?? ""
-    }
+//    init (_ user: User) {
+//        email = user.email ?? ""
+//    }
 
 }

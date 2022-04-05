@@ -12,7 +12,7 @@ struct UserProfileSwiftUIView: View {
 
 //    @State private var email: String = ""
 //    @State private var cart: Cart = Cart()
-    
+
     @StateObject private var vm = UserProfileViewModel()
 
     @Environment(\.managedObjectContext) var viewContext
@@ -23,34 +23,34 @@ struct UserProfileSwiftUIView: View {
     var body: some View {
 //        let user = User(context: viewContext)
 //        var user = User(id: 1, email: "no1", cart: Cart())
-        
+
         VStack(alignment: .leading) {
 
-            if let user = vm.user {
-                Text("Hello!")
+
+            Text("Hello!")
 //                Text("\(user.id)")
 
 //                Text("email: \(user.email)")
 //                Text("Cart! ", String(user.cart))
 
-
-                Button("Save") {
-                   
-                }
-                Spacer()
+            Button("Save Data") {
+                DBHelper.db.addData(email: "ello@gmail.com", guest: "Change to Bool Please", password: "123")
             }
-        
 
-//            List(allUsers, id: \.self) { user in
-//                HStack {
-//                    Text(user.email ?? "no email")
-////                    Text(u.cart)
-//                }
-//            }
+            Spacer()
+
+            Button("View Data") {
+                let data = DBHelper.db.getUsers()
+
+                for d in data {
+                    print("hello")
+                }
+            }
+
+
         }.padding()
             .frame(maxWidth: 200, maxHeight: 200)
     }
-
 }
 
 struct UserProfileSwiftUIView_Previews: PreviewProvider {
