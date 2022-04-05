@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		90F17AAF27FC93130049EB0E /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F17AAE27FC93130049EB0E /* WishListViewController.swift */; };
 		90F17AB127FC96510049EB0E /* WishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F17AB027FC96510049EB0E /* WishListTableViewCell.swift */; };
+		90F17AB327FCD9C20049EB0E /* ContactHeartWishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F17AB227FCD9C20049EB0E /* ContactHeartWishList.swift */; };
 		9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30828A27FC570300BC3293 /* CartViewController.swift */; };
 		FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686327F4C69900795DB2 /* AppDelegate.swift */; };
 		FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686527F4C69900795DB2 /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		90F17AAE27FC93130049EB0E /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		90F17AB027FC96510049EB0E /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
+		90F17AB227FCD9C20049EB0E /* ContactHeartWishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeartWishList.swift; sourceTree = "<group>"; };
 		9A30828A27FC570300BC3293 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pick-n-Pay-Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE64686327F4C69900795DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				FE64689C27FB202800795DB2 /* SignUpViewController.swift */,
 				FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */,
 				90F17AAE27FC93130049EB0E /* WishListViewController.swift */,
+				90F17AB227FCD9C20049EB0E /* ContactHeartWishList.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -324,9 +327,7 @@
 				9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
 				FED794DF27FCAAED0094E123 /* Order+CoreDataClass.swift in Sources */,
-
 				90F17AB127FC96510049EB0E /* WishListTableViewCell.swift in Sources */,
-				FEAAF23A27FB9D8F000F2440 /* Wishlist+CoreDataClass.swift in Sources */,
 				FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */,
 				FED794DD27FCAAED0094E123 /* Item+CoreDataClass.swift in Sources */,
 				FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */,
@@ -335,10 +336,10 @@
 				FED794E327FCAAED0094E123 /* Wishlist+CoreDataClass.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
 				FED794E527FCAAED0094E123 /* Cart+CoreDataClass.swift in Sources */,
-
 				90F17AAF27FC93130049EB0E /* WishListViewController.swift in Sources */,
 				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
 				FEB04AA127FC69E600B31ABA /* WishlistHelpers.swift in Sources */,
+				90F17AB327FCD9C20049EB0E /* ContactHeartWishList.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,

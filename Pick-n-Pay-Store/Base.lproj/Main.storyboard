@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -58,7 +57,7 @@
                                                                 <constraint firstAttribute="width" constant="171" id="Str-ms-c0S"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee2-zW-VIB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee2-zW-VIB">
                                                             <rect key="frame" x="199" y="11" width="150" height="21"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Title">
@@ -92,38 +91,38 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Sh-IF-Bih">
-                                                            <rect key="frame" x="310" y="142" width="39" height="29"/>
-                                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hni-2c-oCK">
+                                                            <rect key="frame" x="300" y="126" width="49" height="45"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="39" id="kl3-oI-ktk"/>
+                                                                <constraint firstAttribute="width" constant="49" id="Nes-6L-bE8"/>
+                                                                <constraint firstAttribute="height" constant="45" id="zhk-Af-hx2"/>
                                                             </constraints>
-                                                            <imageReference key="image" image="heart.circle" catalog="system" renderingMode="hierarchical-single">
-                                                                <hierarchicalColors>
-                                                                    <color systemColor="systemPinkColor"/>
-                                                                    <color systemColor="secondaryLabelColor"/>
-                                                                    <color systemColor="tertiaryLabelColor"/>
-                                                                </hierarchicalColors>
-                                                            </imageReference>
-                                                        </imageView>
+                                                            <size key="titleShadowOffset" width="2" height="1"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" imagePadding="0.0" cornerStyle="large">
+                                                                <imageReference key="image" image="heart.circle" catalog="system" symbolScale="large"/>
+                                                                <backgroundConfiguration key="background"/>
+                                                                <color key="baseForegroundColor" red="0.83014455782312924" green="0.24189821151768709" blue="0.40436330782312924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </buttonConfiguration>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="Hni-2c-oCK" firstAttribute="leading" secondItem="ztF-5y-1Jr" secondAttribute="trailing" constant="109" id="3DV-YQ-U4l"/>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="top" secondItem="Ee2-zW-VIB" secondAttribute="bottom" constant="43" id="8fX-sW-AU3"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="ykC-4D-d5m" secondAttribute="bottom" constant="29" id="EaV-7C-l3D"/>
-                                                        <constraint firstAttribute="trailing" secondItem="0Sh-IF-Bih" secondAttribute="trailing" constant="20" symbolic="YES" id="ZrW-eY-iiY"/>
+                                                        <constraint firstItem="Hni-2c-oCK" firstAttribute="top" secondItem="e4p-IH-EhT" secondAttribute="bottom" constant="19" id="YvR-s9-Tvi"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="bottom" secondItem="VKK-H5-cGU" secondAttribute="bottomMargin" id="bqC-IF-HMd"/>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="trailing" secondItem="Ee2-zW-VIB" secondAttribute="trailing" id="cVB-bT-rSj"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="top" secondItem="VKK-H5-cGU" secondAttribute="topMargin" id="g4K-3W-a3c"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="top" secondItem="Ee2-zW-VIB" secondAttribute="top" id="hdw-dQ-CGT"/>
                                                         <constraint firstItem="Ee2-zW-VIB" firstAttribute="leading" secondItem="ztF-5y-1Jr" secondAttribute="trailing" constant="8" id="jlF-eX-L89"/>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="leading" secondItem="Ee2-zW-VIB" secondAttribute="leading" id="mhg-VE-R97"/>
-                                                        <constraint firstItem="e4p-IH-EhT" firstAttribute="trailing" secondItem="0Sh-IF-Bih" secondAttribute="trailing" id="ms8-1L-ol8"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="centerY" secondItem="e4p-IH-EhT" secondAttribute="centerY" id="qfu-dt-dfm"/>
                                                         <constraint firstItem="ykC-4D-d5m" firstAttribute="top" secondItem="e4p-IH-EhT" secondAttribute="bottom" constant="8" id="szp-86-eKQ"/>
-                                                        <constraint firstItem="0Sh-IF-Bih" firstAttribute="top" secondItem="e4p-IH-EhT" secondAttribute="bottom" constant="34.5" id="ter-bR-H81"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="0Sh-IF-Bih" secondAttribute="bottom" constant="-0.5" id="vSe-n7-MCT"/>
+                                                        <constraint firstItem="Hni-2c-oCK" firstAttribute="bottom" secondItem="VKK-H5-cGU" secondAttribute="bottomMargin" id="w6a-8L-Kfv"/>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="trailing" secondItem="ykC-4D-d5m" secondAttribute="trailing" id="wFi-ec-xmQ"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="ztF-5y-1Jr" secondAttribute="trailing" constant="158" id="xG8-ZD-JPp"/>
+                                                        <constraint firstItem="Hni-2c-oCK" firstAttribute="trailing" secondItem="VKK-H5-cGU" secondAttribute="trailingMargin" id="xNv-C0-khy"/>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="leading" secondItem="ykC-4D-d5m" secondAttribute="leading" id="yJC-7a-QSk"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="leading" secondItem="VKK-H5-cGU" secondAttribute="leadingMargin" id="zXJ-Cj-4Jx"/>
                                                     </constraints>
@@ -133,7 +132,6 @@
                                                     <outlet property="itemImageView" destination="ztF-5y-1Jr" id="zeM-ou-uNg"/>
                                                     <outlet property="itemPriceLabel" destination="ykC-4D-d5m" id="s7Z-Rm-rkg"/>
                                                     <outlet property="itemTitleLabel" destination="Ee2-zW-VIB" id="rp5-2h-7qQ"/>
-                                                    <outlet property="itemWishListHeartImage" destination="0Sh-IF-Bih" id="Y5c-af-XRL"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -263,7 +261,7 @@
                         <viewLayoutGuide key="safeArea" id="Tfh-pd-98c"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="TtX-J4-w1f"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="TtX-J4-w1f"/>
                     <navigationItem key="navigationItem" id="nKb-xk-Qka"/>
                     <connections>
                         <outlet property="tableView" destination="GXv-Gl-viI" id="0x8-kp-a2P"/>
@@ -470,7 +468,15 @@
         <scene sceneID="nUi-an-E5I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y6W-Hg-yEb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="teL-vD-tR6"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="teL-vD-tR6">
+                        <imageReference key="selectedImage" image="cart.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemPinkColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z1X-0R-IUF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -526,9 +532,11 @@
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -540,9 +548,6 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
