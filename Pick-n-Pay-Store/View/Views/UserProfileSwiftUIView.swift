@@ -34,7 +34,7 @@ struct UserProfileSwiftUIView: View {
 //                Text("Cart! ", String(user.cart))
 
             Button("Save Data") {
-                DBHelper.db.addData(email: "ello@gmail.com", guest: "Change to Bool Please", password: "123")
+                DBHelper.db.addData(email: "ello@gmail.com", guest: "true", password: "123")
             }
 
             Spacer()

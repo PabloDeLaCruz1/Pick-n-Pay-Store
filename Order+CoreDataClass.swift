@@ -1,5 +1,5 @@
 //
-//  Users+CoreDataClass.swift
+//  Order+CoreDataClass.swift
 //  Pick-n-Pay-Store
 //
 //  Created by Pablo De La Cruz on 4/5/22.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Users)
-public class Users: NSManagedObject {
+@objc(Order)
+public class Order: NSManagedObject {
 
 }
