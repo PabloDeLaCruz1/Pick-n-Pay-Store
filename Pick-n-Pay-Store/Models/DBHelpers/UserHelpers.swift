@@ -14,8 +14,8 @@ extension DBHelper {
 
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
 
-        var cart = Cart(context: context!)
-        var wishlist = Wishlist(context: context!)
+        let cart = Cart(context: context!)
+        let wishlist = Wishlist(context: context!)
         cart.total = 0
 
         user.email = email
@@ -54,7 +54,7 @@ extension DBHelper {
         do {
             let req = try context?.fetch(fReq) as! [User]
             if(req.count != 0) {
-                user = req.first as! User
+                user = req.first!
             } else {
                 print("Data Not Found")
             }
@@ -63,10 +63,11 @@ extension DBHelper {
         }
         return user
     }
-    
+
+    //overload this
     func updateUser(email: String, creditCard: String) {
         var user = User()
-        var fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: "email == %@", email)
         print("Hello  User Updating ")
         do {
@@ -76,6 +77,7 @@ extension DBHelper {
             }
 
             user.creditCard = creditCard
+            user.cart?.total = 100
 
             try context?.save()
             print("User \(email) updated")
@@ -83,16 +85,40 @@ extension DBHelper {
             print("issues updating data")
         }
     }
+    
+    
+    func updateUserWishList(email: String, item: Item) {
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Updating Wishlist ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+
+            user.wishlist!.items!.insert(item)
+
+            for i in user.wishlist!.items! {
+                print("Item----------", i)
+            }
+            try context?.save()
+        } catch {
+            print("issues updating data")
+        }
+    }
 
     func deleteUser(email: String) {
-        var fReq = NSFetchRequest<NSManagedObject>(entityName: "User")
+        let fReq = NSFetchRequest<NSManagedObject>(entityName: "User")
         fReq.predicate = NSPredicate(format: " email == %@ ", email)
         do {
             let user = try context?.fetch(fReq)
             if user?.first != nil {
+                print("User \(user) delete")
+
                 context?.delete(user?.first as! User)
                 try context?.save()
-                print("User \(email) delete")
 
             } else {
                 print("Nothing to delete")
@@ -101,4 +127,5 @@ extension DBHelper {
 
         }
     }
+
 }

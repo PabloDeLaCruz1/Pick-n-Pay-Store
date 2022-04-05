@@ -17,7 +17,7 @@ extension Cart {
     }
 
     @NSManaged public var total: Double
-    @NSManaged public var items: Set<Item>?
+    @NSManaged public var items: NSSet?
 
 }
 

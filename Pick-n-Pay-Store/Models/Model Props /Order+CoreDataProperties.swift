@@ -16,13 +16,13 @@ extension Order {
         return NSFetchRequest<Order>(entityName: "Order")
     }
 
-    @NSManaged public var trackingInfo: String?
-    @NSManaged public var status: String?
     @NSManaged public var balance: Double
-    @NSManaged public var shippingAddress: String?
     @NSManaged public var billingAddress: String?
     @NSManaged public var payOption: String?
+    @NSManaged public var shippingAddress: String?
     @NSManaged public var shippingOption: String?
+    @NSManaged public var status: String?
+    @NSManaged public var trackingInfo: String?
     @NSManaged public var cart: Cart?
 
 }
