@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30828A27FC570300BC3293 /* CartViewController.swift */; };
 		FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686327F4C69900795DB2 /* AppDelegate.swift */; };
 		FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686527F4C69900795DB2 /* SceneDelegate.swift */; };
 		FE64686827F4C69900795DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686727F4C69900795DB2 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A30828A27FC570300BC3293 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pick-n-Pay-Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE64686327F4C69900795DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE64686527F4C69900795DB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		FE64687D27F4FD0000795DB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A30828A27FC570300BC3293 /* CartViewController.swift */,
 				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
 				FE64689C27FB202800795DB2 /* SignUpViewController.swift */,
 				FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */,
@@ -284,6 +287,7 @@
 				FEAAF23527FB9D44000F2440 /* User+CoreDataProperties.swift in Sources */,
 				FEAAF23C27FB9D8F000F2440 /* Item+CoreDataClass.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
+				9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
 				FEAAF23A27FB9D8F000F2440 /* Wishlist+CoreDataClass.swift in Sources */,
 				FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */,
