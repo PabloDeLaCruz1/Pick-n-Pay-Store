@@ -55,9 +55,19 @@
                                 <rect key="frame" x="92" y="335" width="223" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save Static Data"/>
                                 <connections>
                                     <action selector="btn:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="diR-S9-huv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjc-q0-4xI">
+                                <rect key="frame" x="92" y="551" width="223" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="View Users"/>
+                                <connections>
+                                    <action selector="btn2:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="668-e1-1Am"/>
+                                    <action selector="btn:" destination="AEI-Cn-Az0" eventType="touchUpInside" id="xdD-qi-AGe"/>
                                 </connections>
                             </button>
                         </subviews>

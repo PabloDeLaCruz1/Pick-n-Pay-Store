@@ -12,7 +12,7 @@ class SignUpViewController: UIViewController {
 
     //Using this page as an example, we dont need this here for now,
     //But we can use in the future to see if a user is sign in, we redirect
-    @StateObject var viewModel = SignUpViewModel()
+//    @StateObject var viewModel = SignUpViewModel()
     
     @IBOutlet weak var mainLabel: UILabel!
     

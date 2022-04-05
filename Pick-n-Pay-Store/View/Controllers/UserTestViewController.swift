@@ -12,7 +12,7 @@ class UserTestViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
 
-    var userData: [User] = []
+//    var userData: [User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +41,13 @@ class UserTestViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserTestTableViewCell
 
-        cell.userTestViewModel = UserTestViewModel(userData[indexPath.row])
+//        cell.userTestViewModel = UserTestViewModel(userData[indexPath.row])
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userData.count
+//        return userData.count
+        0
     }
 }
