@@ -38,27 +38,11 @@
                         <viewLayoutGuide key="safeArea" id="DNh-Sp-t5V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Wish List" id="JCl-31-sBR">
-                        <imageReference key="image" image="heart" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color systemColor="systemOrangeColor"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                        <color key="badgeColor" systemColor="systemPinkColor"/>
-                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="hierarchical-single">
-                            <hierarchicalColors>
-                                <color systemColor="systemPinkColor"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="21A-EO-9Ft"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a5-7t-zZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4348" y="125"/>
+            <point key="canvasLocation" x="5257.971014492754" y="124.55357142857142"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="DcU-mF-mC9">
@@ -186,7 +170,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="RXy-19-3qc" kind="relationship" relationship="viewControllers" id="RtY-TI-BkN"/>
-                        <segue destination="7GC-x7-xfm" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
+                        <segue destination="th2-FR-PNf" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
                         <segue destination="rUb-kT-rjy" kind="relationship" relationship="viewControllers" id="dBE-QQ-iBb"/>
                         <segue destination="AEI-Cn-Az0" kind="relationship" relationship="viewControllers" id="Kbe-no-Gs9"/>
                         <segue destination="Y6W-Hg-yEb" kind="relationship" relationship="viewControllers" id="OMp-lW-CLd"/>
@@ -373,6 +357,41 @@
             </objects>
             <point key="canvasLocation" x="4347.826086956522" y="1660.7142857142856"/>
         </scene>
+        <!--Wish List-->
+        <scene sceneID="eUu-5T-dty">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="th2-FR-PNf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wish List" id="JCl-31-sBR">
+                        <imageReference key="image" image="heart" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemPinkColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <color key="badgeColor" systemColor="systemPinkColor"/>
+                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="systemPinkColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vG-68-cM5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7GC-x7-xfm" kind="relationship" relationship="rootViewController" id="qYe-Cf-hE7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ve5-54-61y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4347.826086956522" y="124.55357142857142"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
@@ -389,9 +408,6 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
