@@ -19,7 +19,7 @@ extension User {
     @NSManaged public var email: String?
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: String?
-    @NSManaged public var history: NSObject?
+    @NSManaged public var history: [String]?
     @NSManaged public var creditCard: String?
     @NSManaged public var guest: String?
     @NSManaged public var cart: Cart?
