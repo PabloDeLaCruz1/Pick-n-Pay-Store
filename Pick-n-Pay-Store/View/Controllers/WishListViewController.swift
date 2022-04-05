@@ -23,6 +23,7 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
     let data: [WishList] = [
         WishList(itemtitle: "Ceramic blue and Brown plate", imageName: "plates", itemDiscount: 3.4, itemPrice: 9.30 , itemHeartImage: "heart.circle"),
         WishList(itemtitle: "Ceramic blue square place", imageName: "plates1", itemDiscount: 1.99, itemPrice: 7.99, itemHeartImage: "heart.circle")
+        
     ]
     
     override func viewDidLoad() {
@@ -41,11 +42,12 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
         let WishListCell = table.dequeueReusableCell(withIdentifier: "WishListItem", for: indexPath) as! WishListTableViewCell
         WishListCell.itemTitleLabel.text = wishList.itemtitle
         WishListCell.itemImageView.image = UIImage(named: wishList.imageName)
-        WishListCell.itemDiscountLabel.text = String(wishList.itemDiscount)
-        WishListCell.itemPriceLabel.text = String(wishList.itemPrice)
-        WishListCell.itemWishListHeartImage.image = UIImage(named: wishList.itemHeartImage)
+        WishListCell.itemDiscountLabel.text = "$" + String(wishList.itemDiscount)
+        WishListCell.itemPriceLabel.text =  "$" +  String(wishList.itemPrice)
+        WishListCell.itemWishListHeartImage.image =  UIImage(named: wishList.itemHeartImage)
         return WishListCell
         
     }
+    
     
 }

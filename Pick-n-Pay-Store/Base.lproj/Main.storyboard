@@ -92,7 +92,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Sh-IF-Bih">
-                                                            <rect key="frame" x="310" y="141.5" width="39" height="29"/>
+                                                            <rect key="frame" x="310" y="142" width="39" height="29"/>
                                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="39" id="kl3-oI-ktk"/>
@@ -109,6 +109,7 @@
                                                     <constraints>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="top" secondItem="Ee2-zW-VIB" secondAttribute="bottom" constant="43" id="8fX-sW-AU3"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="ykC-4D-d5m" secondAttribute="bottom" constant="29" id="EaV-7C-l3D"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0Sh-IF-Bih" secondAttribute="trailing" constant="20" symbolic="YES" id="ZrW-eY-iiY"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="bottom" secondItem="VKK-H5-cGU" secondAttribute="bottomMargin" id="bqC-IF-HMd"/>
                                                         <constraint firstItem="e4p-IH-EhT" firstAttribute="trailing" secondItem="Ee2-zW-VIB" secondAttribute="trailing" id="cVB-bT-rSj"/>
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="top" secondItem="VKK-H5-cGU" secondAttribute="topMargin" id="g4K-3W-a3c"/>
