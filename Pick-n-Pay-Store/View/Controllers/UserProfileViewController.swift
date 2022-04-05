@@ -33,7 +33,7 @@ class UserProfileViewController: UIViewController{
         let data = DBHelper.db.getUsers()
 //
         for d in data {
-            print("User info: ", d.id, d.email ?? "", d.guest ?? "true", d.password ?? "123", d.cart?.total ?? "")
+            print("User info: ", d.id, d.email ?? "", d.guest ?? "true", d.password ?? "123", d.cart?.total ?? "", d.orders)
             
         }
     }
@@ -46,8 +46,12 @@ class UserProfileViewController: UIViewController{
 //        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 
         //update wishlist with item
-        let item = Item(context: DBHelper.db.context!)
-        DBHelper.db.updateUserWishList(email: "2essllo@gmail.com", item: item)
+//        let item = Item(context: DBHelper.db.context!)
+//        DBHelper.db.updateUserWishList(email: "2essllo@gmail.com", item: item)
+        
+        //add order
+        let order = Order(context: DBHelper.db.context!)
+        DBHelper.db.addOrder(email: "2essllo@gmail.com", order: order)
     }
     
     @IBAction func btn4(_ sender: Any) {

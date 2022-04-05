@@ -16,6 +16,7 @@ extension DBHelper {
 
         let cart = Cart(context: context!)
         let wishlist = Wishlist(context: context!)
+        let orders = Order.init(context: context!)
         cart.total = 0
 
         user.email = email
@@ -102,6 +103,27 @@ extension DBHelper {
 
             for i in user.wishlist!.items! {
                 print("Item----------", i)
+            }
+            try context?.save()
+        } catch {
+            print("issues updating data")
+        }
+    }
+    
+    func addOrder(email: String, order: Order){
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Adding Order ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+
+            user.orders?.insert(order)
+            for i in user.orders! {
+                print("Orders----------", i)
             }
             try context?.save()
         } catch {

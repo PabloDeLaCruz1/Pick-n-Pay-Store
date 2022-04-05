@@ -23,25 +23,8 @@ extension User {
     @NSManaged public var password: String?
     @NSManaged public var phoneNumber: String?
     @NSManaged public var cart: Cart?
-    @NSManaged public var orders: NSSet?
+    @NSManaged public var orders: Set<Order>?
     @NSManaged public var wishlist: Wishlist?
-
-}
-
-// MARK: Generated accessors for orders
-extension User {
-
-    @objc(addOrdersObject:)
-    @NSManaged public func addToOrders(_ value: Order)
-
-    @objc(removeOrdersObject:)
-    @NSManaged public func removeFromOrders(_ value: Order)
-
-    @objc(addOrders:)
-    @NSManaged public func addToOrders(_ values: NSSet)
-
-    @objc(removeOrders:)
-    @NSManaged public func removeFromOrders(_ values: NSSet)
 
 }
 
