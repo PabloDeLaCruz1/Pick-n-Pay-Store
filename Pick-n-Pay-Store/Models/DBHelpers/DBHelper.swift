@@ -17,7 +17,7 @@ class DBHelper {
 
 
 }
-//Current Model draft
+////Current Model draft
 ////1
 //class User {
 //    var emailId : String
@@ -29,14 +29,14 @@ class DBHelper {
 //    var cart: Cart
 //    var wishlist: Wishlist
 //}
-
+//
 ////2
 //class Cart {
 //    var items : [Item]
 //    var total : Double   //false pay 10$, if true $0 //let deliveryFee = total >= 200? 0 : 10
 //}
-
-//3
+//
+////3
 //class Item {
 //    var name : String
 //    var price : Double
@@ -44,13 +44,13 @@ class DBHelper {
 //    var offer : Bool
 //    var comments : [String]
 //}
-
-//4
+//
+////4
 //class Wishlist {
 //    var items : [Item]
 //}
-
-//5
+//
+////5
 //class Order {
 //    var tracking : String
 //    var status : String //bought, refunded, pending, returned
@@ -61,6 +61,6 @@ class DBHelper {
 //    var shippingOption : String //Overnight, express, standard, delayed
 //    var cart : Cart
 //}
-
-
-
+//
+//
+//
