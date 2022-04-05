@@ -12,7 +12,7 @@ extension DBHelper {
     
     func addData(email: String, guest: String, password: String) {
 
-        let user = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context!) as! Users
+        let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
 
 //        var cart = Cart()
 //        var wishlist = Wishlist()
@@ -40,28 +40,28 @@ extension DBHelper {
         }
     }
     
-    func getUsers() -> [Users] {
-        var users = [Users]()
-        let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Users")
+    func getUsers() -> [User] {
+        var users = [User]()
+        let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
 
         do {
-            users = try context?.fetch(fReq) as! [Users]
+            users = try context?.fetch(fReq) as! [User]
         } catch {
-            print("Error Getting Users from DB")
+            print("Error Getting User from DB")
         }
         return users
     }
     
-    func getOneUser(email: String) -> Users {
-        var user = Users()
-        let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Users")
+    func getOneUser(email: String) -> User {
+        var user = User()
+        let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: " email == %@ ", email)
 //        fReq.fetchLimit = 1
 
         do {
-            let req = try context?.fetch(fReq) as! [Users]
+            let req = try context?.fetch(fReq) as! [User]
             if(req.count != 0) {
-                user = req.first as! Users
+                user = req.first as! User
             } else {
                 print("Data Not Found")
             }

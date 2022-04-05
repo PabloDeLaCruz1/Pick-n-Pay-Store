@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G417" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="User" representedClassName="User" syncable="YES">
+    <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="guest" optional="YES" attributeType="String"/>
+        <attribute name="guest" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="User" positionX="-202.5179443359375" positionY="-43.99822998046875" width="128" height="88"/>
+        <element name="Users" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>

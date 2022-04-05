@@ -24,7 +24,7 @@ class UserProfileViewController: UIViewController{
 //
 //        present(vc, animated: true)
 //        let testdb = DBHelper()
-        DBHelper.db.addData(email: "ello@gmail.com", guest: "Change to Bool Please", password: "123")
+        DBHelper.db.addData(email: "ello@gmail.com", guest: "false", password: "123")
         
     }
     
@@ -33,7 +33,8 @@ class UserProfileViewController: UIViewController{
         let data = DBHelper.db.getUsers()
 //
         for d in data {
-            print("User info: ", d.email, d.guest, d.password)
+            print("User info: ", d.id, d.email, d.guest, d.password)
+            
         }
     }
 }
