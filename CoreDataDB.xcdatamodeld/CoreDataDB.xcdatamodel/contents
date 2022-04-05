@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G417" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="guest" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="WishList" representedClassName="WishList" syncable="YES" codeGenerationType="class">
-        <attribute name="idWishList" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="itemPrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="itemShipping" optional="YES" attributeType="String"/>
-        <attribute name="itemTitle" optional="YES" attributeType="String"/>
-    </entity>
     <elements>
         <element name="Users" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="WishList" positionX="-9" positionY="63" width="128" height="89"/>
     </elements>
 </model>
