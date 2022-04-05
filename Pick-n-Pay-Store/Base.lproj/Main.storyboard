@@ -31,7 +31,7 @@
         <!--Wish List-->
         <scene sceneID="v1T-QE-8Nx">
             <objects>
-                <viewController title="Wish List" id="7GC-x7-xfm" sceneMemberID="viewController">
+                <viewController title="Wish List" id="7GC-x7-xfm" customClass="WishListViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM2-Ei-EXa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="369" height="290"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="182" id="DqQ-uW-tzC">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WLItem" rowHeight="182" id="DqQ-uW-tzC" customClass="WishListTableViewCell" customModule="Pick_n_Pay_Store" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="44.5" width="369" height="182"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DqQ-uW-tzC" id="VKK-H5-cGU">
@@ -110,6 +110,13 @@
                                                         <constraint firstItem="ztF-5y-1Jr" firstAttribute="leading" secondItem="VKK-H5-cGU" secondAttribute="leadingMargin" id="zXJ-Cj-4Jx"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="itemDiscountLabel" destination="e4p-IH-EhT" id="10O-Di-PJs"/>
+                                                    <outlet property="itemImageView" destination="ztF-5y-1Jr" id="zeM-ou-uNg"/>
+                                                    <outlet property="itemPriceLabel" destination="ykC-4D-d5m" id="s7Z-Rm-rkg"/>
+                                                    <outlet property="itemTitleLabel" destination="Ee2-zW-VIB" id="rp5-2h-7qQ"/>
+                                                    <outlet property="itemWishListHeartImage" destination="0Sh-IF-Bih" id="Y5c-af-XRL"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -120,6 +127,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wish Lists" id="21A-EO-9Ft"/>
+                    <connections>
+                        <outlet property="table" destination="4jC-2q-bof" id="XSf-9h-8qm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a5-7t-zZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
