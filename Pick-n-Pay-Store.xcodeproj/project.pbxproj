@@ -31,6 +31,16 @@
 		FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A527FB426600795DB2 /* CoreDataManager.swift */; };
 		FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */; };
 		FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */; };
+		FEA97F6E27FDF6CB00F82B15 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F6D27FDF6CB00F82B15 /* HomeViewModel.swift */; };
+		FEA97F7027FDF9F800F82B15 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F6F27FDF9F800F82B15 /* HomeViewController.swift */; };
+		FEA97F7627FE007100F82B15 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F7527FE007100F82B15 /* HomeView.swift */; };
+		FEA97F7927FE3BEB00F82B15 /* CustomCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F7827FE3BEB00F82B15 /* CustomCurveShape.swift */; };
+		FEA97F7B27FE3C4000F82B15 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F7A27FE3C4000F82B15 /* Home.swift */; };
+		FEA97F7D27FE3CCC00F82B15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F7C27FE3CCC00F82B15 /* ContentView.swift */; };
+		FEA97F7F27FE3E7500F82B15 /* HomeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F7E27FE3E7500F82B15 /* HomeSlider.swift */; };
+		FEA97F8127FE3F9D00F82B15 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F8027FE3F9D00F82B15 /* Slider.swift */; };
+		FEA97F8427FE3FD300F82B15 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F8327FE3FD300F82B15 /* Product.swift */; };
+		FEA97F8627FE404500F82B15 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F8527FE404500F82B15 /* DetailView.swift */; };
 		FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23F27FC60E8000F2440 /* DBHelper.swift */; };
 		FEAAF24327FC6260000F2440 /* UserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF24227FC6260000F2440 /* UserHelpers.swift */; };
 		FEB04AA127FC69E600B31ABA /* WishlistHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB04AA027FC69E600B31ABA /* WishlistHelpers.swift */; };
@@ -78,6 +88,16 @@
 		FE6468A527FB426600795DB2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		FEA97F6D27FDF6CB00F82B15 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FEA97F6F27FDF9F800F82B15 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FEA97F7527FE007100F82B15 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FEA97F7827FE3BEB00F82B15 /* CustomCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurveShape.swift; sourceTree = "<group>"; };
+		FEA97F7A27FE3C4000F82B15 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		FEA97F7C27FE3CCC00F82B15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FEA97F7E27FE3E7500F82B15 /* HomeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSlider.swift; sourceTree = "<group>"; };
+		FEA97F8027FE3F9D00F82B15 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		FEA97F8327FE3FD300F82B15 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FEA97F8527FE404500F82B15 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FEAAF23F27FC60E8000F2440 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		FEAAF24227FC6260000F2440 /* UserHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelpers.swift; sourceTree = "<group>"; };
 		FEB04AA027FC69E600B31ABA /* WishlistHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistHelpers.swift; sourceTree = "<group>"; };
@@ -174,6 +194,7 @@
 				FE64688C27F741F800795DB2 /* UserTestViewModel.swift */,
 				FE64689A27FB1B6B00795DB2 /* SignUpViewModel.swift */,
 				FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */,
+				FEA97F6D27FDF6CB00F82B15 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +217,7 @@
 				FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */,
 				9AD5519A27FD47B400A2522F /* WishListViewController.swift */,
 				9AD5519C27FD47E600A2522F /* UserProfileHostingViewController.swift */,
+				FEA97F6F27FDF9F800F82B15 /* HomeViewController.swift */,
 				FED794FF27FD45F60094E123 /* LandingViewController.swift */,
 			);
 			path = Controllers;
@@ -224,6 +246,7 @@
 		FE64688F27F74A0600795DB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FEA97F7727FE3BC100F82B15 /* Home */,
 				FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */,
 				FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */,
 				9AB9863B27FCAD900016442B /* CartTableViewCell.swift */,
@@ -232,6 +255,21 @@
 				FED7950127FD46880094E123 /* SignUpSwiftUIView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FEA97F7727FE3BC100F82B15 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FEA97F7527FE007100F82B15 /* HomeView.swift */,
+				FEA97F7827FE3BEB00F82B15 /* CustomCurveShape.swift */,
+				FEA97F7A27FE3C4000F82B15 /* Home.swift */,
+				FEA97F7C27FE3CCC00F82B15 /* ContentView.swift */,
+				FEA97F7E27FE3E7500F82B15 /* HomeSlider.swift */,
+				FEA97F8027FE3F9D00F82B15 /* Slider.swift */,
+				FEA97F8327FE3FD300F82B15 /* Product.swift */,
+				FEA97F8527FE404500F82B15 /* DetailView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FEAAF23E27FB9EA8000F2440 /* CDClasses */ = {
@@ -337,6 +375,7 @@
 				FE64689727F75B5C00795DB2 /* Util.swift in Sources */,
 				9AD5519F27FD483800A2522F /* WishListTableViewCell.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
+				FEA97F8127FE3F9D00F82B15 /* Slider.swift in Sources */,
 				FEAAF24327FC6260000F2440 /* UserHelpers.swift in Sources */,
 				9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
@@ -344,6 +383,9 @@
 				9AD5519B27FD47B400A2522F /* WishListViewController.swift in Sources */,
 				FED794F827FCDAB00094E123 /* Cart+CoreDataClass.swift in Sources */,
 				FED794F427FCDAB00094E123 /* Wishlist+CoreDataClass.swift in Sources */,
+				FEA97F7F27FE3E7500F82B15 /* HomeSlider.swift in Sources */,
+				FEA97F7627FE007100F82B15 /* HomeView.swift in Sources */,
+				FEA97F7027FDF9F800F82B15 /* HomeViewController.swift in Sources */,
 				FED794FD27FCDAB10094E123 /* User+CoreDataProperties.swift in Sources */,
 				FED794FC27FCDAB10094E123 /* User+CoreDataClass.swift in Sources */,
 				FED794FA27FCDAB10094E123 /* Order+CoreDataClass.swift in Sources */,
@@ -352,17 +394,23 @@
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
 				9AD5519D27FD47E600A2522F /* UserProfileHostingViewController.swift in Sources */,
 				FED7950227FD46880094E123 /* SignUpSwiftUIView.swift in Sources */,
+				FEA97F6E27FDF6CB00F82B15 /* HomeViewModel.swift in Sources */,
 				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
 				FEB04AA127FC69E600B31ABA /* WishlistHelpers.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				FED794F627FCDAB00094E123 /* Item+CoreDataClass.swift in Sources */,
+				FEA97F8627FE404500F82B15 /* DetailView.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
+				FEA97F7D27FE3CCC00F82B15 /* ContentView.swift in Sources */,
 				FED7950027FD45F60094E123 /* LandingViewController.swift in Sources */,
+				FEA97F7927FE3BEB00F82B15 /* CustomCurveShape.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				FEB04AA327FC69ED00B31ABA /* CartHelpers.swift in Sources */,
 				9AB9863D27FCAD900016442B /* CartTableViewCell.swift in Sources */,
+				FEA97F8427FE3FD300F82B15 /* Product.swift in Sources */,
 				FED794F927FCDAB00094E123 /* Cart+CoreDataProperties.swift in Sources */,
 				FED794D227FCA4450094E123 /* CoreDataModel.xcdatamodeld in Sources */,
+				FEA97F7B27FE3C4000F82B15 /* Home.swift in Sources */,
 				FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */,
 				FED794F727FCDAB00094E123 /* Item+CoreDataProperties.swift in Sources */,
 				FE64689B27FB1B6B00795DB2 /* SignUpViewModel.swift in Sources */,

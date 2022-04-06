@@ -27,9 +27,15 @@ class LandingViewController: UIViewController {
     }
     */
     @IBAction func signUp(_ sender: Any) {
-        let vc = UIHostingController(rootView: SignUpSwiftUIView())
-        
+        let vc = UIHostingController(rootView: ContentView())
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+
     }
 
+    @IBAction func login(_ sender: Any) {
+        let vc = UIHostingController(rootView: SignUpSwiftUIView())
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }
