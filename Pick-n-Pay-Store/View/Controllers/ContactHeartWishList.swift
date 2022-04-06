@@ -14,7 +14,7 @@ class ContactHeart: UITableViewCell{
 //        backgroundColor = .red
         
         let heartButton = UIButton(type: .system)
-        heartButton.setTitle(<#T##title: String?##String?#>, for: <#T##UIControl.State#>)
+//        heartButton.setTitle(<#T##title: String?##String?#>, for: <#T##UIControl.State#>)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
