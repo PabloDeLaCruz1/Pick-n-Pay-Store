@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jyc-6S-72n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AEI-Cn-Az0">
+
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -369,14 +370,43 @@
                     <view key="view" contentMode="scaleToFill" id="8CK-mh-8U5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WkX-w2-VpF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Your Cart"/>
+                                    <segment title="Saved"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Vz-LO-JJe">
+                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="693" id="c5l-YH-3rl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MMi-Ln-6IG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WkX-w2-VpF" firstAttribute="top" secondItem="MMi-Ln-6IG" secondAttribute="top" id="0xj-52-dA6"/>
+                            <constraint firstItem="5Vz-LO-JJe" firstAttribute="trailing" secondItem="MMi-Ln-6IG" secondAttribute="trailing" id="84K-qY-u36"/>
+                            <constraint firstItem="5Vz-LO-JJe" firstAttribute="bottom" secondItem="MMi-Ln-6IG" secondAttribute="bottom" id="GJD-CB-reQ"/>
+                            <constraint firstItem="5Vz-LO-JJe" firstAttribute="leading" secondItem="MMi-Ln-6IG" secondAttribute="leading" id="Meo-O5-XBz"/>
+                            <constraint firstItem="5Vz-LO-JJe" firstAttribute="top" secondItem="MMi-Ln-6IG" secondAttribute="top" constant="32" id="W9e-Zb-Pqq"/>
+                            <constraint firstItem="WkX-w2-VpF" firstAttribute="leading" secondItem="8CK-mh-8U5" secondAttribute="leading" id="ejh-ql-Mhs"/>
+                            <constraint firstAttribute="trailing" secondItem="WkX-w2-VpF" secondAttribute="trailing" id="ijt-Wl-ftn"/>
+                            <constraint firstItem="5Vz-LO-JJe" firstAttribute="centerX" secondItem="8CK-mh-8U5" secondAttribute="centerX" id="sC4-nB-CL8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8MC-js-I4e"/>
+                    <connections>
+                        <outlet property="cartSaveSC" destination="WkX-w2-VpF" id="vJa-jl-VL2"/>
+                        <outlet property="pageView" destination="5Vz-LO-JJe" id="0sc-FF-6QG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otd-Po-ebs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5257.971014492754" y="1660.7142857142856"/>
+            <point key="canvasLocation" x="5134.7826086956529" y="1660.7142857142856"/>
         </scene>
         <!--Cart-->
         <scene sceneID="nUi-an-E5I">
