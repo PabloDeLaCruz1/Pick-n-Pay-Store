@@ -20,4 +20,18 @@ extension DBHelper {
 //        }
 //        return wishlist
 //    }
+    
+    func updateWishlist(){
+        
+    }
+    func addCollegeData(nc: String) {
+        let cl = NSEntityDescription.insertNewObject(forEntityName: "Wishlist", into: context!) as! Wishlist
+//        cl.items.append = nc
+
+        do {
+            try context?.save()
+        } catch {
+            print("Wishlist Data did not save.")
+        }
+    }
 }

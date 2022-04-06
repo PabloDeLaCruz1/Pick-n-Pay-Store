@@ -24,7 +24,7 @@ class UserProfileViewController: UIViewController{
 //
 //        present(vc, animated: true)
 //        let testdb = DBHelper()
-        DBHelper.db.addData(email: "ello@gmail.com", guest: "Change to Bool Please", password: "123")
+        DBHelper.db.addData(email: "2essllo@gmail.com", guest: "True", password: "1234")
         
     }
     
@@ -33,7 +33,27 @@ class UserProfileViewController: UIViewController{
         let data = DBHelper.db.getUsers()
 //
         for d in data {
-            print("User info: ", d.email, d.guest, d.password)
+            print("User info: ", d.id, d.email ?? "", d.guest ?? "true", d.password ?? "123", d.cart?.total ?? "")
+            
         }
+    }
+    
+    @IBAction func btn3(_ sender: Any) {
+//        DBHelper.db.updateUser(email: "2essllo@gmail.com", creditCard: "1111-1111-1111-1111")
+//        let oneuser = DBHelper.db.getOneUser(email: "2essllo@gmail.com")
+//        print("User updated, ------", oneuser.cart?.total, oneuser.creditCard)
+        
+//        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+
+        //update wishlist with item
+        let item = Item(context: DBHelper.db.context!)
+        DBHelper.db.updateUserWishList(email: "2essllo@gmail.com", item: item)
+    }
+    
+    @IBAction func btn4(_ sender: Any) {
+        DBHelper.db.deleteUser(email: "2essllo@gmail.com")
+    }
+    @IBAction func addCartTotal(_ sender: Any) {
+//        DBHelper.db.addCartTotal(total: 100)
     }
 }
