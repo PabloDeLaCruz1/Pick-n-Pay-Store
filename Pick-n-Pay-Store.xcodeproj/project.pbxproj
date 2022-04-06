@@ -41,6 +41,8 @@
 		FED794FB27FCDAB10094E123 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED794F127FCDAB00094E123 /* Order+CoreDataProperties.swift */; };
 		FED794FC27FCDAB10094E123 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED794F227FCDAB00094E123 /* User+CoreDataClass.swift */; };
 		FED794FD27FCDAB10094E123 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED794F327FCDAB00094E123 /* User+CoreDataProperties.swift */; };
+		FED7950027FD45F60094E123 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED794FF27FD45F60094E123 /* LandingViewController.swift */; };
+		FED7950227FD46880094E123 /* SignUpSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED7950127FD46880094E123 /* SignUpSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		FED794F127FCDAB00094E123 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Order+CoreDataProperties.swift"; path = "Pick-n-Pay-Store/Models/Model Props /Order+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FED794F227FCDAB00094E123 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FED794F327FCDAB00094E123 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "Pick-n-Pay-Store/Models/Model Props /User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FED794FF27FD45F60094E123 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		FED7950127FD46880094E123 /* SignUpSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
 				FE64689C27FB202800795DB2 /* SignUpViewController.swift */,
 				FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */,
+				FED794FF27FD45F60094E123 /* LandingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			children = (
 				FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */,
 				FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */,
+				FED7950127FD46880094E123 /* SignUpSwiftUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,11 +332,13 @@
 				FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */,
 				FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
+				FED7950227FD46880094E123 /* SignUpSwiftUIView.swift in Sources */,
 				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
 				FEB04AA127FC69E600B31ABA /* WishlistHelpers.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				FED794F627FCDAB00094E123 /* Item+CoreDataClass.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
+				FED7950027FD45F60094E123 /* LandingViewController.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				FEB04AA327FC69ED00B31ABA /* CartHelpers.swift in Sources */,
 				FED794F927FCDAB00094E123 /* Cart+CoreDataProperties.swift in Sources */,
