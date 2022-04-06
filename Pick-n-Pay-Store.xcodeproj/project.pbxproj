@@ -20,7 +20,6 @@
 		FE64686B27F4C69900795DB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE64686927F4C69900795DB2 /* Main.storyboard */; };
 		FE64686D27F4C69C00795DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE64686C27F4C69C00795DB2 /* Assets.xcassets */; };
 		FE64687027F4C69C00795DB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE64686E27F4C69C00795DB2 /* LaunchScreen.storyboard */; };
-		FE64688727F5B3BE00795DB2 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = FE64688627F5B3BE00795DB2 /* SQLite */; };
 		FE64688D27F741F800795DB2 /* UserTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64688C27F741F800795DB2 /* UserTestViewModel.swift */; };
 		FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689027F74A5100795DB2 /* UserTestViewController.swift */; };
 		FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */; };
@@ -106,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE64688727F5B3BE00795DB2 /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +274,6 @@
 			);
 			name = "Pick-n-Pay-Store";
 			packageProductDependencies = (
-				FE64688627F5B3BE00795DB2 /* SQLite */,
 			);
 			productName = "Pick-n-Pay-Store";
 			productReference = FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */;
@@ -307,7 +304,6 @@
 			);
 			mainGroup = FE64685727F4C69900795DB2;
 			packageReferences = (
-				FE64688527F5B3BE00795DB2 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = FE64686127F4C69900795DB2 /* Products */;
 			projectDirPath = "";
@@ -591,25 +587,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FE64688527F5B3BE00795DB2 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FE64688627F5B3BE00795DB2 /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE64688527F5B3BE00795DB2 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
-			productName = SQLite;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FED794D027FCA4450094E123 /* CoreDataModel.xcdatamodeld */ = {

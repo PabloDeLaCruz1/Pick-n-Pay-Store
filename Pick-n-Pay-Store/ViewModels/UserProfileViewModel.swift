@@ -12,7 +12,7 @@ import SwiftUI
 class UserProfileViewModel: ObservableObject {
 //    let manager = CoreDataManager.shared
     
-//    @Published var user: [User] = []
+//    @Published var user: User 
 
     init() {
 

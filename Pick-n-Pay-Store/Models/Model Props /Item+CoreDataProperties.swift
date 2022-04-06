@@ -16,11 +16,11 @@ extension Item {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
-    @NSManaged public var comments: NSObject?
+    @NSManaged public var comments: [String]?
     @NSManaged public var name: String?
     @NSManaged public var offer: Bool
     @NSManaged public var price: Double
-    @NSManaged public var tags: NSObject?
+    @NSManaged public var tags: [String]?
 
 }
 
