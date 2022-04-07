@@ -453,7 +453,9 @@
                                         <command title="Item 2" id="1OT-dK-3gu"/>
                                     </children>
                                 </menu>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6r-mJ-Zg8">
                                 <rect key="frame" x="225" y="522" width="101" height="30"/>
@@ -464,25 +466,29 @@
                                         <command title="Item 2" id="8xy-2w-8wu"/>
                                     </children>
                                 </menu>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLV-gU-Glq">
                                 <rect key="frame" x="164" y="636" width="143" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Confirm Order"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirm Order" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="confirmOrderButton:" destination="ePo-0J-wdQ" eventType="touchUpInside" id="EBa-do-M1z"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUC-TB-zQr">
-                                <rect key="frame" x="142" y="726" width="165" height="21"/>
+                                <rect key="frame" x="72" y="726" width="270" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-ZY-LHl">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="Same as Shipping Address" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-ZY-LHl">
                                 <rect key="frame" x="72" y="294" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.89655756949999998" blue="0.75778907539999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -505,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTB-0W-enQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3678" y="1945"/>
+            <point key="canvasLocation" x="3676.811594202899" y="1944.6428571428571"/>
         </scene>
         <!--Cart-->
         <scene sceneID="nUi-an-E5I">
