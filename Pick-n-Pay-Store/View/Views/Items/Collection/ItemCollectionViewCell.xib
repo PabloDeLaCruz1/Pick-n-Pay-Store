@@ -30,6 +30,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwT-Fb-bJt">
+                        <rect key="frame" x="4.5" y="270" width="10.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-9d-J3C">
                         <rect key="frame" x="17" y="270" width="145" height="21"/>
                         <constraints>
@@ -59,8 +65,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="kei-9d-J3C" firstAttribute="top" secondItem="fab-mP-BIm" secondAttribute="bottom" constant="4" id="3rx-4K-fkK"/>
+                <constraint firstItem="FwT-Fb-bJt" firstAttribute="top" secondItem="fab-mP-BIm" secondAttribute="bottom" constant="4" id="3sf-Eb-BI3"/>
                 <constraint firstAttribute="trailingMargin" secondItem="zpj-gz-ZGh" secondAttribute="trailing" constant="10" id="4ou-q1-Eez"/>
                 <constraint firstItem="fab-mP-BIm" firstAttribute="leading" secondItem="xRQ-e9-9mO" secondAttribute="leading" id="EPX-vy-wd6"/>
+                <constraint firstItem="zpj-gz-ZGh" firstAttribute="leading" secondItem="FwT-Fb-bJt" secondAttribute="trailing" constant="215" id="HBK-LN-WpF"/>
                 <constraint firstAttribute="bottom" secondItem="kei-9d-J3C" secondAttribute="bottom" constant="14" id="McU-g8-D84"/>
                 <constraint firstAttribute="trailing" secondItem="fab-mP-BIm" secondAttribute="trailing" id="Rpk-pz-mu7"/>
                 <constraint firstItem="fab-mP-BIm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SJL-FH-h7f"/>
@@ -76,7 +84,7 @@
                 <outlet property="itemPriceLabel" destination="kei-9d-J3C" id="SbH-wx-7hx"/>
                 <outlet property="itemTitleLabel" destination="xRQ-e9-9mO" id="mGm-wB-dAh"/>
             </connections>
-            <point key="canvasLocation" x="302.17391304347831" y="164.39732142857142"/>
+            <point key="canvasLocation" x="328" y="164"/>
         </collectionViewCell>
     </objects>
     <resources>

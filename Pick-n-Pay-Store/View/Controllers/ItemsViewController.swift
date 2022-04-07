@@ -5,6 +5,7 @@
 //  Created by Stephanie Marin Velasquez on 4/6/22.
 //
 
+// ----- this is now for wishlist content display since Pablo has a new display with SwiftUI  ---------
 import UIKit
 
 class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,11 +17,11 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
 
-        storeItems.append(StoreItems(type: "Dishes", title: "Blue and brown plate", imageName: "plates", price: 5.99))
-        storeItems.append(StoreItems(type: "Dishes", title: "Blue Plate", imageName: "plates1", price: 6.99))
-        storeItems.append(StoreItems(type: "Dishes", title: "brown plate", imageName: "plates2", price: 4.99))
-        storeItems.append(StoreItems(type: "Dishes", title: "Blue  brown plate", imageName: "plates3", price: 7.59))
-        storeItems.append(StoreItems(type: "Dishes", title: "Another plate", imageName: "plates4", price: 3.59))
+        storeItems.append(StoreItems(type: "Dishes", title: "Blue and brown plate", imageName: "plates", priceSign: "$", price: 5.99))
+        storeItems.append(StoreItems(type: "Dishes", title: "Blue Plate", imageName: "plates1",priceSign: "$", price: 6.99))
+        storeItems.append(StoreItems(type: "Dishes", title: "brown plate", imageName: "plates2",priceSign: "$", price: 4.99))
+        storeItems.append(StoreItems(type: "Dishes", title: "Blue  brown plate", imageName: "plates3",priceSign: "$",  price: 7.59))
+        storeItems.append(StoreItems(type: "Dishes", title: "Another plate", imageName: "plates4",priceSign: "$", price: 3.59))
 
         
         table.register(ItemCollectionTableViewCell.nib(), forCellReuseIdentifier: ItemCollectionTableViewCell.identifier)
@@ -50,13 +51,15 @@ struct StoreItems{
     let type : String
     let title : String
     let imageName : String
+    let priceSign : String
     let price : Double
     
-    init(type: String, title:  String, imageName : String, price: Double)
+    init(type: String, title:  String, imageName : String, priceSign: String, price: Double)
     {
         self.type = type
         self.title = title
         self.imageName = imageName
+        self.priceSign = priceSign
         self.price = price
     }
     

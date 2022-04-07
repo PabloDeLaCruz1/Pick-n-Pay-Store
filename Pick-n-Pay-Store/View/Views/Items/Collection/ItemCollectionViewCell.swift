@@ -5,6 +5,7 @@
 //  Created by Stephanie Marin Velasquez on 4/6/22.
 //
 
+// ----- this is now for wishlist content display since Pablo has a new display with SwiftUI  ---------
 import UIKit
 
 
@@ -12,6 +13,7 @@ class ItemCollectionViewCell: UICollectionViewCell{
 
     @IBOutlet var itemTitleLabel: UILabel!
     @IBOutlet var itemImageView: UIImageView!
+    @IBOutlet var itemPriceSignLabel: UILabel!
     @IBOutlet var itemPriceLabel: UILabel!
     
     static let identifier = "ItemCollectionViewCell"
