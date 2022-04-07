@@ -28,6 +28,8 @@ class ItemCollectionViewCell: UICollectionViewCell{
         self.itemPriceLabel.text = String(storeItems.price)
         self.itemImageView.image = UIImage(named: storeItems.imageName)
         self.itemImageView.contentMode = .scaleAspectFill
+        self.itemImageView.layer.cornerRadius = 8.0
+        self.itemImageView.clipsToBounds = true
         self.itemTitleLabel.text = String(storeItems.title)
     }
 
