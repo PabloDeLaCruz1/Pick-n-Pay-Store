@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ItemCollectionViewCell: UICollectionViewCell {
+class ItemCollectionViewCell: UICollectionViewCell{
 
     @IBOutlet var itemTitleLabel: UILabel!
     @IBOutlet var itemImageView: UIImageView!
@@ -27,6 +27,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     public func configure(with storeItems: StoreItems){
         self.itemPriceLabel.text = String(storeItems.price)
         self.itemImageView.image = UIImage(named: storeItems.imageName)
+        self.itemImageView.contentMode = .scaleAspectFill
         self.itemTitleLabel.text = String(storeItems.title)
     }
+
 }

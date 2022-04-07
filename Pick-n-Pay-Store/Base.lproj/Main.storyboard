@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AEI-Cn-Az0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="124.55357142857142"/>
         </scene>
-        <!--Item 2-->
+        <!--wish List-->
         <scene sceneID="v1T-QE-8Nx">
             <objects>
-                <viewController id="7GC-x7-xfm" sceneMemberID="viewController">
+                <viewController id="7GC-x7-xfm" customClass="WishListViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM2-Ei-EXa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,25 @@
                             <constraint firstItem="92B-rR-PAF" firstAttribute="leading" secondItem="DNh-Sp-t5V" secondAttribute="leading" constant="29" id="uaf-wc-m5G"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="JCl-31-sBR"/>
+                    <tabBarItem key="tabBarItem" title="wish List" id="JCl-31-sBR">
+                        <imageReference key="image" image="heart" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color red="1" green="0.48761692179999999" blue="0.5261745323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color red="1" green="0.48761692179999999" blue="0.5261745323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="table" destination="4jC-2q-bof" id="FlY-1s-4nQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a5-7t-zZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,13 +328,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GEV-qk-CgA">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEV-qk-CgA">
                                 <rect key="frame" x="0.0" y="98" width="134" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-eu-3Mh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-eu-3Mh">
                                 <rect key="frame" x="20" y="98" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Item Types">
                                         <attributes>
@@ -327,18 +343,34 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-rG-tHP">
-                                <rect key="frame" x="0.0" y="216" width="411" height="128"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8rP-yc-Hyb">
-                                        <rect key="frame" x="0.0" y="0.0" width="411" height="128"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </tableView>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-rG-tHP">
+                                <rect key="frame" x="0.0" y="216" width="411" height="304"/>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8rP-yc-Hyb">
+                                <rect key="frame" x="0.0" y="119" width="414" height="694"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GXc-ya-AoZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GEV-qk-CgA" secondAttribute="bottom" constant="777" id="541-gI-B8Z"/>
+                            <constraint firstItem="GEV-qk-CgA" firstAttribute="leading" secondItem="8rP-yc-Hyb" secondAttribute="leading" id="J3s-XF-QKk"/>
+                            <constraint firstItem="GEV-qk-CgA" firstAttribute="top" secondItem="6OO-eu-3Mh" secondAttribute="top" id="JDO-et-iWy"/>
+                            <constraint firstItem="GXc-ya-AoZ" firstAttribute="trailing" secondItem="GEV-qk-CgA" secondAttribute="trailing" constant="280" id="Js1-zw-xVa"/>
+                            <constraint firstItem="GEV-qk-CgA" firstAttribute="bottom" secondItem="6OO-eu-3Mh" secondAttribute="bottom" id="Koc-Bh-nQh"/>
+                            <constraint firstItem="GXc-ya-AoZ" firstAttribute="bottom" secondItem="8rP-yc-Hyb" secondAttribute="bottom" id="Kue-8A-1S0"/>
+                            <constraint firstItem="qqk-rG-tHP" firstAttribute="top" secondItem="GEV-qk-CgA" secondAttribute="bottom" constant="97" id="LZr-c4-UgW"/>
+                            <constraint firstItem="8rP-yc-Hyb" firstAttribute="top" secondItem="GEV-qk-CgA" secondAttribute="bottom" id="ODj-yw-P2C"/>
+                            <constraint firstItem="8rP-yc-Hyb" firstAttribute="trailing" secondItem="GXc-ya-AoZ" secondAttribute="trailing" id="OG2-aF-1V0"/>
+                            <constraint firstItem="GXc-ya-AoZ" firstAttribute="trailing" secondItem="6OO-eu-3Mh" secondAttribute="trailing" constant="288" id="eun-fP-uIA"/>
+                            <constraint firstItem="GXc-ya-AoZ" firstAttribute="bottom" secondItem="qqk-rG-tHP" secondAttribute="bottom" constant="293" id="id9-wO-9WV"/>
+                            <constraint firstItem="GEV-qk-CgA" firstAttribute="leading" secondItem="qqk-rG-tHP" secondAttribute="leading" id="pQo-VX-icp"/>
+                            <constraint firstItem="6OO-eu-3Mh" firstAttribute="leading" secondItem="EdB-B7-UiK" secondAttribute="leadingMargin" id="q0l-fc-Dy8"/>
+                            <constraint firstItem="GEV-qk-CgA" firstAttribute="top" secondItem="GXc-ya-AoZ" secondAttribute="top" constant="10" id="ucI-oy-1cH"/>
+                            <constraint firstItem="8rP-yc-Hyb" firstAttribute="leading" secondItem="GXc-ya-AoZ" secondAttribute="leading" id="wWR-AC-Wtx"/>
+                            <constraint firstItem="GXc-ya-AoZ" firstAttribute="trailing" secondItem="qqk-rG-tHP" secondAttribute="trailing" constant="3" id="wuR-rO-QWI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shop" id="40l-kb-L5x">
                         <imageReference key="image" image="bag" catalog="system" renderingMode="hierarchical-single">
@@ -577,7 +609,9 @@
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

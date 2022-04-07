@@ -18,11 +18,10 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
         var imageName: String
         var itemDiscount : Double
         var itemPrice : Double
-        var itemHeartImage : String
     }
     let data: [WishList] = [
-        WishList(itemtitle: "Ceramic blue and Brown plate", imageName: "plates", itemDiscount: 3.4, itemPrice: 9.30 , itemHeartImage: "heart.circle"),
-        WishList(itemtitle: "Ceramic blue square place", imageName: "plates1", itemDiscount: 1.99, itemPrice: 7.99, itemHeartImage: "heart.circle")
+        WishList(itemtitle: "Ceramic blue and Brown plate", imageName: "plates", itemDiscount: 3.4, itemPrice: 9.30),
+        WishList(itemtitle: "Ceramic blue square place", imageName: "plates1", itemDiscount: 1.99, itemPrice: 7.99)
         
     ]
     
@@ -44,7 +43,6 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
         WishListCell.itemImageView.image = UIImage(named: wishList.imageName)
         WishListCell.itemDiscountLabel.text = "$" + String(wishList.itemDiscount)
         WishListCell.itemPriceLabel.text =  "$" +  String(wishList.itemPrice)
-        WishListCell.itemWishListHeartImage.image =  UIImage(named: wishList.itemHeartImage)
         return WishListCell
         
     }

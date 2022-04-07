@@ -9,33 +9,26 @@ import UIKit
 
 class ItemCollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storeItems.count
-    }
-cxz     
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
-            cell.configure(with: storeItems[indexPath.row])
-        return cell
-        
-    }
-    
-    
     static let identifier = "ItemCollectionTableViewCell"
     
-    static func nib() -> UINib{
+    static func nib() -> UINib {
         return UINib(nibName: "ItemCollectionTableViewCell", bundle: nil)
     }
     
+    func configure(with storeIrems: [StoreItems]){
+        self.storeItems = storeIrems
+        collectionView.reloadData()
+    }
+    
     @IBOutlet var collectionView: UICollectionView!
+    
+    //store items
     var storeItems = [StoreItems]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        collectionView.register(ItemCollectionTableViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionTableViewCell.identifier)
+        collectionView.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -44,5 +37,21 @@ cxz
         super.setSelected(selected, animated: animated)
 
     }
+    
+    //collection view
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return storeItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
+        cell.configure(with: storeItems[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 250, height: 250)
+    }
+    
     
 }
