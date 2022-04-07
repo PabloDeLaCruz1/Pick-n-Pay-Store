@@ -17,6 +17,7 @@ final class LandingViewController: UIViewController, UIViewControllerRepresentab
     func makeUIViewController(context: Context) -> UIViewControllerType {
            let myViewController = UIViewControllerType()
            // myView.delegate = context.coordinator
+        myViewController.view.backgroundColor = .purple
            return myViewController
        }
 

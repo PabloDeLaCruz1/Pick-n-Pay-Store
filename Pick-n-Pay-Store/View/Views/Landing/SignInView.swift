@@ -52,10 +52,9 @@ struct SignInSwiftUIView: View {
                         self.authenticationDidSucceed = false
                     }
                 }) {
-                    LandingViewController()
-//                    NavigationLink(destination: LandingViewController()) {
+                    NavigationLink(destination: LandingViewController()) {
                         LoginButtonContent()
-//                    }
+                    }
                 }
             }
                 .padding()
