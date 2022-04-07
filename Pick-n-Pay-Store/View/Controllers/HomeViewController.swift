@@ -8,9 +8,31 @@
 import UIKit
 import SwiftUI
 
-class HomeViewController: UIHostingController<ContentView> {
-    @EnvironmentObject var baseData : HomeViewModel
 
+final class HomeViewController: UIHostingController<ContentView>, UIViewControllerRepresentable {
+    typealias UIViewControllerType = HomeViewController
+    
+    
+    @EnvironmentObject var baseData : HomeViewModel
+    
+    func makeUIViewController(context: Context) -> UIViewControllerType {
+           let myViewController = UIViewControllerType()
+           // myView.delegate = context.coordinator
+           return myViewController
+       }
+
+       func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+               // left blank
+       }
+    
+    init() {
+        let view = ContentView()
+              super.init(rootView: view)
+              myHostVc = self
+
+       }
+
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder, rootView: ContentView())
     }
@@ -28,3 +50,17 @@ class HomeViewController: UIHostingController<ContentView> {
     */
 
 }
+
+//struct HomeViewControllerWrapper: UIViewControllerRepresentable {
+//
+//    typealias UIViewControllerType = HomeViewController
+//
+//
+//    func makeUIViewController(context: UIViewControllerRepresentableContext<HomeViewControllerWrapper>) -> HomeViewControllerWrapper.UIViewControllerType {
+//        return HomeViewController(coder: NSCoder())
+//    }
+//
+//    func updateUIViewController(_ uiViewController: HomeViewControllerWrapper.UIViewControllerType, context: UIViewControllerRepresentableContext<HomeViewControllerWrapper>) {
+//        //
+//    }
+//}

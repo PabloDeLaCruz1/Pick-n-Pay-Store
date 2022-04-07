@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var myHostVc: UIHostingController<ContentView>? = nil
+
 struct ContentView: View {
     @EnvironmentObject var baseData : HomeViewModel
 

@@ -58,13 +58,15 @@ struct SignUpSwiftUIView: View {
                         self.authenticationDidSucceed = false
                     }
                 }) {
-                    LoginButtonContent()
+                    SignUpButtonContent()
+              
                 }
             }
                 .padding()
+            
 
             if authenticationDidSucceed {
-                Text("Login succeeded!")
+                Text("You Signed Up!")
                     .font(.headline)
                     .frame(width: 250, height: 80)
                     .background(Color.yellow)
@@ -72,7 +74,7 @@ struct SignUpSwiftUIView: View {
                     .animation(Animation.default)
             }
         }
-        .navigationBarTitle(Text("Detail View"), displayMode: .inline)
+        .navigationBarTitle(Text("Sign Up"), displayMode: .inline)
                .edgesIgnoringSafeArea(.bottom)
                // Hide the system back button
                .navigationBarBackButtonHidden(true)
@@ -104,6 +106,7 @@ struct HelloText: View {
             .font(.largeTitle)
             .fontWeight(.semibold)
             .padding(.bottom, 20)
+        
     }
 }
 
@@ -116,6 +119,8 @@ struct UserImage: View {
             .clipped()
             .cornerRadius(150)
             .padding(.bottom, 75)
+            .shadow(radius: 5)
+
     }
 }
 
@@ -141,6 +146,7 @@ struct UsernameTextField: View {
             .background(lightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
+            .shadow(radius: 2)
     }
 }
 
@@ -154,9 +160,11 @@ struct PasswordSecureField: View {
             .background(lightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
+            .shadow(radius: 2)
+
     }
 }
-struct LoginButtonContent: View {
+struct SignUpButtonContent: View {
     var body: some View {
         HStack(spacing: 15) {
             Image("cart")
@@ -165,7 +173,7 @@ struct LoginButtonContent: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 20, height: 20)
 
-            Text("Login")
+            Text("Sign Up!")
                 .fontWeight(.bold)
         }
             .foregroundColor(Color("Btnbg"))
@@ -173,6 +181,7 @@ struct LoginButtonContent: View {
             .frame(maxWidth: .infinity)
             .background(Color("Btnbg").opacity(0.06))
             .clipShape(Capsule())
+
     }
 }
 

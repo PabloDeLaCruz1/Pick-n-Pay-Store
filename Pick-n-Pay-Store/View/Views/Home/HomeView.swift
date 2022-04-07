@@ -3,9 +3,10 @@
 ////  Pick-n-Pay-Store
 ////
 ////  Created by Pablo De La Cruz on 4/6/22.
+///
 ////
 //
-//import SwiftUI
+//import SwiftUI------------------------------------Use this when we get rid of Tabbar Controller from story
 //
 //struct HomeView: View {
 //    @StateObject var baseData = HomeViewModel()
