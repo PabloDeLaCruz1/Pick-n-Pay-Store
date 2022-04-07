@@ -14,19 +14,29 @@ let storedEmail = "noemail@gmail.com"
 let storedpassword = "wrongpass"
 
 struct SignUpSwiftUIView: View {
-    
-    @Environment(\.presentationMode) var presentationMode
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @State var email: String = ""
     @State var password: String = ""
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
+    var btnBack : some View { Button(action: {
+         self.presentationMode.wrappedValue.dismiss()
+         }) {
+             HStack {
+             Image("ic_back") // set image here
+                 .aspectRatio(contentMode: .fit)
+                 .foregroundColor(.white)
+                 Text("Go back")
+             }
+         }
+     }
 
     var body: some View {
 
         ZStack {
-            dismiss()
 
             VStack {
                 HelloText()
@@ -51,7 +61,6 @@ struct SignUpSwiftUIView: View {
                     LoginButtonContent()
                 }
             }
-
                 .padding()
 
             if authenticationDidSucceed {
@@ -63,7 +72,22 @@ struct SignUpSwiftUIView: View {
                     .animation(Animation.default)
             }
         }
+        .navigationBarTitle(Text("Detail View"), displayMode: .inline)
+               .edgesIgnoringSafeArea(.bottom)
+               // Hide the system back button
+               .navigationBarBackButtonHidden(true)
+               // Add your custom back button here
+               .navigationBarItems(leading:
+                   Button(action: {
+                       self.presentationMode.wrappedValue.dismiss()
+                   }) {
+                       HStack {
+                           Image(systemName: "arrow.left.circle")
+                           Text("Go Back")
+                       }
+               })
     }
+     
 }
 
 
@@ -95,17 +119,6 @@ struct UserImage: View {
     }
 }
 
-struct LoginButtonContent: View {
-    var body: some View {
-        Text("LOGIN")
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 220, height: 60)
-            .background(Color.black)
-            .cornerRadius(35.0)
-    }
-}
 struct dismiss: View {
     var body: some View {
         Text("Back")
@@ -117,7 +130,6 @@ struct dismiss: View {
             .cornerRadius(35.0)
     }
 }
-
 
 struct UsernameTextField: View {
 
@@ -144,3 +156,25 @@ struct PasswordSecureField: View {
             .padding(.bottom, 20)
     }
 }
+struct LoginButtonContent: View {
+    var body: some View {
+        HStack(spacing: 15) {
+            Image("cart")
+                .resizable()
+                .renderingMode(.template)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 20, height: 20)
+
+            Text("Login")
+                .fontWeight(.bold)
+        }
+            .foregroundColor(Color("Btnbg"))
+            .padding(.vertical)
+            .frame(maxWidth: .infinity)
+            .background(Color("Btnbg").opacity(0.06))
+            .clipShape(Capsule())
+    }
+}
+
+
+

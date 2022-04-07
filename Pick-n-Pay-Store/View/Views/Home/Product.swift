@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//Item Placeholder 
+//Item Placeholder
 struct Product: Identifiable {
     var id = UUID().uuidString
     var productImage: String

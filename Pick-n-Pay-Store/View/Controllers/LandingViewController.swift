@@ -37,5 +37,7 @@ class LandingViewController: UIViewController {
         let vc = UIHostingController(rootView: SignUpSwiftUIView())
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+        
+        
     }
 }
