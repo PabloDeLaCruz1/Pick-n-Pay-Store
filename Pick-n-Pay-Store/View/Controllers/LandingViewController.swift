@@ -8,8 +8,29 @@
 import UIKit
 import SwiftUI
 
-class LandingViewController: UIViewController {
+final class LandingViewController: UIViewController, UIViewControllerRepresentable {
+    typealias UIViewControllerType = LandingViewController
+//    var scoreLabel: UILabel!
 
+    
+    
+    func makeUIViewController(context: Context) -> UIViewControllerType {
+           let myViewController = UIViewControllerType()
+           // myView.delegate = context.coordinator
+           return myViewController
+       }
+
+       func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+               // left blank
+//           view = UIView()
+//           view.backgroundColor = .white
+//           scoreLabel = UILabel()
+//           scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+//           scoreLabel.textAlignment = .right
+//           scoreLabel.text = "-------------------: 0"
+//           view.addSubview(scoreLabel)
+       }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

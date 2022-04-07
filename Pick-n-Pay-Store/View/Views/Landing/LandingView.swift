@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+
+
 struct LandingView: View {
+    
+//    @EnvironmentObject private var loggedIn = false
+    @Environment(\.loggedInKey) var loggedInKey
+
     var body: some View {
+        
+        if loggedInKey {
+            LandingViewController()
+        } else {
+    
         NavigationView {
 
             VStack {
@@ -45,7 +56,7 @@ struct LandingView: View {
 
         } //NavigationView
 
-
+        }
 
     }
 

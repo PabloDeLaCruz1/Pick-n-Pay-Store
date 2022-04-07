@@ -30,6 +30,15 @@ struct LaunchView: View {
         }
     }
 }
+private struct LoggedInKey: EnvironmentKey {
+  static let defaultValue = false
+}
+extension EnvironmentValues {
+  var loggedInKey: Bool {
+    get { self[LoggedInKey.self] }
+    set { self[LoggedInKey.self] = newValue }
+  }
+}
 
 #if DEBUG
     struct LaunchView_Previews: PreviewProvider {
