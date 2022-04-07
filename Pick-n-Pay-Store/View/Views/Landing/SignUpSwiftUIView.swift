@@ -16,6 +16,8 @@ let storedpassword = "wrongpass"
 struct SignUpSwiftUIView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
+    @Environment(\.currentUser) var currentUser
+
     @State var email: String = ""
     @State var password: String = ""
 
@@ -38,6 +40,7 @@ struct SignUpSwiftUIView: View {
         ZStack {
 
             VStack {
+                
                 HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
@@ -49,14 +52,12 @@ struct SignUpSwiftUIView: View {
                 }
 
                 Button(action: {
-                    if self.email == storedEmail && self.password == storedpassword {
-                        self.authenticationDidSucceed = true
-                        self.authenticationDidFail = false
-                        
-                    } else {
-                        self.authenticationDidFail = true
-                        self.authenticationDidSucceed = false
-                    }
+                    let _sasa = print("current user----", currentUser)
+
+                    currentUser.email = email
+                    currentUser.password = password
+                    DBHelper.db.updateUser(user: currentUser)
+                    print("User added to DB", currentUser)
                 }) {
                     SignUpButtonContent()
               

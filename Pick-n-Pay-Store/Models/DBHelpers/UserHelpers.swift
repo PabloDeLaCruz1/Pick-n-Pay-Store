@@ -33,7 +33,30 @@ extension DBHelper {
             print("Not saved------------------------------------")
         }
     }
-    
+    func addUser(user: User) {
+
+        let newUser = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
+
+        let cart = Cart(context: context!)
+        let wishlist = Wishlist(context: context!)
+        let orders = Order.init(context: context!)
+        cart.total = 0
+
+//        newUser.email = user.email
+        newUser.guest = user.guest
+        newUser.password = user.password
+        newUser.cart = cart
+        newUser.wishlist = wishlist
+        newUser.history = [""]
+        newUser.creditCard = "0000-0000-0000-0000"
+
+        do {
+            try context?.save()
+        } catch {
+            print("Not saved------------------------------------")
+        }
+    }
+
     func setAndGetGuest () -> User {
         let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
 
@@ -55,7 +78,7 @@ extension DBHelper {
         } catch {
             print("Not saved------------------------------------")
         }
-        
+
         return user
     }
 
@@ -111,8 +134,27 @@ extension DBHelper {
             print("issues updating data")
         }
     }
-    
-    
+    func updateUser(user: User) {
+        var userHolder = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", "")
+        print("Hello  User Updating ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                userHolder = tempUser?.first as! User
+            }
+
+            userHolder = user
+
+            try context?.save()
+            print("User \(userHolder.email ?? "NO ONE---") updated")
+        } catch {
+            print("issues updating data")
+        }
+    }
+
+
     func updateUserWishList(email: String, item: Item) {
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
@@ -134,8 +176,8 @@ extension DBHelper {
             print("issues updating data")
         }
     }
-    
-    func addOrder(email: String, order: Order){
+
+    func addOrder(email: String, order: Order) {
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: "email == %@", email)
