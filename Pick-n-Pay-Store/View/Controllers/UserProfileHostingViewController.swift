@@ -1,18 +1,17 @@
+////
+////  UserProfileHostingViewController.swift
+////  Pick-n-Pay-Store
+////
+////  Created by Pablo De La Cruz on 4/4/22.
+////
 //
-//  UserProfileHostingViewController.swift
-//  Pick-n-Pay-Store
+//import UIKit
+//import SwiftUI
 //
-//  Created by Pablo De La Cruz on 4/4/22.
+//class UserProfileHostingViewController: UIHostingController<HomeView> {
 //
-
-import UIKit
-
-//class UserProfileHostingViewController: UIHostingController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder, rootView: HomeView())
 //    }
 //    
 //
