@@ -13,13 +13,39 @@ final class LandingViewController: UIViewController, UIViewControllerRepresentab
 //    var scoreLabel: UILabel!
 
     
-    
+    var label:UILabel!
+   var button:UIButton!
     func makeUIViewController(context: Context) -> UIViewControllerType {
            let myViewController = UIViewControllerType()
+        
            // myView.delegate = context.coordinator
-        myViewController.view.backgroundColor = .purple
+        myViewController.view.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1.0)
+        let btnLogin:UIButton = {
+            let btn = UIButton(type:.system)
+            btn.backgroundColor = .blue
+            btn.setTitle("Login", for: .normal)
+            btn.tintColor = .white
+            btn.layer.cornerRadius = 5
+            btn.clipsToBounds = true
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            return btn
+        }()
+        
+        btnLogin.addTarget(self,action:#selector(buttonClicked),
+                           for:.touchUpInside)
+        
+        myViewController.view.addSubview(btnLogin)
+        
            return myViewController
        }
+    @objc func buttonClicked(sender:UIButton)
+    {
+//        self.performSegue(withIdentifier: "TabBarSegue", sender: self)
+        
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "landing") as! LandingViewController
+        self.present(viewController, animated: false, completion: nil)
+    }
+
 
        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
                // left blank

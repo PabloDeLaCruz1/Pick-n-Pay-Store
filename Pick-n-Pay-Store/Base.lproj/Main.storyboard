@@ -294,7 +294,7 @@
         <!--Landing-->
         <scene sceneID="AB9-Tm-0js">
             <objects>
-                <viewController title="Landing" id="jyc-6S-72n" customClass="LandingViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="landing" title="Landing" id="jyc-6S-72n" customClass="LandingViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Bf-Ok-H4V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,7 +314,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Continue as guest"/>
                                 <connections>
-                                    <segue destination="vhp-jd-rca" kind="show" id="dnN-PD-cik"/>
+                                    <segue destination="vhp-jd-rca" kind="show" identifier="TabBarSegue" id="dnN-PD-cik"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH0-Th-mCH">
@@ -329,7 +329,12 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SJu-YV-aUz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <connections>
+                            <outlet property="continueGuest" destination="WOa-Hd-GoT" id="m5b-al-Eji"/>
+                            <outlet property="login" destination="yH0-Th-mCH" id="hj9-Uy-Q03"/>
+                            <outlet property="signUp" destination="fvc-St-5FC" id="27C-Gc-zWY"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="ABM-jp-33Q"/>
                 </viewController>
@@ -452,6 +457,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

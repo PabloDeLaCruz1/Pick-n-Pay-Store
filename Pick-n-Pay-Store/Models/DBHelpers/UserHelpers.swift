@@ -33,6 +33,31 @@ extension DBHelper {
             print("Not saved------------------------------------")
         }
     }
+    
+    func setAndGetGuest () -> User {
+        let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
+
+        let cart = Cart(context: context!)
+        let wishlist = Wishlist(context: context!)
+        let orders = Order.init(context: context!)
+        cart.total = 0
+
+        user.email = ""
+        user.guest = "true"
+        user.password = ""
+        user.cart = cart
+        user.wishlist = wishlist
+        user.history = [""]
+        user.creditCard = "0000-0000-0000-0000"
+
+        do {
+            try context?.save()
+        } catch {
+            print("Not saved------------------------------------")
+        }
+        
+        return user
+    }
 
     func getUsers() -> [User] {
         var users = [User]()

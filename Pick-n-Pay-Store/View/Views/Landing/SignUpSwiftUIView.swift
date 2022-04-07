@@ -14,7 +14,6 @@ let storedEmail = "noemail@gmail.com"
 let storedpassword = "wrongpass"
 
 struct SignUpSwiftUIView: View {
-
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @State var email: String = ""
@@ -53,6 +52,7 @@ struct SignUpSwiftUIView: View {
                     if self.email == storedEmail && self.password == storedpassword {
                         self.authenticationDidSucceed = true
                         self.authenticationDidFail = false
+                        
                     } else {
                         self.authenticationDidFail = true
                         self.authenticationDidSucceed = false

@@ -30,14 +30,24 @@ struct LaunchView: View {
         }
     }
 }
+
+var guestUser = User()
+
 private struct LoggedInKey: EnvironmentKey {
-  static let defaultValue = false
+    static let defaultValue = false
+}
+private struct CurrentUser: EnvironmentKey {
+    static let defaultValue = DBHelper.db.setAndGetGuest()
 }
 extension EnvironmentValues {
-  var loggedInKey: Bool {
-    get { self[LoggedInKey.self] }
-    set { self[LoggedInKey.self] = newValue }
-  }
+    var loggedInKey: Bool {
+        get { self[LoggedInKey.self] }
+        set { self[LoggedInKey.self] = newValue }
+    }
+    var currentUser: User {
+        get { self[CurrentUser.self] }
+        set { self[CurrentUser.self] = newValue }
+    }
 }
 
 #if DEBUG

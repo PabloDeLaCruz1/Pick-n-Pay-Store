@@ -13,7 +13,7 @@ struct LandingView: View {
     
 //    @EnvironmentObject private var loggedIn = false
     @Environment(\.loggedInKey) var loggedInKey
-
+    
     var body: some View {
         
         if loggedInKey {
