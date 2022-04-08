@@ -16,6 +16,7 @@ struct SignInSwiftUIView: View {
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
+    
     var btnBack: some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -29,9 +30,7 @@ struct SignInSwiftUIView: View {
     }
 
     var body: some View {
-
         ZStack {
-
             VStack {
                 HelloText()
                 UserImage()
@@ -52,7 +51,7 @@ struct SignInSwiftUIView: View {
                         self.authenticationDidSucceed = false
                     }
                 }) {
-                    NavigationLink(destination: HomeViewController()) {
+                    NavigationLink(destination: LandingViewController()) {
                         LoginButtonContent()
                     }
                 }

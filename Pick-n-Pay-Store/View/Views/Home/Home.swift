@@ -111,6 +111,7 @@ struct Home: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     //MARK: - CATEGORY LIST
                     HStack(spacing: 18) {
+                        
                         CategoryItem(image: "cat1", title: "Facewash")
 
                         CategoryItem(image: "cat2", title: "Skin Care")

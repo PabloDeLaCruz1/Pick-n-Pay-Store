@@ -25,3 +25,11 @@ Product(productImage: "product2", productTitle: "Attenir Lift", productPrice: "$
 Product(productImage: "product3", productTitle: "Recast Care", productPrice: "$52.0", productColor: Color("pcolor1"), productDescription: "Recast vitamin c facial serum is a extremely light weight serum infused with the stable form of vitamin c.", productRating: 3),
 Product(productImage: "product4", productTitle: "Hawaiian Tropic", productPrice: "60.0", productColor: Color("pcolor4"), productDescription: "Let the luxurious feel and exotic scents of Hawaiian Tropic Sheer Touch take you to the tropics.", productRating: 4),
 ]
+
+//make viewModel
+var items = [
+Item(),
+Item(),
+Item(),
+Item()
+]
