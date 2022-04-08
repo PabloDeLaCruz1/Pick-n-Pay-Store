@@ -20,11 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
         // Using Storyboard ----------------------------------
+
          guard let _ = (scene as? UIWindowScene) else { return }
 
 
         //Using SwiftUI
-        
+
 //        if let windowScene = scene as? UIWindowScene {
 //          let window = UIWindow(windowScene: windowScene)
 //          window.rootViewController = UIHostingController(rootView: LaunchView())
