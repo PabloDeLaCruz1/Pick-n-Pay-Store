@@ -15,7 +15,6 @@ class DBHelper {
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     static var db = DBHelper()
 
-
 }
 ////Current Model draft
 ////1
