@@ -14,6 +14,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var cartItemPrice: UILabel!
     @IBOutlet weak var cartItemStepper: UIStepper!
     @IBOutlet weak var cartItemStepperLabel: UITextField!
+    @IBOutlet weak var removeButton: UIButton!
+    @IBOutlet weak var saveLaterButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +24,7 @@ class CartTableViewCell: UITableViewCell {
         cartItemStepperLabel.layer.borderColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
         cartItemStepperLabel.layer.cornerRadius = 0.5
         cartItemStepperLabel.text = "1"
-        
+        cartItemStepper.value = 1
         
     }
 
@@ -36,6 +38,10 @@ class CartTableViewCell: UITableViewCell {
     }
     
     @IBAction func saveItem(_ sender: UIButton) {
+        
+        CSData.savedItems.append(CSData.cartItems[sender.tag])
+        CSData.cartItems.remove(at: sender.tag)
+        
     }
     
     @IBAction func stepperClicked(_ sender: UIStepper) {
