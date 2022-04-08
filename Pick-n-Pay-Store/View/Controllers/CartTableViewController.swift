@@ -7,10 +7,9 @@
 
 import UIKit
 
-class CartTableViewController: UIViewController {
+class CartTableViewController: UIViewController, TVCFunctions {
     
-    let cartTableView = UITableView()
-    let cartItems = CSData.cartItems
+    public let cartTableView = UITableView()
 
     override func viewDidLoad() {
         
@@ -33,6 +32,23 @@ class CartTableViewController: UIViewController {
         cartTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
     }
+    
+    func updateTable() {
+        
+        //this function is called when user selects an item to be saved
+        //triggered from table view cell
+        self.view.subviews.forEach{
+            $0.removeFromSuperview()
+        }
+        if (CSData.cartItems.count > 1) {
+            setupTableView()
+            cartTableView.reloadData()
+        } else {
+            let newPage = CSData()
+            newPage.drawEmptyCartSavedPage(view: self.view, segment: "carts")
+          }
+        
+    }
 
 }
 
@@ -40,7 +56,7 @@ extension CartTableViewController : UITableViewDataSource {
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return cartItems.count
+        return CSData.cartItems.count
         
     }
     
@@ -50,11 +66,13 @@ extension CartTableViewController : UITableViewDataSource {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
             
-            
-            cell.cartItemImg.image = UIImage(named: cartItems[indexPath.row]["image"]!)
-            cell.cartItemDesc.text = cartItems[indexPath.row]["description"]!
-            cell.cartItemPrice.text = "$"+cartItems[indexPath.row]["price"]!
-            cell.saveLaterButton.tag = indexPath.row
+        
+            cell.cartItemImg.image = UIImage(named: CSData.cartItems[indexPath.row]["image"]!)
+            cell.cartItemDesc.text = CSData.cartItems[indexPath.row]["description"]!
+            cell.cartItemPrice.text = "$"+CSData.cartItems[indexPath.row]["price"]!
+            cell.removeButton.tag = Int(CSData.cartItems[indexPath.row]["id"]!)!
+            cell.saveLaterButton.tag = Int(CSData.cartItems[indexPath.row]["id"]!)!
+            cell.delegate = self
             //cell.backgroundColor = .clear
             
             return cell
