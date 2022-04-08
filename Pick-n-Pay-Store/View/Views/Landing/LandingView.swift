@@ -36,7 +36,7 @@ struct LandingView: View {
 
                 Button(action: {
                 }) {
-                    NavigationLink(destination: SignInSwiftUIView()) {
+                    NavigationLink(destination: LoginSwiftUIView()) {
                         LoginButtonContent()
                     }
                 }

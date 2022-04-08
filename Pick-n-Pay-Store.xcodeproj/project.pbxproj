@@ -50,7 +50,7 @@
 		FEA97F8827FE661B00F82B15 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F8727FE661B00F82B15 /* LandingView.swift */; };
 		FEA97F8D27FE6C1A00F82B15 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F8C27FE6C1A00F82B15 /* SplashScreen.swift */; };
 		FEA97F8F27FE6C2100F82B15 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F8E27FE6C2100F82B15 /* LaunchView.swift */; };
-		FEA97F9127FE7EDB00F82B15 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F9027FE7EDB00F82B15 /* SignInView.swift */; };
+		FEA97F9127FE7EDB00F82B15 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F9027FE7EDB00F82B15 /* LoginView.swift */; };
 		FEA97F9327FE944800F82B15 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F9227FE944800F82B15 /* TabBarViewController.swift */; };
 		FEA97F9527FF719F00F82B15 /* LandingUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F9427FF719F00F82B15 /* LandingUIKitView.swift */; };
 		FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23F27FC60E8000F2440 /* DBHelper.swift */; };
@@ -119,7 +119,7 @@
 		FEA97F8727FE661B00F82B15 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		FEA97F8C27FE6C1A00F82B15 /* SplashScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		FEA97F8E27FE6C2100F82B15 /* LaunchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		FEA97F9027FE7EDB00F82B15 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		FEA97F9027FE7EDB00F82B15 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FEA97F9227FE944800F82B15 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FEA97F9427FF719F00F82B15 /* LandingUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingUIKitView.swift; sourceTree = "<group>"; };
 		FEAAF23F27FC60E8000F2440 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 				FEA97F8727FE661B00F82B15 /* LandingView.swift */,
 				FED7950127FD46880094E123 /* SignUpSwiftUIView.swift */,
 				FEA97F9427FF719F00F82B15 /* LandingUIKitView.swift */,
-				FEA97F9027FE7EDB00F82B15 /* SignInView.swift */,
+				FEA97F9027FE7EDB00F82B15 /* LoginView.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 				FEA97F8127FE3F9D00F82B15 /* Slider.swift in Sources */,
 				FEA97F9527FF719F00F82B15 /* LandingUIKitView.swift in Sources */,
 				FEAAF24327FC6260000F2440 /* UserHelpers.swift in Sources */,
-				FEA97F9127FE7EDB00F82B15 /* SignInView.swift in Sources */,
+				FEA97F9127FE7EDB00F82B15 /* LoginView.swift in Sources */,
 				9A18C2C327FFC153002221F6 /* CartButtonTableViewCell.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
 				9AB9864227FD05330016442B /* CartTableViewController.swift in Sources */,

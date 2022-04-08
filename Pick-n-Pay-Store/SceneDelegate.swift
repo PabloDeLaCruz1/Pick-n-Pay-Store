@@ -21,17 +21,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Using Storyboard ----------------------------------
 
-         guard let _ = (scene as? UIWindowScene) else { return }
+//         guard let _ = (scene as? UIWindowScene) else { return }
 
 
         //Using SwiftUI
 
-//        if let windowScene = scene as? UIWindowScene {
-//          let window = UIWindow(windowScene: windowScene)
-//          window.rootViewController = UIHostingController(rootView: LaunchView())
-//          self.window = window
-//          window.makeKeyAndVisible()
-//        }
+        if let windowScene = scene as? UIWindowScene {
+          let window = UIWindow(windowScene: windowScene)
+          window.rootViewController = UIHostingController(rootView: LandingView())
+          self.window = window
+          window.makeKeyAndVisible()
+        }
         
     }
 
