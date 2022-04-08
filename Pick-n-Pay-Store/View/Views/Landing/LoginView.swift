@@ -1,5 +1,5 @@
 //
-//  SignInSwiftUIView.swift
+//  LoginSwiftUIView.swift
 //  Pick-n-Pay-Store
 //
 //  Created by Pablo De La Cruz on 4/5/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignInSwiftUIView: View {
+struct LoginSwiftUIView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -51,7 +51,7 @@ struct SignInSwiftUIView: View {
                         self.authenticationDidSucceed = false
                     }
                 }) {
-                    NavigationLink(destination: LandingViewController()) {
+                    NavigationLink(destination: StoryboardViewController()) {
                         LoginButtonContent()
                     }
                 }
@@ -86,8 +86,20 @@ struct SignInSwiftUIView: View {
 
 }
 
+struct StoryboardViewController: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(identifier: "tabbar")
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+}
 
-struct SignInSwiftUIView_Previews: PreviewProvider {
+
+struct LoginSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpSwiftUIView()
 

@@ -23,6 +23,8 @@ extension DBHelper {
         user.guest = guest
         user.password = password
         user.cart = cart
+        user.cart?.saved = 12
+
         user.wishlist = wishlist
         user.history = [""]
         user.creditCard = "0000-0000-0000-0000"
@@ -41,6 +43,7 @@ extension DBHelper {
         let wishlist = Wishlist(context: context!)
         let orders = Order.init(context: context!)
         cart.total = 0
+        cart.saved = 12
 
 //        newUser.email = user.email
         newUser.guest = user.guest
@@ -64,6 +67,7 @@ extension DBHelper {
         let wishlist = Wishlist(context: context!)
         let orders = Order.init(context: context!)
         cart.total = 0
+        cart.saved = 12
 
         user.email = ""
         user.guest = "true"
