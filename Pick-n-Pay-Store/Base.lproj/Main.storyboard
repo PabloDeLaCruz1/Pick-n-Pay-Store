@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="4348" y="-668"/>
         </scene>
-        <!--Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="gDF-io-xmY">
             <objects>
-                <tabBarController id="vhp-jd-rca" customClass="TabBarViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" id="vhp-jd-rca" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZEs-LZ-WvG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mAN-P4-41e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -295,7 +295,7 @@
         <!--Landing-->
         <scene sceneID="AB9-Tm-0js">
             <objects>
-                <viewController storyboardIdentifier="landing" title="Landing" id="jyc-6S-72n" customClass="LandingViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="landing" title="Landing" id="jyc-6S-72n" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Bf-Ok-H4V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

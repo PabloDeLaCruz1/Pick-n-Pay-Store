@@ -52,12 +52,12 @@ struct SignUpSwiftUIView: View {
                 }
 
                 Button(action: {
-                    let _sasa = print("current user----", currentUser)
+                    let _sasa = print("current user----", currentUser.cart?.saved)
 
                     currentUser.email = email
                     currentUser.password = password
                     DBHelper.db.updateUser(user: currentUser)
-                    print("User added to DB", currentUser)
+                    print("User added to DB", currentUser.cart?.saved)
                 }) {
                     SignUpButtonContent()
               

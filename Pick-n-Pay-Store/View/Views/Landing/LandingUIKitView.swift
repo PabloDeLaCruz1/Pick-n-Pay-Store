@@ -10,7 +10,7 @@ import UIKit
 class LandingUIKitView: UIView {
 
     @IBOutlet weak var signUp: UIButton!
-    @IBOutlet weak var continueGuest: UIButton!
+//    @IBOutlet weak var continueGuest: UIButton!
     @IBOutlet weak var login: UIButton!
     /*
     // Only override draw() if you perform custom drawing.
