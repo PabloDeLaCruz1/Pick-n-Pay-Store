@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30828A27FC570300BC3293 /* CartViewController.swift */; };
+		9A18C2BA27FFA395002221F6 /* CartSaveDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */; };
+		9A18C2BC27FFA51D002221F6 /* CartSavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2BB27FFA51D002221F6 /* CartSavedViewController.swift */; };
+		9A18C2C327FFC153002221F6 /* CartButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2C127FFC153002221F6 /* CartButtonTableViewCell.swift */; };
+		9A18C2C427FFC153002221F6 /* CartButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A18C2C227FFC153002221F6 /* CartButtonTableViewCell.xib */; };
+		9A18C2C627FFC19B002221F6 /* SavedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A18C2C527FFC19B002221F6 /* SavedTableViewCell.xib */; };
+		9A18C2C827FFC1B7002221F6 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2C727FFC1B7002221F6 /* SavedTableViewCell.swift */; };
+		9A18C2CA27FFC811002221F6 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2C927FFC811002221F6 /* SavedTableViewController.swift */; };
 		9AB9863D27FCAD900016442B /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9863B27FCAD900016442B /* CartTableViewCell.swift */; };
 		9AB9863E27FCAD900016442B /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB9863C27FCAD900016442B /* CartTableViewCell.xib */; };
 		9AB9864227FD05330016442B /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9864127FD05330016442B /* CartTableViewController.swift */; };
@@ -67,7 +73,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A30828A27FC570300BC3293 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartSaveDataManager.swift; path = "Pick-n-Pay-Store/View/Controllers/CartSaveDataManager.swift"; sourceTree = SOURCE_ROOT; };
+		9A18C2BB27FFA51D002221F6 /* CartSavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSavedViewController.swift; sourceTree = "<group>"; };
+		9A18C2C127FFC153002221F6 /* CartButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9A18C2C227FFC153002221F6 /* CartButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartButtonTableViewCell.xib; sourceTree = "<group>"; };
+		9A18C2C527FFC19B002221F6 /* SavedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavedTableViewCell.xib; sourceTree = "<group>"; };
+		9A18C2C727FFC1B7002221F6 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		9A18C2C927FFC811002221F6 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 		9AB9863B27FCAD900016442B /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		9AB9863C27FCAD900016442B /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		9AB9864127FD05330016442B /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 		FE64687A27F4FB6000795DB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */,
 				FEAAF23E27FB9EA8000F2440 /* CDClasses */,
 				FE64687E27F4FD2E00795DB2 /* Model Props  */,
 				FEAAF24127FC6238000F2440 /* DBHelpers */,
@@ -222,7 +235,8 @@
 		FE64687D27F4FD0000795DB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A30828A27FC570300BC3293 /* CartViewController.swift */,
+				9A18C2BB27FFA51D002221F6 /* CartSavedViewController.swift */,
+				9A18C2C927FFC811002221F6 /* SavedTableViewController.swift */,
 				9AB9864127FD05330016442B /* CartTableViewController.swift */,
 				FE64689027F74A5100795DB2 /* UserTestViewController.swift */,
 				FE64689C27FB202800795DB2 /* SignUpViewController.swift */,
@@ -266,6 +280,10 @@
 				9AB9863B27FCAD900016442B /* CartTableViewCell.swift */,
 				9AB9863C27FCAD900016442B /* CartTableViewCell.xib */,
 				9AD5519E27FD483700A2522F /* WishListTableViewCell.swift */,
+				9A18C2C127FFC153002221F6 /* CartButtonTableViewCell.swift */,
+				9A18C2C227FFC153002221F6 /* CartButtonTableViewCell.xib */,
+				9A18C2C727FFC1B7002221F6 /* SavedTableViewCell.swift */,
+				9A18C2C527FFC19B002221F6 /* SavedTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -386,7 +404,9 @@
 				FE64687027F4C69C00795DB2 /* LaunchScreen.storyboard in Resources */,
 				FE64686D27F4C69C00795DB2 /* Assets.xcassets in Resources */,
 				FE64686B27F4C69900795DB2 /* Main.storyboard in Resources */,
+				9A18C2C627FFC19B002221F6 /* SavedTableViewCell.xib in Resources */,
 				9AB9863E27FCAD900016442B /* CartTableViewCell.xib in Resources */,
+				9A18C2C427FFC153002221F6 /* CartButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,12 +420,13 @@
 				FED794FB27FCDAB10094E123 /* Order+CoreDataProperties.swift in Sources */,
 				FE64689727F75B5C00795DB2 /* Util.swift in Sources */,
 				9AD5519F27FD483800A2522F /* WishListTableViewCell.swift in Sources */,
+				9A18C2CA27FFC811002221F6 /* SavedTableViewController.swift in Sources */,
 				FE64686827F4C69900795DB2 /* ViewController.swift in Sources */,
 				FEA97F8127FE3F9D00F82B15 /* Slider.swift in Sources */,
 				FEA97F9527FF719F00F82B15 /* LandingUIKitView.swift in Sources */,
 				FEAAF24327FC6260000F2440 /* UserHelpers.swift in Sources */,
 				FEA97F9127FE7EDB00F82B15 /* SignInView.swift in Sources */,
-				9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */,
+				9A18C2C327FFC153002221F6 /* CartButtonTableViewCell.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
 				9AB9864227FD05330016442B /* CartTableViewController.swift in Sources */,
 				9AD5519B27FD47B400A2522F /* WishListViewController.swift in Sources */,
@@ -436,6 +457,7 @@
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				FEA97F9327FE944800F82B15 /* TabBarViewController.swift in Sources */,
 				FEB04AA327FC69ED00B31ABA /* CartHelpers.swift in Sources */,
+				9A18C2C827FFC1B7002221F6 /* SavedTableViewCell.swift in Sources */,
 				9AB9863D27FCAD900016442B /* CartTableViewCell.swift in Sources */,
 				FEA97F8827FE661B00F82B15 /* LandingView.swift in Sources */,
 				FEA97F8427FE3FD300F82B15 /* Product.swift in Sources */,
@@ -449,6 +471,8 @@
 				FED794F527FCDAB00094E123 /* Wishlist+CoreDataProperties.swift in Sources */,
 				FE64689D27FB202800795DB2 /* SignUpViewController.swift in Sources */,
 				FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */,
+				9A18C2BA27FFA395002221F6 /* CartSaveDataManager.swift in Sources */,
+				9A18C2BC27FFA51D002221F6 /* CartSavedViewController.swift in Sources */,
 				FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +622,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C76ZC5RLMX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pick-n-Pay-Store/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -625,6 +650,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C76ZC5RLMX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pick-n-Pay-Store/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
