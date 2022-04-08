@@ -8,18 +8,20 @@
 import UIKit
 
 class CartSavedViewController: UIViewController {
-
+    
     @IBOutlet weak var cartSaveSC: UISegmentedControl!
     @IBOutlet weak var pageView: UIView!
+    
+    var seg : UISegmentedControl!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        cartSaveSC.selectedSegmentIndex = 0
+        cartSaveSC.selectedSegmentIndex = CSData.selIndex
         setupSegmentedControl()
         setupNavigationBar()
         cartSaveSC.sendActions(for: UIControl.Event.valueChanged)
-        
+
     }
     
     func setupSegmentedControl() {
@@ -37,50 +39,6 @@ class CartSavedViewController: UIViewController {
         
     }
     
-    func drawEmptyCartSavedPage(segment : String) {
-        
-        var label : String
-        var x1 : CGFloat
-        var x2 : CGFloat
-        
-        switch segment.lowercased() {
-            case "carts":
-                label = "Your shopping cart is empty"
-                print("INSIDE CARTS")
-                x1 = (CSData.screenWidth/2) - 120
-                x2 = (CSData.screenWidth/2) - 160
-            default:
-                label = "Your saved cart is empty"
-                x1 = (CSData.screenWidth/2) - 110
-                x2 = (CSData.screenWidth/2) - 140
-        }
-        
-        
-        let img = UIImageView()
-        img.image = UIImage(named: segment)
-        img.frame = CGRect(x: x1, y: 156, width: 230, height: 230)
-//        pageView.backgroundColor = UIColor.red
-        pageView.addSubview(img)
-        NSLayoutConstraint.activate([
-            img.widthAnchor.constraint(equalToConstant: 230),
-            img.heightAnchor.constraint(equalToConstant: 230),
-            img.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            img.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -7)
-        ])
-        let lbl = UILabel()
-        lbl.text = label
-        lbl.font = UIFont(name: "Hiragino Mincho ProN", size: 25)
-        lbl.frame = CGRect(x: x2, y:422, width: 333, height: 25)
-        pageView.addSubview(lbl)
-        NSLayoutConstraint.activate([
-            lbl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            lbl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -176.5)
-        ])
-        lbl.adjustsFontSizeToFitWidth = true
-        self.view.addSubview(pageView)
-        
-    }
-    
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
         
         if (CSData.cartItems.count != 0) {
@@ -90,10 +48,11 @@ class CartSavedViewController: UIViewController {
           }
         sender.setTitle("Saved (\(CSData.savedItems.count))", forSegmentAt: 1)
         
+        CSData.selIndex = sender.selectedSegmentIndex
+        
         switch sender.selectedSegmentIndex {
             
             case 0:
-                print("Zero Selected Index")
                 if CSData.cartItems.count == 0 || CSData.cartItems.count == 1 {
                     resetPageView()
                     let newPage = CSData()
@@ -141,5 +100,5 @@ class CartSavedViewController: UIViewController {
         tvc.didMove(toParent: self)
         
     }
-    
+
 }

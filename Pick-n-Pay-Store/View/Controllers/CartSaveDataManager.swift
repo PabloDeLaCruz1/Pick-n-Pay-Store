@@ -12,8 +12,53 @@ struct CSData {
     
     static var screenSize = UIScreen.main.bounds
     static var screenWidth = screenSize.width
-    static var cartItems : [[String:String]] = []{didSet{}}
-    //static var cartItems : [[String:String]] = []{didSet{print("CART ITEMS CHANGED")}}
+    static var selIndex = 0
+    static var cartItems : [[String:String]] = [
+        [
+            "image" : "keychain",
+            "description" : "Alphabet Initial Letter Keychain Resin Letter Keychain with Tassel Gradient Butterfly Pendant Bag Pendant",
+            "price" : "7.49",
+            "id": "0"
+        ],
+        [
+            "image" : "midori",
+            "description" : "Midori MD Notebook - A5 Grid Paper",
+            "price" : "11.49",
+            "id": "1"
+        ],
+        [
+            "image" : "classic",
+            "description" : "Buffalo Wild Wings Classic Sauce - Medium, Comfortably Hot - 12 fl. oz. - PACK OF 2",
+            "price" : "12.00",
+            "id": "2"
+        ],
+        [
+            "image" : "garlic",
+            "description" : "Bundle of 2 - Buffalo Wild Wings Parmesan Roasted Garlic Sauces, 12 fl oz each (2 pack)",
+            "price" : "13.81",
+            "id": "3"
+        ],
+        [
+            "image" : "powder",
+            "description" : "Gold Bond Medicated Talc-Free Foot Powder 10 oz, Maximum Strength Odor Control & Itch Relief",
+            "price" : "7.97",
+            "id": "4"
+        ],
+        [
+            "image" : "",
+            "description" : "Checkout Button Here",
+            "price" : "",
+            "id": ""
+        ]
+    ]{
+        
+        didSet {
+           
+            
+            
+        }
+        
+    }
     static var savedItems = [
         [
             "image" : "biore",
@@ -45,49 +90,11 @@ struct CSData {
             "description" : "DYMO Embossing Label Maker with 3 DYMO Label Tapes",
             "price" : "11.59",
             "id": "4"
-        ],
-        [
-            "image" : "keychain",
-            "description" : "Alphabet Initial Letter Keychain Resin Letter Keychain with Tassel Gradient Butterfly Pendant Bag Pendant",
-            "price" : "7.49",
-            "id": "5"
-        ],
-        [
-            "image" : "midori",
-            "description" : "Midori MD Notebook - A5 Grid Paper",
-            "price" : "11.49",
-            "id": "6"
-        ],
-        [
-            "image" : "classic",
-            "description" : "Buffalo Wild Wings Classic Sauce - Medium, Comfortably Hot - 12 fl. oz. - PACK OF 2",
-            "price" : "12.00",
-            "id": "7"
-        ],
-        [
-            "image" : "garlic",
-            "description" : "Bundle of 2 - Buffalo Wild Wings Parmesan Roasted Garlic Sauces, 12 fl oz each (2 pack)",
-            "price" : "13.81",
-            "id": "8"
-        ],
-        [
-            "image" : "powder",
-            "description" : "Gold Bond Medicated Talc-Free Foot Powder 10 oz, Maximum Strength Odor Control & Itch Relief",
-            "price" : "7.97",
-            "id": "9"
         ]
-//        [
-//            "image" : "",
-//            "description" : "Checkout Button Here",
-//            "price" : "",
-//            "id": ""
-//        ]
     ]{
         didSet {
-
-
+            
         }
-
      }
     
     func drawEmptyCartSavedPage(view : UIView, segment : String) {
@@ -130,6 +137,37 @@ struct CSData {
         lbl.adjustsFontSizeToFitWidth = true
         
     }
-    
+   
+    func updateArrayForIds(categories : String) {
+        
+        // this function updates the respective arrays when items are being move
+        // around to cart and saved items
+        
+        switch categories.lowercased() {
+            
+            case "cart":
+            for csd in 0...CSData.cartItems.count-1 {
+                //for loop to update the id key of the item
+                CSData.cartItems[csd]["id"] = String(csd)
+            }
+            case "saved":
+                for csd in 0...CSData.savedItems.count-1 {
+                    //for loop to update the id key of the item
+                    CSData.savedItems[csd]["id"] = String(csd)
+                }
+            default:
+                for csd in 0...CSData.cartItems.count-1 {
+                    //for loop to update the id key of the item
+                    CSData.cartItems[csd]["id"] = String(csd)
+                }
+                if(CSData.savedItems.count != 0) {
+                    for csd in 0...CSData.savedItems.count-1 {
+                        //for loop to update the id key of the item
+                        CSData.savedItems[csd]["id"] = String(csd)
+                    }
+                }
+        }
+        
+    }
     
 }
