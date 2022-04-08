@@ -15,7 +15,7 @@ struct LandingView: View {
     var body: some View {
         
         if loggedInKey {
-            LandingViewController()
+            StoryboardViewController()
         } else {
     
         NavigationView {
