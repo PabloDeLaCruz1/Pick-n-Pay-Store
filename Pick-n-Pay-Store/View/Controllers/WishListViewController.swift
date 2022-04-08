@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import SwiftUI
 
 class WishListViewController: UIViewController,  UITableViewDataSource {
 
 
     @IBOutlet weak var table: UITableView!
     
+    //making the heart gray color and unfavorite from wishlist
+  
     
     struct WishList{
         var itemtitle: String
@@ -43,9 +46,12 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
         WishListCell.itemImageView.image = UIImage(named: wishList.imageName)
         WishListCell.itemDiscountLabel.text = "$" + String(wishList.itemDiscount)
         WishListCell.itemPriceLabel.text =  "$" +  String(wishList.itemPrice)
+//        WishListCell.itemWishListHeartButton.tintColor = .init(red: 212, green: 62, blue: 103, alpha: 0.0 )
+//        WishListCell.itemWishListHeartButton.addTarget(self, action: #selector(handleMarkAsFavorite), for: .touchUpInside)
         return WishListCell
         
     }
+ 
     
     
 }

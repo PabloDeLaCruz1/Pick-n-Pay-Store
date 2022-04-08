@@ -52,12 +52,15 @@
                         <buttonConfiguration key="configuration" style="plain">
                             <imageReference key="image" image="heart.circle" catalog="system" renderingMode="hierarchical-single">
                                 <hierarchicalColors>
-                                    <color red="1" green="0.48761692179999999" blue="0.5261745323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color systemColor="systemGray2Color"/>
                                     <color systemColor="secondaryLabelColor"/>
                                     <color systemColor="tertiaryLabelColor"/>
                                 </hierarchicalColors>
                             </imageReference>
                         </buttonConfiguration>
+                        <connections>
+                            <action selector="selectWishList:" destination="gTV-IL-0wX" eventType="touchUpInside" id="g2p-Wu-odQ"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -91,6 +94,9 @@
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>

@@ -102,8 +102,11 @@
                                                             <buttonConfiguration key="configuration" style="plain" imagePadding="0.0" cornerStyle="large">
                                                                 <imageReference key="image" image="heart.circle" catalog="system" symbolScale="large"/>
                                                                 <backgroundConfiguration key="background"/>
-                                                                <color key="baseForegroundColor" red="0.83014455782312924" green="0.24189821151768709" blue="0.40436330782312924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="baseForegroundColor" red="0.83137254901960778" green="0.24189821151768709" blue="0.40436330782312924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="wishListButtonSelected:" destination="DqQ-uW-tzC" eventType="touchUpInside" id="Vst-nq-jrL"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>

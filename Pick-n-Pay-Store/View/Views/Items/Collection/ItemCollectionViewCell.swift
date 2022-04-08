@@ -11,11 +11,16 @@ import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell{
 
+    var link: WishListTableViewCell?
+    
     @IBOutlet var itemTitleLabel: UILabel!
     @IBOutlet var itemImageView: UIImageView!
     @IBOutlet var itemPriceSignLabel: UILabel!
     @IBOutlet var itemPriceLabel: UILabel!
     
+    @IBAction func selectWishList(_ sender: Any) {
+        print( "this item is added to the wishList ")
+    }
     static let identifier = "ItemCollectionViewCell"
     
     static func nib() -> UINib{
