@@ -7,10 +7,9 @@
 
 import UIKit
 
-class SavedTableViewController: UIViewController {
-
-    let savedTableView = UITableView()
-    let savedItems = CSData.savedItems
+class SavedTableViewController: UIViewController, SVCFunctions {
+    
+    public let savedTableView = UITableView()
 
     override func viewDidLoad() {
         
@@ -18,7 +17,6 @@ class SavedTableViewController: UIViewController {
         savedTableView.dataSource = self
         savedTableView.delegate = self
         savedTableView.register(UINib(nibName: "SavedTableViewCell", bundle: nil), forCellReuseIdentifier: "SavedTableViewCell")
-//        savedTableView.register(UINib(nibName: "CartButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "CartButtonTableViewCell")
         setupTableView()
         
     }
@@ -33,6 +31,22 @@ class SavedTableViewController: UIViewController {
         savedTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
     }
+    
+    func updateTable() {
+        
+        //this function is called when user selects an item to be moved back
+        //triggered from table view cell
+        self.view.subviews.forEach{
+            $0.removeFromSuperview()
+        }
+        if (CSData.savedItems.count > 0) {
+            setupTableView()
+            savedTableView.reloadData()
+        } else {
+            let newPage = CSData()
+            newPage.drawEmptyCartSavedPage(view: self.view, segment: "saved")
+          }
+    }
 
 }
 
@@ -40,40 +54,24 @@ extension SavedTableViewController : UITableViewDataSource {
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return savedItems.count
+        return CSData.savedItems.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     
-        //if indexPath.row != CSData.savedItems.count-1 {
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SavedTableViewCell", for: indexPath) as! SavedTableViewCell
-            
-            
-            cell.savedItemImg.image = UIImage(named: savedItems[indexPath.row]["image"]!)
-            cell.savedItemDesc.text = savedItems[indexPath.row]["description"]!
-            cell.savedItemPrice.text = "$"+savedItems[indexPath.row]["price"]!
-            cell.moveButton.tag = indexPath.row
-            //cell.backgroundColor = .clear
-            
-            return cell
-            
-//        } else {
-//
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "CartButtonTableViewCell", for: indexPath) as! CartButtonTableViewCell
-//
-//            var item = "items"
-//
-//            if CSData.cartItems.count == 1 {
-//                item = "item"
-//            }
-//
-//            cell.cartButtonProceedCheckout.setTitle("Proceed To Checkout (\(CSData.cartItems.count-1) \(item))", for: .normal)
-//
-//            return cell
-//
-//          }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SavedTableViewCell", for: indexPath) as! SavedTableViewCell
+        
+        
+        cell.savedItemImg.image = UIImage(named: CSData.savedItems[indexPath.row]["image"]!)
+        cell.savedItemDesc.text = CSData.savedItems[indexPath.row]["description"]!
+        cell.savedItemPrice.text = "$"+CSData.savedItems[indexPath.row]["price"]!
+        cell.removeSavedButton.tag = Int(CSData.savedItems[indexPath.row]["id"]!)!
+        cell.moveButton.tag = Int(CSData.savedItems[indexPath.row]["id"]!)!
+        cell.delegate = self
+        //cell.backgroundColor = .clear
+        
+        return cell
     
     }
     

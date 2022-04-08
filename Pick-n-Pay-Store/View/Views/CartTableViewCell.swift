@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol TVCFunctions {
+    
+    func updateTable()
+    
+}
+
 class CartTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cartItemImg: UIImageView!
@@ -16,6 +22,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var cartItemStepperLabel: UITextField!
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var saveLaterButton: UIButton!
+    
+    var delegate : TVCFunctions?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,12 +43,31 @@ class CartTableViewCell: UITableViewCell {
     }
     
     @IBAction func deleteItem(_ sender: UIButton) {
+        
+        CSData.cartItems.remove(at: sender.tag)
+        for csd in 0...CSData.cartItems.count-1 {
+            //for loop to update the id key of the item
+            CSData.cartItems[csd]["id"] = String(csd)
+        }
+        self.delegate?.updateTable()
+        
     }
     
     @IBAction func saveItem(_ sender: UIButton) {
         
         CSData.savedItems.append(CSData.cartItems[sender.tag])
         CSData.cartItems.remove(at: sender.tag)
+        //need to update the ids
+        for csd in 0...CSData.cartItems.count-1 {
+            //for loop to update the id key of the item
+            CSData.cartItems[csd]["id"] = String(csd)
+        }
+        //need to update ids
+        for csd in 0...CSData.savedItems.count-1 {
+            //for loop to update the id key of the item
+            CSData.savedItems[csd]["id"] = String(csd)
+        }
+        self.delegate?.updateTable()
         
     }
     

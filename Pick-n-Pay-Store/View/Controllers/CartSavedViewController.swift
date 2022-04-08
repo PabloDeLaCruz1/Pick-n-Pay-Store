@@ -46,6 +46,7 @@ class CartSavedViewController: UIViewController {
         switch segment.lowercased() {
             case "carts":
                 label = "Your shopping cart is empty"
+                print("INSIDE CARTS")
                 x1 = (CSData.screenWidth/2) - 120
                 x2 = (CSData.screenWidth/2) - 160
             default:
@@ -82,28 +83,34 @@ class CartSavedViewController: UIViewController {
     
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
         
-        sender.setTitle("Your Cart (\(CSData.cartItems.count-1))", forSegmentAt: 0)
+        if (CSData.cartItems.count != 0) {
+            sender.setTitle("Your Cart (\(CSData.cartItems.count-1))", forSegmentAt: 0)
+        } else {
+            sender.setTitle("Your Cart (\(CSData.cartItems.count))", forSegmentAt: 0)
+          }
         sender.setTitle("Saved (\(CSData.savedItems.count))", forSegmentAt: 1)
         
         switch sender.selectedSegmentIndex {
             
             case 0:
                 print("Zero Selected Index")
-                if CSData.cartItems.count == 0 {
+                if CSData.cartItems.count == 0 || CSData.cartItems.count == 1 {
                     resetPageView()
-                    drawEmptyCartSavedPage(segment: "carts")
+                    let newPage = CSData()
+                    newPage.drawEmptyCartSavedPage(view: pageView, segment: "carts")
                 } else {
                     resetPageView()
                     drawCartItem()
                   }
             default:
-            if CSData.savedItems.count == 0 {
-                resetPageView()
-                drawEmptyCartSavedPage(segment: "saved")
-            } else {
-                resetPageView()
-                drawSavedItem()
-              }
+                if CSData.savedItems.count == 0 {
+                    resetPageView()
+                    let newPage = CSData()
+                    newPage.drawEmptyCartSavedPage(view: pageView, segment: "saved")
+                } else {
+                    resetPageView()
+                    drawSavedItem()
+                  }
             
         }
         
@@ -117,15 +124,6 @@ class CartSavedViewController: UIViewController {
         
     }
     
-    func drawCartItem() {
-        
-        let tvc = CartTableViewController()
-        addChild(tvc)
-        pageView.addSubview(tvc.view)
-        tvc.didMove(toParent: self)
-        
-    }
-    
     func drawSavedItem() {
         
         let svc = SavedTableViewController()
@@ -135,5 +133,13 @@ class CartSavedViewController: UIViewController {
         
     }
     
-
+    func drawCartItem() {
+        
+        let tvc = CartTableViewController()
+        addChild(tvc)
+        pageView.addSubview(tvc.view)
+        tvc.didMove(toParent: self)
+        
+    }
+    
 }

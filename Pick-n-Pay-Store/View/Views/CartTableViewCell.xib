@@ -97,7 +97,6 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="14.5"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="deleteItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Y9O-3F-JEx"/>
                                                     <action selector="saveItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZfR-KQ-RV6"/>
                                                 </connections>
                                             </button>

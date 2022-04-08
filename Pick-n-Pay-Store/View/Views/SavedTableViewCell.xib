@@ -60,7 +60,7 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nTB-0m-C0Z">
                                                 <rect key="frame" x="122" y="0.0" width="94" height="34"/>
                                                 <connections>
-                                                    <action selector="stepperClicked:" destination="KGk-i7-Jjw" eventType="valueChanged" id="KzY-iP-ks1"/>
+                                                    <action selector="stepperClicked:" destination="KGk-i7-Jjw" eventType="valueChanged" id="gsG-qD-dT6"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
@@ -81,7 +81,7 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="deleteItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hmj-xi-Hwc"/>
+                                                    <action selector="deleteItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="N5r-Lq-tdA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGo-yp-3I1">
@@ -97,7 +97,7 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="14.5"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="saveItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZfR-KQ-RV6"/>
+                                                    <action selector="moveItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="AMk-zo-a1q"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -137,7 +137,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="moveButton" destination="jGo-yp-3I1" id="w34-tB-BJc"/>
-                <outlet property="removeButton" destination="Xc2-GH-SZf" id="hIq-g5-gpT"/>
+                <outlet property="removeSavedButton" destination="Xc2-GH-SZf" id="EYP-dv-7JZ"/>
                 <outlet property="savedItemDesc" destination="NRH-eF-Fxv" id="h8T-4g-3LO"/>
                 <outlet property="savedItemImg" destination="lA1-AC-q4l" id="Gh1-bZ-NUX"/>
                 <outlet property="savedItemPrice" destination="vIw-j5-zYO" id="g32-JL-w3T"/>
