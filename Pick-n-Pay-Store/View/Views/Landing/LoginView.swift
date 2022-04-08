@@ -101,7 +101,7 @@ struct StoryboardViewController: UIViewControllerRepresentable {
 
 struct LoginSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpSwiftUIView()
+        SignUpView()
 
     }
 }
