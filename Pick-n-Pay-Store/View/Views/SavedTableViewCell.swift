@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol SVCFunctions {
-    
-    func updateTable()
-    
-}
-
 class SavedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var savedItemImg: UIImageView!
@@ -43,10 +37,8 @@ class SavedTableViewCell: UITableViewCell {
         
         CSData.savedItems.remove(at: sender.tag)
         if(CSData.savedItems.count != 0) {
-            for csd in 0...CSData.savedItems.count-1 {
-                //for loop to update the id key of the item
-                CSData.savedItems[csd]["id"] = String(csd)
-            }
+            let uptr = CSData()
+            uptr.updateArrayForIds(categories: "saved")
         }
         self.delegate?.updateTable()
         
@@ -69,15 +61,8 @@ class SavedTableViewCell: UITableViewCell {
                         "id": ""
                     ])
         CSData.savedItems.remove(at: sender.tag)
-        //need to update the ids
-        for csd in 0...CSData.savedItems.count-1 {
-            //for loop to update the id key of the item
-            CSData.savedItems[csd]["id"] = String(csd)
-        }
-        for csd in 0..<CSData.cartItems.count-1 {
-            //for loop to update the id key of the item
-            CSData.cartItems[csd]["id"] = String(csd)
-        }
+        let uptr = CSData()
+        uptr.updateArrayForIds(categories: "both")
         self.delegate?.updateTable()
 
     }
@@ -87,5 +72,11 @@ class SavedTableViewCell: UITableViewCell {
         savedItemStepperLabel.text = Int(sender.value).description
         
     }
+    
+}
+
+protocol SVCFunctions {
+    
+    func updateTable()
     
 }
