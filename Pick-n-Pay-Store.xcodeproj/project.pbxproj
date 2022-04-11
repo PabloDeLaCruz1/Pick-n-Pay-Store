@@ -15,8 +15,11 @@
 		90D6CEDB27FE3FB2002CC0B1 /* ItemCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D6CED727FE3FB2002CC0B1 /* ItemCollectionTableViewCell.xib */; };
 		90D6CEDD27FE407C002CC0B1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6CEDC27FE407C002CC0B1 /* ItemsViewController.swift */; };
 		90D6CEDF27FF877D002CC0B1 /* TrackingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6CEDE27FF877D002CC0B1 /* TrackingDetailsViewController.swift */; };
+		90D6CEE128009DDB002CC0B1 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6CEE028009DDB002CC0B1 /* ItemInfoView.swift */; };
 		90F17AAF27FC93130049EB0E /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F17AAE27FC93130049EB0E /* WishListViewController.swift */; };
 		90F17AB327FCD9C20049EB0E /* ContactHeartWishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F17AB227FCD9C20049EB0E /* ContactHeartWishList.swift */; };
+		90F75C332801AA3E009F9A8F /* TrackingShipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F75C322801AA3E009F9A8F /* TrackingShipment.swift */; };
+		90F75C352801B1EA009F9A8F /* TrackProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F75C342801B1EA009F9A8F /* TrackProgressView.swift */; };
 		9A30828B27FC570300BC3293 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30828A27FC570300BC3293 /* CartViewController.swift */; };
 		FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686327F4C69900795DB2 /* AppDelegate.swift */; };
 		FE64686627F4C69900795DB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE64686527F4C69900795DB2 /* SceneDelegate.swift */; };
@@ -62,8 +65,11 @@
 		90D6CED727FE3FB2002CC0B1 /* ItemCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		90D6CEDC27FE407C002CC0B1 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		90D6CEDE27FF877D002CC0B1 /* TrackingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingDetailsViewController.swift; sourceTree = "<group>"; };
+		90D6CEE028009DDB002CC0B1 /* ItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		90F17AAE27FC93130049EB0E /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		90F17AB227FCD9C20049EB0E /* ContactHeartWishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeartWishList.swift; sourceTree = "<group>"; };
+		90F75C322801AA3E009F9A8F /* TrackingShipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingShipment.swift; sourceTree = "<group>"; };
+		90F75C342801B1EA009F9A8F /* TrackProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackProgressView.swift; sourceTree = "<group>"; };
 		9A30828A27FC570300BC3293 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pick-n-Pay-Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE64686327F4C69900795DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +244,7 @@
 				90F17AAE27FC93130049EB0E /* WishListViewController.swift */,
 				90F17AB227FCD9C20049EB0E /* ContactHeartWishList.swift */,
 				90D6CEDE27FF877D002CC0B1 /* TrackingDetailsViewController.swift */,
+				90D6CEE028009DDB002CC0B1 /* ItemInfoView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,10 +273,12 @@
 			isa = PBXGroup;
 			children = (
 				90D6CED127FE3FB2002CC0B1 /* Items */,
+				90F75C322801AA3E009F9A8F /* TrackingShipment.swift */,
 				90D6CECF27FE3F9B002CC0B1 /* CartSegmentControl.swift */,
 				90D6CECD27FE3F91002CC0B1 /* WishListTableViewCell.swift */,
 				FE64689227F74EDE00795DB2 /* UserTestTableViewCell.swift */,
 				FE64689E27FB3B7600795DB2 /* UserProfileSwiftUIView.swift */,
+				90F75C342801B1EA009F9A8F /* TrackProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,13 +405,16 @@
 				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
 				90D6CEDD27FE407C002CC0B1 /* ItemsViewController.swift in Sources */,
 				FEB04AA127FC69E600B31ABA /* WishlistHelpers.swift in Sources */,
+				90F75C332801AA3E009F9A8F /* TrackingShipment.swift in Sources */,
 				90F17AB327FCD9C20049EB0E /* ContactHeartWishList.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				FED794F627FCDAB00094E123 /* Item+CoreDataClass.swift in Sources */,
 				90D6CED827FE3FB2002CC0B1 /* ItemCollectionViewCell.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
+				90F75C352801B1EA009F9A8F /* TrackProgressView.swift in Sources */,
 				FEB04AA327FC69ED00B31ABA /* CartHelpers.swift in Sources */,
+				90D6CEE128009DDB002CC0B1 /* ItemInfoView.swift in Sources */,
 				FED794F927FCDAB00094E123 /* Cart+CoreDataProperties.swift in Sources */,
 				FED794D227FCA4450094E123 /* CoreDataModel.xcdatamodeld in Sources */,
 				90D6CECE27FE3F91002CC0B1 /* WishListTableViewCell.swift in Sources */,
