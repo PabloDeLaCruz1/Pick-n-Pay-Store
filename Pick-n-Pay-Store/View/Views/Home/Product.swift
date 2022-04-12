@@ -33,3 +33,33 @@ Item(),
 Item(),
 Item()
 ]
+
+func ForzaAPI() -> String {
+    var imgUrl : String = ""
+    
+    //URL
+    let url = URL(string:"https://forza-api.tk/")
+    guard url != nil else {
+       return "Error creating url object"
+    }
+    
+    // URL Request
+    var request = URLRequest(url: url!)
+    
+    //Specify the header
+//    let headers = []
+    
+    //Specify the body
+    
+    //Set the erequest type
+    
+    //Get the URLSession
+    
+    //Create Data task
+    
+    //Fire off data task
+    
+    
+    
+    return imgUrl
+}

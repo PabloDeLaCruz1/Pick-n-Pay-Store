@@ -1,5 +1,5 @@
 //
-//  SignUpSwiftUIView.swift
+//  SignUpView.swift
 //  Pick-n-Pay-Store
 //
 //  Created by Pablo De La Cruz on 4/5/22.
@@ -13,7 +13,7 @@ let lightGreyColor = Color(red: 239.0 / 255.0, green: 243.0 / 255.0, blue: 244.0
 let storedEmail = "noemail@gmail.com"
 let storedpassword = "wrongpass"
 
-struct SignUpSwiftUIView: View {
+struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @Environment(\.currentUser) var currentUser
@@ -94,9 +94,9 @@ struct SignUpSwiftUIView: View {
 }
 
 
-struct SignUpSwiftUIView_Previews: PreviewProvider {
+struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpSwiftUIView()
+        SignUpView()
 
     }
 }
