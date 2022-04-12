@@ -10,7 +10,7 @@ import UIKit
 class CartTableViewController: UIViewController, TVCFunctions {
 
     public let cartTableView = UITableView()
-
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class CartTableViewController: UIViewController, TVCFunctions {
             let newPage = CSData()
             newPage.drawEmptyCartSavedPage(view: self.view, segment: "carts")
         }
-
+        self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
     }
 
 }
@@ -65,7 +65,6 @@ extension CartTableViewController: UITableViewDataSource {
         if indexPath.row != CSData.cartItems.count - 1 {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
-
 
             cell.cartItemImg.image = UIImage(named: CSData.cartItems[indexPath.row]["image"]!)
             cell.cartItemDesc.text = CSData.cartItems[indexPath.row]["description"]!
@@ -102,3 +101,4 @@ extension CartTableViewController: UITableViewDelegate {
 
 
 }
+

@@ -46,6 +46,8 @@ class SavedTableViewController: UIViewController, SVCFunctions {
             let newPage = CSData()
             newPage.drawEmptyCartSavedPage(view: self.view, segment: "saved")
         }
+
+        self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
     }
 
 }
