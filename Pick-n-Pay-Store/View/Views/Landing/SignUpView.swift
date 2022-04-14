@@ -24,23 +24,32 @@ struct SignUpView: View {
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
-    var btnBack : some View { Button(action: {
-         self.presentationMode.wrappedValue.dismiss()
-         }) {
-             HStack {
-             Image("ic_back") // set image here
-                 .aspectRatio(contentMode: .fit)
-                 .foregroundColor(.white)
-                 Text("Go back")
-             }
-         }
-     }
+    var btnBack: some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+    }) {
+            HStack {
+                Image("ic_back") // set image here
+                .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
+                Text("Go back")
+            }
+        }
+    }
 
     var body: some View {
 
         ZStack {
-            NavigationLink(destination: HomeViewController(), tag: 1, selection: $tag) {
-            
+            NavigationLink(
+                destination: StoryboardViewController()
+                    .background(
+                    Image(DBHelper.db.getImageData())
+                        .resizable()
+                        .ignoresSafeArea()
+                        .opacity(0.1)
+                ),
+                tag: 1,
+                selection: $tag) {
+
             }
             VStack {
                 Spacer()
@@ -64,12 +73,12 @@ struct SignUpView: View {
                     print("User added to DB", currentUser.cart?.saved)
                 }) {
                     SignUpButtonContent()
-              
+
                 }
                 Spacer()
             }
                 .padding()
-            
+
 
             if authenticationDidSucceed {
                 Text("You Signed Up!")
@@ -80,22 +89,22 @@ struct SignUpView: View {
                     .animation(Animation.default)
             }
         }
-        .navigationBarTitle(Text("Sign Up"), displayMode: .inline)
-               .edgesIgnoringSafeArea(.bottom)
-               // Hide the system back button
-               .navigationBarBackButtonHidden(true)
-               // Add your custom back button here
-               .navigationBarItems(leading:
-                   Button(action: {
-                       self.presentationMode.wrappedValue.dismiss()
-                   }) {
-                       HStack {
-                           Image(systemName: "arrow.left.circle")
-                           Text("Go Back")
-                       }
-               })
+            .navigationBarTitle(Text("Log Out"), displayMode: .inline)
+            .edgesIgnoringSafeArea(.bottom)
+        // Hide the system back button
+        .navigationBarBackButtonHidden(true)
+        // Add your custom back button here
+        .navigationBarItems(leading:
+                Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                HStack {
+                    Image(systemName: "arrow.left.circle")
+                    Text("Go Back")
+                }
+            })
     }
-     
+
 }
 
 
@@ -112,7 +121,7 @@ struct HelloText: View {
             .font(.largeTitle)
             .fontWeight(.semibold)
             .padding(.bottom, 20)
-        
+
     }
 }
 

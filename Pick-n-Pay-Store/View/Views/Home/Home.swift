@@ -11,7 +11,7 @@ struct Home: View {
     //MARK: - GEOMETRY EFFECT
     @Namespace var animation
 //    @EnvironmentObject var baseData: HomeViewModel
-    @StateObject var baseData : HomeViewModel = HomeViewModel()
+    @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
     @State var currentSlider: Int = 0
@@ -19,7 +19,9 @@ struct Home: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
+
             VStack(spacing: 15) {
+                Spacer()
                 //MARK - APP BAR
                 HStack {
                     //MARK: DRAWER MENU
@@ -50,7 +52,7 @@ struct Home: View {
                         .frame(width: 74, height: 34)
                 )
                 // END APP BAR
-                Text("Hello! \(currentUser)")
+//                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
                 VStack(spacing: 15) {
                     VStack(alignment: .leading, spacing: 12) {
@@ -112,7 +114,7 @@ struct Home: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     //MARK: - CATEGORY LIST
                     HStack(spacing: 18) {
-                        
+
                         CategoryItem(image: "cat1", title: "Facewash")
 
                         CategoryItem(image: "cat2", title: "Skin Care")
@@ -138,8 +140,15 @@ struct Home: View {
                         }
                     }
                 }
+                Spacer()
             }
                 .padding()
+                .background(
+                Image(DBHelper.db.getImageData())
+                    .resizable()
+                    .ignoresSafeArea()
+                    .opacity(0.1)
+            )
             //MARK: - Bottom Tab Bar Approx Padding
             .padding(.bottom, 100)
         }
