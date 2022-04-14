@@ -17,7 +17,7 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @Environment(\.currentUser) var currentUser
-    @State var tag:Int? = nil
+    @State var tag: Int? = nil
 
     @State var email: String = ""
     @State var password: String = ""

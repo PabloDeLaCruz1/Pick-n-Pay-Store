@@ -10,9 +10,11 @@ import SwiftUI
 struct LoginSwiftUIView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.currentUser) var currentUser
 
     @State var email: String = ""
     @State var password: String = ""
+    @State var tag: Int? = nil
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
@@ -32,6 +34,9 @@ struct LoginSwiftUIView: View {
     var body: some View {
         ZStack {
             VStack {
+                NavigationLink(destination: HomeViewController(), tag: 1, selection: $tag) {
+                
+                }
                 HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
@@ -43,6 +48,20 @@ struct LoginSwiftUIView: View {
                 }
 
                 Button(action: {
+                    let user = DBHelper.db.getOneUser(email: "Pablo")
+                    
+                    currentUser.password = user.password
+                    currentUser.cart = user.cart
+                    currentUser.email = user.email
+                    currentUser.creditCard = user.creditCard
+                    currentUser.guest = "False"
+                    currentUser.history = user.history
+                    currentUser.orders = user.orders
+                    currentUser.phoneNumber = user.phoneNumber
+                    currentUser.wishlist = user.wishlist
+                    print("Hello------------------")
+                    self.tag = 1
+
                     if self.email == storedEmail && self.password == storedpassword {
                         self.authenticationDidSucceed = true
                         self.authenticationDidFail = false
@@ -51,9 +70,7 @@ struct LoginSwiftUIView: View {
                         self.authenticationDidSucceed = false
                     }
                 }) {
-                    NavigationLink(destination: StoryboardViewController()) {
-                        LoginButtonContent()
-                    }
+                    LoginButtonContent()
                 }
             }
                 .padding()
@@ -68,7 +85,7 @@ struct LoginSwiftUIView: View {
                     .animation(Animation.default)
             }
         }
-            .navigationBarTitle(Text("Sign In!"), displayMode: .inline)
+            .navigationBarTitle(Text("Log In!"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
         // Hide the system back button
         .navigationBarBackButtonHidden(true)
@@ -101,7 +118,7 @@ struct StoryboardViewController: UIViewControllerRepresentable {
 
 struct LoginSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        LoginSwiftUIView()
 
     }
 }
