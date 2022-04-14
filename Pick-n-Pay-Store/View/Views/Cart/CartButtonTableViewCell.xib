@@ -29,6 +29,9 @@
                         <state key="normal">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="checkOut:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QJL-Su-a4r"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

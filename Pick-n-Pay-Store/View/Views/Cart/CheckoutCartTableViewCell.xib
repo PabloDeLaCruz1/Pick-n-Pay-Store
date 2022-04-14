@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="KGk-i7-Jjw" customClass="CheckoutCartTableViewCell" customModule="Pick_n_Pay_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="112"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="60e-xg-Dxv" userLabel="Main Stack View">
+                        <rect key="frame" x="0.0" y="10" width="352" height="92"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dmQ-Kr-l6e">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="5Tw-aR-BaE"/>
+                                    <constraint firstAttribute="height" constant="92" id="teZ-1U-wSQ"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Els-VW-GKk" userLabel="Right Stack View">
+                                <rect key="frame" x="88" y="0.0" width="264" height="92"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LPG-g2-tYd" userLabel="Label Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="FPh-HY-ZAQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="264" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Ox5-PV-iXL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fpW-0c-e4m">
+                                                <rect key="frame" x="0.0" y="28" width="264" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="3ai-Pz-cRu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="fpW-0c-e4m" secondAttribute="bottom" id="9dh-1K-OeV"/>
+                                            <constraint firstAttribute="trailing" secondItem="FPh-HY-ZAQ" secondAttribute="trailing" id="JO6-db-hwO"/>
+                                            <constraint firstItem="fpW-0c-e4m" firstAttribute="top" secondItem="FPh-HY-ZAQ" secondAttribute="bottom" constant="8" symbolic="YES" id="N0q-95-mQO"/>
+                                            <constraint firstItem="FPh-HY-ZAQ" firstAttribute="leading" secondItem="LPG-g2-tYd" secondAttribute="leading" id="TDd-YG-oQS"/>
+                                            <constraint firstAttribute="trailing" secondItem="fpW-0c-e4m" secondAttribute="trailing" id="hZr-tg-7JJ"/>
+                                            <constraint firstItem="FPh-HY-ZAQ" firstAttribute="top" secondItem="LPG-g2-tYd" secondAttribute="top" id="hh2-vZ-kl9"/>
+                                            <constraint firstItem="fpW-0c-e4m" firstAttribute="leading" secondItem="LPG-g2-tYd" secondAttribute="leading" id="x7j-cg-MHg"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Csx-fk-ca8" userLabel="Stepper Stack View">
+                                        <rect key="frame" x="0.0" y="56" width="151" height="36"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azu-0B-Cti">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="36"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="538-GS-cPI">
+                                                <rect key="frame" x="57" y="0.0" width="94" height="36"/>
+                                            </stepper>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LPG-g2-tYd" firstAttribute="leading" secondItem="Els-VW-GKk" secondAttribute="leading" id="3Te-7v-6oz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Csx-fk-ca8" secondAttribute="bottom" id="4mj-3S-HLa"/>
+                                    <constraint firstItem="Csx-fk-ca8" firstAttribute="leading" secondItem="Els-VW-GKk" secondAttribute="leading" id="8Ut-NG-ryp"/>
+                                    <constraint firstItem="Csx-fk-ca8" firstAttribute="top" secondItem="LPG-g2-tYd" secondAttribute="bottom" constant="8" id="Exz-m4-dik"/>
+                                    <constraint firstItem="Csx-fk-ca8" firstAttribute="top" secondItem="LPG-g2-tYd" secondAttribute="bottom" constant="8" id="GPa-Zi-jxK"/>
+                                    <constraint firstAttribute="trailing" secondItem="LPG-g2-tYd" secondAttribute="trailing" id="Wpb-mI-YLy"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Csx-fk-ca8" secondAttribute="trailing" constant="113" id="ndI-Tj-6m6"/>
+                                    <constraint firstItem="LPG-g2-tYd" firstAttribute="top" secondItem="Els-VW-GKk" secondAttribute="top" id="tcE-DG-7Ts"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="92" id="3MW-an-1yG"/>
+                            <constraint firstAttribute="bottom" secondItem="Els-VW-GKk" secondAttribute="bottom" id="Lkw-6X-kcE"/>
+                            <constraint firstItem="Els-VW-GKk" firstAttribute="leading" secondItem="dmQ-Kr-l6e" secondAttribute="trailing" constant="8" symbolic="YES" id="a6m-95-oqS"/>
+                            <constraint firstItem="Els-VW-GKk" firstAttribute="top" secondItem="60e-xg-Dxv" secondAttribute="top" id="kjP-ZY-oAV"/>
+                            <constraint firstAttribute="trailing" secondItem="Els-VW-GKk" secondAttribute="trailing" id="laO-yN-0C8"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="60e-xg-Dxv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8rS-h6-4JB"/>
+                    <constraint firstItem="60e-xg-Dxv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="E9h-HJ-pNQ"/>
+                    <constraint firstAttribute="trailing" secondItem="60e-xg-Dxv" secondAttribute="trailing" constant="8" id="Ib9-X1-FO5"/>
+                    <constraint firstAttribute="bottom" secondItem="60e-xg-Dxv" secondAttribute="bottom" constant="10" id="d42-1d-FR4"/>
+                    <constraint firstItem="60e-xg-Dxv" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-4" id="hiv-kL-cNb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkoutDesc" destination="FPh-HY-ZAQ" id="snW-86-mYg"/>
+                <outlet property="checkoutImg" destination="dmQ-Kr-l6e" id="hA4-my-zrK"/>
+                <outlet property="checkoutPrice" destination="fpW-0c-e4m" id="ONr-O7-3gr"/>
+                <outlet property="checkoutStepper" destination="538-GS-cPI" id="7iG-31-gke"/>
+                <outlet property="checkoutStepperLabel" destination="Azu-0B-Cti" id="gXP-yw-AyZ"/>
+            </connections>
+            <point key="canvasLocation" x="166.66666666666669" y="111.83035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>
