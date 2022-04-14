@@ -43,7 +43,7 @@ struct SignUpView: View {
             
             }
             VStack {
-                
+                Spacer()
                 HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
@@ -66,6 +66,7 @@ struct SignUpView: View {
                     SignUpButtonContent()
               
                 }
+                Spacer()
             }
                 .padding()
             

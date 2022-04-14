@@ -14,7 +14,8 @@ struct LaunchView: View {
 
         ZStack {
             LandingView()
-                .background(Color.green)
+
+// MARK: Use for presentation/production
 //            SplashScreen()
 //                .opacity(showSplash ? 1 : 0)
 //                .onAppear {
@@ -50,11 +51,16 @@ extension EnvironmentValues {
     }
 }
 
-
 #if DEBUG
     struct LaunchView_Previews: PreviewProvider {
         static var previews: some View {
             LaunchView()
+                .background(
+                Image(DBHelper.db.getImageData())
+                    .resizable()
+                    .ignoresSafeArea()
+                    .opacity(0.5)
+            )
         }
     }
 #endif

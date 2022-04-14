@@ -59,7 +59,6 @@ struct LoginSwiftUIView: View {
                     currentUser.orders = user.orders
                     currentUser.phoneNumber = user.phoneNumber
                     currentUser.wishlist = user.wishlist
-                    print("Hello------------------")
                     self.tag = 1
 
                     if self.email == storedEmail && self.password == storedpassword {
@@ -119,6 +118,5 @@ struct StoryboardViewController: UIViewControllerRepresentable {
 struct LoginSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         LoginSwiftUIView()
-
     }
 }

@@ -14,6 +14,12 @@ struct ContentView: View {
 
     var body: some View {
         Home()
+            .background(
+                Image(DBHelper.db.getImageData())
+                        .resizable()
+                        .ignoresSafeArea()
+                    .opacity(0.1)
+                )
     }
 }
 
