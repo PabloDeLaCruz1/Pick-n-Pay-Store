@@ -17,7 +17,7 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @Environment(\.currentUser) var currentUser
-    @State var tag:Int? = nil
+    @State var tag: Int? = nil
 
     @State var email: String = ""
     @State var password: String = ""
@@ -43,7 +43,7 @@ struct SignUpView: View {
             
             }
             VStack {
-                
+                Spacer()
                 HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
@@ -66,6 +66,7 @@ struct SignUpView: View {
                     SignUpButtonContent()
               
                 }
+                Spacer()
             }
                 .padding()
             

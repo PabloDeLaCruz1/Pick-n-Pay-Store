@@ -14,7 +14,23 @@ class DBHelper {
 
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     static var db = DBHelper()
+    
+//    Used this to get random images. Saved them in assets for faster loading
+//    func getImageData () -> UIImage {
+//        let url = URL(string: "https://picsum.photos/400/600?random=1")
+//        let data = (try? Data(contentsOf: url!))!
+//        let imageData = UIImage(data: data)!
+//
+//        return imageData
+//    }
 
+    func getImageData() -> String {
+        let numberOfImages: UInt32 = 15
+        let random = arc4random_uniform(numberOfImages)
+        let bg = "bg\(random)"
+        
+        return bg
+    }
 }
 ////Current Model draft
 ////1

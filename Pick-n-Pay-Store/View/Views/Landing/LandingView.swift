@@ -8,56 +8,71 @@
 import SwiftUI
 
 struct LandingView: View {
-    
+
 //    @EnvironmentObject private var loggedIn = false
     @Environment(\.loggedInKey) var loggedInKey
-
+   var images = DBHelper.db.getImageData()
     var body: some View {
-        
+
         if loggedInKey {
             StoryboardViewController()
         } else {
-    
-        NavigationView {
 
-            VStack {
-                Image("appLogo")
-                    .resizable()
-                    .scaledToFit() .clipShape(Circle())
-                    .shadow(radius: 10)
-                    .overlay(Circle().stroke(Color("pcolor1"), lineWidth: 5))
+            NavigationView {
+                VStack {
+                    Spacer()
 
-                Button(action: {
-                }) {
-                    NavigationLink(destination: SignUpView()) {
-                        SignUpButtonContent()
-                    }
-                }
+                    Image("appLogo")
+                        .resizable()
+                        .scaledToFit() .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .overlay(Circle().stroke(Color("pcolor1"), lineWidth: 5))
 
-                Button(action: {
-                }) {
-                    NavigationLink(destination: LoginSwiftUIView()) {
-                        LoginButtonContent()
-                    }
-                }
-            }
-                .navigationBarTitle("Shopper")
-                .navigationBarItems(trailing:
                     Button(action: {
-                    // Add action
-                }, label: {
-                        Text("Continue as a Guest")
-                    })
-            )
+                    }) {
+                        NavigationLink(destination: SignUpView() .background(
+                                Image(DBHelper.db.getImageData())
+                                    .resizable()
+                                    .ignoresSafeArea()
+                                    .opacity(0.1)
+                            )) {
+                            SignUpButtonContent()
+                        }
+                    }
+
+                    Button(action: {
+                    }) {
+                        NavigationLink(destination: LoginSwiftUIView() .background(
+                            Image(DBHelper.db.getImageData())
+                                    .resizable()
+                                    .ignoresSafeArea()
+                                    .opacity(0.1)
+                            )) {
+                            LoginButtonContent()
+                        }
+                    }
+                    Spacer()
+                }
+                    .navigationBarTitle("Shopper")
+                    .background(
+                        Image(DBHelper.db.getImageData())
+                        .resizable()
+                        .ignoresSafeArea()
+                        .opacity(0.1)
+                )
+                    .navigationBarItems(trailing:
+                        Button(action: {
+                        // Add action
+                    }, label: {
+                            Text("Continue as a Guest")
+                        })
+                )
 
 //                   .navigationBarHidden(true)
-
-        } //NavigationView
+            } //NavigationView
 
         }
-
     }
-
 }
 
 struct LandingView_Previews: PreviewProvider {

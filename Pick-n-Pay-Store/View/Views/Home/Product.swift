@@ -59,7 +59,6 @@ func ForzaAPI() -> String {
     
     //Fire off data task
     
-    
-    
+
     return imgUrl
 }
