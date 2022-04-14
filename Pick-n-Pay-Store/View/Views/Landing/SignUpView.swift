@@ -17,6 +17,7 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @Environment(\.currentUser) var currentUser
+    @State var tag:Int? = nil
 
     @State var email: String = ""
     @State var password: String = ""
@@ -38,7 +39,9 @@ struct SignUpView: View {
     var body: some View {
 
         ZStack {
-
+            NavigationLink(destination: HomeViewController(), tag: 1, selection: $tag) {
+            
+            }
             VStack {
                 
                 HelloText()
@@ -52,6 +55,7 @@ struct SignUpView: View {
                 }
 
                 Button(action: {
+                    self.tag = 1
                     let _sasa = print("current user----", currentUser.cart?.saved)
 
                     currentUser.email = email
