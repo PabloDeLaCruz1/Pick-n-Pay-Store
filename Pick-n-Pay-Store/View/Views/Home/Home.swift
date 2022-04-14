@@ -12,6 +12,7 @@ struct Home: View {
     @Namespace var animation
 //    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData : HomeViewModel = HomeViewModel()
+    @Environment(\.currentUser) var currentUser
 
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
@@ -49,7 +50,7 @@ struct Home: View {
                         .frame(width: 74, height: 34)
                 )
                 // END APP BAR
-
+                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
                 VStack(spacing: 15) {
                     VStack(alignment: .leading, spacing: 12) {

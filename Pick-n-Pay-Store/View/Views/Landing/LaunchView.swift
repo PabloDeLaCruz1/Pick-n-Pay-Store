@@ -15,16 +15,16 @@ struct LaunchView: View {
         ZStack {
             LandingView()
                 .background(Color.green)
-            SplashScreen()
-                .opacity(showSplash ? 1 : 0)
-                .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                    SplashScreen.shouldAnimate = false
-                    withAnimation() {
-                        self.showSplash = false
-                    }
-                }
-            }
+//            SplashScreen()
+//                .opacity(showSplash ? 1 : 0)
+//                .onAppear {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//                    SplashScreen.shouldAnimate = false
+//                    withAnimation() {
+//                        self.showSplash = false
+//                    }
+//                }
+//            }
         }
             .onDisappear {
         }
