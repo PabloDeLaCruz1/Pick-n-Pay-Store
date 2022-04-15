@@ -58,24 +58,26 @@ struct LoginSwiftUIView: View {
                 }
 
                 Button(action: {
-                    let user = DBHelper.db.getOneUser(email: email)
+                    //TODO: get by email and pass
                     
-                    //TODO: use EnrvionmentObject 
-                    currentUser.password = user.password
-                    currentUser.cart = user.cart
-                    currentUser.email = user.email
-                    currentUser.creditCard = user.creditCard
-                    currentUser.guest = "False"
-                    currentUser.history = user.history
-                    currentUser.orders = user.orders
-                    currentUser.phoneNumber = user.phoneNumber
-                    currentUser.wishlist = user.wishlist
-                    self.tag = 1
+                    let user = DBHelper.db.getOneUser(email: email)
 
-                    if self.email == storedEmail && self.password == storedpassword {
+                    print("user email ------------", user)
+                    if user != nil {
+//                        currentUser.password = user.password
+//                        currentUser.cart = user.cart
+//                        currentUser.email = user.email
+//                        currentUser.creditCard = user.creditCard
+//                        currentUser.guest = "False"
+//                        currentUser.history = user.history
+//                        currentUser.orders = user.orders
+//                        currentUser.phoneNumber = user.phoneNumber
+//                        currentUser.wishlist = user.wishlist
                         self.authenticationDidSucceed = true
                         self.authenticationDidFail = false
+                        self.tag = 1
                     } else {
+                        print("User is not Valid!")
                         self.authenticationDidFail = true
                         self.authenticationDidSucceed = false
                     }
@@ -96,7 +98,7 @@ struct LoginSwiftUIView: View {
                     .animation(Animation.default)
             }
         }
-        .navigationBarTitle(Text(currentUser.guest == "True" ? "Log In!" : "Log Out" ), displayMode: .inline)
+            .navigationBarTitle(Text(currentUser.guest == "True" ? "Log In!" : "Log Out"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
         // Hide the system back button
         .navigationBarBackButtonHidden(true)

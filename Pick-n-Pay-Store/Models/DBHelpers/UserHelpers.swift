@@ -98,7 +98,7 @@ extension DBHelper {
         return users
     }
 
-    func getOneUser(email: String) -> User {
+    func getOneUser(email: String) -> User? {
         var user = User()
         let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: " email == %@ ", email)
@@ -110,9 +110,11 @@ extension DBHelper {
                 user = req.first!
             } else {
                 print("Data Not Found")
+                return nil
             }
         } catch {
             print("try didnt work")
+            return nil
         }
         return user
     }
@@ -159,7 +161,7 @@ extension DBHelper {
     }
 
 
-    func updateUserWishList(email: String, item: Item) {
+    func updateUserWishList(email: String, product: Product) {
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: "email == %@", email)
@@ -169,7 +171,20 @@ extension DBHelper {
             if(tempUser?.count != 0) {
                 user = tempUser?.first as! User
             }
+            
+            let item = Item(context: context!)
 
+            item.desc = product.desc
+            item.rating = product.rating
+            item.isLiked = product.isLiked
+            item.tags = product.tags
+            item.color = product.color
+            item.price = product.price
+            item.comments = product.comments
+            item.name = product.name
+            item.image = product.image
+            item.offer = product.offer
+            
             user.wishlist!.items!.insert(item)
 
             for i in user.wishlist!.items! {

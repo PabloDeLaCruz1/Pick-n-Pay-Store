@@ -15,7 +15,6 @@ struct Product: Identifiable {
     var offer: Bool
     var price: Double
     var tags: [String]?
-    
     var image: String
     var color: UIColor
     var desc: String

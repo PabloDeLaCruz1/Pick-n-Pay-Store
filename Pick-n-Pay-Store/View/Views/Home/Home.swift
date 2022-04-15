@@ -173,7 +173,9 @@ struct Home: View {
 
             //MARK: LIKED BUTTON
             Button {
-
+                DBHelper.db.updateUserWishList(email:  currentUser.email!, product: product)
+                
+                print("User Wishlist items---------", currentUser.wishlist?.items)
             } label: {
                 Image(systemName: "suit.heart.fill")
                     .font(.system(size: 13))

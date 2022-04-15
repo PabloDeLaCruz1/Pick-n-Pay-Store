@@ -10,9 +10,6 @@ import SwiftUI
 
 let lightGreyColor = Color(red: 239.0 / 255.0, green: 243.0 / 255.0, blue: 244.0 / 255.0)
 
-let storedEmail = "noemail@gmail.com"
-let storedpassword = "wrongpass"
-
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -68,7 +65,7 @@ struct SignUpView: View {
                     let _sasa = print("current user----", currentUser.cart?.saved)
 
                     currentUser.email = email
-                    currentUser.password = password
+//                    currentUser.password = password
                     
                     
                     DBHelper.db.updateUser(user: currentUser)
