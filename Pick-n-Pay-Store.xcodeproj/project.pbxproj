@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A05A3128099BD400EB5B3E /* ItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A05A3028099BD400EB5B3E /* ItemHelper.swift */; };
+		84A05A3328099C1C00EB5B3E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A05A3228099C1C00EB5B3E /* Items.swift */; };
 		84556A8128072FBC00FDA602 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84556A8028072FBC00FDA602 /* OrdersTableViewController.swift */; };
 		84556A832807312200FDA602 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84556A822807312200FDA602 /* OrdersTableViewCell.swift */; };
 		909848682808756000241A03 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909848632808756000241A03 /* ItemCollectionViewCell.swift */; };
@@ -83,6 +85,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84A05A3028099BD400EB5B3E /* ItemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHelper.swift; sourceTree = "<group>"; };
+		84A05A3228099C1C00EB5B3E /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		84556A8028072FBC00FDA602 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		84556A822807312200FDA602 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		909848632808756000241A03 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				FEA97F8027FE3F9D00F82B15 /* Slider.swift */,
 				FEA97F8327FE3FD300F82B15 /* Product.swift */,
 				FEA97F8527FE404500F82B15 /* DetailView.swift */,
+				84A05A3228099C1C00EB5B3E /* Items.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 			children = (
 				FEAAF23F27FC60E8000F2440 /* DBHelper.swift */,
 				FEAAF24227FC6260000F2440 /* UserHelpers.swift */,
+				84A05A3028099BD400EB5B3E /* ItemHelper.swift */,
 			);
 			path = DBHelpers;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				9098486A2808756000241A03 /* ItemCollectionTableViewCell.swift in Sources */,
 				9A18C2C327FFC153002221F6 /* CartButtonTableViewCell.swift in Sources */,
 				FE64689127F74A5100795DB2 /* UserTestViewController.swift in Sources */,
+				84A05A3128099BD400EB5B3E /* ItemHelper.swift in Sources */,
 				9AB9864227FD05330016442B /* CartTableViewController.swift in Sources */,
 				9AD5519B27FD47B400A2522F /* WishListViewController.swift in Sources */,
 				FED794F827FCDAB00094E123 /* Cart+CoreDataClass.swift in Sources */,
@@ -548,6 +555,7 @@
 				FED794F627FCDAB00094E123 /* Item+CoreDataClass.swift in Sources */,
 				FEA97F8627FE404500F82B15 /* DetailView.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
+				84A05A3328099C1C00EB5B3E /* Items.swift in Sources */,
 				FEA97F7D27FE3CCC00F82B15 /* ContentView.swift in Sources */,
 				FEA97F7927FE3BEB00F82B15 /* CustomCurveShape.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
