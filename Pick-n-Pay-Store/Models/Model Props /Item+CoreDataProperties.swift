@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 
 extension Item {
 
@@ -21,9 +21,16 @@ extension Item {
     @NSManaged public var offer: Bool
     @NSManaged public var price: Double
     @NSManaged public var tags: [String]?
+    
+    @NSManaged public var image: String
+    @NSManaged public var color: UIColor
+    @NSManaged public var desc: String
+    @NSManaged public var isLiked: Bool
+    @NSManaged public var rating: Int
 
 }
 
 extension Item : Identifiable {
 
 }
+
