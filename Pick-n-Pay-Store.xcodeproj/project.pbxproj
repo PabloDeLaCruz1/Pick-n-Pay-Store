@@ -691,7 +691,7 @@
 				FED794E727FCAB8B0094E123 /* CoreDataModel 2.xcdatamodel */,
 				FED794D127FCA4450094E123 /* CoreDataModel.xcdatamodel */,
 			);
-			currentVersion = FEA97F962800896B00F82B15 /* CoreDataModel 5.xcdatamodel */;
+			currentVersion = FE887EDE2808F7D7000C2407 /* CoreDataModel 6.xcdatamodel */;
 			path = CoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

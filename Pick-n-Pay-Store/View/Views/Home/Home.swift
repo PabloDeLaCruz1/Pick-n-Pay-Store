@@ -167,7 +167,7 @@ struct Home: View {
 
     //MARK: PRODUCT VIEW
     @ViewBuilder
-    func CardView(product: Item) -> some View {
+    func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
 
             //MARK: LIKED BUTTON
@@ -186,16 +186,16 @@ struct Home: View {
             .frame(maxWidth: .infinity, alignment: .trailing)
 
             //MARK: - PRODUCT IMAGE
-            Image(product.productImage)
+            Image(product.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .matchedGeometryEffect(id: product.productImage, in: animation)
+                .matchedGeometryEffect(id: product.image, in: animation)
                 .padding()
                 .rotationEffect(.init(degrees: -20))
                 .background(
                 ZStack {
                     Circle()
-                        .fill(product.productColor)
+                        .fill(Color(product.color))
                         .padding(-10)
                     //MARK: - INNER CIRCLE
                     Circle()
@@ -205,12 +205,12 @@ struct Home: View {
             ) // END PRODUCT IMAGE
 
             //MARK: PRODUCT TITLE
-            Text(product.productTitle)
+            Text(product.name!)
                 .fontWeight(.semibold)
                 .padding(.top)
 
             //MARK: - PRODUCT PRICE
-            Text(product.productPrice)
+            Text(String(product.price))
                 .font(.title2.bold())
 
             //MARK: - RATIING
@@ -218,10 +218,10 @@ struct Home: View {
                 ForEach(1...5, id: \.self) { index in
                     Image(systemName: "star.fill")
                         .font(.system(size: 9.5))
-                        .foregroundColor(product.productRating >= index ? .yellow : Color.gray.opacity(0.6))
+                        .foregroundColor(product.rating >= index ? .yellow : Color.gray.opacity(0.6))
                 }
 
-                Text("(\(product.productRating).0)")
+                Text("(\(product.rating).0)")
                     .font(.caption.bold())
                     .foregroundColor(.gray)
             }
