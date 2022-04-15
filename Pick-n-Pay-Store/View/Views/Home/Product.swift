@@ -27,11 +27,11 @@ Product(productImage: "product4", productTitle: "Hawaiian Tropic", productPrice:
 ]
 
 //make viewModel
-var items = [
-Item(),
-Item(),
-Item(),
-Item()
+var products = [
+    Item(name: "Item #1", comments: ["Comment1", "Comment2", "Comment3"], offer: false, price: 22.25, tags: ["tag1", "tag2", "tag3"]),
+    Item(name: "Item #2", comments: ["Comment1", "Comment2", "Comment3"], offer: false, price: 172.25, tags: ["tag1", "tag2", "tag3"]),
+    Item(name: "Item #3", comments: ["Comment1", "Comment2", "Comment3"], offer: false, price: 2.25, tags: ["tag1", "tag2", "tag3"]),
+    Item(name: "Item #4", comments: ["Comment1", "Comment2", "Comment3"], offer: false, price: 100, tags: ["tag1", "tag2", "tag3"]),
 ]
 
 func ForzaAPI() -> String {

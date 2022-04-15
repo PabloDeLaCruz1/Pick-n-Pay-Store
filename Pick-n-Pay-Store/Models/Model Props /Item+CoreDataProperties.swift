@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import SwiftUI
 
 extension Item {
 
@@ -26,4 +26,18 @@ extension Item {
 
 extension Item : Identifiable {
 
+}
+
+//Using this to make list of available items, TODO: pull items from API
+extension Item {
+    convenience init(name: String, comments: [String], offer: Bool, price: Double, tags: [String], productImage: String, productTitle: String, productPrice: String, productColor: Color, productDescription: String, isLiked: Bool = false, productRating: Int) {
+        
+        self.init()
+        self.name = name
+        self.comments = comments
+        self.offer = offer
+        self.price = price
+        self.tags = tags
+        
+    }
 }

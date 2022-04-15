@@ -59,7 +59,8 @@ struct LoginSwiftUIView: View {
 
                 Button(action: {
                     let user = DBHelper.db.getOneUser(email: email)
-
+                    
+                    //TODO: use EnrvionmentObject 
                     currentUser.password = user.password
                     currentUser.cart = user.cart
                     currentUser.email = user.email

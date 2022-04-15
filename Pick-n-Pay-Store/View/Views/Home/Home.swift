@@ -71,7 +71,7 @@ struct Home: View {
                     }
                         .frame(maxHeight: .infinity, alignment: .top)
                         .onAppear {
-                        for index in 1...4 {
+                        for index in 1...7 {
                             sliders.append(Slider(sliderImage: "slider\(index)"))
                         }
                     }
@@ -114,14 +114,21 @@ struct Home: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     //MARK: - CATEGORY LIST
                     HStack(spacing: 18) {
+                        CategoryItem(image: "cat1", title: "Auto")
 
-                        CategoryItem(image: "cat1", title: "Facewash")
-
-                        CategoryItem(image: "cat2", title: "Skin Care")
+                        CategoryItem(image: "cat2", title: "Electronics")
 
                         CategoryItem(image: "cat3", title: "Health Care")
 
                         CategoryItem(image: "cat4", title: "Backpack")
+
+                        CategoryItem(image: "cat5", title: "Facewash")
+
+                        CategoryItem(image: "cat6", title: "Skin Care")
+
+                        CategoryItem(image: "cat7", title: "Used Cars")
+
+                        CategoryItem(image: "cat8", title: "Backpack")
                     } // END CATEGORY LIST
                     .padding(.vertical)
                 }
@@ -160,7 +167,7 @@ struct Home: View {
 
     //MARK: PRODUCT VIEW
     @ViewBuilder
-    func CardView(product: Product) -> some View {
+    func CardView(product: Item) -> some View {
         VStack(spacing: 15) {
 
             //MARK: LIKED BUTTON
@@ -228,7 +235,7 @@ struct Home: View {
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
-//            withAnimation{baseData.homeTab = title}
+            withAnimation{baseData.homeTab = title}
         } label: {
             HStack(spacing: 8) {
                 Image(image)

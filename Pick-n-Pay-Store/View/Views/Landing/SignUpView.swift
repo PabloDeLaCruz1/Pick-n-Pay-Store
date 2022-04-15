@@ -69,6 +69,8 @@ struct SignUpView: View {
 
                     currentUser.email = email
                     currentUser.password = password
+                    
+                    
                     DBHelper.db.updateUser(user: currentUser)
                     print("User added to DB", currentUser.cart?.saved)
                 }) {
