@@ -10,9 +10,11 @@ import SwiftUI
 struct ItemInfoView: View {
     var body: some View {
         VStack{
+            HStack{
             Text("Your \(" (item name)") is")
-                .font(.title2)
-                
+            .font(.title2)
+            Spacer()
+            }.padding([.leading, .trailing], 10)
         HStack{
             ZStack{
             Circle()
@@ -39,9 +41,9 @@ struct ItemInfoView: View {
                     .padding([.all], 8)
                     .foregroundColor(Color.white)
                     .background(Color.red)
-                    .cornerRadius(8)
+                    .cornerRadius(7)
             })
-                .shadow(radius: 10)
+                .shadow(radius: 5)
             
             Spacer()
             

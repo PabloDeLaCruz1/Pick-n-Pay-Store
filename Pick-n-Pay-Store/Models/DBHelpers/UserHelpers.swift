@@ -180,6 +180,10 @@ extension DBHelper {
             print("issues updating data")
         }
     }
+    //saving wishList items test
+    func addItemWishList(){
+        
+    }
 
     func addOrder(email: String, order: Order) {
         var user = User()

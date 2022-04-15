@@ -17,11 +17,11 @@ class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
 
-        storeItems.append(StoreItems(type: "Dishes", title: "Blue and brown plate", imageName: "plates", priceSign: "$", price: 5.99))
-        storeItems.append(StoreItems(type: "Dishes", title: "Blue Plate", imageName: "plates1",priceSign: "$", price: 6.99))
-        storeItems.append(StoreItems(type: "Dishes", title: "brown plate", imageName: "plates2",priceSign: "$", price: 4.99))
-        storeItems.append(StoreItems(type: "Dishes", title: "Blue  brown plate", imageName: "plates3",priceSign: "$",  price: 7.59))
-        storeItems.append(StoreItems(type: "Dishes", title: "Another plate", imageName: "plates4",priceSign: "$", price: 3.59))
+        storeItems.append(StoreItems(type: "Dishes", title: "Blue and brown plate", imageName: "puma", priceSign: "$", price: 5.99))
+        storeItems.append(StoreItems(type: "Dishes", title: "Blue Plate", imageName: "biore",priceSign: "$", price: 6.99))
+        storeItems.append(StoreItems(type: "Dishes", title: "brown plate", imageName: "dymo",priceSign: "$", price: 4.99))
+        storeItems.append(StoreItems(type: "Dishes", title: "Blue  brown plate", imageName: "frixion",priceSign: "$",  price: 7.59))
+        storeItems.append(StoreItems(type: "Dishes", title: "Another plate", imageName: "garlic",priceSign: "$", price: 3.59))
 
         
         table.register(ItemCollectionTableViewCell.nib(), forCellReuseIdentifier: ItemCollectionTableViewCell.identifier)
