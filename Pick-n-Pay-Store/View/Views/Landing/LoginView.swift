@@ -18,7 +18,7 @@ struct LoginSwiftUIView: View {
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
-    
+
     var btnBack: some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -34,8 +34,18 @@ struct LoginSwiftUIView: View {
     var body: some View {
         ZStack {
             VStack {
-                NavigationLink(destination: HomeViewController(), tag: 1, selection: $tag) {
-                
+                Spacer()
+                NavigationLink(
+                    destination: StoryboardViewController()
+                        .background(
+                        Image(DBHelper.db.getImageData())
+                            .resizable()
+                            .ignoresSafeArea()
+                            .opacity(0.1)
+                    ),
+                    tag: 1,
+                    selection: $tag) {
+
                 }
                 HelloText()
                 UserImage()
@@ -48,8 +58,9 @@ struct LoginSwiftUIView: View {
                 }
 
                 Button(action: {
-                    let user = DBHelper.db.getOneUser(email: "Pablo")
+                    let user = DBHelper.db.getOneUser(email: email)
                     
+                    //TODO: use EnrvionmentObject 
                     currentUser.password = user.password
                     currentUser.cart = user.cart
                     currentUser.email = user.email
@@ -71,6 +82,7 @@ struct LoginSwiftUIView: View {
                 }) {
                     LoginButtonContent()
                 }
+                Spacer()
             }
                 .padding()
 
@@ -84,7 +96,7 @@ struct LoginSwiftUIView: View {
                     .animation(Animation.default)
             }
         }
-            .navigationBarTitle(Text("Log In!"), displayMode: .inline)
+        .navigationBarTitle(Text(currentUser.guest == "True" ? "Log In!" : "Log Out" ), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
         // Hide the system back button
         .navigationBarBackButtonHidden(true)
@@ -106,11 +118,13 @@ struct StoryboardViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> some UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(identifier: "tabbar")
+        controller.view.backgroundColor = UIColor(patternImage: UIImage(named: DBHelper.db.getImageData())!)
+
         return controller
     }
-    
+
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
+
     }
 }
 

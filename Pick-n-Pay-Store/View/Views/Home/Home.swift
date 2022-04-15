@@ -11,7 +11,7 @@ struct Home: View {
     //MARK: - GEOMETRY EFFECT
     @Namespace var animation
 //    @EnvironmentObject var baseData: HomeViewModel
-    @StateObject var baseData : HomeViewModel = HomeViewModel()
+    @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
     @State var currentSlider: Int = 0
@@ -19,7 +19,9 @@ struct Home: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
+
             VStack(spacing: 15) {
+                Spacer()
                 //MARK - APP BAR
                 HStack {
                     //MARK: DRAWER MENU
@@ -45,12 +47,13 @@ struct Home: View {
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo")
+                    Image("logo3")
                         .resizable()
-                        .frame(width: 74, height: 34)
+                        .frame(width: 160, height: 80)
+                        .clipShape(Circle())
                 )
                 // END APP BAR
-                Text("Hello! \(currentUser)")
+//                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
                 VStack(spacing: 15) {
                     VStack(alignment: .leading, spacing: 12) {
@@ -69,7 +72,7 @@ struct Home: View {
                     }
                         .frame(maxHeight: .infinity, alignment: .top)
                         .onAppear {
-                        for index in 1...4 {
+                        for index in 1...7 {
                             sliders.append(Slider(sliderImage: "slider\(index)"))
                         }
                     }
@@ -112,14 +115,21 @@ struct Home: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     //MARK: - CATEGORY LIST
                     HStack(spacing: 18) {
-                        
-                        CategoryItem(image: "cat1", title: "Facewash")
+                        CategoryItem(image: "cat1", title: "Auto")
 
-                        CategoryItem(image: "cat2", title: "Skin Care")
+                        CategoryItem(image: "cat2", title: "Electronics")
 
                         CategoryItem(image: "cat3", title: "Health Care")
 
                         CategoryItem(image: "cat4", title: "Backpack")
+
+                        CategoryItem(image: "cat5", title: "Facewash")
+
+                        CategoryItem(image: "cat6", title: "Skin Care")
+
+                        CategoryItem(image: "cat7", title: "Used Cars")
+
+                        CategoryItem(image: "cat8", title: "Backpack")
                     } // END CATEGORY LIST
                     .padding(.vertical)
                 }
@@ -138,8 +148,15 @@ struct Home: View {
                         }
                     }
                 }
+                Spacer()
             }
                 .padding()
+                .background(
+                Image(DBHelper.db.getImageData())
+                    .resizable()
+                    .ignoresSafeArea()
+                    .opacity(0.1)
+            )
             //MARK: - Bottom Tab Bar Approx Padding
             .padding(.bottom, 100)
         }
@@ -170,16 +187,16 @@ struct Home: View {
             .frame(maxWidth: .infinity, alignment: .trailing)
 
             //MARK: - PRODUCT IMAGE
-            Image(product.productImage)
+            Image(product.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .matchedGeometryEffect(id: product.productImage, in: animation)
+                .matchedGeometryEffect(id: product.image, in: animation)
                 .padding()
                 .rotationEffect(.init(degrees: -20))
                 .background(
                 ZStack {
                     Circle()
-                        .fill(product.productColor)
+                        .fill(Color(product.color))
                         .padding(-10)
                     //MARK: - INNER CIRCLE
                     Circle()
@@ -189,12 +206,12 @@ struct Home: View {
             ) // END PRODUCT IMAGE
 
             //MARK: PRODUCT TITLE
-            Text(product.productTitle)
+            Text(product.name!)
                 .fontWeight(.semibold)
                 .padding(.top)
 
             //MARK: - PRODUCT PRICE
-            Text(product.productPrice)
+            Text(String(product.price))
                 .font(.title2.bold())
 
             //MARK: - RATIING
@@ -202,10 +219,10 @@ struct Home: View {
                 ForEach(1...5, id: \.self) { index in
                     Image(systemName: "star.fill")
                         .font(.system(size: 9.5))
-                        .foregroundColor(product.productRating >= index ? .yellow : Color.gray.opacity(0.6))
+                        .foregroundColor(product.rating >= index ? .yellow : Color.gray.opacity(0.6))
                 }
 
-                Text("(\(product.productRating).0)")
+                Text("(\(product.rating).0)")
                     .font(.caption.bold())
                     .foregroundColor(.gray)
             }
@@ -219,7 +236,7 @@ struct Home: View {
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
-//            withAnimation{baseData.homeTab = title}
+            withAnimation{baseData.homeTab = title}
         } label: {
             HStack(spacing: 8) {
                 Image(image)

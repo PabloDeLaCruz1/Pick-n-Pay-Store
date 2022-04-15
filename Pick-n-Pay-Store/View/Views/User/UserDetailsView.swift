@@ -1,38 +1,39 @@
 //
-//  DetailView.swift
+//  UserDetailsView.swift
 //  Pick-n-Pay-Store
 //
-//  Created by Pablo De La Cruz on 4/6/22.
+//  Created by Pablo De La Cruz on 4/14/22.
 //
 
 import SwiftUI
 
-struct DetailView: View {
+struct UserDetailsView: View {
     @EnvironmentObject var baseData: HomeViewModel
+    @Environment(\.currentUser) var currentUser
+
     //FOR HERO EFFECT
-    var animation: Namespace.ID
-
-
-    @State var size = "2 Grams"
+//    var animation: Namespace.ID
+    @State var size = "Order 2"
     @State var itemColor: Color = .red
-
+    @State var user = products.first
+  
     var body: some View {
-
+        
         //MARK: SAFE CHECK
-        if let product = baseData.currentProduct, baseData.showDetail {
+        if  true {
             VStack(spacing: 0) {
                 //MARK: - APP BAR
                 HStack {
                     //MARK: DRAWER MENU
-                    Button {
-                        withAnimation {
-                            baseData.showDetail = false
-                        }
-                    } label: {
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                            .foregroundColor(.black)
-                    } // END DRAWER MENU
+//                    Button {
+//                        withAnimation {
+//                            baseData.showDetail = false
+//                        }
+//                    } label: {
+//                        Image(systemName: "arrow.left")
+//                            .font(.title2)
+//                            .foregroundColor(.black)
+//                    } // END DRAWER MENU
 
                     Spacer()
 
@@ -59,16 +60,16 @@ struct DetailView: View {
                 // END APP BAR
 
                 //MARK: - PRODUCT IMAGE
-                Image(product.image)
+                Image("cat4")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 220, height: 220)
-                    .matchedGeometryEffect(id: product.image, in: animation)
+//                    .matchedGeometryEffect(id: user.image, in: animation)
                     .rotationEffect(.init(degrees: -20))
                     .background(
                     ZStack {
                         Circle()
-                            .fill(Color(product.color))
+                            .fill(Color(user!.color))
                             .padding()
                         Circle()
                             .fill(Color.white.opacity(0.5))
@@ -81,7 +82,7 @@ struct DetailView: View {
                 //MARK: - PRODUCT DETAILS
                 VStack(alignment: .leading, spacing: 15) {
                     HStack {
-                        Text(product.name!)
+                        Text(currentUser.email!)
                             .font(.title.bold())
 
                         Spacer(minLength: 10)
@@ -89,22 +90,24 @@ struct DetailView: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
 
-                        Text("(\(product.rating))")
+                        Text("(\(user!.rating))")
                             .foregroundColor(.gray)
 
                     }
-                    Text(product.desc)
+                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
                         .font(.callout)
                         .lineSpacing(10)
+                        .fixedSize(horizontal: false, vertical: true)
+
 
                     //MARK: PRODUCT SIZE
                     HStack(spacing: 0) {
-                        Text("Size: ")
+                        Text("Orders ")
                             .font(.caption.bold())
                             .foregroundColor(.gray)
                             .padding(.trailing)
 
-                        ForEach(["1 Grams", "2 Grams", "3 Grams"], id: \.self) { size in
+                        ForEach(["Order1", "Order2", "Order3"], id: \.self) { size in
                             Button {
                                 self.size = size
 
@@ -127,14 +130,14 @@ struct DetailView: View {
                     //MARK: PRODUCT COLOR
                     HStack(spacing: 15) {
                         let colors: [Color] = [.red, .yellow, .purple, .green]
-                        Text("Colors: ")
+                        Text("Orders: ")
                             .font(.caption.bold())
                             .foregroundColor(.gray)
                             .padding(.trailing)
 
                         ForEach(colors, id: \.self) { color in
                             Button {
-                                self.itemColor = color
+                                self.itemColor = .red
 
                             } label: {
                                 Circle()
@@ -156,13 +159,13 @@ struct DetailView: View {
 
                     } label: {
                         HStack(spacing: 15) {
-                            Image("cart")
+                            Image("person")
                                 .resizable()
                                 .renderingMode(.template)
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 20, height: 20)
 
-                            Text("Add to cart")
+                            Text("Logout? Settings? ")
                                 .fontWeight(.bold)
                         }
                             .foregroundColor(Color("Btnbg"))
@@ -178,7 +181,7 @@ struct DetailView: View {
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .background(
-                    Color("Btnbg")
+                    Color("pcolor1")
                         .opacity(0.05)
                         .cornerRadius(20)
                         .ignoresSafeArea(.container, edges: .bottom)
@@ -190,17 +193,11 @@ struct DetailView: View {
                 .transition(.opacity)
         }
     }
-}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
-}
 
-//MARK: - VIEW EXTENSION
-extension View {
-    func getScreenBound() -> CGRect {
-        return UIScreen.main.bounds
+
+struct UserDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentDetailView()
     }
 }
