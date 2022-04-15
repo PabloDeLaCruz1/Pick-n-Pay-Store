@@ -13,16 +13,18 @@ class WishListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTitleLabel: UILabel!
-    @IBOutlet weak var itemDiscountLabel: UILabel!
     @IBOutlet weak var itemPriceLabel: UILabel!
-    @IBOutlet weak var itemWishListHeartImage: UIImageView!
-    @IBOutlet weak var itemWishListHeartButton: UIButton!
     
-    
-    @IBAction func wishListButtonSelected(_ sender: Any) {
-        print("this item in no longer in wishList")
-        
+    @IBAction func itemMoveToCart(_ sender: Any) {
+        //this button moves this item to the shopping cart.
+        print("item moved to cart")
         
     }
+    
+    @IBAction func itemOffWishList(_ sender: Any) {
+        //this button takes this itemm off of the WishList
+        print("item off of wishList")
+    }
+
     
 }
