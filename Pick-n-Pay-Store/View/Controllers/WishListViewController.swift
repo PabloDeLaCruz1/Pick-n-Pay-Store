@@ -57,7 +57,9 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
 //        for d in data{
 //            print("id is ", d.id , "Score for ", d.typeService, " Total Room Score is: ", d.totalFood )
 //        }
-//        
+//
+        
+        
     }
     
     
