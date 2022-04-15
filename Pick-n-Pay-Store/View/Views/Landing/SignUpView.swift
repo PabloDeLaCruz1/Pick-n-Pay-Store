@@ -184,7 +184,7 @@ struct PasswordSecureField: View {
 struct SignUpButtonContent: View {
     var body: some View {
         HStack(spacing: 15) {
-            Image("cart")
+            Image("person")
                 .resizable()
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fit)

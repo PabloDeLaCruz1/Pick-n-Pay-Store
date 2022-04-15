@@ -1,22 +1,20 @@
 //
-//  HomeViewController.swift
+//  UserDetailsViewController.swift
 //  Pick-n-Pay-Store
 //
-//  Created by Pablo De La Cruz on 4/6/22.
+//  Created by Pablo De La Cruz on 4/14/22.
 //
 
 import UIKit
 import SwiftUI
 
-
-final class HomeViewController: UIHostingController<ContentView>, UIViewControllerRepresentable {
-
-    typealias UIViewControllerType = HomeViewController
-    @EnvironmentObject var baseData: HomeViewModel
+final class UserDetailsViewController: UIHostingController<ContentDetailView>, UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = UserDetailsViewController
     @Environment(\.currentUser) var currentUser
     
     var user = User()
-    
+
     func makeUIViewController(context: Context) -> UIViewControllerType {
         let myViewController = UIViewControllerType()
         // myView.delegate = context.coordinator
@@ -32,15 +30,15 @@ final class HomeViewController: UIHostingController<ContentView>, UIViewControll
     }
 
     init() {
-        let view = ContentView()
+        let view = ContentDetailView()
 
         super.init(rootView: view)
-        myHostVc = self
+        userDetailsHost = self
         
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: ContentView())
+        super.init(coder: aDecoder, rootView: ContentDetailView())
     }
 
 }
