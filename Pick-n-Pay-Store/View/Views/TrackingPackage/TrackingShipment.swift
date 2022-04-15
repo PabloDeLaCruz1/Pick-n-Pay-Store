@@ -14,13 +14,12 @@ struct TrackingShipment: View {
             ItemInfoView()
             Divider()
                 VStack(spacing: 0){
-                TrackProgressView(date: "April 1", status: "Packed",icon: "p.circle.fill", isFirst: true, isLast: false  ).previewLayout(.sizeThatFits)
-                TrackProgressView(date: "April 2", status: "In transit",icon: "i.circle.fill", isFirst: false, isLast: false  ).previewLayout(.sizeThatFits)
-                TrackProgressView(date: "April 5", status: "Out for delivery",icon: "o.circle.fill", isFirst: false, isLast: false  ).previewLayout(.sizeThatFits)
-                TrackProgressView(date: "April 5", status: "Delivered",icon: "d.circle.fill", isFirst: true, isLast: true  ).previewLayout(.sizeThatFits)
+                    TrackProgressView(date: "April 1", status: "Packed",icon: "p.circle.fill", isFirst: true, isLast: false, state: .completed  ).previewLayout(.sizeThatFits)
+                    TrackProgressView(date: "April 2", status: "In transit",icon: "i.circle.fill", isFirst: false, isLast: false, state: .completed  ).previewLayout(.sizeThatFits)
+                    TrackProgressView(date: "April 5", status: "Out for delivery",icon: "o.circle.fill", isFirst: false, isLast: false, state: .completed  ).previewLayout(.sizeThatFits)
+                    TrackProgressView(date: "April 5", status: "Delivered",icon: "d.circle.fill", isFirst: false, isLast: true, state: .inProgress  ).previewLayout(.sizeThatFits)
                 }
-            }
-            
+            }.padding([.leading, .trailing], 8)
             .navigationTitle(Text("Tracking Package"))
         }
     }
