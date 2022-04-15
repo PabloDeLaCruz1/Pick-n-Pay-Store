@@ -13,7 +13,6 @@ struct Home: View {
 //    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
-    @Environment(\.products) var productsToFilter
 
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
@@ -144,7 +143,7 @@ struct Home: View {
 //
 //                }
                 LazyVGrid(columns: columns, spacing: 18) {
-                    ForEach(productsToFilter) { product in
+                    ForEach(baseData.products) { product in
                         CardView(product: product)
                             .onTapGesture {
                             withAnimation {
@@ -243,11 +242,23 @@ struct Home: View {
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
-            print(productsToFilter.filter {$0.tags?.first != "tag1"})
+            print(baseData.products.filter {$0.tags?.first != "tag1"})
+            let filtered = baseData.products.filter {$0.tags?.first != "tag1"}
+            
+            baseData.products = filtered
+//            = filtered
+//            for (i, product) in baseData.products.enumerated() {
+//
+//                if filtered.indices.contains(i) {
+//                    baseData.products[i] = filtered[i]
+//                } else {
+//
+//                }
+//
+//            }
             withAnimation{baseData.homeTab = title}
             withAnimation{baseData.category = title}
-//            withAnimation(productsToFilter )
-//            withAnimation(, <#T##() -> Result#>)
+
         } label: {
             HStack(spacing: 8) {
                 Image(image)
