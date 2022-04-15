@@ -11,6 +11,7 @@ var myHostVc: UIHostingController<ContentView>? = nil
 
 struct ContentView: View {
     @EnvironmentObject var baseData : HomeViewModel
+    @Environment(\.currentUser) var currentUser
 
     var body: some View {
         Home()

@@ -48,26 +48,27 @@ struct DetailView: View {
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo")
+                    Image("logo3")
                         .resizable()
-                        .frame(width: 74, height: 34)
+                        .frame(width: 140, height: 70)
                         .padding(.horizontal)
                         .padding(.bottom)
-                )
+                        .clipShape(Circle())
+                    )
                     .padding()
                 // END APP BAR
 
                 //MARK: - PRODUCT IMAGE
-                Image(product.productImage)
+                Image(product.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 220, height: 220)
-                    .matchedGeometryEffect(id: product.productImage, in: animation)
+                    .matchedGeometryEffect(id: product.image, in: animation)
                     .rotationEffect(.init(degrees: -20))
                     .background(
                     ZStack {
                         Circle()
-                            .fill(product.productColor)
+                            .fill(Color(product.color))
                             .padding()
                         Circle()
                             .fill(Color.white.opacity(0.5))
@@ -80,7 +81,7 @@ struct DetailView: View {
                 //MARK: - PRODUCT DETAILS
                 VStack(alignment: .leading, spacing: 15) {
                     HStack {
-                        Text(product.productTitle)
+                        Text(product.name!)
                             .font(.title.bold())
 
                         Spacer(minLength: 10)
@@ -88,11 +89,11 @@ struct DetailView: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
 
-                        Text("(\(product.productRating))")
+                        Text("(\(product.rating))")
                             .foregroundColor(.gray)
 
                     }
-                    Text(product.productDescription)
+                    Text(product.desc)
                         .font(.callout)
                         .lineSpacing(10)
 

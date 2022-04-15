@@ -10,13 +10,15 @@ import SwiftUI
 struct LoginSwiftUIView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.currentUser) var currentUser
 
     @State var email: String = ""
     @State var password: String = ""
+    @State var tag: Int? = nil
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
-    
+
     var btnBack: some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
     }) {
@@ -32,6 +34,19 @@ struct LoginSwiftUIView: View {
     var body: some View {
         ZStack {
             VStack {
+                Spacer()
+                NavigationLink(
+                    destination: StoryboardViewController()
+                        .background(
+                        Image(DBHelper.db.getImageData())
+                            .resizable()
+                            .ignoresSafeArea()
+                            .opacity(0.1)
+                    ),
+                    tag: 1,
+                    selection: $tag) {
+
+                }
                 HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
@@ -43,6 +58,20 @@ struct LoginSwiftUIView: View {
                 }
 
                 Button(action: {
+                    let user = DBHelper.db.getOneUser(email: email)
+                    
+                    //TODO: use EnrvionmentObject 
+                    currentUser.password = user.password
+                    currentUser.cart = user.cart
+                    currentUser.email = user.email
+                    currentUser.creditCard = user.creditCard
+                    currentUser.guest = "False"
+                    currentUser.history = user.history
+                    currentUser.orders = user.orders
+                    currentUser.phoneNumber = user.phoneNumber
+                    currentUser.wishlist = user.wishlist
+                    self.tag = 1
+
                     if self.email == storedEmail && self.password == storedpassword {
                         self.authenticationDidSucceed = true
                         self.authenticationDidFail = false
@@ -51,10 +80,9 @@ struct LoginSwiftUIView: View {
                         self.authenticationDidSucceed = false
                     }
                 }) {
-                    NavigationLink(destination: StoryboardViewController()) {
-                        LoginButtonContent()
-                    }
+                    LoginButtonContent()
                 }
+                Spacer()
             }
                 .padding()
 
@@ -68,7 +96,7 @@ struct LoginSwiftUIView: View {
                     .animation(Animation.default)
             }
         }
-            .navigationBarTitle(Text("Sign In!"), displayMode: .inline)
+        .navigationBarTitle(Text(currentUser.guest == "True" ? "Log In!" : "Log Out" ), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
         // Hide the system back button
         .navigationBarBackButtonHidden(true)
@@ -90,18 +118,19 @@ struct StoryboardViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> some UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(identifier: "tabbar")
+        controller.view.backgroundColor = UIColor(patternImage: UIImage(named: DBHelper.db.getImageData())!)
+
         return controller
     }
-    
+
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
+
     }
 }
 
 
 struct LoginSwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
-
+        LoginSwiftUIView()
     }
 }
