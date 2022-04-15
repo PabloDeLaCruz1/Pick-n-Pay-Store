@@ -85,7 +85,6 @@ struct UserDetailsView: View {
                         Text(currentUser.email!)
                             .font(.title.bold())
 
-                        Spacer(minLength: 10)
 
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
@@ -94,7 +93,7 @@ struct UserDetailsView: View {
                             .foregroundColor(.gray)
 
                     }
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elite.")
                         .font(.callout)
                         .lineSpacing(10)
                         .fixedSize(horizontal: false, vertical: true)
