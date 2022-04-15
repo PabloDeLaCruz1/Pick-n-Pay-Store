@@ -94,7 +94,7 @@ struct Home: View {
 
                 //MARK: - BODY TOP
                 HStack {
-                    Text("Our Products")
+                    Text("Products: \(baseData.category)")
                         .font(.title.bold())
                     Spacer()
                     Button {
@@ -137,8 +137,13 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
+//                if productsFiltered != nil {
+//                    print("Filtered-------------")
+//                } else {
+//
+//                }
                 LazyVGrid(columns: columns, spacing: 18) {
-                    ForEach(products) { product in
+                    ForEach(baseData.products) { product in
                         CardView(product: product)
                             .onTapGesture {
                             withAnimation {
@@ -173,7 +178,9 @@ struct Home: View {
 
             //MARK: LIKED BUTTON
             Button {
-
+                DBHelper.db.updateUserWishList(email:  currentUser.email!, product: product)
+                
+                print("User Wishlist items---------", currentUser.wishlist?.items)
             } label: {
                 Image(systemName: "suit.heart.fill")
                     .font(.system(size: 13))
@@ -181,7 +188,6 @@ struct Home: View {
                     .padding(5)
                     .background(
                     Color.red.opacity(product.isLiked ? 1 : 0), in: Circle()
-
                 )
             } // END LIKED BUTTON
             .frame(maxWidth: .infinity, alignment: .trailing)
@@ -236,7 +242,23 @@ struct Home: View {
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
+            print(baseData.products.filter {$0.tags?.first != "tag1"})
+            let filtered = baseData.products.filter {$0.tags?.first != "tag1"}
+            
+            baseData.products = filtered
+//            = filtered
+//            for (i, product) in baseData.products.enumerated() {
+//
+//                if filtered.indices.contains(i) {
+//                    baseData.products[i] = filtered[i]
+//                } else {
+//
+//                }
+//
+//            }
             withAnimation{baseData.homeTab = title}
+            withAnimation{baseData.category = title}
+
         } label: {
             HStack(spacing: 8) {
                 Image(image)
@@ -254,12 +276,12 @@ struct Home: View {
 
                 ZStack {
                     //MARK: - TRANSITION SLIDER
-//                    if baseData.homeTab == title {
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .fill(Color.white)
-//                            .matchedGeometryEffect(id: "TAB", in: animation)
-//                            .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 5)
-//                    }
+                    if baseData.homeTab == title {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                            .matchedGeometryEffect(id: "TAB", in: animation)
+                            .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 5)
+                    }
                 }
 
             )
