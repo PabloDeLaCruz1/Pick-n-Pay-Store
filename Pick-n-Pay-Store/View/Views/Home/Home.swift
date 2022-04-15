@@ -47,9 +47,10 @@ struct Home: View {
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo")
+                    Image("logo3")
                         .resizable()
-                        .frame(width: 74, height: 34)
+                        .frame(width: 160, height: 80)
+                        .clipShape(Circle())
                 )
                 // END APP BAR
 //                Text("Hello! \(currentUser)")

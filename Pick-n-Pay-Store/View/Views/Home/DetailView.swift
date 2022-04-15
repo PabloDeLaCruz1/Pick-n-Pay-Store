@@ -48,12 +48,13 @@ struct DetailView: View {
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo")
+                    Image("logo3")
                         .resizable()
-                        .frame(width: 74, height: 34)
+                        .frame(width: 140, height: 70)
                         .padding(.horizontal)
                         .padding(.bottom)
-                )
+                        .clipShape(Circle())
+                    )
                     .padding()
                 // END APP BAR
 
