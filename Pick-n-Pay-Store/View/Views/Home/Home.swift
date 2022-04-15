@@ -13,6 +13,7 @@ struct Home: View {
 //    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
+    @Environment(\.products) var productsToFilter
 
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
@@ -94,7 +95,7 @@ struct Home: View {
 
                 //MARK: - BODY TOP
                 HStack {
-                    Text("Our Products")
+                    Text("Products: \(baseData.category)")
                         .font(.title.bold())
                     Spacer()
                     Button {
@@ -137,8 +138,13 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
+//                if productsFiltered != nil {
+//                    print("Filtered-------------")
+//                } else {
+//
+//                }
                 LazyVGrid(columns: columns, spacing: 18) {
-                    ForEach(products) { product in
+                    ForEach(productsToFilter) { product in
                         CardView(product: product)
                             .onTapGesture {
                             withAnimation {
@@ -183,7 +189,6 @@ struct Home: View {
                     .padding(5)
                     .background(
                     Color.red.opacity(product.isLiked ? 1 : 0), in: Circle()
-
                 )
             } // END LIKED BUTTON
             .frame(maxWidth: .infinity, alignment: .trailing)
@@ -238,7 +243,11 @@ struct Home: View {
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
+            print(productsToFilter.filter {$0.tags?.first != "tag1"})
             withAnimation{baseData.homeTab = title}
+            withAnimation{baseData.category = title}
+//            withAnimation(productsToFilter )
+//            withAnimation(, <#T##() -> Result#>)
         } label: {
             HStack(spacing: 8) {
                 Image(image)
@@ -256,12 +265,12 @@ struct Home: View {
 
                 ZStack {
                     //MARK: - TRANSITION SLIDER
-//                    if baseData.homeTab == title {
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .fill(Color.white)
-//                            .matchedGeometryEffect(id: "TAB", in: animation)
-//                            .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 5)
-//                    }
+                    if baseData.homeTab == title {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                            .matchedGeometryEffect(id: "TAB", in: animation)
+                            .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 5)
+                    }
                 }
 
             )

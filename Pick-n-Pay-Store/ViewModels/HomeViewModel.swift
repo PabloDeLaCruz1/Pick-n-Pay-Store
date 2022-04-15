@@ -15,7 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var email = ""
 
     @Published var homeTab = "Facewash"
-
+    @Published var category = "All"
     // MARK: - DETAIL VIEW
     @Published var currentProduct: Product?
     @Published var showDetail = false

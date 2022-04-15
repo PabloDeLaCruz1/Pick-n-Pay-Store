@@ -49,6 +49,10 @@ extension EnvironmentValues {
         get { self[CurrentUser.self] }
         set { self[CurrentUser.self] = newValue }
     }
+    var products: [Product] {
+        get { self[Product.self] }
+        set { self[Product.self] = newValue }
+    }
 }
 
 #if DEBUG
