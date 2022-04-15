@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vhp-jd-rca">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -277,11 +277,86 @@
                     <connections>
                         <outlet property="cartSaveSC" destination="WkX-w2-VpF" id="hrg-Is-Kle"/>
                         <outlet property="pageView" destination="5Vz-LO-JJe" id="6TN-hB-rr1"/>
+                        <segue destination="Kf1-c6-k4A" kind="show" identifier="Checkout" id="Bve-jc-mfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otd-Po-ebs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5134.7826086956529" y="1660.7142857142856"/>
+        </scene>
+        <!--Checkout View Controller-->
+        <scene sceneID="QfD-jq-FB9">
+            <objects>
+                <viewController id="Kf1-c6-k4A" customClass="CheckoutViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sFi-xF-vHz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="c5Z-0r-mZp" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="743"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dDG-2n-3hs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="681" id="0TJ-bD-lc0"/>
+                                        </constraints>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9w-kR-IEL" userLabel="Button View">
+                                        <rect key="frame" x="0.0" y="699" width="414" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDK-fv-TpP">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="44"/>
+                                                <color key="backgroundColor" name="DustyRose"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Lsw-EC-bPP"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="QrO-qf-hG5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Place Your Order">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RDK-fv-TpP" firstAttribute="leading" secondItem="M9w-kR-IEL" secondAttribute="leading" constant="10" id="Jlz-B8-nCA"/>
+                                            <constraint firstAttribute="height" constant="44" id="XPn-46-eA6"/>
+                                            <constraint firstAttribute="bottom" secondItem="RDK-fv-TpP" secondAttribute="bottom" id="auT-td-j8F"/>
+                                            <constraint firstItem="RDK-fv-TpP" firstAttribute="leading" secondItem="M9w-kR-IEL" secondAttribute="leading" constant="10" id="lQF-5o-hdA"/>
+                                            <constraint firstItem="RDK-fv-TpP" firstAttribute="top" secondItem="M9w-kR-IEL" secondAttribute="top" id="zft-uA-8aE"/>
+                                            <constraint firstItem="RDK-fv-TpP" firstAttribute="centerX" secondItem="M9w-kR-IEL" secondAttribute="centerX" id="zpJ-RM-u0n"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dDG-2n-3hs" secondAttribute="trailing" id="3qq-lH-0TX"/>
+                                    <constraint firstItem="dDG-2n-3hs" firstAttribute="leading" secondItem="c5Z-0r-mZp" secondAttribute="leading" id="E3p-gV-YKw"/>
+                                    <constraint firstAttribute="bottom" secondItem="M9w-kR-IEL" secondAttribute="bottom" id="MaP-FS-5v7"/>
+                                    <constraint firstItem="dDG-2n-3hs" firstAttribute="top" secondItem="c5Z-0r-mZp" secondAttribute="top" id="UYZ-6l-aso"/>
+                                    <constraint firstAttribute="trailing" secondItem="M9w-kR-IEL" secondAttribute="trailing" id="WzI-8U-WtY"/>
+                                    <constraint firstItem="M9w-kR-IEL" firstAttribute="leading" secondItem="c5Z-0r-mZp" secondAttribute="leading" id="tMR-DD-5iy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9bq-5V-4xL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="c5Z-0r-mZp" secondAttribute="bottom" constant="65" id="7Iz-3p-jyT"/>
+                            <constraint firstItem="c5Z-0r-mZp" firstAttribute="trailing" secondItem="9bq-5V-4xL" secondAttribute="trailing" id="9XP-Pj-DtW"/>
+                            <constraint firstItem="c5Z-0r-mZp" firstAttribute="leading" secondItem="9bq-5V-4xL" secondAttribute="leading" id="Dcn-qe-3qP"/>
+                            <constraint firstItem="c5Z-0r-mZp" firstAttribute="top" secondItem="9bq-5V-4xL" secondAttribute="top" id="bub-YW-MXn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8M2-cj-GdV"/>
+                    <connections>
+                        <outlet property="checkoutTableView" destination="dDG-2n-3hs" id="hTn-Up-brw"/>
+                        <outlet property="podButton" destination="RDK-fv-TpP" id="YrC-h5-HZB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eq4-UM-aad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5937.68115942029" y="1660.7142857142856"/>
         </scene>
         <!--Cart-->
         <scene sceneID="nUi-an-E5I">
@@ -318,6 +393,9 @@
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
         <namedColor name="Coral">
             <color red="0.96862745098039216" green="0.58039215686274515" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DustyRose">
+            <color red="0.97254901960784312" green="0.68627450980392157" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,6 +10,7 @@ import UIKit
 class CartButtonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cartButtonProceedCheckout: UIButton!
+    var cbtDelegate : CallCheckoutScreen?
     
     override func awakeFromNib() {
         
@@ -23,5 +24,19 @@ class CartButtonTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func checkOut(_ sender: UIButton) {
+    
+        self.cbtDelegate?.callCheckoutScreen()
+        
+    }
+    
+    
+    
+}
+
+protocol CallCheckoutScreen {
+    
+    func callCheckoutScreen()
     
 }
