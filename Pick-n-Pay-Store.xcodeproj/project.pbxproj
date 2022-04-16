@@ -15,6 +15,10 @@
 		909848702808758500241A03 /* TrackProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9098486E2808758500241A03 /* TrackProgressView.swift */; };
 		90984872280875D200241A03 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90984871280875D200241A03 /* ItemInfoView.swift */; };
 		909848742808760000241A03 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909848732808760000241A03 /* ItemsViewController.swift */; };
+		9A083B282808C7700061045B /* CartTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A083B262808C7700061045B /* CartTotalTableViewCell.swift */; };
+		9A083B292808C7700061045B /* CartTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083B272808C7700061045B /* CartTotalTableViewCell.xib */; };
+		9A083B2C280A088A0061045B /* CheckoutButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */; };
+		9A083B2D280A088A0061045B /* CheckoutButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A083B2B280A08890061045B /* CheckoutButtonTableViewCell.swift */; };
 		9A18C2BA27FFA395002221F6 /* CartSaveDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */; };
 		9A18C2BC27FFA51D002221F6 /* CartSavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2BB27FFA51D002221F6 /* CartSavedViewController.swift */; };
 		9A18C2C327FFC153002221F6 /* CartButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A18C2C127FFC153002221F6 /* CartButtonTableViewCell.swift */; };
@@ -86,6 +90,10 @@
 		9098486E2808758500241A03 /* TrackProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackProgressView.swift; sourceTree = "<group>"; };
 		90984871280875D200241A03 /* ItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		909848732808760000241A03 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		9A083B262808C7700061045B /* CartTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalTableViewCell.swift; sourceTree = "<group>"; };
+		9A083B272808C7700061045B /* CartTotalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTotalTableViewCell.xib; sourceTree = "<group>"; };
+		9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckoutButtonTableViewCell.xib; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutButtonTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		9A083B2B280A08890061045B /* CheckoutButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutButtonTableViewCell.swift; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutButtonTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartSaveDataManager.swift; path = "Pick-n-Pay-Store/View/Controllers/CartSaveDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		9A18C2BB27FFA51D002221F6 /* CartSavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSavedViewController.swift; sourceTree = "<group>"; };
 		9A18C2C127FFC153002221F6 /* CartButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +221,10 @@
 				9A18C2C227FFC153002221F6 /* CartButtonTableViewCell.xib */,
 				9A18C2C727FFC1B7002221F6 /* SavedTableViewCell.swift */,
 				9A18C2C527FFC19B002221F6 /* SavedTableViewCell.xib */,
+				9A083B262808C7700061045B /* CartTotalTableViewCell.swift */,
+				9A083B272808C7700061045B /* CartTotalTableViewCell.xib */,
+				9A083B2B280A08890061045B /* CheckoutButtonTableViewCell.swift */,
+				9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -465,6 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A083B292808C7700061045B /* CartTotalTableViewCell.xib in Resources */,
 				FE64687027F4C69C00795DB2 /* LaunchScreen.storyboard in Resources */,
 				9A8CA9B72808837B008B2E5D /* CheckoutCartTableViewCell.xib in Resources */,
 				FE64686D27F4C69C00795DB2 /* Assets.xcassets in Resources */,
@@ -474,6 +487,7 @@
 				9AB9863E27FCAD900016442B /* CartTableViewCell.xib in Resources */,
 				9098486B2808756000241A03 /* ItemCollectionTableViewCell.xib in Resources */,
 				9A18C2C427FFC153002221F6 /* CartButtonTableViewCell.xib in Resources */,
+				9A083B2C280A088A0061045B /* CheckoutButtonTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +526,7 @@
 				FEA97F8D27FE6C1A00F82B15 /* SplashScreen.swift in Sources */,
 				FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */,
 				FE64686427F4C69900795DB2 /* AppDelegate.swift in Sources */,
+				9A083B282808C7700061045B /* CartTotalTableViewCell.swift in Sources */,
 				FED7950227FD46880094E123 /* SignUpView.swift in Sources */,
 				909848682808756000241A03 /* ItemCollectionViewCell.swift in Sources */,
 				FEA97F6E27FDF6CB00F82B15 /* HomeViewModel.swift in Sources */,
@@ -526,6 +541,7 @@
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				9A18C2C827FFC1B7002221F6 /* SavedTableViewCell.swift in Sources */,
 				909848702808758500241A03 /* TrackProgressView.swift in Sources */,
+				9A083B2D280A088A0061045B /* CheckoutButtonTableViewCell.swift in Sources */,
 				9AB9863D27FCAD900016442B /* CartTableViewCell.swift in Sources */,
 				FEA97F8827FE661B00F82B15 /* LandingView.swift in Sources */,
 				9A8CA9B82808837B008B2E5D /* CheckoutCartTableViewCell.swift in Sources */,

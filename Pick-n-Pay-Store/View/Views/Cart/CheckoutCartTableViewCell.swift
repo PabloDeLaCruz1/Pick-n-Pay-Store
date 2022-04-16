@@ -15,12 +15,11 @@ class CheckoutCartTableViewCell: UITableViewCell {
     @IBOutlet weak var checkoutStepperLabel: UITextField!
     @IBOutlet weak var checkoutStepper: UIStepper!
     
-    
-    
-    
     override func awakeFromNib() {
+        
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

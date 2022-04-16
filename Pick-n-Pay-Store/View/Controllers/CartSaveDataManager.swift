@@ -48,13 +48,13 @@ struct CSData {
             "price" : "7.97",
             "id": "4",
             "quantity" : "1"
-        ],
-        [
-            "image" : "",
-            "description" : "Checkout Button Here",
-            "price" : "",
-            "id": ""
         ]
+//        [
+//            "image" : "",
+//            "description" : "Checkout Button Here",
+//            "price" : "",
+//            "id": ""
+//        ]
     ]{
         
         didSet {
@@ -166,9 +166,11 @@ struct CSData {
                     CSData.savedItems[csd]["id"] = String(csd)
                 }
             default:
-                for csd in 0...CSData.cartItems.count-1 {
-                    //for loop to update the id key of the item
-                    CSData.cartItems[csd]["id"] = String(csd)
+                if(CSData.cartItems.count != 0) {
+                    for csd in 0...CSData.cartItems.count-1 {
+                        //for loop to update the id key of the item
+                        CSData.cartItems[csd]["id"] = String(csd)
+                    }
                 }
                 if(CSData.savedItems.count != 0) {
                     for csd in 0...CSData.savedItems.count-1 {

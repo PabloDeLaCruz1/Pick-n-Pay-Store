@@ -14,7 +14,7 @@ struct LandingView: View {
    var images = DBHelper.db.getImageData()
     var body: some View {
 
-        if loggedInKey {
+        if true {
             StoryboardViewController()
         } else {
 

@@ -15,6 +15,7 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var savedItemStepperLabel: UITextField!
     @IBOutlet weak var savedItemStepper: UIStepper!
     @IBOutlet weak var removeSavedButton: UIButton!
+    @IBOutlet weak var stepperStackView: UIStackView!
     @IBOutlet weak var moveButton: UIButton!
     
     var delegate : SVCFunctions?
@@ -24,6 +25,7 @@ class SavedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         savedItemStepperLabel.text = "1"
         savedItemStepper.value = 1
+        stepperStackView.isHidden = true
         
     }
 
@@ -36,7 +38,7 @@ class SavedTableViewCell: UITableViewCell {
     @IBAction func deleteItem(_ sender: UIButton) {
         
         CSData.savedItems.remove(at: sender.tag)
-        if(CSData.savedItems.count != 0) {
+        if CSData.savedItems.count != 0 {
             let uptr = CSData()
             uptr.updateArrayForIds(categories: "saved")
         }
@@ -46,20 +48,7 @@ class SavedTableViewCell: UITableViewCell {
     
     @IBAction func moveItem(_ sender: UIButton) {
         
-        //remove extra element for the checkout button
-        if CSData.cartItems.count != 0 {
-            CSData.cartItems.remove(at: CSData.cartItems.count-1)
-        }
         CSData.cartItems.append(CSData.savedItems[sender.tag])
-        let cnt = CSData.cartItems.count
-        CSData.cartItems[cnt-1]["id"] = String(cnt)
-        //put back the checkout button
-        CSData.cartItems.append([
-                        "image" : "",
-                        "description" : "Checkout Button Here",
-                        "price" : "",
-                        "id": ""
-                    ])
         CSData.savedItems.remove(at: sender.tag)
         let uptr = CSData()
         uptr.updateArrayForIds(categories: "both")
@@ -70,6 +59,7 @@ class SavedTableViewCell: UITableViewCell {
     @IBAction func stepperClicked(_ sender: UIStepper) {
         
         savedItemStepperLabel.text = Int(sender.value).description
+        CSData.savedItems[sender.tag]["quantity"] = Int(sender.value).description
         
     }
     
