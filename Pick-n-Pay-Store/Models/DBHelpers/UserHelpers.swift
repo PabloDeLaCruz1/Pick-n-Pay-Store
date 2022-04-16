@@ -175,7 +175,7 @@ extension DBHelper {
             let item = Item(context: context!)
 
             item.desc = product.desc
-            item.rating = product.rating
+//            item.rating = product.rating
             item.isLiked = product.isLiked
             item.tags = product.tags
             item.color = product.color
@@ -193,6 +193,59 @@ extension DBHelper {
             try context?.save()
         } catch {
             print("issues updating data")
+        }
+    }
+    func updateUserCart(email: String, product: Product) {
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Updating Cart Item ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+            
+            let item = Item(context: context!)
+
+            item.desc = product.desc
+//            item.rating = product.rating
+            item.isLiked = product.isLiked
+            item.tags = product.tags
+            item.color = product.color
+            item.price = product.price
+            item.comments = product.comments
+            item.name = product.name
+            item.image = product.image
+            item.offer = product.offer
+            
+            user.cart!.items!.insert(item)
+            user.cart!.total += product.price
+            for i in user.cart!.items! {
+                print("Cart Item----------", i)
+            }
+            try context?.save()
+        } catch {
+            print("issues updating Cart Item Data")
+        }
+    }
+    
+    func updateUserCartStatus(email: String) {
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Updating Cart Item ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+            
+            user.cart?.saved = 1
+            
+            try context?.save()
+        } catch {
+            print("issues updating Cart Item Data")
         }
     }
     //saving wishList items test
