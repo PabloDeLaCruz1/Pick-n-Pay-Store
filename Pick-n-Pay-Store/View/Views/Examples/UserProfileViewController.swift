@@ -9,14 +9,15 @@ import UIKit
 import SwiftUI
 
 class UserProfileViewController: UIViewController{
-//    let db = MainDBHelper.init()
 
+    @Environment(\.currentUser) var currentUser
+    
+    @IBOutlet weak var userLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let viewContext = CoreDataManager.shared.persistentContainer.viewContext
-//        UserProfileSwiftUIView().environment(\.managedObjectContext, viewContext)
-        // Do any additional setup after loading the view.
- 
+
+        userLabel.text = currentUser.email
     }
     
     @IBAction func btn(_ sender: Any) {
