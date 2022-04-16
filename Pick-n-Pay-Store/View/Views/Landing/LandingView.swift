@@ -11,11 +11,16 @@ struct LandingView: View {
 
 //    @EnvironmentObject private var loggedIn = false
     @Environment(\.loggedInKey) var loggedInKey
-   var images = DBHelper.db.getImageData()
     var body: some View {
 
         if true {
             StoryboardViewController()
+                .background(
+                        Image(DBHelper.db.getImageData())
+                            .resizable()
+                            .ignoresSafeArea()
+                            .opacity(0.1)
+                    )
         } else {
 
             NavigationView {

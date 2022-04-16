@@ -11,15 +11,10 @@ var myHostVc: UIHostingController<ContentView>? = nil
 
 struct ContentView: View {
     @EnvironmentObject var baseData : HomeViewModel
+    @Environment(\.currentUser) var currentUser
 
     var body: some View {
         Home()
-            .background(
-                Image(DBHelper.db.getImageData())
-                        .resizable()
-                        .ignoresSafeArea()
-                    .opacity(0.1)
-                )
     }
 }
 

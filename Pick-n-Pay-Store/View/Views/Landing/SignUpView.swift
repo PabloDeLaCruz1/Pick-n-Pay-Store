@@ -10,9 +10,6 @@ import SwiftUI
 
 let lightGreyColor = Color(red: 239.0 / 255.0, green: 243.0 / 255.0, blue: 244.0 / 255.0)
 
-let storedEmail = "noemail@gmail.com"
-let storedpassword = "wrongpass"
-
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -24,23 +21,32 @@ struct SignUpView: View {
 
     @State var authenticationDidFail: Bool = false
     @State var authenticationDidSucceed: Bool = false
-    var btnBack : some View { Button(action: {
-         self.presentationMode.wrappedValue.dismiss()
-         }) {
-             HStack {
-             Image("ic_back") // set image here
-                 .aspectRatio(contentMode: .fit)
-                 .foregroundColor(.white)
-                 Text("Go back")
-             }
-         }
-     }
+    var btnBack: some View { Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+    }) {
+            HStack {
+                Image("ic_back") // set image here
+                .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.white)
+                Text("Go back")
+            }
+        }
+    }
 
     var body: some View {
 
         ZStack {
-            NavigationLink(destination: HomeViewController(), tag: 1, selection: $tag) {
-            
+            NavigationLink(
+                destination: StoryboardViewController()
+                    .background(
+                    Image(DBHelper.db.getImageData())
+                        .resizable()
+                        .ignoresSafeArea()
+                        .opacity(0.1)
+                ),
+                tag: 1,
+                selection: $tag) {
+
             }
             VStack {
                 Spacer()
@@ -59,17 +65,19 @@ struct SignUpView: View {
                     let _sasa = print("current user----", currentUser.cart?.saved)
 
                     currentUser.email = email
-                    currentUser.password = password
+//                    currentUser.password = password
+                    
+                    
                     DBHelper.db.updateUser(user: currentUser)
                     print("User added to DB", currentUser.cart?.saved)
                 }) {
                     SignUpButtonContent()
-              
+
                 }
                 Spacer()
             }
                 .padding()
-            
+
 
             if authenticationDidSucceed {
                 Text("You Signed Up!")
@@ -80,22 +88,22 @@ struct SignUpView: View {
                     .animation(Animation.default)
             }
         }
-        .navigationBarTitle(Text("Sign Up"), displayMode: .inline)
-               .edgesIgnoringSafeArea(.bottom)
-               // Hide the system back button
-               .navigationBarBackButtonHidden(true)
-               // Add your custom back button here
-               .navigationBarItems(leading:
-                   Button(action: {
-                       self.presentationMode.wrappedValue.dismiss()
-                   }) {
-                       HStack {
-                           Image(systemName: "arrow.left.circle")
-                           Text("Go Back")
-                       }
-               })
+            .navigationBarTitle(Text("Log Out"), displayMode: .inline)
+            .edgesIgnoringSafeArea(.bottom)
+        // Hide the system back button
+        .navigationBarBackButtonHidden(true)
+        // Add your custom back button here
+        .navigationBarItems(leading:
+                Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                HStack {
+                    Image(systemName: "arrow.left.circle")
+                    Text("Go Back")
+                }
+            })
     }
-     
+
 }
 
 
@@ -112,7 +120,7 @@ struct HelloText: View {
             .font(.largeTitle)
             .fontWeight(.semibold)
             .padding(.bottom, 20)
-        
+
     }
 }
 
@@ -173,7 +181,7 @@ struct PasswordSecureField: View {
 struct SignUpButtonContent: View {
     var body: some View {
         HStack(spacing: 15) {
-            Image("cart")
+            Image("person")
                 .resizable()
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fit)

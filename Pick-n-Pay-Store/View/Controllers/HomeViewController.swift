@@ -16,12 +16,14 @@ final class HomeViewController: UIHostingController<ContentView>, UIViewControll
     @Environment(\.currentUser) var currentUser
     
     var user = User()
+    
     func makeUIViewController(context: Context) -> UIViewControllerType {
         let myViewController = UIViewControllerType()
         // myView.delegate = context.coordinator
         
         self.user = currentUser
-        
+        myViewController.view.backgroundColor = UIColor(patternImage: UIImage(named: DBHelper.db.getImageData())!)
+
         return myViewController
     }
 
@@ -31,6 +33,7 @@ final class HomeViewController: UIHostingController<ContentView>, UIViewControll
 
     init() {
         let view = ContentView()
+
         super.init(rootView: view)
         myHostVc = self
         
