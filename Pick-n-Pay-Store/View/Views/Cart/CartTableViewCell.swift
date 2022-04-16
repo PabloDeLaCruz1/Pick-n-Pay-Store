@@ -20,6 +20,7 @@ class CartTableViewCell: UITableViewCell {
     var delegate : TVCFunctions?
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
         // Initialization code
         
@@ -39,8 +40,10 @@ class CartTableViewCell: UITableViewCell {
     @IBAction func deleteItem(_ sender: UIButton) {
         
         CSData.cartItems.remove(at: sender.tag)
-        let uptr = CSData()
-        uptr.updateArrayForIds(categories: "cart")
+        if CSData.cartItems.count != 0 {
+            let uptr = CSData()
+            uptr.updateArrayForIds(categories: "cart")
+        }
         self.delegate?.updateTable()
         
     }
@@ -58,7 +61,7 @@ class CartTableViewCell: UITableViewCell {
     @IBAction func stepperClicked(_ sender: UIStepper) {
         
         cartItemStepperLabel.text = Int(sender.value).description
-        
+        CSData.cartItems[sender.tag]["quantity"] = Int(sender.value).description
         
     }
     
