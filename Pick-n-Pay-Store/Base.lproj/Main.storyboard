@@ -501,11 +501,14 @@
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
-                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundImageContentMode="scaleToFill">
+                        <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" name="Coral"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GIu-Vt-cL9">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="NJ1-yy-4um" kind="relationship" relationship="rootViewController" id="e6k-Hg-K8A"/>
                     </connections>

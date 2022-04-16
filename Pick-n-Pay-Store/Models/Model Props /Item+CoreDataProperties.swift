@@ -27,6 +27,7 @@ extension Item {
     @NSManaged public var desc: String
     @NSManaged public var isLiked: Bool
     @NSManaged public var rating: Int
+    @NSManaged public var isSaved: Int
 
 }
 

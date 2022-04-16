@@ -19,6 +19,9 @@
 		909848702808758500241A03 /* TrackProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9098486E2808758500241A03 /* TrackProgressView.swift */; };
 		90984872280875D200241A03 /* ItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90984871280875D200241A03 /* ItemInfoView.swift */; };
 		909848742808760000241A03 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909848732808760000241A03 /* ItemsViewController.swift */; };
+		9A032023280B2A7200DF656C /* CartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A032022280B2A7200DF656C /* CartHelper.swift */; };
+		9A03203D280B355300DF656C /* Receivers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A03203B280B355300DF656C /* Receivers+CoreDataClass.swift */; };
+		9A03203E280B355300DF656C /* Receivers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A03203C280B355300DF656C /* Receivers+CoreDataProperties.swift */; };
 		9A083B282808C7700061045B /* CartTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A083B262808C7700061045B /* CartTotalTableViewCell.swift */; };
 		9A083B292808C7700061045B /* CartTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083B272808C7700061045B /* CartTotalTableViewCell.xib */; };
 		9A083B2C280A088A0061045B /* CheckoutButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */; };
@@ -101,11 +104,15 @@
 		9098486E2808758500241A03 /* TrackProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackProgressView.swift; sourceTree = "<group>"; };
 		90984871280875D200241A03 /* ItemInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoView.swift; sourceTree = "<group>"; };
 		909848732808760000241A03 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		9A032021280B296900DF656C /* CoreDataModel 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 7.xcdatamodel"; sourceTree = "<group>"; };
+		9A032022280B2A7200DF656C /* CartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartHelper.swift; sourceTree = "<group>"; };
+		9A03203B280B355300DF656C /* Receivers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Receivers+CoreDataClass.swift"; path = "Pick-n-Pay-Store/Models/CDClasses/Receivers+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		9A03203C280B355300DF656C /* Receivers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Receivers+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		9A083B262808C7700061045B /* CartTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalTableViewCell.swift; sourceTree = "<group>"; };
 		9A083B272808C7700061045B /* CartTotalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTotalTableViewCell.xib; sourceTree = "<group>"; };
 		9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckoutButtonTableViewCell.xib; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutButtonTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		9A083B2B280A08890061045B /* CheckoutButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutButtonTableViewCell.swift; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutButtonTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartSaveDataManager.swift; path = "Pick-n-Pay-Store/View/Controllers/CartSaveDataManager.swift"; sourceTree = SOURCE_ROOT; };
+		9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartSaveDataManager.swift; path = "Pick-n-Pay-Store/Models/DataManagers/CartSaveDataManager.swift"; sourceTree = SOURCE_ROOT; };
 		9A18C2BB27FFA51D002221F6 /* CartSavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSavedViewController.swift; sourceTree = "<group>"; };
 		9A18C2C127FFC153002221F6 /* CartButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9A18C2C227FFC153002221F6 /* CartButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -225,6 +232,15 @@
 			path = TrackingPackage;
 			sourceTree = "<group>";
 		};
+		9A032024280B2BFE00DF656C /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */,
+				FE6468A527FB426600795DB2 /* CoreDataManager.swift */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
 		9A8CA9B42808833D008B2E5D /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,11 +309,10 @@
 		FE64687A27F4FB6000795DB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */,
+				9A032024280B2BFE00DF656C /* DataManagers */,
 				FEAAF23E27FB9EA8000F2440 /* CDClasses */,
 				FE64687E27F4FD2E00795DB2 /* Model Props  */,
 				FEAAF24127FC6238000F2440 /* DBHelpers */,
-				FE6468A527FB426600795DB2 /* CoreDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +355,7 @@
 		FE64687E27F4FD2E00795DB2 /* Model Props  */ = {
 			isa = PBXGroup;
 			children = (
+				9A03203C280B355300DF656C /* Receivers+CoreDataProperties.swift */,
 				FED794EB27FCDAB00094E123 /* Wishlist+CoreDataProperties.swift */,
 				FED794ED27FCDAB00094E123 /* Item+CoreDataProperties.swift */,
 				FED794EF27FCDAB00094E123 /* Cart+CoreDataProperties.swift */,
@@ -431,6 +447,7 @@
 				FED794EE27FCDAB00094E123 /* Cart+CoreDataClass.swift */,
 				FED794F027FCDAB00094E123 /* Order+CoreDataClass.swift */,
 				FED794F227FCDAB00094E123 /* User+CoreDataClass.swift */,
+				9A03203B280B355300DF656C /* Receivers+CoreDataClass.swift */,
 			);
 			path = CDClasses;
 			sourceTree = "<group>";
@@ -441,6 +458,7 @@
 				FEAAF23F27FC60E8000F2440 /* DBHelper.swift */,
 				FEAAF24227FC6260000F2440 /* UserHelpers.swift */,
 				84A05A3028099BD400EB5B3E /* ItemHelper.swift */,
+				9A032022280B2A7200DF656C /* CartHelper.swift */,
 			);
 			path = DBHelpers;
 			sourceTree = "<group>";
@@ -544,6 +562,7 @@
 				84A05A3128099BD400EB5B3E /* ItemHelper.swift in Sources */,
 				9AB9864227FD05330016442B /* CartTableViewController.swift in Sources */,
 				9AD5519B27FD47B400A2522F /* WishListViewController.swift in Sources */,
+				9A03203E280B355300DF656C /* Receivers+CoreDataProperties.swift in Sources */,
 				FED794F827FCDAB00094E123 /* Cart+CoreDataClass.swift in Sources */,
 				84556A8128072FBC00FDA602 /* OrdersTableViewController.swift in Sources */,
 				FED794F427FCDAB00094E123 /* Wishlist+CoreDataClass.swift in Sources */,
@@ -567,6 +586,7 @@
 				FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */,
 				FE64689327F74EDE00795DB2 /* UserTestTableViewCell.swift in Sources */,
 				9A8CA9BA2808875C008B2E5D /* CheckoutViewController.swift in Sources */,
+				9A032023280B2A7200DF656C /* CartHelper.swift in Sources */,
 				FED794F627FCDAB00094E123 /* Item+CoreDataClass.swift in Sources */,
 				FEA97F8627FE404500F82B15 /* DetailView.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
@@ -579,6 +599,7 @@
 				9A083B2D280A088A0061045B /* CheckoutButtonTableViewCell.swift in Sources */,
 				9AB9863D27FCAD900016442B /* CartTableViewCell.swift in Sources */,
 				FEA97F8827FE661B00F82B15 /* LandingView.swift in Sources */,
+				9A03203D280B355300DF656C /* Receivers+CoreDataClass.swift in Sources */,
 				9A8CA9B82808837B008B2E5D /* CheckoutCartTableViewCell.swift in Sources */,
 				FEA97F8427FE3FD300F82B15 /* Product.swift in Sources */,
 				FED794F927FCDAB00094E123 /* Cart+CoreDataProperties.swift in Sources */,
@@ -822,6 +843,7 @@
 		FED794D027FCA4450094E123 /* CoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9A032021280B296900DF656C /* CoreDataModel 7.xcdatamodel */,
 				FE887EDE2808F7D7000C2407 /* CoreDataModel 6.xcdatamodel */,
 				FEA97F962800896B00F82B15 /* CoreDataModel 5.xcdatamodel */,
 				FED794E927FCD9E10094E123 /* CoreDataModel 4.xcdatamodel */,
@@ -829,7 +851,7 @@
 				FED794E727FCAB8B0094E123 /* CoreDataModel 2.xcdatamodel */,
 				FED794D127FCA4450094E123 /* CoreDataModel.xcdatamodel */,
 			);
-			currentVersion = FE887EDE2808F7D7000C2407 /* CoreDataModel 6.xcdatamodel */;
+			currentVersion = 9A032021280B296900DF656C /* CoreDataModel 7.xcdatamodel */;
 			path = CoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

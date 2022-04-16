@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartSavedViewController: UIViewController {
+class CartSavedViewController: UIViewController{
     
     @IBOutlet weak var cartSaveSC: UISegmentedControl!
     @IBOutlet weak var pageView: UIView!

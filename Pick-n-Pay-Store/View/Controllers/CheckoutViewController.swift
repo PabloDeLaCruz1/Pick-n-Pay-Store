@@ -44,7 +44,7 @@ extension CheckoutViewController : UITableViewDataSource {
 
             case 0:
                 return 1
-            case 1:
+            case 3:
                 return CSData.cartItems.count
             default:
                 return 1
@@ -63,7 +63,7 @@ extension CheckoutViewController : UITableViewDataSource {
                 
                 return cell
             
-            case 1:
+            case 3:
             
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutTableViewCell", for: indexPath) as! CheckoutCartTableViewCell
             
@@ -87,7 +87,7 @@ extension CheckoutViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 3
+        return 5
         
     }
     
@@ -97,7 +97,12 @@ extension CheckoutViewController : UITableViewDataSource {
         
         switch section {
             
+            
             case 1:
+                sec = "Shipping Address"
+            case 2:
+                sec = "Payment Information"
+            case 3:
                 sec = "Shipment Details"
             default:
                 sec = ""
