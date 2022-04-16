@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOE-8s-Ruc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOE-8s-Ruc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -184,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-8l-U05">
-                                <rect key="frame" x="0.0" y="32" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -315,7 +315,6 @@
                     <connections>
                         <segue destination="7gR-Ao-Osk" kind="relationship" relationship="viewControllers" id="0iq-Op-8yT"/>
                         <segue destination="RXy-19-3qc" kind="relationship" relationship="viewControllers" id="RtY-TI-BkN"/>
-                        <segue destination="AEI-Cn-Az0" kind="relationship" relationship="viewControllers" id="Kbe-no-Gs9"/>
                         <segue destination="7GC-x7-xfm" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
                         <segue destination="Y6W-Hg-yEb" kind="relationship" relationship="viewControllers" id="OMp-lW-CLd"/>
                         <segue destination="wOG-PY-sS7" kind="relationship" relationship="viewControllers" id="75u-0W-zW3"/>
@@ -625,9 +624,6 @@
         </namedColor>
         <namedColor name="Coral">
             <color red="0.96862745098039216" green="0.58039215686274515" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="DustyRose">
-            <color red="0.97254901960784312" green="0.68627450980392157" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="dark">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
