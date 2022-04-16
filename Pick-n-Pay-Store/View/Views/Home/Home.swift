@@ -141,13 +141,46 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
-//                if productsFiltered != nil {
-//                    print("Filtered-------------")
-//                } else {
-//
-//                }
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
+                        CardView(product: product)
+                            .onTapGesture {
+                            withAnimation {
+                                baseData.currentProduct = product
+                                //logic for how we want suggested items to work here.
+                                //For now we simply keep track of all items users clicked. We can use tags or other ways to add to suggested products list
+                                baseData.suggestedProducts.append(product)
+                                baseData.showDetail = true
+                            }
+                        }
+                    }
+                }
+                Spacer()
+                
+                HStack {
+                    Text("Suggested: ")
+                        .font(.title.bold())
+                    Spacer()
+                    Button {
+
+                    } label: {
+                        HStack(spacing: 3) {
+                            Text("Sort by")
+                                .font(.caption.bold())
+                            Image(systemName: "chevron.down")
+                                .font(.caption.bold())
+                        }
+                            .foregroundColor(.gray)
+                    }
+                } // END BODY TOP
+                .padding(.top, 10)
+
+                //MARK: - PRODUCT LIST
+                let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+
+                // MARK: - GRID VIEW
+                LazyVGrid(columns: columns, spacing: 18) {
+                    ForEach(baseData.suggestedProducts ?? []) { product in
                         CardView(product: product)
                             .onTapGesture {
                             withAnimation {
@@ -157,7 +190,6 @@ struct Home: View {
                         }
                     }
                 }
-                Spacer()
             }
                 .padding()
                 .background(
