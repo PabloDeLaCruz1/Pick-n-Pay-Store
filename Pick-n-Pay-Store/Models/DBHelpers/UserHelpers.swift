@@ -248,6 +248,10 @@ extension DBHelper {
             print("issues updating Cart Item Data")
         }
     }
+    
+    func addCommentToItem(commentText : String, product : Product){
+        
+    }
     //saving wishList items test
     func addItemWishList(){
         

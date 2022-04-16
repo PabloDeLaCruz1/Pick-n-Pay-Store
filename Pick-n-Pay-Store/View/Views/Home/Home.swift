@@ -16,6 +16,7 @@ struct Home: View {
 
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
+    @State var searchText: String = ""
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -23,7 +24,7 @@ struct Home: View {
             VStack(spacing: 15) {
                 Spacer()
                 //MARK - APP BAR
-                HStack {
+                HStack(spacing: 100) {
                     //MARK: DRAWER MENU
                     Button {
 
@@ -38,12 +39,15 @@ struct Home: View {
                     Spacer()
 
                     //MARK: SEARCH ICON
-                    Button {
+                    HStack(spacing: 10) {
 
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                            .font(.title2)
-                    } // END SEARCH ICON
+                         Image(systemName: "magnifyingglass")
+                         TextField("Search ..", text: $searchText) 
+                    }
+            
+                
+                    
+                    // END SEARCH ICON
                 }
                     .foregroundColor(.black)
                     .overlay(
@@ -321,6 +325,7 @@ struct Home: View {
 
             )
         }
+        
     }
 }
 
@@ -329,3 +334,4 @@ struct Home_Previews: PreviewProvider {
         ContentView()
     }
 }
+
