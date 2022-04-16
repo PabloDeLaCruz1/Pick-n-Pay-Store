@@ -229,6 +229,25 @@ extension DBHelper {
             print("issues updating Cart Item Data")
         }
     }
+    
+    func updateUserCartStatus(email: String) {
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Updating Cart Item ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+            
+            user.cart?.saved = 1
+            
+            try context?.save()
+        } catch {
+            print("issues updating Cart Item Data")
+        }
+    }
     //saving wishList items test
     func addItemWishList(){
         
