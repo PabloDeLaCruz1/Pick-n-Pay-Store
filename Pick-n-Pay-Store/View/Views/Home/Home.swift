@@ -56,7 +56,10 @@ struct Home: View {
 //                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
                 VStack(spacing: 15) {
+
                     VStack(alignment: .leading, spacing: 12) {
+                        Text("Welcome")
+                            .font(.title.bold())
                         HomeSlider(trailingSpace: 40, index: $currentSlider, items: sliders) { slider in
                             GeometryReader { proxy in
                                 let sliderSize = proxy.size
@@ -80,6 +83,7 @@ struct Home: View {
                 .padding(.bottom, 20)
 
                 //MARK: - SLIDER INDICATOR
+
                 HStack(spacing: 10) {
                     ForEach(sliders.indices, id: \.self) { index in
                         Circle()
@@ -117,7 +121,7 @@ struct Home: View {
                     HStack(spacing: 18) {
                         CategoryItem(image: "cat1", title: "Auto")
 
-                        CategoryItem(image: "cat2", title: "Electronics")
+                        CategoryItem(image: "cat2", title: "Offers")
 
                         CategoryItem(image: "cat3", title: "Health Care")
 
@@ -163,7 +167,7 @@ struct Home: View {
                     .opacity(0.1)
             )
             //MARK: - Bottom Tab Bar Approx Padding
-            .padding(.bottom, 100)
+//            .padding(.bottom, 100)
         }
             .overlay(
             DetailView(animation: animation)
@@ -176,11 +180,9 @@ struct Home: View {
     func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
 
-            //MARK: LIKED BUTTON
+            //MARK: LIKED BUTTON Adds to Wishlist
             Button {
-                DBHelper.db.updateUserWishList(email:  currentUser.email!, product: product)
-                
-                print("User Wishlist items---------", currentUser.wishlist?.items)
+                DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
             } label: {
                 Image(systemName: "suit.heart.fill")
                     .font(.system(size: 13))
@@ -238,15 +240,18 @@ struct Home: View {
             .background(Color.white, in: RoundedRectangle(cornerRadius: 12))
     }
 
-    //MARK: CATEGORY VIEW
+    //MARK: CATEGORY VIEW Filters by category, can see offers here
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
-            print(baseData.products.filter {$0.tags?.first != "tag1"})
-            let filtered = baseData.products.filter {$0.tags?.first != "tag1"}
-            
+            withAnimation { baseData.category = title }
+            withAnimation { baseData.homeTab = title }
+
+            let filtered = productsForFiltering.filter { $0.tags?.first == baseData.category }
+
             baseData.products = filtered
-//            = filtered
+            
+            //To Filter without higher order functions
 //            for (i, product) in baseData.products.enumerated() {
 //
 //                if filtered.indices.contains(i) {
@@ -256,8 +261,6 @@ struct Home: View {
 //                }
 //
 //            }
-            withAnimation{baseData.homeTab = title}
-            withAnimation{baseData.category = title}
 
         } label: {
             HStack(spacing: 8) {
