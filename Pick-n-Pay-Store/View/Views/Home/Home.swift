@@ -163,7 +163,7 @@ struct Home: View {
                     .opacity(0.1)
             )
             //MARK: - Bottom Tab Bar Approx Padding
-            .padding(.bottom, 100)
+//            .padding(.bottom, 100)
         }
             .overlay(
             DetailView(animation: animation)

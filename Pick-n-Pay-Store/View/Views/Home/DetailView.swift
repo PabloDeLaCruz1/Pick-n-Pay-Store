@@ -12,7 +12,6 @@ struct DetailView: View {
     //FOR HERO EFFECT
     var animation: Namespace.ID
 
-
     @State var size = "2 Grams"
     @State var itemColor: Color = .red
 
@@ -153,6 +152,7 @@ struct DetailView: View {
 
                     //MARK: - ADD TO CART
                     Button {
+                        DBHelper.db.updateUserCart(email:  baseData.currentUser.email!, product: product)
 
                     } label: {
                         HStack(spacing: 15) {
