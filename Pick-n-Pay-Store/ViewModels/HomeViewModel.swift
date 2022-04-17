@@ -21,6 +21,7 @@ class HomeViewModel: ObservableObject {
     // MARK: - DETAIL VIEW
     @Published var currentProduct: Product?
     @Published var showDetail = false
+  
     @Published var suggestedProducts: [Product] = [Product(name: "E.Bundle", comments: ["Thank you for this awesome offer!", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider1", color: UIColor(Color("pcolor2")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 5),
         Product(name: "C.Bundle", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider2", color: UIColor(Color("pcolor1")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 5),
         Product(name: "Lambo", comments: ["Yes this Lambo really costs 13.37!", "(^.^)m ", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider3", color: UIColor(Color("pcolor4")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 5)]

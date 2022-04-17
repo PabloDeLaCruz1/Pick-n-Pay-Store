@@ -11,7 +11,7 @@ struct TrackingShipment: View {
     var body: some View {
         NavigationView{
             ScrollView{
-            ItemInfoView()
+            ItemShippingInfoView()
             Divider()
                 VStack(spacing: 0){
                     TrackProgressView(date: "April 1", status: "Packed",icon: "p.circle.fill", isFirst: true, isLast: false, state: .completed  ).previewLayout(.sizeThatFits)

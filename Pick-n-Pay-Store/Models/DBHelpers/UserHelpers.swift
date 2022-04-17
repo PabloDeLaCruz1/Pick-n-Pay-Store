@@ -35,6 +35,8 @@ extension DBHelper {
             print("Not saved------------------------------------")
         }
     }
+    
+    
     func addUser(user: User) {
 
         let newUser = NSEntityDescription.insertNewObject(forEntityName: "User", into: context!) as! User
@@ -86,6 +88,7 @@ extension DBHelper {
         return user
     }
 
+    // MARK: - GET USERS DATA
     func getUsers() -> [User] {
         var users = [User]()
         let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
@@ -119,6 +122,7 @@ extension DBHelper {
         return user
     }
 
+    // MARK: - UPDATE USER DATA
     //overload this
     func updateUser(email: String, creditCard: String) {
         var user = User()
@@ -140,6 +144,7 @@ extension DBHelper {
             print("issues updating data")
         }
     }
+    // MARK: - UPDATE USER DATA
     func updateUser(user: User) {
         var userHolder = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
@@ -159,6 +164,36 @@ extension DBHelper {
             print("issues updating data")
         }
     }
+    // MARK: -  ADD USER ITEMS DATA
+    func addUserItems ( itemDesc: String, itemImage: String, itemIsLiked: Bool, itemName: String, itemOffer: Bool, itemPrice:Double, itemRating:Int16){
+        let itemsReq = NSEntityDescription.insertNewObject(forEntityName: "Item", into: context!) as! Item
+        
+        
+        itemsReq.desc = itemDesc
+        itemsReq.image = itemImage
+        itemsReq.isLiked = itemIsLiked
+        itemsReq.name = itemName
+        itemsReq.offer = itemOffer
+        itemsReq.price = itemPrice
+        itemsReq.rating = Int(itemRating)
+     
+        do{
+            try context?.save()
+            print("Data saved in User Items Entity")
+        }
+        catch{
+            print("Data not saved in User Items Entity")
+        }
+    }
+    // MARK:  SAVE WISH-LIST DATA
+    func addWishListItem(itemName: String, itemImage: String, itemPrice: Double){
+        let itemsReq = NSEntityDescription.insertNewObject(forEntityName: "Item", into: context!) as! Item
+        itemsReq.name = itemName
+        itemsReq.image = itemImage
+        itemsReq.price = itemPrice
+    }
+    
+    // MARK: - UPDATE USER WISH-LIST  DATA
 
 
     func updateUserWishList(email: String, product: Product) {
@@ -195,6 +230,7 @@ extension DBHelper {
             print("issues updating data")
         }
     }
+    // MARK: - WISH LIST ADD ITEM DATA
     func updateUserCart(email: String, product: Product) {
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
