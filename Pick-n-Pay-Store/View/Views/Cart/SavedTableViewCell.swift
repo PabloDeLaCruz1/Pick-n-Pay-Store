@@ -48,11 +48,14 @@ class SavedTableViewCell: UITableViewCell {
     
     @IBAction func moveItem(_ sender: UIButton) {
         
-        CSData.cartItems.append(CSData.savedItems[sender.tag])
-        CSData.savedItems.remove(at: sender.tag)
-        let uptr = CSData()
-        uptr.updateArrayForIds(categories: "both")
-        self.delegate?.updateTable()
+        //UPDATE DATABASE
+        
+        let success = CartHelper.inst.moveToCartSaved(email : currentUser.email!, itemCart : CSData.savedItems[sender.tag], from: "saved")
+        if success == true {
+            self.delegate?.updateTable()
+        } else {
+            print("ERROR MOVING TO CART ITEMS")
+          }
 
     }
     

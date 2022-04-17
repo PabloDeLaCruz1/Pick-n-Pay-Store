@@ -180,10 +180,10 @@ struct Home: View {
                 .padding(.top, 10)
 
                 //MARK: - PRODUCT LIST
-                let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+                let columns_sug = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
-                LazyVGrid(columns: columns, spacing: 18) {
+                LazyVGrid(columns: columns_sug, spacing: 18) {
                     ForEach(baseData.suggestedProducts ?? []) { product in
                         CardView(product: product)
                             .onTapGesture {
