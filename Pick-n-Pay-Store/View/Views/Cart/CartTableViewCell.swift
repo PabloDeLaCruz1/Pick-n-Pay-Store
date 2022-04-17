@@ -56,7 +56,7 @@ class CartTableViewCell: UITableViewCell {
         
         //UPDATE DATABASE
         
-        let success = CartHelper.inst.moveToSaved(email : currentUser.email!, itemCart : CSData.cartItems[sender.tag])
+        let success = CartHelper.inst.moveToCartSaved(email : currentUser.email!, itemCart : CSData.cartItems[sender.tag], from: "cart")
         if success == true {
             self.delegate?.updateTable()
         } else {
@@ -70,6 +70,7 @@ class CartTableViewCell: UITableViewCell {
         
         cartItemStepperLabel.text = Int(sender.value).description
         CSData.cartItems[sender.tag]["quantity"] = Int(sender.value).description
+        //self.delegate?.updateTable()
         
     }
     

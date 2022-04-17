@@ -71,7 +71,7 @@ class CartHelper {
     
     //UPDATE
     
-    func moveToSaved(email : String, itemCart : [String : String]) -> Bool? {
+    func moveToCartSaved(email : String, itemCart : [String : String], from : String) -> Bool? {
         
         var user = User()
         var moved = false
@@ -86,10 +86,12 @@ class CartHelper {
             }
             
             for uci in user.cart!.items! {
-                print("DESC: \(uci.description)")
                 if uci.desc == itemCart["desc"]{
-                    //user.cart!.items!.remove(uci)
-                    uci.isSaved = 1
+                    if from.lowercased() == "cart" {
+                        uci.isSaved = 1
+                    } else {
+                        uci.isSaved = 0
+                      }
                     moved = true
                 }
             }
@@ -99,7 +101,7 @@ class CartHelper {
             return moved
             
         } catch {
-            print("DELETE ITEM IN CART ERROR")
+            print("MOVE ITEM IN CART / SAVED ERROR")
             return false
           }
         
@@ -122,7 +124,6 @@ class CartHelper {
             }
             
             for uci in user.cart!.items! {
-                //print("DESC: \(uci.description)")
                 if uci.desc == itemCart["desc"]{
                     user.cart!.items!.remove(uci)
                     deleted = true
@@ -134,7 +135,7 @@ class CartHelper {
             return deleted
             
         } catch {
-            print("DELETE ITEM IN CART ERROR")
+            print("DELETE ITEM IN CART / SAVED ERROR")
             return false
           }
         
