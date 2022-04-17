@@ -2,7 +2,7 @@
 //  Cart+CoreDataProperties.swift
 //  Pick-n-Pay-Store
 //
-//  Created by Pablo De La Cruz on 4/5/22.
+//  Created by Maricel Sumulong on 4/16/22.
 //
 //
 
@@ -16,9 +16,10 @@ extension Cart {
         return NSFetchRequest<Cart>(entityName: "Cart")
     }
 
-    @NSManaged public var total: Double
     @NSManaged public var saved: Int32
+    @NSManaged public var total: Double
     @NSManaged public var items: Set<Item>?
+
 }
 
 // MARK: Generated accessors for items

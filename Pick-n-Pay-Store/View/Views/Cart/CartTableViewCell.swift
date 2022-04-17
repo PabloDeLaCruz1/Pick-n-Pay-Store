@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CartTableViewCell: UITableViewCell {
 
@@ -18,6 +19,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var saveLaterButton: UIButton!
     
     var delegate : TVCFunctions?
+    @Environment(\.currentUser) var currentUser
     
     override func awakeFromNib() {
         
@@ -39,22 +41,28 @@ class CartTableViewCell: UITableViewCell {
     
     @IBAction func deleteItem(_ sender: UIButton) {
         
-        CSData.cartItems.remove(at: sender.tag)
-        if CSData.cartItems.count != 0 {
-            let uptr = CSData()
-            uptr.updateArrayForIds(categories: "cart")
-        }
-        self.delegate?.updateTable()
+        //REMOVE IN DATABASE
+        
+        let success = CartHelper.inst.deleteFromCartSaved(email : currentUser.email!, itemCart : CSData.cartItems[sender.tag])
+        if success == true {
+            self.delegate?.updateTable()
+        } else {
+            print("ERROR DELETING FROM CART")
+          }
         
     }
     
     @IBAction func saveItem(_ sender: UIButton) {
         
-        CSData.savedItems.append(CSData.cartItems[sender.tag])
-        CSData.cartItems.remove(at: sender.tag)
-        let uptr = CSData()
-        uptr.updateArrayForIds(categories: "both")
-        self.delegate?.updateTable()
+        //UPDATE DATABASE
+        
+        let success = CartHelper.inst.moveToSaved(email : currentUser.email!, itemCart : CSData.cartItems[sender.tag])
+        if success == true {
+            self.delegate?.updateTable()
+        } else {
+            print("ERROR MOVING TO SAVED ITEMS")
+          }
+
         
     }
     
@@ -70,5 +78,6 @@ class CartTableViewCell: UITableViewCell {
 protocol TVCFunctions {
     
     func updateTable()
+    
     
 }

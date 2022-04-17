@@ -43,7 +43,7 @@ class CartTotalTableViewCell: UITableViewCell {
         //ITEMS
         for cnt in 0...CSData.cartItems.count - 1 {
             
-            sum += Float(CSData.cartItems[cnt]["price"]!)!
+            sum += Float(CSData.cartItems[cnt]["price"]!)! * Float(CSData.cartItems[cnt]["quantity"]!)!
             
         }
         

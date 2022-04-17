@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScreen {
 
@@ -58,7 +59,7 @@ class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScree
           }
         
         self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
-    
+        
     }
 
     func callCheckoutScreen() {
@@ -110,7 +111,7 @@ extension CartTableViewController : UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
                 
                 cell.cartItemImg.image = UIImage(named: CSData.cartItems[indexPath.row]["image"]!)
-                cell.cartItemDesc.text = CSData.cartItems[indexPath.row]["description"]!
+                cell.cartItemDesc.text = CSData.cartItems[indexPath.row]["desc"]!
                 cell.cartItemPrice.text = "$"+CSData.cartItems[indexPath.row]["price"]!
                 cell.cartItemStepperLabel.text = CSData.cartItems[indexPath.row]["quantity"]!
                 cell.cartItemStepper.value = Double(CSData.cartItems[indexPath.row]["quantity"]!)!

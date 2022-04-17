@@ -13,7 +13,7 @@ struct LandingView: View {
     @Environment(\.loggedInKey) var loggedInKey
     var body: some View {
 
-        if loggedInKey {
+        if false {
             StoryboardViewController()
                 .background(
                         Image(DBHelper.db.getImageData())

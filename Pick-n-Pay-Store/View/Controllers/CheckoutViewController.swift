@@ -27,6 +27,8 @@ class CheckoutViewController: UIViewController {
         checkoutTableView.register(UINib(nibName: "CheckoutCartTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutTableViewCell")
         checkoutTableView.register(UINib(nibName: "CartTotalTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTotalTableViewCell")
         checkoutTableView.register(UINib(nibName: "CheckoutButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutButtonTableViewCell")
+        checkoutTableView.register(UINib(nibName: "CheckoutShippingTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutShippingTableViewCell")
+        checkoutTableView.register(UINib(nibName: "CheckoutBillingTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutBillingTableViewCell")
         
         //makes sure the table is visible
         
@@ -63,12 +65,28 @@ extension CheckoutViewController : UITableViewDataSource {
                 
                 return cell
             
+            case 1:
+            
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingTableViewCell", for: indexPath) as! CheckoutShippingTableViewCell
+                
+                cell.accessoryType = .disclosureIndicator
+            
+                return cell
+            
+            case 2:
+            
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutBillingTableViewCell", for: indexPath) as! CheckoutBillingTableViewCell
+                
+                cell.accessoryType = .disclosureIndicator
+            
+                return cell
+            
             case 3:
             
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutTableViewCell", for: indexPath) as! CheckoutCartTableViewCell
             
                 cell.checkoutImg.image = UIImage(named: CSData.cartItems[indexPath.row]["image"]!)
-                cell.checkoutDesc.text = CSData.cartItems[indexPath.row]["description"]!
+                cell.checkoutDesc.text = CSData.cartItems[indexPath.row]["desc"]!
                 cell.checkoutPrice.text = "$"+CSData.cartItems[indexPath.row]["price"]!
                 cell.checkoutStepperLabel.text = CSData.cartItems[indexPath.row]["quantity"]!
                 cell.checkoutStepper.value = Double(CSData.cartItems[indexPath.row]["quantity"]!)!
@@ -97,7 +115,6 @@ extension CheckoutViewController : UITableViewDataSource {
         
         switch section {
             
-            
             case 1:
                 sec = "Shipping Address"
             case 2:
@@ -110,6 +127,21 @@ extension CheckoutViewController : UITableViewDataSource {
         }
         
         return sec
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.section {
+            
+            case 1:
+                performSegue(withIdentifier: "ShippingScreen", sender: self)
+            case 2:
+                performSegue(withIdentifier: "BillingScreen", sender: self)
+            default:
+                print("No choice!")
+            
+        }
         
     }
     

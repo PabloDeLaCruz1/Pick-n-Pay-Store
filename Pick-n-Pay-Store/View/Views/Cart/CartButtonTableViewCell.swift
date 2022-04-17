@@ -18,11 +18,7 @@ class CartButtonTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         cartButtonProceedCheckout.layer.cornerRadius = 10
-        if CSData.cartItems.count > 1 {
-            showSubTotal()
-        } else {
-            subtotalStackView.isHidden = true
-          }
+        showSubTotal()
         
     }
 
@@ -45,7 +41,7 @@ class CartButtonTableViewCell: UITableViewCell {
         //ITEMS
         for cnt in 0...CSData.cartItems.count - 1 {
             
-            sum += Float(CSData.cartItems[cnt]["price"]!)!
+            sum += Float(CSData.cartItems[cnt]["price"]!)! * Float(CSData.cartItems[cnt]["quantity"]!)!
             
         }
 

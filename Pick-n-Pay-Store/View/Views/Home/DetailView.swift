@@ -14,11 +14,12 @@ struct DetailView: View {
 
     @State var size = "2 Grams"
     @State var itemColor: Color = .red
+    @State var stepLevel : Int16 = 1
 
     var body: some View {
 
         //MARK: SAFE CHECK
-        if let product = baseData.currentProduct, baseData.showDetail {
+        if var product = baseData.currentProduct, baseData.showDetail {
             VStack(spacing: 0) {
                 //MARK: - APP BAR
                 HStack {
@@ -98,28 +99,13 @@ struct DetailView: View {
 
                     //MARK: PRODUCT SIZE
                     HStack(spacing: 0) {
-                        Text("Size: ")
+                        Text("Quantity: ")
                             .font(.caption.bold())
                             .foregroundColor(.gray)
                             .padding(.trailing)
-
-                        ForEach(["1 Grams", "2 Grams", "3 Grams"], id: \.self) { size in
-                            Button {
-                                self.size = size
-
-                            } label: {
-                                Text(size)
-                                    .font(.callout)
-                                    .foregroundColor(.black)
-                                    .padding(.vertical, 8)
-                                    .padding(.horizontal)
-                                    .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.blue)
-                                        .opacity(self.size == size ? 0.3 : 0)
-                                )
-                            }
-                        }
+                        
+                        Stepper("\(stepLevel)", value: $stepLevel, in: 1...100)
+                        
                     } // END SIZE
                     .padding(.vertical)
 
@@ -152,6 +138,8 @@ struct DetailView: View {
 
                     //MARK: - ADD TO CART
                     Button {
+                        product.quantity = stepLevel
+                        print(stepLevel)
                         DBHelper.db.updateUserCart(email:  baseData.currentUser.email!, product: product)
 
                     } label: {
@@ -162,7 +150,7 @@ struct DetailView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 20, height: 20)
 
-                            Text("Add to cart")
+                            Text("Add To Cart")
                                 .fontWeight(.bold)
                         }
                             .foregroundColor(Color("Btnbg"))
