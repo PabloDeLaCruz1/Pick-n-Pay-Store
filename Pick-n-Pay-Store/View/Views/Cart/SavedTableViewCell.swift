@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SavedTableViewCell: UITableViewCell {
 
@@ -19,6 +20,8 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var moveButton: UIButton!
     
     var delegate : SVCFunctions?
+    
+    @Environment(\.currentUser) var currentUser
     
     override func awakeFromNib() {
         
@@ -37,12 +40,14 @@ class SavedTableViewCell: UITableViewCell {
     
     @IBAction func deleteItem(_ sender: UIButton) {
         
-        CSData.savedItems.remove(at: sender.tag)
-        if CSData.savedItems.count != 0 {
-            let uptr = CSData()
-            uptr.updateArrayForIds(categories: "saved")
-        }
-        self.delegate?.updateTable()
+        //REMOVE IN DATABASE
+        
+        let success = CartHelper.inst.deleteFromCartSaved(email : currentUser.email!, itemCart : CSData.savedItems[sender.tag])
+        if success == true {
+            self.delegate?.updateTable()
+        } else {
+            print("ERROR DELETING FROM SAVED")
+          }
         
     }
     
