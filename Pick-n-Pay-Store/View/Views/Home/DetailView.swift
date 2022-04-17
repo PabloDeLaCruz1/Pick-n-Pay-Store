@@ -15,9 +15,10 @@ struct DetailView: View {
 
     @State var size = "2 Grams"
     @State var itemColor: Color = .red
+    @State var stepLevel : Int16 = 1
 
     var body: some View {
-
+        ScrollView(.vertical, showsIndicators: false) {
         //MARK: SAFE CHECK
         if var product = baseData.currentProduct, baseData.showDetail {
             VStack(spacing: 0) {
@@ -50,7 +51,7 @@ struct DetailView: View {
                         Image(systemName: "suit.heart.fill")
                             .foregroundColor(.white)
                             .padding(8)
-                            .background(Color.red, in: Circle())
+                            .background(Color.gray, in: Circle())
                     } // END SEARCH ICON
                 }
                     .foregroundColor(.black)
@@ -83,6 +84,7 @@ struct DetailView: View {
 
                     }
                 )
+            
                     .frame(height: getScreenBound().height / 3)
 
                 //MARK: - PRODUCT DETAILS
@@ -106,28 +108,13 @@ struct DetailView: View {
 
                     //MARK: PRODUCT SIZE
                     HStack(spacing: 0) {
-                        Text("Size: ")
+                        Text("Quantity: ")
                             .font(.caption.bold())
                             .foregroundColor(.gray)
                             .padding(.trailing)
-
-                        ForEach(["1 Grams", "2 Grams", "3 Grams"], id: \.self) { size in
-                            Button {
-                                self.size = size
-
-                            } label: {
-                                Text(size)
-                                    .font(.callout)
-                                    .foregroundColor(.black)
-                                    .padding(.vertical, 8)
-                                    .padding(.horizontal)
-                                    .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.blue)
-                                        .opacity(self.size == size ? 0.3 : 0)
-                                )
-                            }
-                        }
+                        
+                        Stepper("\(stepLevel)", value: $stepLevel, in: 1...100)
+                        
                     } // END SIZE
                     .padding(.vertical)
                     //MARK: PRODUCT SIZE
@@ -168,14 +155,12 @@ struct DetailView: View {
 
                     //MARK: - ADD TO CART
                     Button {
+                        product.quantity = stepLevel
                         if commentText != "" {
                             //for viewing fast
                             product.comments?.append(commentText)
                         }
                         DBHelper.db.updateUserCart(email: baseData.currentUser.email!, product: product)
-                        
-                    
-
                     } label: {
                         HStack(spacing: 15) {
                             Image("cart")
@@ -184,7 +169,7 @@ struct DetailView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 20, height: 20)
 
-                            Text("Add to cart")
+                            Text("Add To Cart")
                                 .fontWeight(.bold)
                         }
                             .foregroundColor(Color("Btnbg"))
@@ -194,7 +179,7 @@ struct DetailView: View {
                             .clipShape(Capsule())
                     }
                         .padding(.top)
-
+                    CommentsView()
                 }
                     .padding(.top)
                     .padding()
@@ -210,6 +195,8 @@ struct DetailView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .background(Color.white)
                 .transition(.opacity)
+            
+        } // end of navigation view
         }
     }
 }
@@ -219,6 +206,8 @@ struct DetailView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 //MARK: - VIEW EXTENSION
 extension View {

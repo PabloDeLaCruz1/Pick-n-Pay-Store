@@ -72,5 +72,6 @@ struct HomeSlider<Content: View, T: Identifiable>: View {
 struct HomeSlider_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        //CommentsView()
     }
 }

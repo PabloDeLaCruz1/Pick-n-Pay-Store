@@ -8,6 +8,7 @@
 import SwiftUI
 
 var myHostVc: UIHostingController<ContentView>? = nil
+//var myHost2VC: UIHostingController<CommentsView>? = nil
 
 struct ContentView: View {
     @EnvironmentObject var baseData : HomeViewModel
@@ -20,6 +21,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        //ContentView()
+        CommentsView()
     }
 }

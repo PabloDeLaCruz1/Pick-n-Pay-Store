@@ -7,7 +7,7 @@
 //this is for shipping item details. 
 import SwiftUI
 
-struct ItemInfoView: View {
+struct ItemShippingInfoView: View {
     var body: some View {
         VStack{
             HStack{
@@ -57,6 +57,6 @@ struct ItemInfoView: View {
 struct TrackingInfo_Previews: PreviewProvider {
     static var previews: some View {
         //the view is smaller
-        ItemInfoView().previewLayout(.sizeThatFits)
+        ItemShippingInfoView().previewLayout(.sizeThatFits)
     }
 }
