@@ -64,15 +64,15 @@ struct LoginSwiftUIView: View {
 
                     print("user email ------------", user)
                     if user != nil {
-                        currentUser.password = user!.password
-                        currentUser.cart = user!.cart
-                        currentUser.email = user!.email
-                        currentUser.creditCard = user!.creditCard
-                        currentUser.guest = "False"
-                        currentUser.history = user!.history
-                        currentUser.orders = user!.orders
-                        currentUser.phoneNumber = user!.phoneNumber
-                        currentUser.wishlist = user!.wishlist
+//                        currentUser.password = user.password
+//                        currentUser.cart = user.cart
+//                        currentUser.email = user.email
+//                        currentUser.creditCard = user.creditCard
+//                        currentUser.guest = "False"
+//                        currentUser.history = user.history
+//                        currentUser.orders = user.orders
+//                        currentUser.phoneNumber = user.phoneNumber
+//                        currentUser.wishlist = user.wishlist
                         self.authenticationDidSucceed = true
                         self.authenticationDidFail = false
                         self.tag = 1

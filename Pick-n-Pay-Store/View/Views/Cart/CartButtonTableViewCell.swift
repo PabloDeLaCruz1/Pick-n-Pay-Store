@@ -10,15 +10,12 @@ import UIKit
 class CartButtonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cartButtonProceedCheckout: UIButton!
-    @IBOutlet weak var subtotalStackView: UIStackView!
-    @IBOutlet weak var subtotalLabel: UILabel!
     var cbtDelegate : CallCheckoutScreen?
     
     override func awakeFromNib() {
         
         super.awakeFromNib()
         cartButtonProceedCheckout.layer.cornerRadius = 10
-        showSubTotal()
         
     }
 
@@ -34,21 +31,6 @@ class CartButtonTableViewCell: UITableViewCell {
         
     }
     
-    func showSubTotal() {
-        
-        var sum : Float = 0.00
-        
-        //ITEMS
-        for cnt in 0...CSData.cartItems.count - 1 {
-            
-            sum += Float(CSData.cartItems[cnt]["price"]!)! * Float(CSData.cartItems[cnt]["quantity"]!)!
-            
-        }
-
-        sum = Float(String(format: "%.2f", sum))!
-        subtotalLabel.text = "$\(sum)"
-        
-    }
     
     
 }

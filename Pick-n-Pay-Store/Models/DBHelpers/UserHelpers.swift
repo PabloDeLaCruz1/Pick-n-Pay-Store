@@ -243,7 +243,7 @@ extension DBHelper {
             }
             
             let item = Item(context: context!)
-            
+
             item.desc = product.desc
 //            item.rating = product.rating
             item.isLiked = product.isLiked
@@ -254,8 +254,6 @@ extension DBHelper {
             item.name = product.name
             item.image = product.image
             item.offer = product.offer
-            item.quantity = product.quantity
-            item.isSaved = product.isSaved
             
             user.cart!.items!.insert(item)
             user.cart!.total += product.price
