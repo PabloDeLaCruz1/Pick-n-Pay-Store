@@ -10,75 +10,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="CartButtonTableViewCell" customModule="Pick_n_Pay_Store" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="341" height="113"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="CartButtonTableViewCell" customModule="Pick_n_Pay_Store" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="341" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="341" height="113"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X8r-5L-0uk" userLabel="Main Stack View">
-                        <rect key="frame" x="10" y="10" width="321" height="94"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Tc-Ia-st4" userLabel="Subtotal Stack View">
-                                <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu6-7m-27L">
-                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="50"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuZ-gh-FrV">
-                                        <rect key="frame" x="91.5" y="0.0" width="229.5" height="50"/>
-                                        <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="20"/>
-                                        <color key="textColor" name="DarkRed"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="JpX-af-Jf8"/>
-                                </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-qg-9c1">
-                                <rect key="frame" x="0.0" y="50" width="321" height="44"/>
-                                <color key="backgroundColor" name="DustyRose"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="NcG-7w-AQt"/>
-                                    <constraint firstAttribute="height" constant="44" id="c1L-k9-KRk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkOut:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QJL-Su-a4r"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-qg-9c1">
+                        <rect key="frame" x="10" y="10" width="320" height="44"/>
+                        <color key="backgroundColor" name="DustyRose"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="NcG-7w-AQt"/>
+                            <constraint firstAttribute="height" constant="44" id="c1L-k9-KRk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="checkOut:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QJL-Su-a4r"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="X8r-5L-0uk" secondAttribute="bottom" constant="10" id="5dt-ll-oDm"/>
-                    <constraint firstItem="X8r-5L-0uk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="N1g-E6-D9p"/>
-                    <constraint firstAttribute="trailing" secondItem="X8r-5L-0uk" secondAttribute="trailing" constant="10" id="RMi-GR-91B"/>
-                    <constraint firstItem="X8r-5L-0uk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="e42-ad-cbt"/>
+                    <constraint firstItem="gBY-qg-9c1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JBJ-HI-s4V"/>
+                    <constraint firstItem="gBY-qg-9c1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NUN-NH-REv"/>
+                    <constraint firstAttribute="bottom" secondItem="gBY-qg-9c1" secondAttribute="bottom" constant="10" id="gNc-Ps-hIY"/>
+                    <constraint firstAttribute="trailing" secondItem="gBY-qg-9c1" secondAttribute="trailing" constant="10" id="u7D-rt-g1C"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cartButtonProceedCheckout" destination="gBY-qg-9c1" id="yL6-e8-5vU"/>
-                <outlet property="subtotalLabel" destination="JuZ-gh-FrV" id="Zv7-Gb-XNX"/>
-                <outlet property="subtotalStackView" destination="8Tc-Ia-st4" id="SCW-eA-B1l"/>
             </connections>
-            <point key="canvasLocation" x="58.695652173913047" y="22.433035714285712"/>
+            <point key="canvasLocation" x="125.36231884057972" y="96.763392857142847"/>
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="DarkRed">
-            <color red="0.61568627450980395" green="0.043137254901960784" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="DustyRose">
             <color red="0.97254901960784312" green="0.68627450980392157" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
