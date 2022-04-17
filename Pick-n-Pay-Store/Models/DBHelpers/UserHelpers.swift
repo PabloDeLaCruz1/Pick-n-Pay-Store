@@ -254,6 +254,8 @@ extension DBHelper {
             item.name = product.name
             item.image = product.image
             item.offer = product.offer
+            item.isSaved = product.isSaved
+            item.quantity = product.quantity
             
             user.cart!.items!.insert(item)
             user.cart!.total += product.price

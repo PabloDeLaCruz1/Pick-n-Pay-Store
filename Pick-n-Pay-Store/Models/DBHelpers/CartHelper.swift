@@ -148,4 +148,17 @@ class CartHelper {
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)
 
-import Foundation
+        do {
+            try context?.execute(deleteRequest)
+            try context?.save()
+            printData()
+            return true
+            //try myPersistentStoreCoordinator.execute(deleteRequest, with: myContext)
+        } catch let error as NSError {
+            print(error)
+            return false
+        }
+        
+    }
+    
+}
