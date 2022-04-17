@@ -18,8 +18,7 @@ extension Cart {
 
     @NSManaged public var total: Double
     @NSManaged public var saved: Int32
-    @NSManaged public var items: NSSet?
-
+    @NSManaged public var items: Set<Item>?
 }
 
 // MARK: Generated accessors for items

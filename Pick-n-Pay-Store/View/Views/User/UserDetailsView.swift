@@ -15,7 +15,6 @@ struct UserDetailsView: View {
 //    var animation: Namespace.ID
     @State var size = "Order 2"
     @State var itemColor: Color = .red
-    @State var user = products.first
   
     var body: some View {
         
@@ -69,7 +68,7 @@ struct UserDetailsView: View {
                     .background(
                     ZStack {
                         Circle()
-                            .fill(Color(user!.color))
+                            .fill(Color(UIColor(.blue)))
                             .padding()
                         Circle()
                             .fill(Color.white.opacity(0.5))
@@ -89,7 +88,7 @@ struct UserDetailsView: View {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
 
-                        Text("(\(user!.rating))")
+                        Text("(\(5))")
                             .foregroundColor(.gray)
 
                     }

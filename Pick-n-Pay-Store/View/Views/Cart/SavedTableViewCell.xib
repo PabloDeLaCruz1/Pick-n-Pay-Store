@@ -143,6 +143,7 @@
                 <outlet property="savedItemPrice" destination="vIw-j5-zYO" id="g32-JL-w3T"/>
                 <outlet property="savedItemStepper" destination="nTB-0m-C0Z" id="txS-Ib-uKr"/>
                 <outlet property="savedItemStepperLabel" destination="AXX-MF-oMo" id="xak-Vo-1sd"/>
+                <outlet property="stepperStackView" destination="zDF-TI-MVF" id="fMC-Pa-stk"/>
             </connections>
             <point key="canvasLocation" x="187.68115942028987" y="155.69196428571428"/>
         </tableViewCell>

@@ -100,8 +100,8 @@ extension DBHelper {
         }
         return users
     }
-    // MARK: - GET ONE USER DATA
-    func getOneUser(email: String) -> User {
+
+    func getOneUser(email: String) -> User? {
         var user = User()
         let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: " email == %@ ", email)
@@ -113,9 +113,11 @@ extension DBHelper {
                 user = req.first!
             } else {
                 print("Data Not Found")
+                return nil
             }
         } catch {
             print("try didnt work")
+            return nil
         }
         return user
     }
@@ -192,7 +194,9 @@ extension DBHelper {
     }
     
     // MARK: - UPDATE USER WISH-LIST  DATA
-    func updateUserWishList(email: String, item: Item) {
+
+
+    func updateUserWishList(email: String, product: Product) {
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: "email == %@", email)
@@ -202,7 +206,20 @@ extension DBHelper {
             if(tempUser?.count != 0) {
                 user = tempUser?.first as! User
             }
+            
+            let item = Item(context: context!)
 
+            item.desc = product.desc
+//            item.rating = product.rating
+            item.isLiked = product.isLiked
+            item.tags = product.tags
+            item.color = product.color
+            item.price = product.price
+            item.comments = product.comments
+            item.name = product.name
+            item.image = product.image
+            item.offer = product.offer
+            
             user.wishlist!.items!.insert(item)
 
             for i in user.wishlist!.items! {
@@ -214,6 +231,63 @@ extension DBHelper {
         }
     }
     // MARK: - WISH LIST ADD ITEM DATA
+    func updateUserCart(email: String, product: Product) {
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Updating Cart Item ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+            
+            let item = Item(context: context!)
+
+            item.desc = product.desc
+//            item.rating = product.rating
+            item.isLiked = product.isLiked
+            item.tags = product.tags
+            item.color = product.color
+            item.price = product.price
+            item.comments = product.comments
+            item.name = product.name
+            item.image = product.image
+            item.offer = product.offer
+            
+            user.cart!.items!.insert(item)
+            user.cart!.total += product.price
+            for i in user.cart!.items! {
+                print("Cart Item----------", i)
+            }
+            try context?.save()
+        } catch {
+            print("issues updating Cart Item Data")
+        }
+    }
+    
+    func updateUserCartStatus(email: String) {
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User Updating Cart Item ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+            
+            user.cart?.saved = 1
+            
+            try context?.save()
+        } catch {
+            print("issues updating Cart Item Data")
+        }
+    }
+    
+    func addCommentToItem(commentText : String, product : Product){
+        
+    }
     //saving wishList items test
     func addItemWishList(){
         

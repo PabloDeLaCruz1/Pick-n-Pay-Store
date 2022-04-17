@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var baseData: HomeViewModel
+    @State var commentText : String = ""
     //FOR HERO EFFECT
     var animation: Namespace.ID
-
 
     @State var size = "2 Grams"
     @State var itemColor: Color = .red
@@ -19,13 +19,20 @@ struct DetailView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
         //MARK: SAFE CHECK
-        if let product = baseData.currentProduct, baseData.showDetail {
+        if var product = baseData.currentProduct, baseData.showDetail {
             VStack(spacing: 0) {
                 //MARK: - APP BAR
                 HStack {
                     //MARK: DRAWER MENU
                     Button {
                         withAnimation {
+                            if commentText != "" {
+                                //for viewing fast
+                                product.comments?.append(commentText)
+                                
+                                DBHelper.db.addCommentToItem(commentText: commentText, product: product)
+                            }
+                            
                             baseData.showDetail = false
                         }
                     } label: {
@@ -54,7 +61,7 @@ struct DetailView: View {
                         .padding(.horizontal)
                         .padding(.bottom)
                         .clipShape(Circle())
-                    )
+                )
                     .padding()
                 // END APP BAR
 
@@ -80,7 +87,7 @@ struct DetailView: View {
                     .frame(height: getScreenBound().height / 3)
 
                 //MARK: - PRODUCT DETAILS
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(alignment: .leading, spacing: 5) {
                     HStack {
                         Text(product.name!)
                             .font(.title.bold())
@@ -124,6 +131,14 @@ struct DetailView: View {
                         }
                     } // END SIZE
                     .padding(.vertical)
+                    //MARK: PRODUCT SIZE
+                    HStack(spacing: 0) {
+
+                        Image(systemName: "magnifyingglass")
+                        TextField("Comment ..", text: $commentText)
+
+                    } // END SIZE
+                    .padding(.vertical)
 
                     //MARK: PRODUCT COLOR
                     HStack(spacing: 15) {
@@ -154,6 +169,13 @@ struct DetailView: View {
 
                     //MARK: - ADD TO CART
                     Button {
+                        if commentText != "" {
+                            //for viewing fast
+                            product.comments?.append(commentText)
+                        }
+                        DBHelper.db.updateUserCart(email: baseData.currentUser.email!, product: product)
+                        
+                    
 
                     } label: {
                         HStack(spacing: 15) {

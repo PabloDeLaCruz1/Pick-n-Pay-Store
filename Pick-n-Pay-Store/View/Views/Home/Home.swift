@@ -16,6 +16,7 @@ struct Home: View {
 
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
+    @State var searchText: String = ""
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -23,7 +24,7 @@ struct Home: View {
             VStack(spacing: 15) {
                 Spacer()
                 //MARK - APP BAR
-                HStack {
+                HStack(spacing: 100) {
                     //MARK: DRAWER MENU
                     Button {
 
@@ -38,12 +39,15 @@ struct Home: View {
                     Spacer()
 
                     //MARK: SEARCH ICON
-                    Button {
+                    HStack(spacing: 10) {
 
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                            .font(.title2)
-                    } // END SEARCH ICON
+                         Image(systemName: "magnifyingglass")
+                         TextField("Search ..", text: $searchText) 
+                    }
+            
+                
+                    
+                    // END SEARCH ICON
                 }
                     .foregroundColor(.black)
                     .overlay(
@@ -56,7 +60,10 @@ struct Home: View {
 //                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
                 VStack(spacing: 15) {
+
                     VStack(alignment: .leading, spacing: 12) {
+                        Text("Welcome")
+                            .font(.title.bold())
                         HomeSlider(trailingSpace: 40, index: $currentSlider, items: sliders) { slider in
                             GeometryReader { proxy in
                                 let sliderSize = proxy.size
@@ -80,6 +87,7 @@ struct Home: View {
                 .padding(.bottom, 20)
 
                 //MARK: - SLIDER INDICATOR
+
                 HStack(spacing: 10) {
                     ForEach(sliders.indices, id: \.self) { index in
                         Circle()
@@ -94,7 +102,7 @@ struct Home: View {
 
                 //MARK: - BODY TOP
                 HStack {
-                    Text("Our Products")
+                    Text("Products: \(baseData.category)")
                         .font(.title.bold())
                     Spacer()
                     Button {
@@ -117,7 +125,7 @@ struct Home: View {
                     HStack(spacing: 18) {
                         CategoryItem(image: "cat1", title: "Auto")
 
-                        CategoryItem(image: "cat2", title: "Electronics")
+                        CategoryItem(image: "cat2", title: "Offers")
 
                         CategoryItem(image: "cat3", title: "Health Care")
 
@@ -138,7 +146,45 @@ struct Home: View {
 
                 // MARK: - GRID VIEW
                 LazyVGrid(columns: columns, spacing: 18) {
-                    ForEach(products) { product in
+                    ForEach(baseData.products) { product in
+                        CardView(product: product)
+                            .onTapGesture {
+                            withAnimation {
+                                baseData.currentProduct = product
+                                //logic for how we want suggested items to work here.
+                                //For now we simply keep track of all items users clicked. We can use tags or other ways to add to suggested products list
+                                baseData.suggestedProducts.append(product)
+                                baseData.showDetail = true
+                            }
+                        }
+                    }
+                }
+                Spacer()
+                
+                HStack {
+                    Text("Suggested: ")
+                        .font(.title.bold())
+                    Spacer()
+                    Button {
+
+                    } label: {
+                        HStack(spacing: 3) {
+                            Text("Sort by")
+                                .font(.caption.bold())
+                            Image(systemName: "chevron.down")
+                                .font(.caption.bold())
+                        }
+                            .foregroundColor(.gray)
+                    }
+                } // END BODY TOP
+                .padding(.top, 10)
+
+                //MARK: - PRODUCT LIST
+                let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+
+                // MARK: - GRID VIEW
+                LazyVGrid(columns: columns, spacing: 18) {
+                    ForEach(baseData.suggestedProducts ?? []) { product in
                         CardView(product: product)
                             .onTapGesture {
                             withAnimation {
@@ -148,7 +194,6 @@ struct Home: View {
                         }
                     }
                 }
-                Spacer()
             }
                 .padding()
                 .background(
@@ -158,7 +203,7 @@ struct Home: View {
                     .opacity(0.1)
             )
             //MARK: - Bottom Tab Bar Approx Padding
-            .padding(.bottom, 100)
+//            .padding(.bottom, 100)
         }
             .overlay(
             DetailView(animation: animation)
@@ -171,9 +216,9 @@ struct Home: View {
     func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
 
-            //MARK: LIKED BUTTON
+            //MARK: LIKED BUTTON Adds to Wishlist
             Button {
-
+                DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
             } label: {
                 Image(systemName: "suit.heart.fill")
                     .font(.system(size: 13))
@@ -181,7 +226,6 @@ struct Home: View {
                     .padding(5)
                     .background(
                     Color.red.opacity(product.isLiked ? 1 : 0), in: Circle()
-
                 )
             } // END LIKED BUTTON
             .frame(maxWidth: .infinity, alignment: .trailing)
@@ -232,11 +276,28 @@ struct Home: View {
             .background(Color.white, in: RoundedRectangle(cornerRadius: 12))
     }
 
-    //MARK: CATEGORY VIEW
+    //MARK: CATEGORY VIEW Filters by category, can see offers here
     @ViewBuilder
     func CategoryItem(image: String, title: String) -> some View {
         Button {
-            withAnimation{baseData.homeTab = title}
+            withAnimation { baseData.category = title }
+            withAnimation { baseData.homeTab = title }
+
+            let filtered = productsForFiltering.filter { $0.tags?.first == baseData.category }
+
+            baseData.products = filtered
+            
+            //To Filter without higher order functions
+//            for (i, product) in baseData.products.enumerated() {
+//
+//                if filtered.indices.contains(i) {
+//                    baseData.products[i] = filtered[i]
+//                } else {
+//
+//                }
+//
+//            }
+
         } label: {
             HStack(spacing: 8) {
                 Image(image)
@@ -254,16 +315,17 @@ struct Home: View {
 
                 ZStack {
                     //MARK: - TRANSITION SLIDER
-//                    if baseData.homeTab == title {
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .fill(Color.white)
-//                            .matchedGeometryEffect(id: "TAB", in: animation)
-//                            .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 5)
-//                    }
+                    if baseData.homeTab == title {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                            .matchedGeometryEffect(id: "TAB", in: animation)
+                            .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 5)
+                    }
                 }
 
             )
         }
+        
     }
 }
 
@@ -272,3 +334,4 @@ struct Home_Previews: PreviewProvider {
         ContentView()
     }
 }
+
