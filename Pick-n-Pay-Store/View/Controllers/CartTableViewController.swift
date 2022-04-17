@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScreen {
 
@@ -58,7 +59,7 @@ class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScree
           }
         
         self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
-    
+        
     }
 
     func callCheckoutScreen() {
@@ -78,9 +79,9 @@ extension CartTableViewController : UITableViewDataSource {
         switch section {
             
             case 0:
-                return CSData.cartItems.count
-            default:
                 return 1
+            default:
+                return CSData.cartItems.count
             
         }
         
@@ -89,13 +90,28 @@ extension CartTableViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      
         switch indexPath.section {
-        
+            
             case 0:
+        
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CartButtonTableViewCell", for: indexPath) as! CartButtonTableViewCell
+                
+                cell.cbtDelegate = self
+                var item = "items"
+                
+                if CSData.cartItems.count == 1 {
+                    item = "item"
+                }
+                
+                cell.cartButtonProceedCheckout.setTitle("Proceed To Checkout (\(CSData.cartItems.count) \(item))", for: .normal)
+                
+                return cell
+        
+            default:
             
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
                 
                 cell.cartItemImg.image = UIImage(named: CSData.cartItems[indexPath.row]["image"]!)
-                cell.cartItemDesc.text = CSData.cartItems[indexPath.row]["description"]!
+                cell.cartItemDesc.text = CSData.cartItems[indexPath.row]["desc"]!
                 cell.cartItemPrice.text = "$"+CSData.cartItems[indexPath.row]["price"]!
                 cell.cartItemStepperLabel.text = CSData.cartItems[indexPath.row]["quantity"]!
                 cell.cartItemStepper.value = Double(CSData.cartItems[indexPath.row]["quantity"]!)!
@@ -112,20 +128,7 @@ extension CartTableViewController : UITableViewDataSource {
                 
                 return cell
             
-            default:
             
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CartButtonTableViewCell", for: indexPath) as! CartButtonTableViewCell
-                
-                cell.cbtDelegate = self
-                var item = "items"
-                
-                if CSData.cartItems.count == 1 {
-                    item = "item"
-                }
-                
-                cell.cartButtonProceedCheckout.setTitle("Proceed To Checkout (\(CSData.cartItems.count) \(item))", for: .normal)
-                
-                return cell
             
           }
     

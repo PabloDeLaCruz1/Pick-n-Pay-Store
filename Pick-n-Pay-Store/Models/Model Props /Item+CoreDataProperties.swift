@@ -2,13 +2,14 @@
 //  Item+CoreDataProperties.swift
 //  Pick-n-Pay-Store
 //
-//  Created by Pablo De La Cruz on 4/5/22.
+//  Created by Maricel Sumulong on 4/16/22.
 //
 //
 
 import Foundation
 import CoreData
-import SwiftUI
+import UIKit
+
 
 extension Item {
 
@@ -16,21 +17,21 @@ extension Item {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
+    @NSManaged public var color: UIColor
     @NSManaged public var comments: [String]?
+    @NSManaged public var desc: String?
+    @NSManaged public var image: String?
+    @NSManaged public var isLiked: Bool
     @NSManaged public var name: String?
     @NSManaged public var offer: Bool
     @NSManaged public var price: Double
-    @NSManaged public var tags: [String]?
-    
-    @NSManaged public var image: String
-    @NSManaged public var color: UIColor
-    @NSManaged public var desc: String
-    @NSManaged public var isLiked: Bool
     @NSManaged public var rating: Int
-
+    @NSManaged public var tags: [String]?
+    @NSManaged public var isSaved: Int16
+    @NSManaged public var quantity: Int16
+    
 }
 
 extension Item : Identifiable {
 
 }
-

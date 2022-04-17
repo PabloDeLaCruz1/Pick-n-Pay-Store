@@ -317,7 +317,6 @@
                     <connections>
                         <segue destination="7gR-Ao-Osk" kind="relationship" relationship="viewControllers" id="0iq-Op-8yT"/>
                         <segue destination="RXy-19-3qc" kind="relationship" relationship="viewControllers" id="RtY-TI-BkN"/>
-                        <segue destination="AEI-Cn-Az0" kind="relationship" relationship="viewControllers" id="Kbe-no-Gs9"/>
                         <segue destination="7GC-x7-xfm" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
                         <segue destination="Y6W-Hg-yEb" kind="relationship" relationship="viewControllers" id="OMp-lW-CLd"/>
                         <segue destination="wOG-PY-sS7" kind="relationship" relationship="viewControllers" id="75u-0W-zW3"/>
@@ -485,11 +484,45 @@
                     <navigationItem key="navigationItem" id="8M2-cj-GdV"/>
                     <connections>
                         <outlet property="checkoutTableView" destination="dDG-2n-3hs" id="hTn-Up-brw"/>
+                        <segue destination="A7B-lM-3Nu" kind="show" identifier="ShippingScreen" id="N6R-lD-awR"/>
+                        <segue destination="EyA-YI-nki" kind="show" identifier="BillingScreen" id="hhc-27-dms"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq4-UM-aad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5937.68115942029" y="1660.7142857142856"/>
+            <point key="canvasLocation" x="6051" y="1661"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TJo-Em-jF1">
+            <objects>
+                <viewController id="EyA-YI-nki" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7mk-AJ-eqf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0ZQ-nr-yJA"/>
+                        <color key="backgroundColor" name="pcolor4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GJp-9f-zx1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDR-ap-sRZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6895" y="2088"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Lcm-43-ybE">
+            <objects>
+                <viewController id="A7B-lM-3Nu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wd3-5U-8wT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9sw-pA-mAT"/>
+                        <color key="backgroundColor" name="pcolor2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0xb-ot-uAT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDr-Op-JLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6893" y="1373"/>
         </scene>
         <!--Cart-->
         <scene sceneID="nUi-an-E5I">
@@ -504,11 +537,14 @@
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
-                        <navigationBarAppearance key="scrollEdgeAppearance" backgroundImageContentMode="scaleToFill">
+                        <navigationBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" name="Coral"/>
                         </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GIu-Vt-cL9">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="NJ1-yy-4um" kind="relationship" relationship="rootViewController" id="e6k-Hg-K8A"/>
                     </connections>
@@ -628,9 +664,6 @@
         <namedColor name="Coral">
             <color red="0.96862745098039216" green="0.58039215686274515" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DustyRose">
-            <color red="0.97254901960784312" green="0.68627450980392157" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="dark">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -642,6 +675,9 @@
         </namedColor>
         <namedColor name="pcolor3">
             <color red="1" green="0.93699997663497925" blue="0.62400001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pcolor4">
+            <color red="0.75700002908706665" green="0.98400002717971802" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

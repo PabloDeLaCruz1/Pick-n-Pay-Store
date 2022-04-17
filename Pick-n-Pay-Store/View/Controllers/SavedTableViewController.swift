@@ -75,7 +75,7 @@ extension SavedTableViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SavedTableViewCell", for: indexPath) as! SavedTableViewCell
         
         cell.savedItemImg.image = UIImage(named: CSData.savedItems[indexPath.row]["image"]!)
-        cell.savedItemDesc.text = CSData.savedItems[indexPath.row]["description"]!
+        cell.savedItemDesc.text = CSData.savedItems[indexPath.row]["desc"]!
         cell.savedItemPrice.text = "$"+CSData.savedItems[indexPath.row]["price"]!
         cell.savedItemStepperLabel.text = CSData.savedItems[indexPath.row]["quantity"]!
         cell.savedItemStepper.value = Double(CSData.savedItems[indexPath.row]["quantity"]!)!

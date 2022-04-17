@@ -2,7 +2,7 @@
 //  Wishlist+CoreDataProperties.swift
 //  Pick-n-Pay-Store
 //
-//  Created by Pablo De La Cruz on 4/5/22.
+//  Created by Maricel Sumulong on 4/16/22.
 //
 //
 
@@ -17,6 +17,23 @@ extension Wishlist {
     }
 
     @NSManaged public var items: Set<Item>?
+
+}
+
+// MARK: Generated accessors for items
+extension Wishlist {
+
+    @objc(addItemsObject:)
+    @NSManaged public func addToItems(_ value: Item)
+
+    @objc(removeItemsObject:)
+    @NSManaged public func removeFromItems(_ value: Item)
+
+    @objc(addItems:)
+    @NSManaged public func addToItems(_ values: NSSet)
+
+    @objc(removeItems:)
+    @NSManaged public func removeFromItems(_ values: NSSet)
 
 }
 
