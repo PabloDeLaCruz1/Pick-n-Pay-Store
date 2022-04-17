@@ -8,25 +8,24 @@
 import UIKit
 import SwiftUI
 
+//create a new file with struct name there
 class WishListViewController: UIViewController,  UITableViewDataSource {
 
 
     @IBOutlet weak var table: UITableView!
     
     //making the heart gray color and unfavorite from wishlist
-  
     
-    struct WishList{
-        var itemtitle: String
-        var imageName: String
-        var itemDiscount : Double
-        var itemPrice : Double
-    }
-    let data: [WishList] = [
-        WishList(itemtitle: "Ceramic blue and Brown plate", imageName: "garlic", itemDiscount: 3.4, itemPrice: 9.30),
-        WishList(itemtitle: "Ceramic blue square place", imageName: "puma", itemDiscount: 1.99, itemPrice: 7.99)
-        
+    var dummyList = [DummyList]()
+//
+//    let item1 = DummyList(itemTitle: "Ceramic blue and Brown plate", imageName: "garlic", itemPrice: 9.30, itemId: 1)
+    
+    let data: [DummyList] = [
+        DummyList(itemTitle: "Ceramic blue and Brown plate", imageName: "garlic", itemPrice: 9.30, itemId: 2, favorite: true),
+        DummyList(itemTitle: "Ceramic blue square place", imageName: "puma", itemPrice: 7.99, itemId: 3, favorite: true)
     ]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,25 +40,23 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let wishList = data[indexPath.row]
+        
         let WishListCell = table.dequeueReusableCell(withIdentifier: "WishListItem", for: indexPath) as! WishListTableViewCell
-        WishListCell.itemTitleLabel.text = wishList.itemtitle
+        WishListCell.itemTitleLabel.text = wishList.itemTitle
         WishListCell.itemImageView.image = UIImage(named: wishList.imageName)
-//        WishListCell.itemDiscountLabel.text = "$" + String(wishList.itemDiscount)
         WishListCell.itemPriceLabel.text =  "$" +  String(wishList.itemPrice)
-//        WishListCell.itemWishListHeartButton.tintColor = .init(red: 212, green: 62, blue: 103, alpha: 0.0 )
+
 //        WishListCell.itemWishListHeartButton.addTarget(self, action: #selector(handleMarkAsFavorite), for: .touchUpInside)
+        
         return WishListCell
         
     }
  
+    //useful to save core data
     @IBAction func saveWishList(_ sender: Any) {
-//        let data = CSData.  // .inst.getData()
-//        for d in data{
-//            print("id is ", d.id , "Score for ", d.typeService, " Total Room Score is: ", d.totalFood )
-//        }
-//
-        
-        
+  
+//        DBHelper.db.addWishListItem( itemName: <#String#>, itemImage: <#String#>, itemPrice: <#Double#> )
+//        print("data saved")
     }
     
     

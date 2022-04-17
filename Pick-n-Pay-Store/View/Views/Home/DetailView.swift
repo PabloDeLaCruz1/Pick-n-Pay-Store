@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var baseData: HomeViewModel
+    @State var commentText : String = ""
     //FOR HERO EFFECT
     var animation: Namespace.ID
 
@@ -17,7 +18,7 @@ struct DetailView: View {
     @State var stepLevel : Int16 = 1
 
     var body: some View {
-
+        ScrollView(.vertical, showsIndicators: false) {
         //MARK: SAFE CHECK
         if var product = baseData.currentProduct, baseData.showDetail {
             VStack(spacing: 0) {
@@ -26,6 +27,13 @@ struct DetailView: View {
                     //MARK: DRAWER MENU
                     Button {
                         withAnimation {
+                            if commentText != "" {
+                                //for viewing fast
+                                product.comments?.append(commentText)
+                                
+                                DBHelper.db.addCommentToItem(commentText: commentText, product: product)
+                            }
+                            
                             baseData.showDetail = false
                         }
                     } label: {
@@ -43,7 +51,7 @@ struct DetailView: View {
                         Image(systemName: "suit.heart.fill")
                             .foregroundColor(.white)
                             .padding(8)
-                            .background(Color.red, in: Circle())
+                            .background(Color.gray, in: Circle())
                     } // END SEARCH ICON
                 }
                     .foregroundColor(.black)
@@ -54,7 +62,7 @@ struct DetailView: View {
                         .padding(.horizontal)
                         .padding(.bottom)
                         .clipShape(Circle())
-                    )
+                )
                     .padding()
                 // END APP BAR
 
@@ -76,10 +84,11 @@ struct DetailView: View {
 
                     }
                 )
+            
                     .frame(height: getScreenBound().height / 3)
 
                 //MARK: - PRODUCT DETAILS
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(alignment: .leading, spacing: 5) {
                     HStack {
                         Text(product.name!)
                             .font(.title.bold())
@@ -106,6 +115,14 @@ struct DetailView: View {
                         
                         Stepper("\(stepLevel)", value: $stepLevel, in: 1...100)
                         
+                    } // END SIZE
+                    .padding(.vertical)
+                    //MARK: PRODUCT SIZE
+                    HStack(spacing: 0) {
+
+                        Image(systemName: "magnifyingglass")
+                        TextField("Comment ..", text: $commentText)
+
                     } // END SIZE
                     .padding(.vertical)
 
@@ -139,9 +156,11 @@ struct DetailView: View {
                     //MARK: - ADD TO CART
                     Button {
                         product.quantity = stepLevel
-                        print(stepLevel)
-                        DBHelper.db.updateUserCart(email:  baseData.currentUser.email!, product: product)
-
+                        if commentText != "" {
+                            //for viewing fast
+                            product.comments?.append(commentText)
+                        }
+                        DBHelper.db.updateUserCart(email: baseData.currentUser.email!, product: product)
                     } label: {
                         HStack(spacing: 15) {
                             Image("cart")
@@ -160,7 +179,7 @@ struct DetailView: View {
                             .clipShape(Capsule())
                     }
                         .padding(.top)
-
+                    CommentsView()
                 }
                     .padding(.top)
                     .padding()
@@ -176,6 +195,8 @@ struct DetailView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .background(Color.white)
                 .transition(.opacity)
+            
+        } // end of navigation view
         }
     }
 }
@@ -185,6 +206,8 @@ struct DetailView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 //MARK: - VIEW EXTENSION
 extension View {
