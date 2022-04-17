@@ -19,7 +19,6 @@ class HomeViewModel: ObservableObject {
     // MARK: - DETAIL VIEW
     @Published var currentProduct: Product?
     @Published var showDetail = false
-
 //    init  () {
 //
 //    }

@@ -17,7 +17,7 @@ struct DetailView: View {
     @State var itemColor: Color = .red
 
     var body: some View {
-
+        ScrollView(.vertical, showsIndicators: false) {
         //MARK: SAFE CHECK
         if let product = baseData.currentProduct, baseData.showDetail {
             VStack(spacing: 0) {
@@ -43,7 +43,7 @@ struct DetailView: View {
                         Image(systemName: "suit.heart.fill")
                             .foregroundColor(.white)
                             .padding(8)
-                            .background(Color.red, in: Circle())
+                            .background(Color.gray, in: Circle())
                     } // END SEARCH ICON
                 }
                     .foregroundColor(.black)
@@ -76,6 +76,7 @@ struct DetailView: View {
 
                     }
                 )
+            
                     .frame(height: getScreenBound().height / 3)
 
                 //MARK: - PRODUCT DETAILS
@@ -172,7 +173,7 @@ struct DetailView: View {
                             .clipShape(Capsule())
                     }
                         .padding(.top)
-
+                    CommentsView()
                 }
                     .padding(.top)
                     .padding()
@@ -188,6 +189,8 @@ struct DetailView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .background(Color.white)
                 .transition(.opacity)
+            
+        } // end of navigation view
         }
     }
 }
@@ -197,6 +200,8 @@ struct DetailView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 //MARK: - VIEW EXTENSION
 extension View {

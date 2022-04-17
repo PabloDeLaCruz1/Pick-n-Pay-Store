@@ -59,7 +59,7 @@
                             </imageReference>
                         </buttonConfiguration>
                         <connections>
-                            <action selector="selectWishList:" destination="gTV-IL-0wX" eventType="touchUpInside" id="g2p-Wu-odQ"/>
+                            <action selector="selectWishList:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PKe-mM-own"/>
                         </connections>
                     </button>
                 </subviews>
@@ -83,10 +83,10 @@
             </constraints>
             <size key="customSize" width="295" height="305"/>
             <connections>
-                <outlet property="itemImageView" destination="fab-mP-BIm" id="lAV-9h-nDz"/>
-                <outlet property="itemPriceLabel" destination="kei-9d-J3C" id="mRE-Ej-2OL"/>
-                <outlet property="itemPriceSignLabel" destination="FwT-Fb-bJt" id="ALC-ee-ACO"/>
-                <outlet property="itemTitleLabel" destination="xRQ-e9-9mO" id="WEM-SM-a1q"/>
+                <outlet property="itemImageView" destination="fab-mP-BIm" id="fxf-SD-hPO"/>
+                <outlet property="itemPriceLabel" destination="kei-9d-J3C" id="TPN-Fo-ep3"/>
+                <outlet property="itemPriceSignLabel" destination="FwT-Fb-bJt" id="rOy-pH-yHP"/>
+                <outlet property="itemTitleLabel" destination="xRQ-e9-9mO" id="6Zh-xd-VpG"/>
             </connections>
             <point key="canvasLocation" x="164" y="158"/>
         </collectionViewCell>
