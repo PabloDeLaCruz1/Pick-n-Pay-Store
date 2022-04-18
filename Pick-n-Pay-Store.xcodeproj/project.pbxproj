@@ -19,12 +19,12 @@
 		909848702808758500241A03 /* TrackProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9098486E2808758500241A03 /* TrackProgressView.swift */; };
 		90984872280875D200241A03 /* ItemShippingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90984871280875D200241A03 /* ItemShippingInfoView.swift */; };
 		909848742808760000241A03 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909848732808760000241A03 /* ItemsViewController.swift */; };
-		9A032023280B2A7200DF656C /* CartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A032022280B2A7200DF656C /* CartHelper.swift */; };
-		9A032041280B386D00DF656C /* CheckoutShippingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A03203F280B386D00DF656C /* CheckoutShippingTableViewCell.swift */; };
-		9A032042280B386D00DF656C /* CheckoutShippingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A032040280B386D00DF656C /* CheckoutShippingTableViewCell.xib */; };
 		90984878280B8DF600241A03 /* WishListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90984877280B8DF600241A03 /* WishListDataManager.swift */; };
 		9098487A280B9BCC00241A03 /* ContactFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90984879280B9BCC00241A03 /* ContactFavoriteCell.swift */; };
 		9098487C280C3A7600241A03 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9098487B280C3A7500241A03 /* CommentsView.swift */; };
+		9A032023280B2A7200DF656C /* CartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A032022280B2A7200DF656C /* CartHelper.swift */; };
+		9A032041280B386D00DF656C /* CheckoutShippingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A03203F280B386D00DF656C /* CheckoutShippingTableViewCell.swift */; };
+		9A032042280B386D00DF656C /* CheckoutShippingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A032040280B386D00DF656C /* CheckoutShippingTableViewCell.xib */; };
 		9A083B282808C7700061045B /* CartTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A083B262808C7700061045B /* CartTotalTableViewCell.swift */; };
 		9A083B292808C7700061045B /* CartTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083B272808C7700061045B /* CartTotalTableViewCell.xib */; };
 		9A083B2C280A088A0061045B /* CheckoutButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */; };
@@ -113,13 +113,13 @@
 		9098486E2808758500241A03 /* TrackProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackProgressView.swift; sourceTree = "<group>"; };
 		90984871280875D200241A03 /* ItemShippingInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemShippingInfoView.swift; sourceTree = "<group>"; };
 		909848732808760000241A03 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		90984877280B8DF600241A03 /* WishListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListDataManager.swift; sourceTree = "<group>"; };
+		90984879280B9BCC00241A03 /* ContactFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFavoriteCell.swift; sourceTree = "<group>"; };
+		9098487B280C3A7500241A03 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		9A032021280B296900DF656C /* CoreDataModel 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 7.xcdatamodel"; sourceTree = "<group>"; };
 		9A032022280B2A7200DF656C /* CartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartHelper.swift; sourceTree = "<group>"; };
 		9A03203F280B386D00DF656C /* CheckoutShippingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTableViewCell.swift; sourceTree = "<group>"; };
 		9A032040280B386D00DF656C /* CheckoutShippingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutShippingTableViewCell.xib; sourceTree = "<group>"; };
-		90984877280B8DF600241A03 /* WishListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListDataManager.swift; sourceTree = "<group>"; };
-		90984879280B9BCC00241A03 /* ContactFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFavoriteCell.swift; sourceTree = "<group>"; };
-		9098487B280C3A7500241A03 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		9A083B262808C7700061045B /* CartTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalTableViewCell.swift; sourceTree = "<group>"; };
 		9A083B272808C7700061045B /* CartTotalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTotalTableViewCell.xib; sourceTree = "<group>"; };
 		9A083B2A280A08890061045B /* CheckoutButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckoutButtonTableViewCell.xib; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutButtonTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
@@ -313,8 +313,8 @@
 				FE64687C27F4FB8100795DB2 /* Utilities */,
 				FE64686327F4C69900795DB2 /* AppDelegate.swift */,
 				FE64686527F4C69900795DB2 /* SceneDelegate.swift */,
-				FE64686727F4C69900795DB2 /* ViewController.swift */,
 				FE64686927F4C69900795DB2 /* Main.storyboard */,
+				FE64686727F4C69900795DB2 /* ViewController.swift */,
 				FE64686C27F4C69C00795DB2 /* Assets.xcassets */,
 				FE64686E27F4C69C00795DB2 /* LaunchScreen.storyboard */,
 				FE64687127F4C69C00795DB2 /* Info.plist */,
@@ -605,9 +605,6 @@
 				FEA97F7627FE007100F82B15 /* HomeView.swift in Sources */,
 				FEA97F7027FDF9F800F82B15 /* HomeViewController.swift in Sources */,
 				90984872280875D200241A03 /* ItemShippingInfoView.swift in Sources */,
-				FED794FD27FCDAB10094E123 /* User+CoreDataProperties.swift in Sources */,
-				FED794FC27FCDAB10094E123 /* User+CoreDataClass.swift in Sources */,
-				FED794FA27FCDAB10094E123 /* Order+CoreDataClass.swift in Sources */,
 				FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */,
 				FEA97F8D27FE6C1A00F82B15 /* SplashScreen.swift in Sources */,
 				FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */,
