@@ -16,8 +16,10 @@ struct DetailView: View {
     @State var size = "2 Grams"
     @State var itemColor: Color = .red
     @State var stepLevel : Int16 = 1
-
+    @State var isLiked = false
+    
     var body: some View {
+        
         ScrollView(.vertical, showsIndicators: false) {
         //MARK: SAFE CHECK
         if var product = baseData.currentProduct, baseData.showDetail {
@@ -35,6 +37,7 @@ struct DetailView: View {
                             }
                             
                             baseData.showDetail = false
+                           
                         }
                     } label: {
                         Image(systemName: "arrow.left")
@@ -44,15 +47,17 @@ struct DetailView: View {
 
                     Spacer()
 
-                    //MARK: SEARCH ICON
+                    //MARK: HEART ICON
+                    
+                    
                     Button {
-
+                        isLiked.toggle()
                     } label: {
-                        Image(systemName: "suit.heart.fill")
-                            .foregroundColor(.white)
+                        Image(systemName: isLiked ? "suit.heart.fill" : "suit.heart")
+                            .foregroundColor(isLiked ? .red : .white)
                             .padding(8)
-                            .background(Color.gray, in: Circle())
-                    } // END SEARCH ICON
+                            .background( Color.gray.opacity( 0.3) , in: Circle())
+                    } // END HEART ICON
                 }
                     .foregroundColor(.black)
                     .overlay(
