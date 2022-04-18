@@ -41,10 +41,42 @@ class CartHelper {
         
     }
     
+    func fetchReceiversInfo(email : String) -> [[String:String]]? {
+        
+        var recInfo : [[String:String]] = []
+        var tempArray : [String:String] = [:]
+        
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "Receivers")
+        fReq.predicate = NSPredicate(format: "sender == %@", email)
+        
+        do {
+            
+            let tempUser = try context?.fetch(fReq) as! [Receivers]
+            if tempUser.count != 0 {
+                for k in 0...tempUser.count-1 {
+                    
+                    tempArray["shippingAddress"] = tempUser[k].shippingAddress
+                    tempArray["firstName"] = tempUser[k].firstName
+                    tempArray["lastName"] = tempUser[k].lastName
+                    tempArray["phoneNumber"] = tempUser[k].phoneNumber
+                    recInfo.append(tempArray)
+                    tempArray.removeAll()
+                    
+                }
+            }
+            
+        } catch {
+            print("FETCH RECEIVERS ERROR")
+            return nil
+          }
+        
+        return recInfo
+    }
+    
     func getData() -> [User] { //for debugging purpose only
         
         var stu = [User]()
-        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
         
         do {
             stu = try context?.fetch(fReq) as! [User]
@@ -61,7 +93,13 @@ class CartHelper {
         let us = getData()
         if us.count != 0 {
             for j in 0...us.count-1{
-                print("USER \(j): \(us[j].email!)")
+                print("\n================\n")
+                print("OWNER: \(String(describing: us[j].email))")
+                //us[j].cart!.items!.removeAll()
+                for k in us[j].cart!.items! {
+                    print("DELETE RETAIN: \(k.desc)")
+                }
+                print("\n================\n")
             }
         } else {
            print("No Users!")
@@ -125,13 +163,15 @@ class CartHelper {
             
             for uci in user.cart!.items! {
                 if uci.desc == itemCart["desc"]{
+                    print("DELETE FROM MAIN: \(uci.desc)")
+                    print("DELETE MAIN: \(user.email!)")
                     user.cart!.items!.remove(uci)
                     deleted = true
                 }
             }
             
             try context?.save()
-            
+            printData()
             return deleted
             
         } catch {
@@ -141,10 +181,10 @@ class CartHelper {
         
     }
     
-    func deleteData(all: Bool) -> Bool {
+    func emergencyDeleteAllUsers() -> Bool {
         
         let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
-        fReq.predicate = NSPredicate(format: "username!=''")
+        //fReq.predicate = NSPredicate(format: "email!=''")
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)
 

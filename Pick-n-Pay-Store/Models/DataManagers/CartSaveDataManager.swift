@@ -15,6 +15,7 @@ struct CSData {
     static var selIndex = 0
     static var cartItems : [[String:String]] = []
     static var savedItems : [[String:String]] = []
+    static var receiversInfo : [[String:String]] = []
     
     func drawEmptyCartSavedPage(view : UIView, segment : String) {
         
@@ -119,10 +120,12 @@ struct CSData {
             }
             
             updateArrayForIds(categories: "both")
-            print("CARTS: \(CSData.cartItems)")
-            print("SAVED: \(CSData.savedItems)")
         
         }
+        
+    }
+    
+    func setupReceiversInfo(_ info:[[String:String]]) {
         
     }
     

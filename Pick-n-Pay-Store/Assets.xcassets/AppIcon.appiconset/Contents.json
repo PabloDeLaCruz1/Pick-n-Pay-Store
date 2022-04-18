@@ -64,13 +64,13 @@
       "filename" : "pnplogo-29.png",
       "idiom" : "ipad",
       "scale" : "1x",
-      "size" : "29x29"
+      "size" : "57x57"
     },
     {
       "filename" : "pnplogo-29@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
-      "size" : "29x29"
+      "size" : "57x57"
     },
     {
       "filename" : "pnplogo-40.png",
@@ -94,7 +94,7 @@
       "filename" : "pnplogo-76@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
-      "size" : "76x76"
+      "size" : "60x60"
     },
     {
       "filename" : "pnplogo-83.5@2x.png",

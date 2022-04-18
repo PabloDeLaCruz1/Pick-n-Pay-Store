@@ -58,7 +58,7 @@ class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScree
             newPage.drawEmptyCartSavedPage(view: self.view, segment: "carts")
           }
         
-        self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
+        self.parent?.viewWillAppear(false) //updates the number in the UISegmentControl title
         
     }
 

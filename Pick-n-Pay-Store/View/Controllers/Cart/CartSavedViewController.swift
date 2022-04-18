@@ -21,6 +21,11 @@ class CartSavedViewController: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         cartSaveSC.selectedSegmentIndex = CSData.selIndex
         
         //FETCH CART INFORMATION FROM COREDATA
@@ -28,15 +33,11 @@ class CartSavedViewController: UIViewController{
         if mainItems != nil {
             testData.setupCartSavedItems(items: mainItems!)
         }
-//        if CartHelper.inst.deleteData(all: true) != false {
-//            print("No more user!")
-//        }
         
         setupSegmentedControl()
         setupNavigationBar()
         cartSaveSC.sendActions(for: UIControl.Event.valueChanged)
-//        print("USER FROM CART: \(String(describing: currentUser.email))")
-
+        
     }
     
     func setupSegmentedControl() {
@@ -50,7 +51,7 @@ class CartSavedViewController: UIViewController{
     func setupNavigationBar() {
         
         self.title = "Cart"
-        
+        self.parent?.navigationController?.navigationBar.barTintColor = UIColor(named: "Coral")
     }
     
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
@@ -113,11 +114,6 @@ class CartSavedViewController: UIViewController{
         addChild(tvc)
         pageView.addSubview(tvc.view)
         tvc.didMove(toParent: self)
-        
-    }
-    
-    func updateSegmentControl() {
-        
         
     }
 

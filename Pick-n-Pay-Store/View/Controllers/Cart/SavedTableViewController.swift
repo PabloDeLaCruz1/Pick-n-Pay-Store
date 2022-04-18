@@ -56,7 +56,7 @@ class SavedTableViewController: UIViewController, SVCFunctions {
             newPage.drawEmptyCartSavedPage(view: self.view, segment: "saved")
           }
         
-        self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
+        self.parent?.viewWillAppear(false) //updates the number in the UISegmentControl title
     
     }
 
