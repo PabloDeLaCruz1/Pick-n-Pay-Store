@@ -16,7 +16,7 @@ extension Receivers {
         return NSFetchRequest<Receivers>(entityName: "Receivers")
     }
 
-    @NSManaged public var billingAddress: String?
+    @NSManaged public var isDefault: Int16
     @NSManaged public var shippingAddress: String?
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
