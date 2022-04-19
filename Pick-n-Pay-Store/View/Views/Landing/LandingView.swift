@@ -11,6 +11,9 @@ struct LandingView: View {
 
 //    @EnvironmentObject private var loggedIn = false
     @Environment(\.loggedInKey) var loggedInKey
+ 
+    var center = CGPoint(x: 100, y: 100)
+    
     var body: some View {
 
         if false {
@@ -24,15 +27,15 @@ struct LandingView: View {
         } else {
 
             NavigationView {
-                VStack {
+                VStack(alignment: .center) {
                     Spacer()
-
                     Image("appLogo")
                         .resizable()
                         .scaledToFit() .clipShape(Circle())
                         .shadow(radius: 10)
                         .overlay(Circle().stroke(Color("pcolor1"), lineWidth: 5))
-
+                    Spacer()
+                    Spacer()
                     Button(action: {
                     }) {
                         NavigationLink(destination: SignUpView() .background(
@@ -58,20 +61,32 @@ struct LandingView: View {
                     }
                     Spacer()
                 }
-                    .navigationBarTitle("Shopper")
-                    .background(
-                        Image(DBHelper.db.getImageData())
-                        .resizable()
-                        .ignoresSafeArea()
-                        .opacity(0.1)
+                .navigationBarTitle("Pick N' Pay")
+                .background(
+                    Image(DBHelper.db.getImageData())
+                    .resizable()
+                    .ignoresSafeArea()
+                    .opacity(0.1)
                 )
-                    .navigationBarItems(trailing:
-                        Button(action: {
+                .navigationBarItems(trailing:
+                    Button(
+                        action: {
                         // Add action
-                    }, label: {
+                        },
+                        label: {
                             Text("Continue as a Guest")
-                        })
+                        }
+                    )
                 )
+                
+//                .navigationBarTitleDisplayMode(.inline)
+//                        .toolbar { // <2>
+//                            ToolbarItem(placement: .principal) { // <3>
+//                                VStack {
+//                                    Text("Pick N' Pay").font(.largeTitle.bold()).padding()
+//                                }
+//                            }
+//                        }
 
 //                   .navigationBarHidden(true)
             } //NavigationView

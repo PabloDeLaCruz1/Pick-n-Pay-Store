@@ -161,6 +161,8 @@ struct UsernameTextField: View {
             .cornerRadius(5.0)
             .padding(.bottom, 20)
             .shadow(radius: 2)
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
     }
 }
 

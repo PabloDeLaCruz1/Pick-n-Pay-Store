@@ -17,6 +17,26 @@ class CartHelper {
     
     //CREATE - ADD
     
+    func addCartReceivers(recInfo : [String:String]) -> Bool {
+        
+        let rec = NSEntityDescription.insertNewObject(forEntityName: "Receivers", into: context!) as! Receivers
+        
+        rec.isDefault = Int16((recInfo["isDefault"])!)!
+        rec.phoneNumber = (recInfo["phoneNumber"])!
+        rec.firstName = (recInfo["firstName"])!
+        rec.lastName = (recInfo["lastName"])!
+        rec.shippingAddress = (recInfo["shippingAddress"])!
+        rec.sender = (recInfo["sender"])!
+        
+        do {
+            try context?.save()
+            return true
+        } catch {
+            return false
+          }
+        
+    }
+    
     //READ
     
     func fetchUserCart(email : String) -> Set<Item>? {
@@ -41,10 +61,107 @@ class CartHelper {
         
     }
     
+    func fetchReceiversInfo(email : String) -> [[String:String]]? {
+        
+        var recInfo : [[String:String]] = []
+        var tempArray : [String:String] = [:]
+        
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "Receivers")
+        fReq.predicate = NSPredicate(format: "sender == %@", email)
+        
+        do {
+            
+            let tempUser = try context?.fetch(fReq) as! [Receivers]
+            if tempUser.count != 0 {
+                for k in 0...tempUser.count-1 {
+                    
+                    tempArray["shippingAddress"] = tempUser[k].shippingAddress
+                    tempArray["firstName"] = tempUser[k].firstName
+                    tempArray["lastName"] = tempUser[k].lastName
+                    tempArray["phoneNumber"] = tempUser[k].phoneNumber
+                    tempArray["sender"] = tempUser[k].sender
+                    tempArray["isDefault"] = String(tempUser[k].isDefault)
+                    recInfo.append(tempArray)
+                    tempArray.removeAll()
+                    
+                }
+            }
+            
+        } catch {
+            print("FETCH RECEIVERS ERROR")
+            return nil
+          }
+        
+        return recInfo
+    }
+    
+    func checkUserDefaultAddress(email : String) -> Int {
+        
+        let fReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Receivers")
+        
+        let emailPredicate = NSPredicate(format: "sender==%@", email)
+        let defaultPredicate = NSPredicate(format: "isDefault==1")
+        
+        fReq.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [
+                emailPredicate,
+                defaultPredicate
+            ]
+        )
+        
+        do {
+            let cnt = try context?.fetch(fReq) as! [Receivers]
+            if cnt.count == 0 {
+                return 0
+            } else {
+                return 1
+              }
+        } catch {
+            print("Can't fetch any data!")
+            return 2
+          }
+        
+    }
+    
+    func getUserDefaultAddress(email : String) -> [String : String]? {
+        
+        var recInfo : [String : String] = [:]
+        
+        let fReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Receivers")
+        
+        let emailPredicate = NSPredicate(format: "sender==%@", email)
+        let defaultPredicate = NSPredicate(format: "isDefault==1")
+        
+        fReq.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [
+                emailPredicate,
+                defaultPredicate
+            ]
+        )
+        
+        do {
+            
+            let rec = try context?.fetch(fReq) as! [Receivers]
+            recInfo["shippingAddress"] = rec[0].shippingAddress
+            recInfo["firstName"] = rec[0].firstName
+            recInfo["lastName"] = rec[0].lastName
+            recInfo["phoneNumber"] = rec[0].phoneNumber
+            recInfo["sender"] = rec[0].sender
+            recInfo["isDefault"] = String(rec[0].isDefault)
+            
+        } catch {
+            print("Can't fetch any data!")
+            
+          }
+        
+        return recInfo
+        
+    }
+    
     func getData() -> [User] { //for debugging purpose only
         
         var stu = [User]()
-        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        let fReq = NSFetchRequest<NSFetchRequestResult>.init(entityName: "User")
         
         do {
             stu = try context?.fetch(fReq) as! [User]
@@ -61,7 +178,13 @@ class CartHelper {
         let us = getData()
         if us.count != 0 {
             for j in 0...us.count-1{
-                print("USER \(j): \(us[j].email!)")
+                print("\n================\n")
+                print("OWNER: \(String(describing: us[j].email))")
+                //us[j].cart!.items!.removeAll()
+                for k in us[j].cart!.items! {
+                    print("DELETE RETAIN: \(k.desc)")
+                }
+                print("\n================\n")
             }
         } else {
            print("No Users!")
@@ -107,6 +230,31 @@ class CartHelper {
         
     }
     
+    func updateDefaultAdressForNewAddress(email : String, recInfo : [String : String]) -> Bool {
+        
+        let fReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Receivers")
+        
+        let emailPredicate = NSPredicate(format: "sender==%@", email)
+        let defaultPredicate = NSPredicate(format: "isDefault==1")
+        
+        fReq.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [
+                emailPredicate,
+                defaultPredicate
+            ]
+        )
+        
+        do {
+            let cnt = try context?.fetch(fReq) as! [Receivers]
+            cnt[0].isDefault = 0
+            return addCartReceivers(recInfo: recInfo)
+        } catch {
+            print("Can't fetch any data!")
+            return false
+          }
+        
+    }
+    
     //DELETE
     
     func deleteFromCartSaved(email : String, itemCart : [String : String]) -> Bool? {
@@ -125,13 +273,15 @@ class CartHelper {
             
             for uci in user.cart!.items! {
                 if uci.desc == itemCart["desc"]{
+                    print("DELETE FROM MAIN: \(uci.desc)")
+                    print("DELETE MAIN: \(user.email!)")
                     user.cart!.items!.remove(uci)
                     deleted = true
                 }
             }
             
             try context?.save()
-            
+            printData()
             return deleted
             
         } catch {
@@ -141,10 +291,10 @@ class CartHelper {
         
     }
     
-    func deleteData(all: Bool) -> Bool {
+    func emergencyDeleteAllUsers() -> Bool {
         
         let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
-        fReq.predicate = NSPredicate(format: "username!=''")
+        //fReq.predicate = NSPredicate(format: "email!=''")
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)
 

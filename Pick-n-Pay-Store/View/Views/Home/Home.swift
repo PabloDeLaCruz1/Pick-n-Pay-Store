@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Home: View {
     //MARK: - GEOMETRY EFFECT
+    // @Namespace property wrapper to create a global namespace for your views. In practice this isn’t anything other than a property on your view, but behind the scenes this lets us attach views together.
     @Namespace var animation
-//    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
@@ -18,11 +18,9 @@ struct Home: View {
     @State var sliders: [Slider] = []
     @State var searchText: String = ""
     @State var isLiked = false
-    
-    
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        ScrollView(.vertical, showsIndicators: true) {
 
             
             VStack(spacing: 15) {
@@ -43,23 +41,32 @@ struct Home: View {
                     Spacer()
 
                     //MARK: SEARCH ICON
-                    HStack(spacing: 10) {
 
-                         Image(systemName: "magnifyingglass")
-                         TextField("Search ..", text: $searchText) 
+                    Button(action: {
+
+                    }) {
+                        NavigationLink(destination: SearchView() .background(
+                                Image(DBHelper.db.getImageData())
+                                    .resizable()
+                                    .ignoresSafeArea()
+                                    .opacity(0.1)
+                            )) {
+                            HStack(spacing: 10) {
+                                Spacer()
+                                Image(systemName: "magnifyingglass")
+                                Text("Search")
+                            }
+                        }
                     }
-            
-                
-                    
+
                     // END SEARCH ICON
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo3")
+                    Image("pnpLogonbg")
                         .resizable()
-                        .frame(width: 160, height: 80)
-                        .clipShape(Circle())
-                )
+                        .frame(width: 150, height: 100)
+                        .clipShape(Circle().size(width: 150, height: 100)))
                 // END APP BAR
 //                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
@@ -149,6 +156,7 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
+                // Lazy View Stacks are used to improve performance. Also look into List or https://www.youtube.com/watch?v=BD9vzG0qUXc
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
@@ -163,9 +171,15 @@ struct Home: View {
                             }
                         }
                     }
+                    // .id(UUID()) For better performance, test and research using this
+                    // bug with laggy screen transition seem to be something else
+                    //https://www.hackingwithswift.com/articles/210/how-to-fix-slow-list-updates-in-swiftui
+                    .id(UUID())
+
                 }
-                Spacer()
                 
+                Spacer()
+
                 HStack {
                     Text("Suggested: ")
                         .font(.title.bold())
@@ -199,21 +213,23 @@ struct Home: View {
                         }
                     }
                 }
+                .id(UUID())
+
             }
                 .padding()
                 .background(
                 Image(DBHelper.db.getImageData())
                     .resizable()
                     .ignoresSafeArea()
-                    .opacity(0.1)
-            )
+                    .opacity(0.1))
             //MARK: - Bottom Tab Bar Approx Padding
 //            .padding(.bottom, 100)
         }
             .overlay(
             DetailView(animation: animation)
-                .environmentObject(baseData)
-        )
+                .environmentObject(baseData))
+            .padding(1)
+            
     }
 
     //MARK: PRODUCT VIEW
@@ -295,7 +311,7 @@ struct Home: View {
             let filtered = productsForFiltering.filter { $0.tags?.first == baseData.category }
 
             baseData.products = filtered
-            
+
             //To Filter without higher order functions
 //            for (i, product) in baseData.products.enumerated() {
 //
@@ -334,7 +350,7 @@ struct Home: View {
 
             )
         }
-        
+
     }
 }
 

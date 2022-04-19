@@ -6,16 +6,36 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CheckoutViewController: UIViewController {
 
     @IBOutlet weak var checkoutTableView: UITableView!
+    @Environment(\.currentUser) var currentUser
+    
+    let initData = CSData()
+    
+    var existingReceivers : [[String : String]] = []
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupTable()
         self.title = "Place Your Order"
+        existingReceivers = CartHelper.inst.fetchReceiversInfo(email: currentUser.email!)!
+        
+        if existingReceivers.isEmpty == false {
+        
+            let recInfo = CartHelper.inst.getUserDefaultAddress(email: currentUser.email!)
+            
+            if recInfo?.isEmpty == false {
+                
+                initData.setupDefaultAddress(recInfo : recInfo!)
+                checkoutTableView.reloadData()
+                
+            }
+            
+        }
         
     }
 
@@ -29,7 +49,7 @@ class CheckoutViewController: UIViewController {
         checkoutTableView.register(UINib(nibName: "CheckoutButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutButtonTableViewCell")
         checkoutTableView.register(UINib(nibName: "CheckoutShippingTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutShippingTableViewCell")
         checkoutTableView.register(UINib(nibName: "CheckoutBillingTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutBillingTableViewCell")
-        
+        checkoutTableView.register(UINib(nibName: "CheckoutAddShippingAddressButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutAddShippingAddressButtonTableViewCell")
         //makes sure the table is visible
         
         self.checkoutTableView.contentInset.bottom = self.tabBarController?.tabBar.frame.height ?? 0
@@ -67,11 +87,31 @@ extension CheckoutViewController : UITableViewDataSource {
             
             case 1:
             
+            if existingReceivers.isEmpty == false {
+            
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingTableViewCell", for: indexPath) as! CheckoutShippingTableViewCell
                 
                 cell.accessoryType = .disclosureIndicator
             
+                if CSData.selectedAddress.isEmpty == true {
+                    cell.receiverName.text = CSData.defaultAddress["firstName"]! + " " + CSData.defaultAddress["lastName"]!
+                    cell.receiverAddress.text = CSData.defaultAddress["shippingAddress"]!
+                } else {
+                    cell.receiverName.text = CSData.selectedAddress["firstName"]! + " " + CSData.selectedAddress["lastName"]!
+                    cell.receiverAddress.text = CSData.selectedAddress["shippingAddress"]!
+                }
+            
                 return cell
+            
+            } else {
+
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutAddShippingAddressButtonTableViewCell", for: indexPath) as! CheckoutAddShippingAddressButtonTableViewCell
+                
+                cell.accessoryType = .disclosureIndicator
+                
+                return cell
+                
+              }
             
             case 2:
             
