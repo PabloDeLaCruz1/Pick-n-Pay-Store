@@ -41,6 +41,7 @@ class WishListViewController: UIViewController,  UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let wishList = data[indexPath.row]
         
+        print(wishList)
         let WishListCell = table.dequeueReusableCell(withIdentifier: "WishListItem", for: indexPath) as! WishListTableViewCell
         WishListCell.itemTitleLabel.text = wishList.itemTitle
         WishListCell.itemImageView.image = UIImage(named: wishList.imageName)

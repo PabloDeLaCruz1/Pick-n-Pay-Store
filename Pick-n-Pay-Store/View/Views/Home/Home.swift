@@ -17,12 +17,11 @@ struct Home: View {
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
     @State var searchText: String = ""
-    @State var isLiked = false
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
 
-            
+
             VStack(spacing: 15) {
                 Spacer()
                 //MARK - APP BAR
@@ -160,7 +159,7 @@ struct Home: View {
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
-                        
+
                             .onTapGesture {
                             withAnimation {
                                 baseData.currentProduct = product
@@ -177,7 +176,7 @@ struct Home: View {
                     .id(UUID())
 
                 }
-                
+
                 Spacer()
 
                 HStack {
@@ -213,7 +212,7 @@ struct Home: View {
                         }
                     }
                 }
-                .id(UUID())
+                    .id(UUID())
 
             }
                 .padding()
@@ -229,29 +228,37 @@ struct Home: View {
             DetailView(animation: animation)
                 .environmentObject(baseData))
             .padding(1)
-            
+
     }
 
     //MARK: PRODUCT VIEW
     @ViewBuilder
     func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
-            
+
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
-                
                 DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
-                
+                product.isLiked.toggle()
 
-                //product.isLiked.toggle()
             } label: {
-                Image(systemName: isLiked ? "suit.heart.fill" : "suit.heart")
-                    .font(.system(size: 13))
-                    .foregroundColor(isLiked ? .red : .white)
-                    .padding(5)
-                    .background(
-                        Color.gray.opacity( 0.3), in: Circle()
-                )
+                if product.isLiked {
+                    Image(systemName: "suit.heart.fill")
+                        .font(.system(size: 13))
+                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .padding(5)
+                        .background(
+                        Color.red.opacity(0.3), in: Circle()
+                    )
+                } else {
+                    Image(systemName: "suit.heart")
+                        .font(.system(size: 13))
+                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .padding(5)
+                        .background(
+                        Color.gray.opacity(0.3), in: Circle()
+                    )                }
+
             } // END LIKED BUTTON
             .frame(maxWidth: .infinity, alignment: .trailing)
 

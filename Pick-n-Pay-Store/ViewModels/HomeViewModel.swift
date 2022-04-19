@@ -57,7 +57,7 @@ class HomeViewModel: ObservableObject {
 }
 
 //Need to not mutate the object holding the products being fitlered
-let productsForFiltering = [// FOR TESTING PURPOSES, Products will come from API
+var productsForFiltering = [// FOR TESTING PURPOSES, Products will come from API
     Product(name: "Item #1", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["Health Care", "tag2", "tag3"], image: "product1", color: UIColor(Color("pcolor3")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
     Product(name: "Item #2", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["Health Care", "tag2", "tag3"], image: "product2", color: UIColor(Color("pcolor2")), desc: "This is Item #2's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
     Product(name: "Item #3", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["Health Care", "tag2", "tag3"], image: "product3", color: UIColor(Color("pcolor1")), desc: "This is Item #3's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
