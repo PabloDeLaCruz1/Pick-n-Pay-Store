@@ -26,6 +26,9 @@ struct Product: Identifiable {
     
 }
 
+
+
+
 //var products = [
 //Product(productImage: "product1", productTitle: "Attenir Oil", productPrice: "$25.99", productColor: Color("pcolor3"), productDescription: "Attenir Skin Clear Cleanse Oil cleanses makeup, skin stains and impurities on the skin while leaving it supple and firm.", productRating: 4),
 //Product(productImage: "product2", productTitle: "Attenir Lift", productPrice: "$36.0", productColor: Color("pcolor2"), productDescription: "Dress Lift Day Emulsion is Attenir's anti-ageing regenerating lifting emulsion for daily facial care.", productRating: 5),
