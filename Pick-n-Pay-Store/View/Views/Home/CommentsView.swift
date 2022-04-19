@@ -12,7 +12,7 @@ struct CommentsView: View {
     @EnvironmentObject var baseData: HomeViewModel
     var body: some View {
         
-        if let product = baseData.currentProduct{
+        if var product = baseData.currentProduct{
         VStack{
             
         HStack{

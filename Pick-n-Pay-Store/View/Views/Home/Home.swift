@@ -18,10 +18,13 @@ struct Home: View {
     @State var sliders: [Slider] = []
     @State var searchText: String = ""
     @State var isLiked = false
+    
+    
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
 
+            
             VStack(spacing: 15) {
                 Spacer()
                 //MARK - APP BAR
@@ -149,6 +152,7 @@ struct Home: View {
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
+                        
                             .onTapGesture {
                             withAnimation {
                                 baseData.currentProduct = product
@@ -217,10 +221,13 @@ struct Home: View {
     func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
             
-            //MARK: LIKED BUTTON Adds to Wishlist
+            //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
+                
                 DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
-                    product.isLiked.toggle()
+                
+
+                //product.isLiked.toggle()
             } label: {
                 Image(systemName: isLiked ? "suit.heart.fill" : "suit.heart")
                     .font(.system(size: 13))
