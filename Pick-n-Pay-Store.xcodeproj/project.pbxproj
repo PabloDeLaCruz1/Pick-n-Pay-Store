@@ -109,6 +109,7 @@
 		FEA97F9127FE7EDB00F82B15 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA97F9027FE7EDB00F82B15 /* LoginView.swift */; };
 		FEAAF24027FC60E8000F2440 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF23F27FC60E8000F2440 /* DBHelper.swift */; };
 		FEAAF24327FC6260000F2440 /* UserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAF24227FC6260000F2440 /* UserHelpers.swift */; };
+		FEBA624F280DD9AE005694AC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBA624E280DD9AE005694AC /* SearchView.swift */; };
 		FED794D227FCA4450094E123 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FED794D027FCA4450094E123 /* CoreDataModel.xcdatamodeld */; };
 		FED7950227FD46880094E123 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED7950127FD46880094E123 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
@@ -226,6 +227,7 @@
 		FEA97F962800896B00F82B15 /* CoreDataModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 5.xcdatamodel"; sourceTree = "<group>"; };
 		FEAAF23F27FC60E8000F2440 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		FEAAF24227FC6260000F2440 /* UserHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelpers.swift; sourceTree = "<group>"; };
+		FEBA624E280DD9AE005694AC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		FED794D127FCA4450094E123 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FED794E727FCAB8B0094E123 /* CoreDataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		FED794E827FCD2F00094E123 /* CoreDataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				FEA97F8527FE404500F82B15 /* DetailView.swift */,
 				9098487B280C3A7500241A03 /* CommentsView.swift */,
 				84A05A3228099C1C00EB5B3E /* Items.swift */,
+				FEBA624E280DD9AE005694AC /* SearchView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				9A032023280B2A7200DF656C /* CartHelper.swift in Sources */,
 				9A032041280B386D00DF656C /* CheckoutShippingTableViewCell.swift in Sources */,
 				FEA97F8627FE404500F82B15 /* DetailView.swift in Sources */,
+				FEBA624F280DD9AE005694AC /* SearchView.swift in Sources */,
 				FE64689F27FB3B7600795DB2 /* UserProfileSwiftUIView.swift in Sources */,
 				84A05A3328099C1C00EB5B3E /* Items.swift in Sources */,
 				9A9BDB97280C590E009AC118 /* Billings+CoreDataProperties.swift in Sources */,

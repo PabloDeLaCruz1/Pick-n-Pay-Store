@@ -16,7 +16,6 @@ struct Home: View {
 
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
-    @State var searchText: String = ""
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -39,22 +38,32 @@ struct Home: View {
                     Spacer()
 
                     //MARK: SEARCH ICON
-                    HStack(spacing: 10) {
 
-                         Image(systemName: "magnifyingglass")
-                         TextField("Search ..", text: $searchText) 
+                    Button(action: {
+
+                    }) {
+                        NavigationLink(destination: SearchView() .background(
+                                Image(DBHelper.db.getImageData())
+                                    .resizable()
+                                    .ignoresSafeArea()
+                                    .opacity(0.1)
+                            )) {
+                            HStack(spacing: 10) {
+                                Spacer()
+                                Image(systemName: "magnifyingglass")
+                                Text("Search")
+                            }
+                        }
                     }
-            
-                
-                    
+
                     // END SEARCH ICON
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo3")
+                    Image("pnpLogonbg")
                         .resizable()
-                        .frame(width: 160, height: 80)
-                        .clipShape(Circle())
+                        .frame(width: 115, height: 115)
+                        .clipShape(Circle().size(width: 115, height: 115))
                 )
                 // END APP BAR
 //                Text("Hello! \(currentUser)")
@@ -160,7 +169,7 @@ struct Home: View {
                     }
                 }
                 Spacer()
-                
+
                 HStack {
                     Text("Suggested: ")
                         .font(.title.bold())
@@ -200,8 +209,7 @@ struct Home: View {
                 Image(DBHelper.db.getImageData())
                     .resizable()
                     .ignoresSafeArea()
-                    .opacity(0.1)
-            )
+                    .opacity(0.1))
             //MARK: - Bottom Tab Bar Approx Padding
 //            .padding(.bottom, 100)
         }
@@ -209,6 +217,7 @@ struct Home: View {
             DetailView(animation: animation)
                 .environmentObject(baseData)
         )
+            .padding(1)
     }
 
     //MARK: PRODUCT VIEW
@@ -286,7 +295,7 @@ struct Home: View {
             let filtered = productsForFiltering.filter { $0.tags?.first == baseData.category }
 
             baseData.products = filtered
-            
+
             //To Filter without higher order functions
 //            for (i, product) in baseData.products.enumerated() {
 //
@@ -325,7 +334,7 @@ struct Home: View {
 
             )
         }
-        
+
     }
 }
 
