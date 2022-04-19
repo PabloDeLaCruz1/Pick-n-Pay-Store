@@ -15,9 +15,11 @@ struct DetailView: View {
     var animation: Namespace.ID
 
     @State var itemColor: Color = .red
-    @State var stepLevel: Int16 = 1
-
+    @State var stepLevel : Int16 = 1
+    @State var isLiked = false
+  
     var body: some View {
+        
         ScrollView(.vertical, showsIndicators: false) {
             //MARK: SAFE CHECK
             if var product = baseData.currentProduct, baseData.showDetail {
@@ -36,24 +38,24 @@ struct DetailView: View {
 
                                 baseData.showDetail = false
                             }
-                        } label: {
-                            Image(systemName: "arrow.left")
-                                .font(.title2)
-                                .foregroundColor(.black)
-                        } // END DRAWER MENU
+                        }
+                    } label: {
+                        Image(systemName: "arrow.left")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                    } // END DRAWER MENU
+                    Spacer()
 
-                        Spacer()
-
-                        //MARK: SEARCH ICON
-                        Button {
-
-                        } label: {
-                            Image(systemName: "suit.heart.fill")
-                                .foregroundColor(.white)
-                                .padding(8)
-                                .background(Color.gray, in: Circle())
-                        } // END SEARCH ICON
-                    }
+                    //MARK: HEART ICON
+                    Button {
+                        isLiked.toggle()
+                    } label: {
+                        Image(systemName: isLiked ? "suit.heart.fill" : "suit.heart")
+                            .foregroundColor(isLiked ? .red : .white)
+                            .padding(8)
+                            .background( Color.gray.opacity( 0.3) , in: Circle())
+                    } // END HEART ICON
+                }
                         .foregroundColor(.black)
                         .overlay(
                         Image("pnpLogonbg")
