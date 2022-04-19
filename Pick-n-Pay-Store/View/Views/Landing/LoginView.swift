@@ -70,7 +70,7 @@ struct LoginSwiftUIView: View {
                         currentUser.cart = user!.cart
                         currentUser.email = user!.email
                         currentUser.creditCard = user!.creditCard
-                        currentUser.guest = "False"
+                        currentUser.guest = "false"
                         currentUser.history = user!.history
                         currentUser.orders = user!.orders
                         currentUser.phoneNumber = user!.phoneNumber

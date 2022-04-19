@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class CheckoutShippingAddressViewController: UIViewController, NewShippingAddressFunctions {
+class CheckoutShippingAddressViewController: UIViewController, NewShippingAddressFunctions, CellFunctions {
 
     @IBOutlet weak var shippingAddressTableView: UITableView!
     @Environment(\.currentUser) var currentUser
@@ -20,6 +20,14 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
         super.viewDidLoad()
         self.title = "Select Shipping Address"
         setupTable()
+        let recInfo = CartHelper.inst.fetchReceiversInfo(email: currentUser.email!)
+        
+        if recInfo != nil {
+            
+            shipData.setupReceiversInfo(recInfo : recInfo!)
+            shippingAddressTableView.reloadData()
+            
+        }
         
     }
     
@@ -39,7 +47,8 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
         
         if recInfo != nil {
             
-            shipData.setupReceiversInfo(recInfo!)
+            shipData.setupReceiversInfo(recInfo : recInfo!)
+            shippingAddressTableView.reloadData()
             
         }
         
@@ -48,6 +57,21 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
     func goToAddShipping() {
         
         performSegue(withIdentifier: "AddShipping", sender: self)
+        
+    }
+    
+    func resetCellState() {
+        
+        //this function is for the recipients tableview cell, to be in their default before the button is clicked
+        
+        for j in 0...CSData.receiversInfo.count-1 {
+            
+            let indexPath = IndexPath(row: j, section: 0)
+            let cell = shippingAddressTableView.cellForRow(at: indexPath) as? CheckoutShippingAddressTableViewCell
+            cell?.deliverToButton.isHidden = true
+            cell?.circleButton.setBackgroundImage(UIImage(named: "circleUnselected"), for: .normal)
+
+        }
         
     }
 
@@ -75,7 +99,15 @@ extension CheckoutShippingAddressViewController : UITableViewDataSource {
             case 0:
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingAddressTableViewCell", for: indexPath) as! CheckoutShippingAddressTableViewCell
-                
+            
+                let fullname = CSData.receiversInfo[indexPath.row]["firstName"]!+" "+CSData.receiversInfo[indexPath.row]["lastName"]!
+                    cell.receiversName.text = fullname
+                cell.receiversAddress.text = CSData.receiversInfo[indexPath.row]["shippingAddress"]!
+                cell.receiversPhone.text = CSData.receiversInfo[indexPath.row]["phoneNumber"]!
+                cell.deliverToButton.tag = indexPath.row
+                cell.circleButton.tag = indexPath.row
+                cell.delegate = self
+            
                 return cell
             
             default:

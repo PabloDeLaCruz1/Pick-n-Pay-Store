@@ -607,7 +607,7 @@
         <!--Checkout Shipping Address View Controller-->
         <scene sceneID="0q0-k6-LsU">
             <objects>
-                <viewController id="Ri2-Sx-NKn" customClass="CheckoutShippingAddressViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Ri2-Sx-NKn" customClass="CheckoutShippingAddressViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48F-hc-sLh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -651,7 +651,7 @@
         <!--Checkout Add Shipping Address View Controller-->
         <scene sceneID="c8h-UI-Ip9">
             <objects>
-                <viewController id="CGb-u2-LVz" customClass="CheckoutAddShippingAddressViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="CGb-u2-LVz" customClass="CheckoutAddShippingAddressViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="deX-pA-6A9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -671,7 +671,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="cM9-uO-XhJ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2r-2h-2jq">
                                                         <rect key="frame" x="190" y="0.0" width="180" height="34"/>
@@ -679,7 +679,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="Ui5-d3-94e"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -689,7 +689,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="Tij-iX-WHm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Apt., Suite, Unit, Building (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7r-ax-p13">
                                                 <rect key="frame" x="10" y="94" width="370" height="34"/>
@@ -697,7 +697,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="lh1-CU-pK5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnV-k8-ffk">
                                                 <rect key="frame" x="10" y="136" width="370" height="34"/>
@@ -705,7 +705,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="4FP-kd-Wx1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="b5t-aA-jhf" userLabel="Line 5 Stack View">
                                                 <rect key="frame" x="10" y="178" width="370" height="34"/>
@@ -716,7 +716,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="m03-Vm-ogi"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Yz-br-OlW">
                                                         <rect key="frame" x="190" y="0.0" width="180" height="34"/>
@@ -724,7 +724,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="z7X-oM-kRk"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -734,7 +734,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="gDO-XX-ha8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="63d-iM-lVg" userLabel="Line 7 Stack View">
                                                 <rect key="frame" x="10" y="262" width="370" height="25"/>
