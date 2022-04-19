@@ -162,6 +162,9 @@
 		9A88D3C1280DBD8A000976C8 /* CheckoutAddBillingAddressButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckoutAddBillingAddressButtonTableViewCell.xib; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutAddBillingAddressButtonTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		9A88D3C2280DBD8B000976C8 /* CheckoutAddShippingAddressButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckoutAddShippingAddressButtonTableViewCell.xib; path = "Pick-n-Pay-Store/View/Views/Cart/CheckoutAddShippingAddressButtonTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		9A88D3C7280DDE9B000976C8 /* CoreDataModel 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 11.xcdatamodel"; sourceTree = "<group>"; };
+		9A88D3C8280EC204000976C8 /* CoreDataModel 12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 12.xcdatamodel"; sourceTree = "<group>"; };
+		9A88D3C9280EC52D000976C8 /* CoreDataModel 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 13.xcdatamodel"; sourceTree = "<group>"; };
+		9A88D3CA280EC5BE000976C8 /* CoreDataModel 14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 14.xcdatamodel"; sourceTree = "<group>"; };
 		9A8CA9B52808837A008B2E5D /* CheckoutCartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutCartTableViewCell.xib; sourceTree = "<group>"; };
 		9A8CA9B62808837B008B2E5D /* CheckoutCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutCartTableViewCell.swift; sourceTree = "<group>"; };
 		9A8CA9B92808875C008B2E5D /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
@@ -951,6 +954,9 @@
 		FED794D027FCA4450094E123 /* CoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9A88D3CA280EC5BE000976C8 /* CoreDataModel 14.xcdatamodel */,
+				9A88D3C9280EC52D000976C8 /* CoreDataModel 13.xcdatamodel */,
+				9A88D3C8280EC204000976C8 /* CoreDataModel 12.xcdatamodel */,
 				9A88D3C7280DDE9B000976C8 /* CoreDataModel 11.xcdatamodel */,
 				9A9BDB8F280C5734009AC118 /* CoreDataModel 10.xcdatamodel */,
 				9AA2492E280BCA7C003B6E3A /* CoreDataModel 9.xcdatamodel */,

@@ -16,6 +16,8 @@ struct CSData {
     static var cartItems : [[String:String]] = []
     static var savedItems : [[String:String]] = []
     static var receiversInfo : [[String:String]] = []
+    static var selectedAddress : [String:String] = [:]
+    static var defaultAddress : [String:String] = [:]
     
     func drawEmptyCartSavedPage(view : UIView, segment : String) {
         
@@ -125,7 +127,41 @@ struct CSData {
         
     }
     
-    func setupReceiversInfo(_ info:[[String:String]]) {
+    func setupReceiversInfo(recInfo : [[String:String]]) {
+        
+        CSData.receiversInfo = []
+        
+        if recInfo.isEmpty == false {
+            
+            for k in 0...recInfo.count-1 {
+                
+                var tempArray : [String : String] = [:]
+                tempArray["firstName"] = recInfo[k]["firstName"]
+                tempArray["lastName"] = recInfo[k]["lastName"]
+                tempArray["shippingAddress"] = recInfo[k]["shippingAddress"]
+                tempArray["phoneNumber"] = recInfo[k]["phoneNumber"]
+                tempArray["sender"] = recInfo[k]["sender"]
+                tempArray["isDefault"] = recInfo[k]["isDefault"]
+                CSData.receiversInfo.append(tempArray)
+                
+            }
+            
+        }
+        
+        //print("RECEIVERS: \(CSData.defaultAddress)")
+        
+    }
+    
+    func setupDefaultAddress(recInfo : [String:String]) {
+        
+        CSData.defaultAddress = [:]
+        
+        CSData.defaultAddress["firstName"] = recInfo["firstName"]
+        CSData.defaultAddress["lastName"] = recInfo["lastName"]
+        CSData.defaultAddress["shippingAddress"] = recInfo["shippingAddress"]
+        CSData.defaultAddress["phoneNumber"] = recInfo["phoneNumber"]
+        CSData.defaultAddress["sender"] = recInfo["sender"]
+        CSData.defaultAddress["isDefault"] = recInfo["isDefault"]
         
     }
     

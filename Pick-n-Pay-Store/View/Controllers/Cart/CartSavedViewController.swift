@@ -21,6 +21,11 @@ class CartSavedViewController: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        //FETCH CART INFORMATION FROM COREDATA
+        let mainItems = CartHelper.inst.fetchUserCart(email: currentUser.email!)
+        if mainItems != nil {
+            testData.setupCartSavedItems(items: mainItems!)
+        }
         
     }
     
