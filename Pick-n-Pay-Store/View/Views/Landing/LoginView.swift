@@ -12,10 +12,10 @@ struct LoginSwiftUIView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.currentUser) var currentUser
 
-    @State var email: String = ""
-    @State var password: String = ""
-//    @State var email: String = "mllsumulong@gmail.com"
-//    @State var password: String = "azhelle!"
+//    @State var email: String = ""
+//    @State var password: String = ""
+    @State var email: String = "mllsumulong@gmail.com"
+    @State var password: String = "azhelle!"
     @State var tag: Int? = nil
 
     @State var authenticationDidFail: Bool = false
