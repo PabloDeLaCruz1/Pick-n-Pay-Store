@@ -104,6 +104,10 @@ struct SearchView: View {
                                     baseData.currentProduct = product
                                     baseData.suggestedProducts.append(product)
                                     baseData.showDetail = true
+                                    print("------------history")
+                                    for history in baseData.currentUser.history! {
+                                        print(history)
+                                    }
                                 }
                             }
                         }
@@ -135,6 +139,7 @@ struct SearchView: View {
         if searchText.isEmpty {
             return products
         } else {
+            baseData.currentUser.history?.append(searchText)
             return productsForFiltering.filter { $0.tags!.contains(searchText) }
         }
     }
@@ -220,16 +225,6 @@ struct SearchView: View {
 
             baseData.products = filtered
 
-            //To Filter without higher order functions
-//            for (i, product) in baseData.products.enumerated() {
-//
-//                if filtered.indices.contains(i) {
-//                    baseData.products[i] = filtered[i]
-//                } else {
-//
-//                }
-//
-//            }
 
         } label: {
             HStack(spacing: 8) {

@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 //create a new file with struct name there
-class WishListViewController: UIViewController, UITableViewDataSource {
+class WishListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @Environment(\.currentUser) var currentUser
 
@@ -20,7 +20,7 @@ class WishListViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         table.dataSource = self
-
+        table.delegate = self
         for item in currentUser.wishlist!.items! {
             data.append(item)
         }
