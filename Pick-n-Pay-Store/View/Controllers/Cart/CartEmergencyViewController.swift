@@ -10,14 +10,17 @@ import UIKit
 class CartEmergencyViewController: UIViewController {
 
     @IBOutlet weak var deleteAllUsersButton: UIButton!
-    
     @IBOutlet weak var getAllUsersButton: UIButton!
+    @IBOutlet weak var deleteReceiversButton: UIButton!
+    @IBOutlet weak var deleteBillingsButton: UIButton!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupButton(deleteAllUsersButton)
         setupButton(getAllUsersButton)
+        setupButton(deleteReceiversButton)
+        setupButton(deleteBillingsButton)
         
     }
     
@@ -47,4 +50,28 @@ class CartEmergencyViewController: UIViewController {
         
     }
 
+    @IBAction func deleteReceivers(_ sender: UIButton) {
+        
+        let success = CartHelper.inst.emergencyDeleteAllReceivers()
+        
+        if success == true {
+            print("No More Receivers!")
+        } else {
+            print("There are receivers left.")
+          }
+        
+    }
+    
+    @IBAction func deleteBillings(_ sender: UIButton) {
+        
+        let success = CartHelper.inst.emergencyDeleteAllBillings()
+        
+        if success == true {
+            print("No More Payment Info!")
+        } else {
+            print("There are payment left.")
+          }
+        
+    }
+    
 }

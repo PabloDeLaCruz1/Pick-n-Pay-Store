@@ -74,6 +74,12 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
         }
         
     }
+    
+    func returnToCheckoutPage() {
+        
+        self.navigationController?.popViewController(animated: true)
+        
+    }
 
 }
 

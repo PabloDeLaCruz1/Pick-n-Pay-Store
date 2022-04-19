@@ -291,6 +291,8 @@ class CartHelper {
         
     }
     
+    // EMERGENCY FUNCTIONS
+    
     func emergencyDeleteAllUsers() -> Bool {
         
         let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
@@ -302,6 +304,46 @@ class CartHelper {
             try context?.execute(deleteRequest)
             try context?.save()
             printData()
+            return true
+            //try myPersistentStoreCoordinator.execute(deleteRequest, with: myContext)
+        } catch let error as NSError {
+            print(error)
+            return false
+        }
+        
+    }
+    
+    func emergencyDeleteAllReceivers() -> Bool {
+        
+        let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Receivers")
+        //fReq.predicate = NSPredicate(format: "email!=''")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)
+
+        do {
+            try context?.execute(deleteRequest)
+            try context?.save()
+            //printData()
+            return true
+            //try myPersistentStoreCoordinator.execute(deleteRequest, with: myContext)
+        } catch let error as NSError {
+            print(error)
+            return false
+        }
+        
+    }
+    
+    func emergencyDeleteAllBillings() -> Bool {
+        
+        let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Billings")
+        //fReq.predicate = NSPredicate(format: "email!=''")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)
+
+        do {
+            try context?.execute(deleteRequest)
+            try context?.save()
+            //printData()
             return true
             //try myPersistentStoreCoordinator.execute(deleteRequest, with: myContext)
         } catch let error as NSError {

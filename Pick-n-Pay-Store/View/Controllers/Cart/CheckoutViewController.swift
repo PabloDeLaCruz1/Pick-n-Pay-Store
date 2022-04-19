@@ -38,6 +38,32 @@ class CheckoutViewController: UIViewController {
         }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let recInfo = CartHelper.inst.getUserDefaultAddress(email: currentUser.email!)
+        
+        if recInfo?.isEmpty == false {
+            
+            initData.setupDefaultAddress(recInfo : recInfo!)
+            checkoutTableView.reloadData()
+            
+        }
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+        let recInfo = CartHelper.inst.getUserDefaultAddress(email: currentUser.email!)
+        
+        if recInfo?.isEmpty == false {
+            
+            initData.setupDefaultAddress(recInfo : recInfo!)
+            checkoutTableView.reloadData()
+            
+        }
+        
+    }
 
     func setupTable() {
         
@@ -87,31 +113,31 @@ extension CheckoutViewController : UITableViewDataSource {
             
             case 1:
             
-            if existingReceivers.isEmpty == false {
-            
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingTableViewCell", for: indexPath) as! CheckoutShippingTableViewCell
+                if existingReceivers.isEmpty == false {
                 
-                cell.accessoryType = .disclosureIndicator
-            
-                if CSData.selectedAddress.isEmpty == true {
-                    cell.receiverName.text = CSData.defaultAddress["firstName"]! + " " + CSData.defaultAddress["lastName"]!
-                    cell.receiverAddress.text = CSData.defaultAddress["shippingAddress"]!
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingTableViewCell", for: indexPath) as! CheckoutShippingTableViewCell
+                    
+                    cell.accessoryType = .disclosureIndicator
+                
+                    if CSData.selectedAddress.isEmpty == true {
+                        cell.receiverName.text = CSData.defaultAddress["firstName"]! + " " + CSData.defaultAddress["lastName"]!
+                        cell.receiverAddress.text = CSData.defaultAddress["shippingAddress"]!
+                    } else {
+                        cell.receiverName.text = CSData.selectedAddress["firstName"]! + " " + CSData.selectedAddress["lastName"]!
+                        cell.receiverAddress.text = CSData.selectedAddress["shippingAddress"]!
+                    }
+                
+                    return cell
+                
                 } else {
-                    cell.receiverName.text = CSData.selectedAddress["firstName"]! + " " + CSData.selectedAddress["lastName"]!
-                    cell.receiverAddress.text = CSData.selectedAddress["shippingAddress"]!
-                }
-            
-                return cell
-            
-            } else {
 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutAddShippingAddressButtonTableViewCell", for: indexPath) as! CheckoutAddShippingAddressButtonTableViewCell
-                
-                cell.accessoryType = .disclosureIndicator
-                
-                return cell
-                
-              }
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutAddShippingAddressButtonTableViewCell", for: indexPath) as! CheckoutAddShippingAddressButtonTableViewCell
+                    
+                    cell.accessoryType = .disclosureIndicator
+                    
+                    return cell
+                    
+                  }
             
             case 2:
             
