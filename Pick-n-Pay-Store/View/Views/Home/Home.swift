@@ -279,7 +279,33 @@ struct Home: View {
                         .stroke(Color.white, lineWidth: 1.4)
                         .padding(-3)
                 }
-            ) // END PRODUCT IMAGE
+            )
+            // MARK: For fetching images from url
+            
+//            AsyncImage(url: URL(string: "https://loremflickr.com/320/240/dog")) { image in
+//                image.resizable()
+//                    .frame(width: 100, height: 100)
+//                //                .resizable()
+//                //                .aspectRatio(contentMode: .fit)
+//                .matchedGeometryEffect(id: product.image, in: animation)
+//                    .padding()
+//                    .rotationEffect(.init(degrees: -20))
+//                    .background(
+//                    ZStack {
+//                        Circle()
+//                            .fill(Color(product.color))
+//                            .padding(-10)
+//                        //MARK: - INNER CIRCLE
+//                        Circle()
+//                            .stroke(Color.white, lineWidth: 1.4)
+//                            .padding(-3)
+//                    }
+//                )
+//
+//            } placeholder: {
+//                ProgressView()
+//            }
+            // END PRODUCT IMAGE
 
             //MARK: PRODUCT TITLE
             Text(product.name!)
