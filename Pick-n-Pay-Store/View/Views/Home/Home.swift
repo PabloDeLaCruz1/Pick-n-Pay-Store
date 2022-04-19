@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Home: View {
     //MARK: - GEOMETRY EFFECT
+    // @Namespace property wrapper to create a global namespace for your views. In practice this isn’t anything other than a property on your view, but behind the scenes this lets us attach views together.
     @Namespace var animation
-//    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
@@ -18,7 +18,7 @@ struct Home: View {
     @State var sliders: [Slider] = []
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        ScrollView(.vertical, showsIndicators: true) {
 
             VStack(spacing: 15) {
                 Spacer()
@@ -173,6 +173,7 @@ struct Home: View {
                     .id(UUID())
 
                 }
+                
                 Spacer()
 
                 HStack {
