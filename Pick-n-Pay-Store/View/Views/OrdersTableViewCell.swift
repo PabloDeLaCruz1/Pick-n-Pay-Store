@@ -11,6 +11,7 @@ class OrdersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var reviewOrder: UIButton!
     @IBOutlet weak var refundOrderButton: UIButton!
+    @IBOutlet weak var quantityOrder: UILabel!
     @IBOutlet weak var nameOrder: UILabel!
     @IBOutlet weak var balanceOrder: UILabel!
     @IBOutlet weak var statusOrder: UILabel!

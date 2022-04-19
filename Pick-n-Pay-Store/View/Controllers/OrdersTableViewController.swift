@@ -10,29 +10,37 @@ import UIKit
 class OrdersTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CSData.cartItems.count
+       
+        return ODData.savedItems.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return "Shipping and Billing Detaisl"
+        return "Shipping and Billing Details and Balance"
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrdersTableViewCell
-        
-        
-        
-        cell.nameOrder.text = CSData.cartItems[indexPath.row]["description"]!
-        cell.imageOrder.image = UIImage(named: CSData.cartItems[indexPath.row]["image"]!)
-        cell.balanceOrder.text = "$" + CSData.cartItems[indexPath.row]["price"]!
+        if cell.refundOrderButton.isTouchInside{
+            let alertController = UIAlertController(title: "Product Returned", message:
+                    "The product you selected has been refunded.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default))
+
+                self.present(alertController, animated: true, completion: nil)
+            
+        }
+       
+        cell.nameOrder.text = ODData.savedItems[indexPath.row]["desc"]!
+        cell.imageOrder.image = UIImage(named: ODData.savedItems[indexPath.row]["image"]!)
+        cell.balanceOrder.text = "$" + ODData.savedItems[indexPath.row]["price"]!
+        cell.quantityOrder.text = "x" + ODData.savedItems[indexPath.row]["quantity"]!
         return cell
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 230   }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
