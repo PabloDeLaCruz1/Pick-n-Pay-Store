@@ -62,9 +62,8 @@ struct Home: View {
                     .overlay(
                     Image("pnpLogonbg")
                         .resizable()
-                        .frame(width: 115, height: 115)
-                        .clipShape(Circle().size(width: 115, height: 115))
-                )
+                        .frame(width: 150, height: 100)
+                        .clipShape(Circle().size(width: 150, height: 100)))
                 // END APP BAR
 //                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
@@ -154,6 +153,7 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
+                // Lazy View Stacks are used to improve performance. Also look into List or https://www.youtube.com/watch?v=BD9vzG0qUXc
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)

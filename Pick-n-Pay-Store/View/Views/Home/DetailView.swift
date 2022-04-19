@@ -58,8 +58,8 @@ struct DetailView: View {
                         .overlay(
                         Image("pnpLogonbg")
                             .resizable()
-                            .frame(width: 115, height: 115)
-                            .clipShape(Circle().size(width: 115, height: 115)))
+                            .frame(width: 150, height: 100)
+                            .clipShape(Circle().size(width: 150, height: 100)))
                         .padding()
                     // END APP BAR
 
