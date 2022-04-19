@@ -11,7 +11,7 @@ import UIKit
 struct ODData {
     static var savedItems : [[String:String]] = []
     
-    func setupCartSavedItems(items : Set<Item>) {
+    func setupOrderSavedItems(items : Set<Item>) {
         
         
         ODData.savedItems = []

@@ -9,17 +9,27 @@ import UIKit
 
 class OrdersTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var refundBtn: UIButton!
     @IBOutlet weak var reviewOrder: UIButton!
-    @IBOutlet weak var refundOrderButton: UIButton!
     @IBOutlet weak var quantityOrder: UILabel!
     @IBOutlet weak var nameOrder: UILabel!
     @IBOutlet weak var balanceOrder: UILabel!
     @IBOutlet weak var statusOrder: UILabel!
     @IBOutlet weak var imageOrder: UIImageView!
-    
     @IBOutlet weak var TrackPacakgeButton: UIButton!
     
    
+    @IBAction func reviewOrderBtn(_ sender: Any) {
+        
+    }
+    @IBAction func trackOrderAction(_ sender: Any) {
+        
+    }
+    @IBAction func refundOrderButton(_ sender: Any) {
+        
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -34,7 +44,7 @@ class OrdersTableViewCell: UITableViewCell {
         imageOrder.clipsToBounds = true
         TrackPacakgeButton.layer.cornerRadius = 30
         reviewOrder.layer.cornerRadius = 30
-        refundOrderButton.layer.cornerRadius = 30
+        refundBtn.layer.cornerRadius = 30
         
     }
 

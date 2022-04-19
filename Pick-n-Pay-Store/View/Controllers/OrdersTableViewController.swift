@@ -21,15 +21,8 @@ class OrdersTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCell") as! OrdersTableViewCell
-        if cell.refundOrderButton.isTouchInside{
-            let alertController = UIAlertController(title: "Product Returned", message:
-                    "The product you selected has been refunded.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Okay", style: .default))
-
-                self.present(alertController, animated: true, completion: nil)
-            
-        }
-       
+        
+        
         cell.nameOrder.text = ODData.savedItems[indexPath.row]["desc"]!
         cell.imageOrder.image = UIImage(named: ODData.savedItems[indexPath.row]["image"]!)
         cell.balanceOrder.text = "$" + ODData.savedItems[indexPath.row]["price"]!
