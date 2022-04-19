@@ -48,14 +48,11 @@ struct UserDetailsView: View {
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo3")
+                    Image("pnpLogonbg")
                         .resizable()
-                        .frame(width: 140, height: 70)
-                        .padding(.horizontal)
-                        .padding(.bottom)
-                        .clipShape(Circle())
-                    )
-                    .padding()
+                        .frame(width: 115, height: 115)
+                        .clipShape(Circle().size(width: 115, height: 115))
+                )                    .padding()
                 // END APP BAR
 
                 //MARK: - PRODUCT IMAGE
