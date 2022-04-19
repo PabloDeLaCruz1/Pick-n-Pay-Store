@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Home: View {
     //MARK: - GEOMETRY EFFECT
+    // @Namespace property wrapper to create a global namespace for your views. In practice this isn’t anything other than a property on your view, but behind the scenes this lets us attach views together.
     @Namespace var animation
-//    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
@@ -18,7 +18,7 @@ struct Home: View {
     @State var sliders: [Slider] = []
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        ScrollView(.vertical, showsIndicators: true) {
 
             VStack(spacing: 15) {
                 Spacer()
@@ -62,9 +62,8 @@ struct Home: View {
                     .overlay(
                     Image("pnpLogonbg")
                         .resizable()
-                        .frame(width: 115, height: 115)
-                        .clipShape(Circle().size(width: 115, height: 115))
-                )
+                        .frame(width: 150, height: 100)
+                        .clipShape(Circle().size(width: 150, height: 100)))
                 // END APP BAR
 //                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
@@ -154,6 +153,7 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
+                // Lazy View Stacks are used to improve performance. Also look into List or https://www.youtube.com/watch?v=BD9vzG0qUXc
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
@@ -167,7 +167,13 @@ struct Home: View {
                             }
                         }
                     }
+                    // .id(UUID()) For better performance, test and research using this
+                    // bug with laggy screen transition seem to be something else
+                    //https://www.hackingwithswift.com/articles/210/how-to-fix-slow-list-updates-in-swiftui
+                    .id(UUID())
+
                 }
+                
                 Spacer()
 
                 HStack {
@@ -203,6 +209,8 @@ struct Home: View {
                         }
                     }
                 }
+                .id(UUID())
+
             }
                 .padding()
                 .background(
@@ -215,9 +223,9 @@ struct Home: View {
         }
             .overlay(
             DetailView(animation: animation)
-                .environmentObject(baseData)
-        )
+                .environmentObject(baseData))
             .padding(1)
+            
     }
 
     //MARK: PRODUCT VIEW

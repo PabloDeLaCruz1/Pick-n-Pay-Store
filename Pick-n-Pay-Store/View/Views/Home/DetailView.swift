@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DetailView: View {
+    
     @EnvironmentObject var baseData: HomeViewModel
     @State var commentText: String = ""
     //FOR HERO EFFECT
     var animation: Namespace.ID
 
-    @State var size = "2 Grams"
     @State var itemColor: Color = .red
     @State var stepLevel: Int16 = 1
 
@@ -58,8 +58,8 @@ struct DetailView: View {
                         .overlay(
                         Image("pnpLogonbg")
                             .resizable()
-                            .frame(width: 115, height: 115)
-                            .clipShape(Circle().size(width: 115, height: 115)))
+                            .frame(width: 150, height: 100)
+                            .clipShape(Circle().size(width: 150, height: 100)))
                         .padding()
                     // END APP BAR
 
@@ -78,10 +78,8 @@ struct DetailView: View {
                             Circle()
                                 .fill(Color.white.opacity(0.5))
                                 .padding(60)
-
                         }
                     )
-
                         .frame(height: getScreenBound().height / 3)
 
                     //MARK: - PRODUCT DETAILS
@@ -204,8 +202,6 @@ struct DetailView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
 
 //MARK: - VIEW EXTENSION
 extension View {
