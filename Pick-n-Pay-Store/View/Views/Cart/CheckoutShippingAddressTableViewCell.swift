@@ -46,6 +46,16 @@ class CheckoutShippingAddressTableViewCell: UITableViewCell {
     }
     
     @IBAction func deliverButtonClicked(_ sender: UIButton) {
+        
+        let nameInfo = receiversName.text?.split(separator: " ")
+        let first = nameInfo![0]
+        let last = nameInfo![1]
+        CSData.selectedAddress["firstName"] = String(first)
+        CSData.selectedAddress["lastName"] = String(last)
+        CSData.selectedAddress["phoneNumber"] = receiversPhone.text!
+        CSData.selectedAddress["shippingAddress"] = receiversAddress.text!
+        self.delegate?.returnToCheckoutPage()
+        
     }
     
 }
@@ -53,5 +63,7 @@ class CheckoutShippingAddressTableViewCell: UITableViewCell {
 protocol CellFunctions {
     
     func resetCellState()
+    
+    func returnToCheckoutPage()
     
 }

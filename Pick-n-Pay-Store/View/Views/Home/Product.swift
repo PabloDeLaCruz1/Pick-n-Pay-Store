@@ -8,8 +8,8 @@
 import SwiftUI
 
 //Item Placeholder
-struct Product: Identifiable {
-        
+class Product: ObservableObject, Identifiable {
+
     var id = UUID().uuidString
     var name: String?
     var comments: [String]?
@@ -23,8 +23,55 @@ struct Product: Identifiable {
     var rating: Int
     var isSaved: Int16
     var quantity: Int16
-    
+
+    init(name: String, comments: [String], offer: Bool, price: Double, tags: [String], image: String, color: UIColor, desc: String, isLiked: Bool, rating: Int, isSaved: Int16, quantity: Int16) {
+        self.name = name
+        self.comments = comments
+        self.offer = offer
+        self.price = price
+        self.tags = tags
+        self.image = image
+        self.color = color
+        self.desc = desc
+        self.isLiked = isLiked
+        self.rating = rating
+        self.isSaved = isSaved
+        self.quantity = quantity
+    }
+
 }
+
+//struct Product: Identifiable {
+//
+//    var id = UUID().uuidString
+//    var name: String?
+//    var comments: [String]?
+//    var offer: Bool
+//    var price: Double
+//    var tags: [String]?
+//    var image: String
+//    var color: UIColor
+//    var desc: String
+//    var isLiked: Bool
+//    var rating: Int
+//    var isSaved: Int16
+//    var quantity: Int16
+//    var idd = 0
+//
+////
+////    init(isLiked: Bool = false) {
+////        self.color = color
+////    }
+//
+//   
+//}
+//
+//extension Product {
+//    mutating func change() {
+//        isLiked.toggle()
+//    }
+//}
+
 
 
 
@@ -59,8 +106,8 @@ class isLiked{
 
 //make viewModel
 var products = [
-    Product(name: "Men Pullover Sweater", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["shirt", "clothing", "winter"], image: "pullover", color: UIColor(Color("pcolor3")), desc: "Brown pullover sweater, has a round neck, long sleeves, straight hem..", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-    Product(name: "Black Fit Top", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["shirt", "clothing", "fitness"], image: "blacktop", color: UIColor(Color("pcolor2")), desc: "Black fitness top perfect for working out.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
+    Product(name: "Men Pullover Sweater", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["shirt", "clothing", "winter"], image: "pullover", color: UIColor(Color("pcolor3")), desc: "Brown pullover sweater, has a round neck, long sleeves, straight hem..", isLiked: true, rating: 4, isSaved: 0, quantity: 1),
+    Product(name: "Black Fit Top", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["shirt", "clothing", "fitness"], image: "blacktop", color: UIColor(Color("pcolor2")), desc: "Black fitness top perfect for working out.", isLiked: true, rating: 5, isSaved: 0, quantity: 1),
     Product(name: "Longline Over Coat", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["coat", "cloathing", "winter"], image: "overcoat", color: UIColor(Color("pcolor1")), desc: "Black longline over coat, has a notched lapel collar, button closure, long sleeves.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
     Product(name: "Graphic Baseball Collar Shirt", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 49.99, tags: ["shirt", "clothing", "summer"], image: "jersey", color: UIColor(Color("pcolor4")), desc: "Men 1pc Letter Graphic Baseball Collar Shirt", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
     Product(name: "The Chrono S", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 59.99, tags: ["watch", "accessory", "mens"], image: "watch1", color: UIColor(Color("pcolor3")), desc: "The Chrono S is built to last and designed to be the most versatile watch you’ll ever own.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
@@ -109,3 +156,5 @@ func ForzaAPI() -> String {
 
     return imgUrl
 }
+
+
