@@ -28,6 +28,27 @@ struct Product: Identifiable {
 
 
 
+class isLiked{
+    var isLiked : Bool
+    init(){
+        isLiked = false
+    }
+    func isLikedChecked() -> Bool{
+        if (isLiked == false){
+            isLiked = true
+        }
+        else {
+            isLiked = false
+        }
+        return isLiked
+    }
+}
+
+//var liked = isLiked()
+
+
+
+
 
 //var products = [
 //Product(productImage: "product1", productTitle: "Attenir Oil", productPrice: "$25.99", productColor: Color("pcolor3"), productDescription: "Attenir Skin Clear Cleanse Oil cleanses makeup, skin stains and impurities on the skin while leaving it supple and firm.", productRating: 4),

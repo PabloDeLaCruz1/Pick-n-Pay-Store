@@ -37,7 +37,7 @@ struct DetailView: View {
                                 }
 
                                 baseData.showDetail = false
-                            }
+                            
                         }
                     } label: {
                         Image(systemName: "arrow.left")
