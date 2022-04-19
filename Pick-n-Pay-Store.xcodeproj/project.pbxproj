@@ -88,6 +88,7 @@
 		FE6468A627FB426600795DB2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A527FB426600795DB2 /* CoreDataManager.swift */; };
 		FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */; };
 		FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */; };
+		FE8794FD280F619200BB757D /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = FE8794FC280F619200BB757D /* Fakery */; };
 		FE887E7B2801D740000C2407 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE887E7A2801D740000C2407 /* API.swift */; };
 		FE887EE12809089F000C2407 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE887EE02809089F000C2407 /* UserDetailsView.swift */; };
 		FE887EE328090ADB000C2407 /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE887EE228090ADB000C2407 /* ContentDetailView.swift */; };
@@ -243,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8794FD280F619200BB757D /* Fakery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +566,7 @@
 			);
 			name = "Pick-n-Pay-Store";
 			packageProductDependencies = (
+				FE8794FC280F619200BB757D /* Fakery */,
 			);
 			productName = "Pick-n-Pay-Store";
 			productReference = FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */;
@@ -594,6 +597,7 @@
 			);
 			mainGroup = FE64685727F4C69900795DB2;
 			packageReferences = (
+				FE8794FB280F619200BB757D /* XCRemoteSwiftPackageReference "Fakery" */,
 			);
 			productRefGroup = FE64686127F4C69900795DB2 /* Products */;
 			projectDirPath = "";
@@ -949,6 +953,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE8794FB280F619200BB757D /* XCRemoteSwiftPackageReference "Fakery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vadymmarkov/Fakery.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE8794FC280F619200BB757D /* Fakery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE8794FB280F619200BB757D /* XCRemoteSwiftPackageReference "Fakery" */;
+			productName = Fakery;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FED794D027FCA4450094E123 /* CoreDataModel.xcdatamodeld */ = {
