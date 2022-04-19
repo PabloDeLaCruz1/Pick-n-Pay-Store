@@ -167,6 +167,11 @@ struct Home: View {
                             }
                         }
                     }
+                    // .id(UUID()) For better performance, test and research using this
+                    // bug with laggy screen transition seem to be something else
+                    //https://www.hackingwithswift.com/articles/210/how-to-fix-slow-list-updates-in-swiftui
+                    .id(UUID())
+
                 }
                 Spacer()
 
@@ -203,6 +208,8 @@ struct Home: View {
                         }
                     }
                 }
+                .id(UUID())
+
             }
                 .padding()
                 .background(
@@ -215,9 +222,9 @@ struct Home: View {
         }
             .overlay(
             DetailView(animation: animation)
-                .environmentObject(baseData)
-        )
+                .environmentObject(baseData))
             .padding(1)
+            
     }
 
     //MARK: PRODUCT VIEW
