@@ -29,6 +29,9 @@
                         <state key="normal" title="Add New Payment Method">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="addNewPaymentOption:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lFS-RM-tGl"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -39,6 +42,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="newPaymentButton" destination="gBY-qg-9c1" id="uDM-D0-hLO"/>
+            </connections>
             <point key="canvasLocation" x="125.36231884057972" y="96.763392857142847"/>
         </tableViewCell>
     </objects>
