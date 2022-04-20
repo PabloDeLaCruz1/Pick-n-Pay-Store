@@ -51,12 +51,7 @@ class CheckoutAddShippingAddressViewController: UIViewController {
         
         //INPUT VALIDATION
         if (firstName.text! == "" || lastName.text! == "" || streetNumber.text! == "" || stateLabel.text! == "" || cityLabel.text! == "" || zipLabel.text! == "" || phoneNumber.text! == "")  { // IF EMPTY
-            let dialogMessage = UIAlertController(title: "Alert", message: "Please fill all required information", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-               
-            })
-            dialogMessage.addAction(ok)
-            self.present(dialogMessage, animated: true, completion: nil)
+            showDialog(message: "Please fill all required information", from: "error")
         } else {
             
             //For concatenation when saving the address information
@@ -156,7 +151,6 @@ class CheckoutAddShippingAddressViewController: UIViewController {
                 dialogMessage.addAction(no)
             case "toreturn":
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                    //self.performSegue(withIdentifier: "shippingReturn", sender: self)
                     self.navigationController?.popViewController(animated: true)
                 })
                 dialogMessage.addAction(ok)

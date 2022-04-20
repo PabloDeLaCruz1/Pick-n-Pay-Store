@@ -37,6 +37,27 @@ class CartHelper {
         
     }
     
+    func addCartPayments(payInfo : [String:String]) -> Bool {
+        
+        let pay = NSEntityDescription.insertNewObject(forEntityName: "Billings", into: context!) as! Billings
+        
+        pay.isDefault = Int16((payInfo["isDefault"])!)!
+        pay.creditCard = (payInfo["creditCard"])!
+        pay.firstName = (payInfo["firstName"])!
+        pay.lastName = (payInfo["lastName"])!
+        pay.billingAddress = (payInfo["billingAddress"])!
+        pay.sender = (payInfo["sender"])!
+        pay.expirationDate = (payInfo["expirationDate"])!
+        
+        do {
+            try context?.save()
+            return true
+        } catch {
+            return false
+          }
+        
+    }
+    
     //READ
     
     func fetchUserCart(email : String) -> Set<Item>? {
@@ -93,6 +114,7 @@ class CartHelper {
           }
         
         return recInfo
+        
     }
     
     func checkUserDefaultAddress(email : String) -> Int {
@@ -155,6 +177,106 @@ class CartHelper {
           }
         
         return recInfo
+        
+    }
+    
+    func getUserDefaultPayment(email : String) -> [String : String]? {
+        
+        var payInfo : [String : String] = [:]
+        
+        let fReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Billings")
+        
+        let emailPredicate = NSPredicate(format: "sender==%@", email)
+        let defaultPredicate = NSPredicate(format: "isDefault==1")
+        
+        fReq.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [
+                emailPredicate,
+                defaultPredicate
+            ]
+        )
+        
+        do {
+            
+            let rec = try context?.fetch(fReq) as! [Billings]
+            payInfo["billingAddress"] = rec[0].billingAddress
+            payInfo["firstName"] = rec[0].firstName
+            payInfo["lastName"] = rec[0].lastName
+            payInfo["sender"] = rec[0].sender
+            payInfo["isDefault"] = String(rec[0].isDefault)
+            payInfo["expirationDate"] = rec[0].expirationDate
+            payInfo["creditCard"] = rec[0].creditCard
+            
+        } catch {
+            print("Can't fetch any data!")
+            
+          }
+        
+        return payInfo
+        
+    }
+    
+    func fetchPaymentInfo(email : String) -> [[String:String]]? {
+        
+        var payInfo : [[String:String]] = []
+        var tempArray : [String:String] = [:]
+        
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "Billings")
+        fReq.predicate = NSPredicate(format: "sender == %@", email)
+        
+        do {
+            
+            let tempUser = try context?.fetch(fReq) as! [Billings]
+            if tempUser.count != 0 {
+                for k in 0...tempUser.count-1 {
+                    
+                    tempArray["billingAddress"] = tempUser[k].billingAddress
+                    tempArray["firstName"] = tempUser[k].firstName
+                    tempArray["lastName"] = tempUser[k].lastName
+                    tempArray["sender"] = tempUser[k].sender
+                    tempArray["isDefault"] = String(tempUser[k].isDefault)
+                    tempArray["expirationDate"] = tempUser[k].expirationDate
+                    tempArray["creditCard"] = tempUser[k].creditCard
+                    payInfo.append(tempArray)
+                    tempArray.removeAll()
+                    
+                }
+            }
+            
+        } catch {
+            print("FETCH BILLINGS ERROR")
+            return nil
+          }
+        
+        return payInfo
+        
+    }
+    
+    func checkUserDefaultPayment(email : String) -> Int {
+        
+        let fReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Billings")
+        
+        let emailPredicate = NSPredicate(format: "sender==%@", email)
+        let defaultPredicate = NSPredicate(format: "isDefault==1")
+        
+        fReq.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [
+                emailPredicate,
+                defaultPredicate
+            ]
+        )
+        
+        do {
+            let cnt = try context?.fetch(fReq) as! [Billings]
+            if cnt.count == 0 {
+                return 0
+            } else {
+                return 1
+              }
+        } catch {
+            print("Can't fetch any data!")
+            return 2
+          }
         
     }
     
@@ -248,6 +370,31 @@ class CartHelper {
             let cnt = try context?.fetch(fReq) as! [Receivers]
             cnt[0].isDefault = 0
             return addCartReceivers(recInfo: recInfo)
+        } catch {
+            print("Can't fetch any data!")
+            return false
+          }
+        
+    }
+    
+    func updateDefaultPaymentForNewPaymentMethod(email : String, payInfo : [String : String]) -> Bool {
+        
+        let fReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Billings")
+        
+        let emailPredicate = NSPredicate(format: "sender==%@", email)
+        let defaultPredicate = NSPredicate(format: "isDefault==1")
+        
+        fReq.predicate = NSCompoundPredicate(
+            andPredicateWithSubpredicates: [
+                emailPredicate,
+                defaultPredicate
+            ]
+        )
+        
+        do {
+            let cnt = try context?.fetch(fReq) as! [Billings]
+            cnt[0].isDefault = 0
+            return addCartPayments(payInfo: payInfo)
         } catch {
             print("Can't fetch any data!")
             return false

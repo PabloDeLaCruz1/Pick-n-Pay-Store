@@ -5,6 +5,8 @@
 //  Created by Maricel Sumulong on 4/16/22.
 //
 
+// this cell is what's seen on CheckoutViewController for Shipment Information
+
 import UIKit
 
 class CheckoutShippingTableViewCell: UITableViewCell {
@@ -20,6 +22,7 @@ class CheckoutShippingTableViewCell: UITableViewCell {
         // Initialization code
         shippingButton.layer.cornerRadius = 10
         shippingButton.isHidden = true
+        shippingButton.isEnabled = false
         
     }
 

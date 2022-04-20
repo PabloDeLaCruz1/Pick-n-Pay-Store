@@ -7,15 +7,16 @@
 
 import UIKit
 
+
 class CheckoutAddBillingAddressButtonTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var pyoButton: UIButton!
-    
+    @IBOutlet weak var newPaymentButton: UIButton!
+    var delegate : NewPaymentInformationFunctions?
     
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        pyoButton.layer.cornerRadius = 10
+        newPaymentButton.layer.cornerRadius = 10
         
     }
 
@@ -25,12 +26,16 @@ class CheckoutAddBillingAddressButtonTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func buyIt(_ sender: UIButton) {
+    @IBAction func addNewPaymentOption(_ sender: UIButton) {
     
-        print("Hello")
+        self.delegate?.goToAddPayment()
         
     }
     
+}
+
+protocol NewPaymentInformationFunctions {
     
+    func goToAddPayment()
     
 }

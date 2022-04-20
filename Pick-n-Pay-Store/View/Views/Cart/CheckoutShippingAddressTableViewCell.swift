@@ -15,7 +15,7 @@ class CheckoutShippingAddressTableViewCell: UITableViewCell {
     @IBOutlet weak var circleButton: UIButton!
     @IBOutlet weak var deliverToButton: UIButton!
     
-    var delegate : CellFunctions?
+    var delegate : ShippingCellFunctions?
     
     override func awakeFromNib() {
         
@@ -33,36 +33,39 @@ class CheckoutShippingAddressTableViewCell: UITableViewCell {
     
     @IBAction func circleClicked(_ sender: UIButton) {
         
-        self.delegate?.resetCellState()
+        if CSData.receiversInfo.count > 1 {
         
-        if sender.currentBackgroundImage!.description.contains("Unselected") == true {
-            sender.setBackgroundImage(UIImage(named: "circleSelected"), for: .normal)
-            deliverToButton.isHidden = false
-        } else {
-            sender.setBackgroundImage(UIImage(named: "circleUnselected"), for: .normal)
-            deliverToButton.isHidden = true
-          }
+            self.delegate?.resetShipCellState()
+            
+            if sender.currentBackgroundImage!.description.contains("Unselected") == true {
+                sender.setBackgroundImage(UIImage(named: "circleSelected"), for: .normal)
+                deliverToButton.isHidden = false
+            } else {
+                sender.setBackgroundImage(UIImage(named: "circleUnselected"), for: .normal)
+                deliverToButton.isHidden = true
+              }
+        
+        }
         
     }
     
     @IBAction func deliverButtonClicked(_ sender: UIButton) {
         
-        let nameInfo = receiversName.text?.split(separator: " ")
-        let first = nameInfo![0]
-        let last = nameInfo![1]
-        CSData.selectedAddress["firstName"] = String(first)
-        CSData.selectedAddress["lastName"] = String(last)
-        CSData.selectedAddress["phoneNumber"] = receiversPhone.text!
-        CSData.selectedAddress["shippingAddress"] = receiversAddress.text!
+        CSData.selectedAddress["firstName"] = CSData.receiversInfo[sender.tag]["firstName"]
+        CSData.selectedAddress["lastName"] =  CSData.receiversInfo[sender.tag]["lastName"]
+        CSData.selectedAddress["shippingAddress"] = CSData.receiversInfo[sender.tag]["shippingAddress"]
+        CSData.selectedAddress["phoneNumber"] = CSData.receiversInfo[sender.tag]["phoneNumber"]
+        CSData.selectedAddress["sender"] = CSData.receiversInfo[sender.tag]["sender"]
+        CSData.selectedAddress["isDefault"] = CSData.receiversInfo[sender.tag]["isDefault"]
         self.delegate?.returnToCheckoutPage()
         
     }
     
 }
 
-protocol CellFunctions {
+protocol ShippingCellFunctions {
     
-    func resetCellState()
+    func resetShipCellState()
     
     func returnToCheckoutPage()
     
