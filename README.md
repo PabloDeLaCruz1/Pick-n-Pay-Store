@@ -62,3 +62,16 @@ Icons:
 ***Main Logo:***
 <a href="https://www.vectorstock.com/royalty-free-vector/brain-tech-logo-design-template-vector-31362674">Vector image by VectorStock / vectorstock</a>
 
+***Open Sources***
+
+- https://awesomeopensource.com/project/shameemreza/uray
+- Ray Wenderlich
+- https://www.brandcrowd.com/
+- https://github.com/vadymmarkov/Fakery
+
+## Main Team Documents
+
+### [Outline](https://docs.google.com/document/d/18oLW9TXvV11Yx9kF4zBf7WkKbiuCD5UP4V5R8_vXVdo/edit?usp=sharing)
+
+
+
