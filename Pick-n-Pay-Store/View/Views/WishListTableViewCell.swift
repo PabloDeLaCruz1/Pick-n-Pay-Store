@@ -43,6 +43,7 @@ class WishListTableViewCell: UITableViewCell {
         }
         
         if heartButtonIsLiked == true{
+            //supposed to delete an item
             DBHelper.db.removeWishList(email: currentUser.email!, product: product!)
             heartButtonIsLiked = false
             heartButton.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.gray, renderingMode: .alwaysOriginal), for:  .normal)
