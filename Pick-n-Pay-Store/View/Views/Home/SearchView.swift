@@ -138,7 +138,7 @@ Spacer()
 
     var searchResults: [Product] {
         if searchText.isEmpty {
-            return products
+            return baseData.products
         } else {
             baseData.currentUser.history?.append(searchText)
             return productsForFiltering.filter { $0.tags!.contains(searchText) }

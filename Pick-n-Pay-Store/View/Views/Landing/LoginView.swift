@@ -63,7 +63,7 @@ struct LoginSwiftUIView: View {
 
                 Button(action: {
                     //TODO: get by email and pass
-                    
+
                     let user = DBHelper.db.getOneUser(email: email.lowercased())
 
                     print("user email ------------", user)
@@ -101,6 +101,10 @@ struct LoginSwiftUIView: View {
                     .cornerRadius(20.0)
                     .animation(Animation.default)
             }
+        }//resets login status on appear
+            .onAppear {
+            self.authenticationDidFail = false
+            self.authenticationDidSucceed = false
         }
             .navigationBarTitle(Text(currentUser.guest == "True" ? "Log In!" : "Log Out"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)

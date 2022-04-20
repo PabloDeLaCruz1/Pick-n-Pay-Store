@@ -25,10 +25,10 @@ class HomeViewModel: ObservableObject {
     @Published var currentProduct: Product?
     @Published var showDetail = false
     @Published var products: [Product] = [// FOR TESTING PURPOSES, Products will come from API
-        Product(name: "Item #1", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["Face", "Tag2", "tag3"], image: "product1", color: UIColor(Color("pcolor3")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-        Product(name: "Item #2", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["Care", "Tag2", "tag3"], image: "product2", color: UIColor(Color("pcolor2")), desc: "This is Item #2's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
-        Product(name: "Item #3", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["Health Care", "Tag2", "tag3"], image: "product3", color: UIColor(Color("pcolor1")), desc: "This is Item #3's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
-        Product(name: "Item #4", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 49.99, tags: ["Health Care", "expensive", "tag3"], image: "product4", color: UIColor(Color("pcolor4")), desc: "This is Item #4's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
+        Product(name: "Hand Lotion", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["Face", "Tag2", "tag3"], image: "product1", color: UIColor(Color("pcolor3")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
+        Product(name: "Body Spray", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["Care", "Tag2", "tag3"], image: "product2", color: UIColor(Color("pcolor2")), desc: "This is Item #2's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
+        Product(name: "Magic Snake Oil", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["Health Care", "Tag2", "tag3"], image: "product3", color: UIColor(Color("pcolor1")), desc: "This is Item #3's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
+        Product(name: "Lotion", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 49.99, tags: ["Health Care", "expensive", "tag3"], image: "product4", color: UIColor(Color("pcolor4")), desc: "This is Item #4's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
         Product(name: "Item #5", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 59.99, tags: ["Health Care", "expensive", "tag3"], image: "product5", color: UIColor(Color("pcolor3")), desc: "This is Item #5's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
         Product(name: "Item #6", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 69.99, tags: ["Health Care", "expensive", "tag3"], image: "product6", color: UIColor(Color("pcolor2")), desc: "This is Item #6's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
         Product(name: "Item #7", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 79.99, tags: ["Health Care", "expensive", "tag3"], image: "product7", color: UIColor(Color("pcolor1")), desc: "This is Item #7's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
@@ -58,7 +58,7 @@ class HomeViewModel: ObservableObject {
         Product(name: "Lambo", comments: ["Yes this Lambo really costs 13.37!", "(^.^)m ", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider3", color: UIColor(Color("pcolor4")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1)]
     //@Published var products: [Product] = productsForFiltering
 
-    var a = fakeryData()
+//    var a = fakeryData()
 }
 
 //Need to not mutate the object holding the products being fitlered
