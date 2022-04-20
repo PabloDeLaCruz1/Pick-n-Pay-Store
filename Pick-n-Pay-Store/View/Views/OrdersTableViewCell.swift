@@ -26,6 +26,8 @@ class OrdersTableViewCell: UITableViewCell {
         
     }
     @IBAction func refundOrderButton(_ sender: Any) {
+        ODData.savedItems.removeAll()
+        print(ODData.savedItems)
         
     }
     
