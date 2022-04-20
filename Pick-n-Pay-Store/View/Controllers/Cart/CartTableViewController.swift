@@ -12,6 +12,8 @@ class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScree
 
     public let cartTableView = UITableView()
     
+    @Environment(\.currentUser) var currentUser
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -58,15 +60,23 @@ class CartTableViewController: UIViewController, TVCFunctions, CallCheckoutScree
             newPage.drawEmptyCartSavedPage(view: self.view, segment: "carts")
           }
         
-        self.parent?.viewDidLoad() //updates the number in the UISegmentControl title
+        self.parent?.viewWillAppear(false) //updates the number in the UISegmentControl title
         
     }
 
     func callCheckoutScreen() {
         
         // called when the checkout button is clicked from the table view cell
-        
-        self.parent?.performSegue(withIdentifier: "Checkout", sender: self.parent)
+        if currentUser.guest == "false" {
+            self.parent?.performSegue(withIdentifier: "Checkout", sender: self.parent)
+        } else {
+            let dialogMessage = UIAlertController(title: "Alert", message: "Please create an account before checking out", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+               
+            })
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
         
     }
     

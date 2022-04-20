@@ -159,7 +159,7 @@ extension DBHelper {
             userHolder = user
 
             try context?.save()
-            print("User \(userHolder.email ?? "NO ONE---") updated")
+            print("User email: \(userHolder.email ?? "NO ONE---") updated")
         } catch {
             print("issues updating data")
         }
@@ -256,7 +256,7 @@ extension DBHelper {
             item.offer = product.offer
             item.isSaved = product.isSaved
             item.quantity = product.quantity
-            
+
             user.cart!.items!.insert(item)
             user.cart!.total += product.price
             for i in user.cart!.items! {

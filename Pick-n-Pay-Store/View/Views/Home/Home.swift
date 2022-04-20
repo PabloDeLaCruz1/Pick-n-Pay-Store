@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Home: View {
     //MARK: - GEOMETRY EFFECT
+    // @Namespace property wrapper to create a global namespace for your views. In practice this isn’t anything other than a property on your view, but behind the scenes this lets us attach views together.
     @Namespace var animation
-//    @EnvironmentObject var baseData: HomeViewModel
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
@@ -21,7 +21,8 @@ struct Home: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
 
-            VStack(spacing: 15) {
+
+            VStack() {
                 Spacer()
                 //MARK - APP BAR
                 HStack(spacing: 100) {
@@ -39,29 +40,40 @@ struct Home: View {
                     Spacer()
 
                     //MARK: SEARCH ICON
-                    HStack(spacing: 10) {
 
-                         Image(systemName: "magnifyingglass")
-                         TextField("Search ..", text: $searchText) 
+                    Button(action: {
+
+                    }) {
+                        NavigationLink(destination: SearchView() .background(
+                                Image(DBHelper.db.getImageData())
+                                    .resizable()
+                                    .ignoresSafeArea()
+                                    .opacity(0.1)
+                            )) {
+                            HStack(spacing: 10) {
+                                Spacer()
+                                Image(systemName: "magnifyingglass")
+                                Text("Search")
+                            }
+                        }
                     }
-            
-                
-                    
+
                     // END SEARCH ICON
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("logo3")
+                    Image("pnpLogonbg")
                         .resizable()
-                        .frame(width: 160, height: 80)
-                        .clipShape(Circle())
-                )
+                        .frame(width: 150, height: 100)
+                        .clipShape(Circle().size(width: 150, height: 100)))
+                    .padding(.top, 15)
                 // END APP BAR
 //                Text("Hello! \(currentUser)")
                 //MARK: SLIDER
-                VStack(spacing: 15) {
+                VStack() {
 
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: -1) {
+                        
                         Text("Welcome")
                             .font(.title.bold())
                         HomeSlider(trailingSpace: 40, index: $currentSlider, items: sliders) { slider in
@@ -75,16 +87,24 @@ struct Home: View {
                                     .cornerRadius(12)
                             }
                         }
-                            .padding(.vertical, 10)
                     }
                         .frame(maxHeight: .infinity, alignment: .top)
                         .onAppear {
-                        for index in 1...7 {
-                            sliders.append(Slider(sliderImage: "slider\(index)"))
+                            for index in 1...7 {
+                                sliders.append(Slider(sliderImage: "slider\(index)"))
+                            }
+
                         }
-                    }
+                    //prevents sliders from adding infinately
+                        .onDisappear {
+                            sliders.removeAll()
+                        }
+                    
                 } // END SLIDER
                 .padding(.bottom, 20)
+                    .frame(width: 400, height: 200)
+                    .fixedSize()
+                    .padding(.top, 5)
 
                 //MARK: - SLIDER INDICATOR
 
@@ -97,13 +117,15 @@ struct Home: View {
                             .animation(.spring(), value: currentSlider == index)
                     }
                 }
-                    .padding(.top, 120)
-
-
+                    .frame(width: 50, height: 10)
+                    .fixedSize()
+                    .padding(.top, 10)
+                
                 //MARK: - BODY TOP
                 HStack {
                     Text("Products: \(baseData.category)")
                         .font(.title.bold())
+                        .frame(width: 300, height: 0, alignment: .leading)
                     Spacer()
                     Button {
 
@@ -118,7 +140,7 @@ struct Home: View {
                     }
                 } // END BODY TOP
                 .padding(.top, 10)
-
+                    .fixedSize()
                 //MARK: - CATEGORY LIST SLIDER
                 ScrollView(.horizontal, showsIndicators: false) {
                     //MARK: - CATEGORY LIST
@@ -142,12 +164,18 @@ struct Home: View {
                     .padding(.vertical)
                 }
                 //MARK: - PRODUCT LIST
-                let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+                //can make fixed and pass value by iPhone type.
+                //This fixes the zoom in bug when switching tabs and back to Home
+                //make .flexible to recreate bug
+                let columns = Array(repeating: GridItem(.fixed(190), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
+                // Lazy View Stacks are used to improve performance. Grid is native solution for collection vire Also look into List or https://www.youtube.com/watch?v=BD9vzG0qUXc
+                //Lazy Grid details https://www.appcoda.com/learnswiftui/swiftui-gridlayout.html
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
+
                             .onTapGesture {
                             withAnimation {
                                 baseData.currentProduct = product
@@ -158,9 +186,16 @@ struct Home: View {
                             }
                         }
                     }
+                    // .id(UUID()) For better performance, test and research using this
+                    // bug with laggy screen transition seem to be something else
+                    //https://www.hackingwithswift.com/articles/210/how-to-fix-slow-list-updates-in-swiftui
+                    .id(UUID())
+
+
                 }
+
                 Spacer()
-                
+
                 HStack {
                     Text("Suggested: ")
                         .font(.title.bold())
@@ -180,7 +215,7 @@ struct Home: View {
                 .padding(.top, 10)
 
                 //MARK: - PRODUCT LIST
-                let columns_sug = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+                let columns_sug = Array(repeating: GridItem(.fixed(190), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
                 LazyVGrid(columns: columns_sug, spacing: 18) {
@@ -194,21 +229,23 @@ struct Home: View {
                         }
                     }
                 }
+                    .id(UUID())
+
             }
                 .padding()
                 .background(
                 Image(DBHelper.db.getImageData())
                     .resizable()
                     .ignoresSafeArea()
-                    .opacity(0.1)
-            )
+                    .opacity(0.1))
             //MARK: - Bottom Tab Bar Approx Padding
 //            .padding(.bottom, 100)
         }
             .overlay(
             DetailView(animation: animation)
-                .environmentObject(baseData)
-        )
+                .environmentObject(baseData))
+            .padding(1)
+
     }
 
     //MARK: PRODUCT VIEW
@@ -216,17 +253,29 @@ struct Home: View {
     func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
 
-            //MARK: LIKED BUTTON Adds to Wishlist
+            //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
                 DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                product.isLiked.toggle()
+
             } label: {
-                Image(systemName: "suit.heart.fill")
-                    .font(.system(size: 13))
-                    .foregroundColor(product.isLiked ? .white : .gray)
-                    .padding(5)
-                    .background(
-                    Color.red.opacity(product.isLiked ? 1 : 0), in: Circle()
-                )
+                if product.isLiked {
+                    Image(systemName: "suit.heart.fill")
+                        .font(.system(size: 13))
+                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .padding(5)
+                        .background(
+                        Color.red.opacity(0.3), in: Circle()
+                    )
+                } else {
+                    Image(systemName: "suit.heart")
+                        .font(.system(size: 13))
+                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .padding(5)
+                        .background(
+                        Color.gray.opacity(0.3), in: Circle()
+                    ) }
+
             } // END LIKED BUTTON
             .frame(maxWidth: .infinity, alignment: .trailing)
 
@@ -247,7 +296,33 @@ struct Home: View {
                         .stroke(Color.white, lineWidth: 1.4)
                         .padding(-3)
                 }
-            ) // END PRODUCT IMAGE
+            )
+            // MARK: For fetching images from url
+
+//            AsyncImage(url: URL(string: "https://loremflickr.com/320/240/dog")) { image in
+//                image.resizable()
+//                    .frame(width: 100, height: 100)
+//                //                .resizable()
+//                //                .aspectRatio(contentMode: .fit)
+//                .matchedGeometryEffect(id: product.image, in: animation)
+//                    .padding()
+//                    .rotationEffect(.init(degrees: -20))
+//                    .background(
+//                    ZStack {
+//                        Circle()
+//                            .fill(Color(product.color))
+//                            .padding(-10)
+//                        //MARK: - INNER CIRCLE
+//                        Circle()
+//                            .stroke(Color.white, lineWidth: 1.4)
+//                            .padding(-3)
+//                    }
+//                )
+//
+//            } placeholder: {
+//                ProgressView()
+//            }
+            // END PRODUCT IMAGE
 
             //MARK: PRODUCT TITLE
             Text(product.name!)
@@ -286,7 +361,7 @@ struct Home: View {
             let filtered = productsForFiltering.filter { $0.tags?.first == baseData.category }
 
             baseData.products = filtered
-            
+
             //To Filter without higher order functions
 //            for (i, product) in baseData.products.enumerated() {
 //
@@ -325,7 +400,7 @@ struct Home: View {
 
             )
         }
-        
+
     }
 }
 

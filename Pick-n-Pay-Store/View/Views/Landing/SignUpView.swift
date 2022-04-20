@@ -62,14 +62,12 @@ struct SignUpView: View {
 
                 Button(action: {
                     self.tag = 1
-                    let _sasa = print("current user----", currentUser.cart?.saved)
-
-                    currentUser.email = email
+                    
+                    currentUser.email = email.lowercased()
 //                    currentUser.password = password
                     
-                    
                     DBHelper.db.updateUser(user: currentUser)
-                    print("User added to DB", currentUser.cart?.saved)
+                    print("User added to DB")
                 }) {
                     SignUpButtonContent()
 
@@ -161,6 +159,8 @@ struct UsernameTextField: View {
             .cornerRadius(5.0)
             .padding(.bottom, 20)
             .shadow(radius: 2)
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
     }
 }
 

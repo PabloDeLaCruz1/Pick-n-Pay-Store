@@ -14,6 +14,10 @@ struct LoginSwiftUIView: View {
 
     @State var email: String = ""
     @State var password: String = ""
+//    @State var email: String = "mllsumulong@gmail.com"
+//    @State var password: String = "azhelle!"
+//    @State var email: String = "yoyo"
+//    @State var password: String = "123"
     @State var tag: Int? = nil
 
     @State var authenticationDidFail: Bool = false
@@ -60,19 +64,19 @@ struct LoginSwiftUIView: View {
                 Button(action: {
                     //TODO: get by email and pass
                     
-                    let user = DBHelper.db.getOneUser(email: email)
+                    let user = DBHelper.db.getOneUser(email: email.lowercased())
 
                     print("user email ------------", user)
                     if user != nil {
-//                        currentUser.password = user.password
-//                        currentUser.cart = user.cart
-//                        currentUser.email = user.email
-//                        currentUser.creditCard = user.creditCard
-//                        currentUser.guest = "False"
-//                        currentUser.history = user.history
-//                        currentUser.orders = user.orders
-//                        currentUser.phoneNumber = user.phoneNumber
-//                        currentUser.wishlist = user.wishlist
+                        currentUser.password = user!.password
+                        currentUser.cart = user!.cart
+                        currentUser.email = user!.email
+                        currentUser.creditCard = user!.creditCard
+                        currentUser.guest = "false"
+                        currentUser.history = user!.history
+                        currentUser.orders = user!.orders
+                        currentUser.phoneNumber = user!.phoneNumber
+                        currentUser.wishlist = user!.wishlist
                         self.authenticationDidSucceed = true
                         self.authenticationDidFail = false
                         self.tag = 1

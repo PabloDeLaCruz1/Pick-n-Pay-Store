@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Fakery
+
 
 //We use a class so that our views (structs) can share the same value through the apps state
 class HomeViewModel: ObservableObject {
     //Publish makes a variable an observable, telling all who listen when it updates.
     // MARK - USER
+
     @Environment(\.currentUser) var currentUser
 
     @Published var user = User()
@@ -21,21 +24,21 @@ class HomeViewModel: ObservableObject {
     // MARK: - DETAIL VIEW
     @Published var currentProduct: Product?
     @Published var showDetail = false
-    @Published var products: [Product] = [ // FOR TESTING PURPOSES, Products will come from API
-        Product(name: "Item #1", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["Health Care", "tag2", "tag3"], image: "product1", color: UIColor(Color("pcolor3")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-        Product(name: "Item #2", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["Health Care", "tag2", "tag3"], image: "product2", color: UIColor(Color("pcolor2")), desc: "This is Item #2's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
-        Product(name: "Item #3", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["Health Care", "tag2", "tag3"], image: "product3", color: UIColor(Color("pcolor1")), desc: "This is Item #3's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
-        Product(name: "Item #4", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 49.99, tags: ["Health Care", "tag2", "tag3"], image: "product4", color: UIColor(Color("pcolor4")), desc: "This is Item #4's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-        Product(name: "Item #5", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 59.99, tags: ["Health Care", "tag2", "tag3"], image: "product5", color: UIColor(Color("pcolor3")), desc: "This is Item #5's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-        Product(name: "Item #6", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 69.99, tags: ["Health Care", "tag2", "tag3"], image: "product6", color: UIColor(Color("pcolor2")), desc: "This is Item #6's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
-        Product(name: "Item #7", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 79.99, tags: ["Health Care", "tag2", "tag3"], image: "product7", color: UIColor(Color("pcolor1")), desc: "This is Item #7's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
-        Product(name: "Item #8", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 89.99, tags: ["Health Care", "tag2", "tag3"], image: "product8", color: UIColor(Color("pcolor4")), desc: "This is Item #8's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-        
+    @Published var products: [Product] = [// FOR TESTING PURPOSES, Products will come from API
+        Product(name: "Item #1", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["Face", "Tag2", "tag3"], image: "product1", color: UIColor(Color("pcolor3")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
+        Product(name: "Item #2", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["Care", "Tag2", "tag3"], image: "product2", color: UIColor(Color("pcolor2")), desc: "This is Item #2's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
+        Product(name: "Item #3", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["Health Care", "Tag2", "tag3"], image: "product3", color: UIColor(Color("pcolor1")), desc: "This is Item #3's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
+        Product(name: "Item #4", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 49.99, tags: ["Health Care", "expensive", "tag3"], image: "product4", color: UIColor(Color("pcolor4")), desc: "This is Item #4's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
+        Product(name: "Item #5", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 59.99, tags: ["Health Care", "expensive", "tag3"], image: "product5", color: UIColor(Color("pcolor3")), desc: "This is Item #5's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
+        Product(name: "Item #6", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 69.99, tags: ["Health Care", "expensive", "tag3"], image: "product6", color: UIColor(Color("pcolor2")), desc: "This is Item #6's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
+        Product(name: "Item #7", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 79.99, tags: ["Health Care", "expensive", "tag3"], image: "product7", color: UIColor(Color("pcolor1")), desc: "This is Item #7's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
+        Product(name: "Item #8", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 89.99, tags: ["Health Care", "expensive", "tag3"], image: "product8", color: UIColor(Color("pcolor4")), desc: "This is Item #8's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
+
         //Products to be on Offer scroll view
         Product(name: "E.Bundle", comments: ["Thank you for this awesome offer!", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider1", color: UIColor(Color("pcolor2")), desc: "This is E. Bundle's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
         Product(name: "C.Bundle", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider2", color: UIColor(Color("pcolor1")), desc: "This is C. Bundle's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
         Product(name: "Lambo", comments: ["Yes this Lambo really costs 13.37!", "(^.^)m ", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider3", color: UIColor(Color("pcolor4")), desc: "This is Lambo's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1)
-        
+
         //------Items from CSData/CartSaveDataManager
         ,
         Product(name: "Bioré", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 23.97, tags: ["facewash", "tag2", "tag3"], image: "biore", color: UIColor(Color("pcolor4")), desc: "Bioré Rose Quartz + Charcoal Daily Face Wash, Oil Free Facial Cleanser, 3-Pack Pouch", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
@@ -54,10 +57,12 @@ class HomeViewModel: ObservableObject {
         Product(name: "C.Bundle", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider2", color: UIColor(Color("pcolor1")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
         Product(name: "Lambo", comments: ["Yes this Lambo really costs 13.37!", "(^.^)m ", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider3", color: UIColor(Color("pcolor4")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1)]
     //@Published var products: [Product] = productsForFiltering
+
+    var a = fakeryData()
 }
 
 //Need to not mutate the object holding the products being fitlered
-let productsForFiltering = [// FOR TESTING PURPOSES, Products will come from API
+var productsForFiltering = [// FOR TESTING PURPOSES, Products will come from API
     Product(name: "Item #1", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 19.99, tags: ["Health Care", "tag2", "tag3"], image: "product1", color: UIColor(Color("pcolor3")), desc: "This is Item #1's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
     Product(name: "Item #2", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 29.99, tags: ["Health Care", "tag2", "tag3"], image: "product2", color: UIColor(Color("pcolor2")), desc: "This is Item #2's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
     Product(name: "Item #3", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 39.99, tags: ["Health Care", "tag2", "tag3"], image: "product3", color: UIColor(Color("pcolor1")), desc: "This is Item #3's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
@@ -66,7 +71,7 @@ let productsForFiltering = [// FOR TESTING PURPOSES, Products will come from API
     Product(name: "Item #6", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 69.99, tags: ["Health Care", "tag2", "tag3"], image: "product6", color: UIColor(Color("pcolor2")), desc: "This is Item #6's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
     Product(name: "Item #7", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 79.99, tags: ["Health Care", "tag2", "tag3"], image: "product7", color: UIColor(Color("pcolor1")), desc: "This is Item #7's description. It does this and that.", isLiked: false, rating: 3, isSaved: 0, quantity: 1),
     Product(name: "Item #8", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: false, price: 89.99, tags: ["Health Care", "tag2", "tag3"], image: "product8", color: UIColor(Color("pcolor4")), desc: "This is Item #8's description. It does this and that.", isLiked: false, rating: 4, isSaved: 0, quantity: 1),
-    
+
     //Products to be on Offer scroll view
     Product(name: "E.Bundle", comments: ["Thank you for this awesome offer!", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider1", color: UIColor(Color("pcolor2")), desc: "This is E. Bundle's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
     Product(name: "C.Bundle", comments: ["Comment 1", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["Offers", "tag2", "tag3"], image: "slider2", color: UIColor(Color("pcolor1")), desc: "This is C. Bundle's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),
@@ -88,4 +93,35 @@ let productsForFiltering = [// FOR TESTING PURPOSES, Products will come from API
 
 
 ]
+
+func fakeryData() -> [Product] {
+
+    var products = [Product]()
+    let faker = Faker(locale: "en-US")
+
+
+    for i in 0...100 {
+
+
+        let name = faker.company.name() //=> "Emilie Hansen"
+        let comments = [faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence()]
+        let price = faker.number.randomDouble(min: 0.99, max: 999.99)
+        let tags = [faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word(), faker.lorem.word()]
+        let image = "https://loremflickr.com/320/240/dog/"
+        let color = "." + faker.vehicle.colors().lowercased()
+        let desc = faker.lorem.sentence()
+        let rating = faker.number.randomInt(min: 1, max: 5)
+
+        let product = Product(name: name, comments: comments, offer: i < 80 ? false : true, price: price, tags: tags, image: image, color: UIColor(Color(color)), desc: desc, isLiked: false, rating: rating, isSaved: 0, quantity: 0)
+
+        products.append(product)
+
+        print("name", product.name!, "comments", product.comments!, "price", product.price, "tags", product.tags!, "image", product.image, "desc", product.desc, "isLiked", product.isLiked, "rating", product.rating)
+    }
+
+    return products
+}
+
+
+
 
