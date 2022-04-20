@@ -159,7 +159,7 @@ extension DBHelper {
             userHolder = user
 
             try context?.save()
-            print("User \(userHolder.email ?? "NO ONE---") updated")
+            print("User email: \(userHolder.email ?? "NO ONE---") updated")
         } catch {
             print("issues updating data")
         }

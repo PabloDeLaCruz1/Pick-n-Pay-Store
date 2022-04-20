@@ -20,7 +20,6 @@ final class HomeViewController: UIHostingController<ContentView>, UIViewControll
     func makeUIViewController(context: Context) -> UIViewControllerType {
         let myViewController = UIViewControllerType()
         // myView.delegate = context.coordinator
-        UserDetailsViewController().user = currentUser
         self.user = currentUser
         myViewController.view.backgroundColor = UIColor(patternImage: UIImage(named: DBHelper.db.getImageData())!)
 
