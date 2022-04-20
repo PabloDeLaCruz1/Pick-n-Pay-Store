@@ -63,7 +63,7 @@ class Product: ObservableObject, Identifiable {
 ////        self.color = color
 ////    }
 //
-//   
+//
 //}
 //
 //extension Product {
