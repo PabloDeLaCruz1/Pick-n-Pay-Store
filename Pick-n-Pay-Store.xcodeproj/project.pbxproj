@@ -93,6 +93,8 @@
 		FE6468A827FB45AB00795DB2 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */; };
 		FE6468AF27FB6ACD00795DB2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */; };
 		FE8794FD280F619200BB757D /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = FE8794FC280F619200BB757D /* Fakery */; };
+		FE879505281092E900BB757D /* Pick_n_Pay_StoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE879504281092E900BB757D /* Pick_n_Pay_StoreUITests.swift */; };
+		FE879507281092E900BB757D /* Pick_n_Pay_StoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE879506281092E900BB757D /* Pick_n_Pay_StoreUITestsLaunchTests.swift */; };
 		FE887E7B2801D740000C2407 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE887E7A2801D740000C2407 /* API.swift */; };
 		FE887EE12809089F000C2407 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE887EE02809089F000C2407 /* UserDetailsView.swift */; };
 		FE887EE328090ADB000C2407 /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE887EE228090ADB000C2407 /* ContentDetailView.swift */; };
@@ -118,6 +120,16 @@
 		FED794D227FCA4450094E123 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FED794D027FCA4450094E123 /* CoreDataModel.xcdatamodeld */; };
 		FED7950227FD46880094E123 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED7950127FD46880094E123 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE879508281092E900BB757D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE64685827F4C69900795DB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE64685F27F4C69900795DB2;
+			remoteInfo = "Pick-n-Pay-Store";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		84556A8028072FBC00FDA602 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +230,9 @@
 		FE6468A527FB426600795DB2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FE6468A727FB45AB00795DB2 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		FE6468AE27FB6ACD00795DB2 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		FE879502281092E900BB757D /* Pick-n-Pay-StoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pick-n-Pay-StoreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE879504281092E900BB757D /* Pick_n_Pay_StoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_n_Pay_StoreUITests.swift; sourceTree = "<group>"; };
+		FE879506281092E900BB757D /* Pick_n_Pay_StoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_n_Pay_StoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FE887E7A2801D740000C2407 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FE887EDE2808F7D7000C2407 /* CoreDataModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreDataModel 6.xcdatamodel"; sourceTree = "<group>"; };
 		FE887EE02809089F000C2407 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
@@ -255,6 +270,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE8794FD280F619200BB757D /* Fakery in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE8794FF281092E900BB757D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				FE64686227F4C69900795DB2 /* Pick-n-Pay-Store */,
+				FE879503281092E900BB757D /* Pick-n-Pay-StoreUITests */,
 				FE64686127F4C69900795DB2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -371,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */,
+				FE879502281092E900BB757D /* Pick-n-Pay-StoreUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -487,6 +511,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FE879503281092E900BB757D /* Pick-n-Pay-StoreUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FE879504281092E900BB757D /* Pick_n_Pay_StoreUITests.swift */,
+				FE879506281092E900BB757D /* Pick_n_Pay_StoreUITestsLaunchTests.swift */,
+			);
+			path = "Pick-n-Pay-StoreUITests";
+			sourceTree = "<group>";
+		};
 		FE887E792800DC7D000C2407 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +619,24 @@
 			productReference = FE64686027F4C69900795DB2 /* Pick-n-Pay-Store.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FE879501281092E900BB757D /* Pick-n-Pay-StoreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE87950C281092E900BB757D /* Build configuration list for PBXNativeTarget "Pick-n-Pay-StoreUITests" */;
+			buildPhases = (
+				FE8794FE281092E900BB757D /* Sources */,
+				FE8794FF281092E900BB757D /* Frameworks */,
+				FE879500281092E900BB757D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE879509281092E900BB757D /* PBXTargetDependency */,
+			);
+			name = "Pick-n-Pay-StoreUITests";
+			productName = "Pick-n-Pay-StoreUITests";
+			productReference = FE879502281092E900BB757D /* Pick-n-Pay-StoreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -593,11 +644,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					FE64685F27F4C69900795DB2 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					FE879501281092E900BB757D = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = FE64685F27F4C69900795DB2;
 					};
 				};
 			};
@@ -618,6 +673,7 @@
 			projectRoot = "";
 			targets = (
 				FE64685F27F4C69900795DB2 /* Pick-n-Pay-Store */,
+				FE879501281092E900BB757D /* Pick-n-Pay-StoreUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -645,6 +701,13 @@
 				9A18C2C427FFC153002221F6 /* CartButtonTableViewCell.xib in Resources */,
 				9A083B2C280A088A0061045B /* CheckoutButtonTableViewCell.xib in Resources */,
 				9A123BEF280F6502006DC007 /* CheckoutPaymentInformationTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE879500281092E900BB757D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,7 +812,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FE8794FE281092E900BB757D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE879505281092E900BB757D /* Pick_n_Pay_StoreUITests.swift in Sources */,
+				FE879507281092E900BB757D /* Pick_n_Pay_StoreUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE879509281092E900BB757D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE64685F27F4C69900795DB2 /* Pick-n-Pay-Store */;
+			targetProxy = FE879508281092E900BB757D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FE64686927F4C69900795DB2 /* Main.storyboard */ = {
@@ -949,6 +1029,40 @@
 			};
 			name = Release;
 		};
+		FE87950A281092E900BB757D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pdelac.Pick-n-Pay-StoreUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pick-n-Pay-Store";
+			};
+			name = Debug;
+		};
+		FE87950B281092E900BB757D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pdelac.Pick-n-Pay-StoreUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pick-n-Pay-Store";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -966,6 +1080,15 @@
 			buildConfigurations = (
 				FE64687527F4C69C00795DB2 /* Debug */,
 				FE64687627F4C69C00795DB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE87950C281092E900BB757D /* Build configuration list for PBXNativeTarget "Pick-n-Pay-StoreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE87950A281092E900BB757D /* Debug */,
+				FE87950B281092E900BB757D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
