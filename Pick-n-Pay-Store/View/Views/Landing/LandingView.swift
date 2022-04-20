@@ -29,7 +29,7 @@ struct LandingView: View {
             NavigationView {
                 VStack(alignment: .center) {
                     Spacer()
-                    Image("appLogo")
+                    Image("appLogonbg")
                         .resizable()
                         .scaledToFit() .clipShape(Circle())
                         .shadow(radius: 10)

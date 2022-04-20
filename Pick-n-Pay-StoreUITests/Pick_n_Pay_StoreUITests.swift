@@ -38,7 +38,7 @@ class Pick_n_Pay_StoreUITests: XCTestCase {
 //               try toggle.labelView().text().string(),
 //               "Dark Mode?"
 //           )
-    } 
+    }
 
 
 }
