@@ -61,6 +61,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "pnplogo-29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
@@ -104,24 +105,6 @@
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
-    },
-    {
-      "filename" : "pnplogo-29.png",
-      "idiom" : "ipad",
-      "scale" : "1x",
-      "size" : "57x57"
-    },
-    {
-      "filename" : "pnplogo-29@2x.png",
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "57x57"
-    },
-    {
-      "filename" : "pnplogo-76@2x.png",
-      "idiom" : "ipad",
-      "scale" : "2x",
-      "size" : "60x60"
     }
   ],
   "info" : {
