@@ -252,23 +252,28 @@ struct Home: View {
     @ViewBuilder
     func CardView(product: Product) -> some View {
         VStack(spacing: 15) {
-            var p = product
+
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
-                DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
-                p = product
-                p.isLiked.toggle()
-                print("after toggle")
-                //product = p
-                DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
-                //isLiked.toggle()
+                var isLiked = false
+                if (isLiked == true){
+                    DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                    product.isLiked.toggle()
+                }
+                else if (isLiked == false){
+                   // DBHelper.db. removeWishList(email: currentUser.email!, product: product)
+                    product.isLiked.toggle()
+                }
+                
+
             } label: {
-                Image(systemName: p.isLiked ? "suit.heart.fill" : "suit.heart")
-                    .font(.system(size: 13))
-                    .foregroundColor(p.isLiked ? .red : .white)
-                    .padding(5)
-                    .background(
-                        Color.gray.opacity( 0.3), in: Circle()
+                if product.isLiked {
+                    Image(systemName: "suit.heart.fill")
+                        .font(.system(size: 13))
+                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .padding(5)
+                        .background(
+                        Color.red.opacity(0.3), in: Circle()
                     )
                 } else {
                     Image(systemName: "suit.heart")
