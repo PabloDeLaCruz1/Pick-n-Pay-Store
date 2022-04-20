@@ -614,17 +614,54 @@
                     <view key="view" contentMode="scaleToFill" id="CUN-IC-eeE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QbQ-ZK-21N" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ccc-F3-zsQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ccc-F3-zsQ" firstAttribute="leading" secondItem="QbQ-ZK-21N" secondAttribute="leading" id="dja-26-gfP"/>
+                                    <constraint firstAttribute="bottom" secondItem="ccc-F3-zsQ" secondAttribute="bottom" id="gk5-k4-LXf"/>
+                                    <constraint firstAttribute="trailing" secondItem="ccc-F3-zsQ" secondAttribute="trailing" id="mEP-EZ-olI"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4Z5-Cb-91S"/>
-                        <color key="backgroundColor" name="pcolor4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QbQ-ZK-21N" firstAttribute="top" secondItem="4Z5-Cb-91S" secondAttribute="top" id="8G4-ek-6Vs"/>
+                            <constraint firstItem="4Z5-Cb-91S" firstAttribute="bottom" secondItem="QbQ-ZK-21N" secondAttribute="bottom" id="EXO-vA-WnP"/>
+                            <constraint firstItem="QbQ-ZK-21N" firstAttribute="trailing" secondItem="4Z5-Cb-91S" secondAttribute="trailing" id="FXy-66-NTr"/>
+                            <constraint firstItem="QbQ-ZK-21N" firstAttribute="leading" secondItem="4Z5-Cb-91S" secondAttribute="leading" id="xxg-RE-UjD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YzF-pK-Hkj"/>
                     <connections>
+                        <outlet property="paymentInformationTableView" destination="ccc-F3-zsQ" id="sky-zy-PAI"/>
                         <segue destination="Ovx-lE-MFM" kind="show" identifier="AddBilling" id="bhc-ew-ZuY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P23-ak-phc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6993" y="1947"/>
+            <point key="canvasLocation" x="6993" y="1661"/>
+        </scene>
+        <!--Order Successful View Controller-->
+        <scene sceneID="h6n-z8-d7d">
+            <objects>
+                <viewController storyboardIdentifier="OrderSuccessful" id="TfU-b6-YSK" customClass="OrderSuccessfulViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cKC-iB-UiT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Moo-jJ-Xc8"/>
+                        <color key="backgroundColor" name="pcolor4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8z-Mh-vdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6993" y="2381"/>
         </scene>
         <!--Checkout Add Billing Address View Controller-->
         <scene sceneID="cmc-a5-xvQ">
@@ -633,14 +670,162 @@
                     <view key="view" contentMode="scaleToFill" id="djX-RY-Qfw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="tzP-r7-KIc" userLabel="Main Stack View">
+                                <rect key="frame" x="12" y="240.5" width="390" height="415"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cwF-az-boa" userLabel="Form Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="339"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Credit Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6LY-Hl-Znr">
+                                                <rect key="frame" x="10" y="10" width="370" height="34"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Expiration Date (MM/YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTU-6T-oe2">
+                                                <rect key="frame" x="10" y="52" width="370" height="34"/>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sfA-QN-svp" userLabel="Line 1 Stack View">
+                                                <rect key="frame" x="10" y="94" width="370" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUT-hi-9nR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="Ihz-Me-DXD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHS-x5-JLh">
+                                                        <rect key="frame" x="190" y="0.0" width="180" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="o5U-1I-Zcd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Street or P.O. Box" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3s-J3-7OE">
+                                                <rect key="frame" x="10" y="136" width="370" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="p5b-3a-Cwq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Apt., Suite, Unit, Building (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKh-yD-aiN">
+                                                <rect key="frame" x="10" y="178" width="370" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="csg-wZ-kMF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TmP-qZ-qrA">
+                                                <rect key="frame" x="10" y="220" width="370" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="8eP-qn-2dX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LGk-BQ-DyR" userLabel="Line 5 Stack View">
+                                                <rect key="frame" x="10" y="262" width="370" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tz6-X4-lGz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="CcD-EB-wu6"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFe-Jf-BQD">
+                                                        <rect key="frame" x="190" y="0.0" width="180" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="DzO-mW-S7F"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pKA-j6-Wyf" userLabel="Line 7 Stack View">
+                                                <rect key="frame" x="10" y="304" width="370" height="25"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQH-eh-qYG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="IiY-l0-elX"/>
+                                                            <constraint firstAttribute="height" constant="25" id="Opd-Ng-1DE"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" backgroundImage="checkboxUnselected"/>
+                                                        <connections>
+                                                            <action selector="toggleDefaultButton:" destination="Ovx-lE-MFM" eventType="touchUpInside" id="UH1-ZB-a3u"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Default Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-bh-LTc">
+                                                        <rect key="frame" x="33" y="0.0" width="337" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="337" id="5xF-7P-FVw"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="RoseQuartz"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="10" leading="10" bottom="10" trailing="10"/>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNH-Ub-aN3">
+                                        <rect key="frame" x="0.0" y="371" width="390" height="44"/>
+                                        <color key="backgroundColor" name="DustyRose"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="lis-Jx-Sw6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="savePaymentOption:" destination="Ovx-lE-MFM" eventType="touchUpInside" id="43G-Rr-L1l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HaF-IN-HL5"/>
-                        <color key="backgroundColor" name="pcolor1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tzP-r7-KIc" firstAttribute="centerX" secondItem="djX-RY-Qfw" secondAttribute="centerX" id="Rnz-D9-hyw"/>
+                            <constraint firstItem="tzP-r7-KIc" firstAttribute="centerY" secondItem="djX-RY-Qfw" secondAttribute="centerY" id="oD4-0b-tF4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zEX-Eq-U0i"/>
+                    <connections>
+                        <outlet property="aptNumber" destination="iKh-yD-aiN" id="Mge-Hg-Oj9"/>
+                        <outlet property="cityLabel" destination="TmP-qZ-qrA" id="euB-Ab-zEl"/>
+                        <outlet property="creditCard" destination="6LY-Hl-Znr" id="lZU-tu-JJX"/>
+                        <outlet property="defaultButton" destination="MQH-eh-qYG" id="bUw-nr-eew"/>
+                        <outlet property="expirationDate" destination="MTU-6T-oe2" id="IWB-aH-Ukg"/>
+                        <outlet property="firstName" destination="KUT-hi-9nR" id="sTA-sQ-g5a"/>
+                        <outlet property="lastName" destination="nHS-x5-JLh" id="IDm-qd-gxA"/>
+                        <outlet property="saveButton" destination="pNH-Ub-aN3" id="L6B-e8-dib"/>
+                        <outlet property="stateLabel" destination="Tz6-X4-lGz" id="dKq-F7-sOR"/>
+                        <outlet property="streetNumber" destination="G3s-J3-7OE" id="HsH-DZ-KJ5"/>
+                        <outlet property="zipLabel" destination="aFe-Jf-BQD" id="Zep-4Q-usd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bgw-xf-skF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7954" y="1947"/>
+            <point key="canvasLocation" x="7954" y="1661"/>
         </scene>
         <!--Checkout Shipping Address View Controller-->
         <scene sceneID="0q0-k6-LsU">
@@ -684,7 +869,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ry-7w-TeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6992.753623188406" y="1253.5714285714284"/>
+            <point key="canvasLocation" x="6993" y="938"/>
         </scene>
         <!--Checkout Add Shipping Address View Controller-->
         <scene sceneID="c8h-UI-Ip9">
@@ -849,7 +1034,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJn-D7-WZY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7953.6231884057979" y="1253.5714285714284"/>
+            <point key="canvasLocation" x="7954" y="938"/>
         </scene>
         <!--Cart-->
         <scene sceneID="nUi-an-E5I">

@@ -11,6 +11,7 @@ class CheckoutButtonTableViewCell: UITableViewCell {
 
     @IBOutlet weak var pyoButton: UIButton!
     
+    var delegate : PlaceOrderFunctions?
     
     override func awakeFromNib() {
         
@@ -27,10 +28,14 @@ class CheckoutButtonTableViewCell: UITableViewCell {
     
     @IBAction func buyIt(_ sender: UIButton) {
     
-        print("Hello")
+        self.delegate?.placeOrder()
         
     }
     
+}
+
+protocol PlaceOrderFunctions {
     
+    func placeOrder()
     
 }

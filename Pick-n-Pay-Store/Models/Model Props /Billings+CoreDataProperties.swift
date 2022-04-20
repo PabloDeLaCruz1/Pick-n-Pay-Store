@@ -21,6 +21,8 @@ extension Billings {
     @NSManaged public var lastName: String?
     @NSManaged public var billingAddress: String?
     @NSManaged public var isDefault: Int16
+    @NSManaged public var sender: String?
+    @NSManaged public var expirationDate: String?
 
 }
 
