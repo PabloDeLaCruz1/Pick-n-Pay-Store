@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class CheckoutShippingAddressViewController: UIViewController, NewShippingAddressFunctions, CellFunctions {
+class CheckoutShippingAddressViewController: UIViewController, NewShippingAddressFunctions, ShippingCellFunctions {
 
     @IBOutlet weak var shippingAddressTableView: UITableView!
     @Environment(\.currentUser) var currentUser
@@ -20,14 +20,7 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
         super.viewDidLoad()
         self.title = "Select Shipping Address"
         setupTable()
-        let recInfo = CartHelper.inst.fetchReceiversInfo(email: currentUser.email!)
-        
-        if recInfo != nil {
-            
-            shipData.setupReceiversInfo(recInfo : recInfo!)
-            shippingAddressTableView.reloadData()
-            
-        }
+        reloadShippingAddressView()
         
     }
     
@@ -43,14 +36,7 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
     
     override func viewWillAppear(_ animated: Bool) {
        
-        let recInfo = CartHelper.inst.fetchReceiversInfo(email: currentUser.email!)
-        
-        if recInfo != nil {
-            
-            shipData.setupReceiversInfo(recInfo : recInfo!)
-            shippingAddressTableView.reloadData()
-            
-        }
+        reloadShippingAddressView()
         
     }
     
@@ -60,7 +46,7 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
         
     }
     
-    func resetCellState() {
+    func resetShipCellState() {
         
         //this function is for the recipients tableview cell, to be in their default before the button is clicked
         
@@ -78,6 +64,19 @@ class CheckoutShippingAddressViewController: UIViewController, NewShippingAddres
     func returnToCheckoutPage() {
         
         self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func reloadShippingAddressView() {
+        
+        let recInfo = CartHelper.inst.fetchReceiversInfo(email: currentUser.email!)
+        
+        if recInfo != nil {
+            
+            shipData.setupReceiversInfo(recInfo : recInfo!)
+            shippingAddressTableView.reloadData()
+            
+        }
         
     }
 

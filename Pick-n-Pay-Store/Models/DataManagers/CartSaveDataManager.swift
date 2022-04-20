@@ -16,8 +16,11 @@ struct CSData {
     static var cartItems : [[String:String]] = []
     static var savedItems : [[String:String]] = []
     static var receiversInfo : [[String:String]] = []
+    static var paymentsInfo : [[String:String]] = []
     static var selectedAddress : [String:String] = [:]
     static var defaultAddress : [String:String] = [:]
+    static var selectedPayment : [String:String] = [:]
+    static var defaultPayment : [String:String] = [:]
     
     func drawEmptyCartSavedPage(view : UIView, segment : String) {
         
@@ -162,6 +165,44 @@ struct CSData {
         CSData.defaultAddress["phoneNumber"] = recInfo["phoneNumber"]
         CSData.defaultAddress["sender"] = recInfo["sender"]
         CSData.defaultAddress["isDefault"] = recInfo["isDefault"]
+        
+    }
+    
+    func setupPaymentsInfo(payInfo : [[String:String]]) {
+        
+        CSData.paymentsInfo = []
+        
+        if payInfo.isEmpty == false {
+            
+            for k in 0...payInfo.count-1 {
+                
+                var tempArray : [String : String] = [:]
+                tempArray["firstName"] = payInfo[k]["firstName"]
+                tempArray["lastName"] = payInfo[k]["lastName"]
+                tempArray["billingAddress"] = payInfo[k]["billingAddress"]
+                tempArray["creditCard"] = payInfo[k]["creditCard"]
+                tempArray["sender"] = payInfo[k]["sender"]
+                tempArray["isDefault"] = payInfo[k]["isDefault"]
+                tempArray["expirationDate"] = payInfo[k]["expirationDate"]
+                CSData.paymentsInfo.append(tempArray)
+                
+            }
+            
+        }
+       
+    }
+    
+    func setupDefaultPayment(payInfo : [String:String]) {
+        
+        CSData.defaultPayment = [:]
+        
+        CSData.defaultPayment["firstName"] = payInfo["firstName"]
+        CSData.defaultPayment["lastName"] = payInfo["lastName"]
+        CSData.defaultPayment["billingAddress"] = payInfo["billingAddress"]
+        CSData.defaultPayment["creditCard"] = payInfo["creditCard"]
+        CSData.defaultPayment["sender"] = payInfo["sender"]
+        CSData.defaultPayment["isDefault"] = payInfo["isDefault"]
+        CSData.defaultPayment["expirationDate"] = payInfo["expirationDate"]
         
     }
     

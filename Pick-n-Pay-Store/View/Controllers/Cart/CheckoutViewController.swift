@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class CheckoutViewController: UIViewController {
+class CheckoutViewController: UIViewController, PlaceOrderFunctions {
 
     @IBOutlet weak var checkoutTableView: UITableView!
     @Environment(\.currentUser) var currentUser
@@ -16,13 +16,33 @@ class CheckoutViewController: UIViewController {
     let initData = CSData()
     
     var existingReceivers : [[String : String]] = []
+    var existingPayment : [[String : String]] = []
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupTable()
         self.title = "Place Your Order"
+        reloadView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        reloadView()
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+        reloadView()
+        
+    }
+    
+    func reloadView() {
+        
         existingReceivers = CartHelper.inst.fetchReceiversInfo(email: currentUser.email!)!
+        existingPayment = CartHelper.inst.fetchPaymentInfo(email: currentUser.email!)!
         
         if existingReceivers.isEmpty == false {
         
@@ -37,29 +57,16 @@ class CheckoutViewController: UIViewController {
             
         }
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        if existingPayment.isEmpty == false {
         
-        let recInfo = CartHelper.inst.getUserDefaultAddress(email: currentUser.email!)
-        
-        if recInfo?.isEmpty == false {
+            let payInfo = CartHelper.inst.getUserDefaultPayment(email: currentUser.email!)
             
-            initData.setupDefaultAddress(recInfo : recInfo!)
-            checkoutTableView.reloadData()
-            
-        }
-        
-    }
-    
-    override func viewWillLayoutSubviews() {
-        
-        let recInfo = CartHelper.inst.getUserDefaultAddress(email: currentUser.email!)
-        
-        if recInfo?.isEmpty == false {
-            
-            initData.setupDefaultAddress(recInfo : recInfo!)
-            checkoutTableView.reloadData()
+            if payInfo?.isEmpty == false {
+                
+                initData.setupDefaultPayment(payInfo: payInfo!)
+                checkoutTableView.reloadData()
+                
+            }
             
         }
         
@@ -75,10 +82,35 @@ class CheckoutViewController: UIViewController {
         checkoutTableView.register(UINib(nibName: "CheckoutButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutButtonTableViewCell")
         checkoutTableView.register(UINib(nibName: "CheckoutShippingTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutShippingTableViewCell")
         checkoutTableView.register(UINib(nibName: "CheckoutBillingTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutBillingTableViewCell")
-        checkoutTableView.register(UINib(nibName: "CheckoutAddShippingAddressButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckoutAddShippingAddressButtonTableViewCell")
+        
         //makes sure the table is visible
         
         self.checkoutTableView.contentInset.bottom = self.tabBarController?.tabBar.frame.height ?? 0
+        
+    }
+    
+    func placeOrder() {
+        
+        //GET ORDER TOTAL
+        
+        //GET SHIPPING ADDRESS
+        
+        //GET PAYMENT METHOD
+        
+        //GET CART ITEMS
+        
+        //SAVE TO DATABASE
+        
+    }
+    
+    func showDialog(message : String, from : String) {
+        
+        let dialogMessage = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+           
+        })
+        dialogMessage.addAction(ok)
+        self.present(dialogMessage, animated: true, completion: nil)
         
     }
     
@@ -113,12 +145,17 @@ extension CheckoutViewController : UITableViewDataSource {
             
             case 1:
             
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingTableViewCell", for: indexPath) as! CheckoutShippingTableViewCell
+                
+                cell.accessoryType = .disclosureIndicator
+            
                 if existingReceivers.isEmpty == false {
                 
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutShippingTableViewCell", for: indexPath) as! CheckoutShippingTableViewCell
+                    // FOR PROTECTION
                     
-                    cell.accessoryType = .disclosureIndicator
-                
+                    cell.receiverLabel.isHidden = false
+                    cell.shippingButton.isHidden = true
+                    
                     if CSData.selectedAddress.isEmpty == true {
                         cell.receiverName.text = CSData.defaultAddress["firstName"]! + " " + CSData.defaultAddress["lastName"]!
                         cell.receiverAddress.text = CSData.defaultAddress["shippingAddress"]!
@@ -131,9 +168,8 @@ extension CheckoutViewController : UITableViewDataSource {
                 
                 } else {
 
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutAddShippingAddressButtonTableViewCell", for: indexPath) as! CheckoutAddShippingAddressButtonTableViewCell
-                    
-                    cell.accessoryType = .disclosureIndicator
+                    cell.receiverLabel.isHidden = true
+                    cell.shippingButton.isHidden = false
                     
                     return cell
                     
@@ -144,8 +180,85 @@ extension CheckoutViewController : UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutBillingTableViewCell", for: indexPath) as! CheckoutBillingTableViewCell
                 
                 cell.accessoryType = .disclosureIndicator
-            
-                return cell
+                
+                if existingPayment.isEmpty == false {
+                    
+                    //FOR PROTECTION
+                    
+                    cell.paymentStackView.isHidden = false
+                    cell.paymentButton.isHidden = true
+                    
+                    var cardType : String = ""
+                    var cardNum = "XXXX"
+                    
+                    if CSData.selectedPayment.isEmpty == true {
+                        
+                        cell.billingAddress.text = CSData.defaultPayment["billingAddress"]!
+                        
+                        switch CSData.defaultPayment["creditCard"]?.prefix(1) {
+                            
+                            case "3":
+                                cardType = "AMEX"
+                            
+                            case "4":
+                                cardType = "Visa"
+                            case "5":
+                                cardType = "MasterCard"
+                            default:
+                                cardType = "Discover"
+                            
+                        }
+                        
+                        cardNum += (CSData.defaultPayment["creditCard"]!.suffix(4))
+                        cell.paymentMethod.text = cardType+" "+cardNum
+                        
+                    } else {
+                        
+                        if CSData.selectedPayment["billingAddress"]! != "" {
+                        
+                            cell.billingAddress.text = CSData.selectedPayment["billingAddress"]!
+                            cell.billingAddress.isHidden = false
+                            cell.billingAddressTitle.isHidden = false
+                            
+                            switch CSData.selectedPayment["billingAddress"]?.prefix(1) {
+                                
+                                case "3":
+                                    cardType = "AMEX"
+                                
+                                case "4":
+                                    cardType = "Visa"
+                                case "5":
+                                    cardType = "MasterCard"
+                                default:
+                                    cardType = "Discover"
+                                
+                            }
+                            
+                            cardNum += (CSData.selectedPayment["creditCard"]!.suffix(4))
+                            cell.paymentMethod.text = cardType+" "+cardNum
+                            
+                        } else {
+                          
+                            cell.billingAddress.isHidden = true
+                            cell.billingAddressTitle.isHidden = true
+                            cell.paymentMethod.text = CSData.selectedPayment["creditCard"]!
+                            
+                          }
+                    
+                    }
+                
+                    
+                    return cell
+                    
+                    
+                } else {
+
+                    cell.paymentStackView.isHidden = true
+                    cell.paymentButton.isHidden = false
+
+                    return cell
+
+                  }
             
             case 3:
             
@@ -163,6 +276,15 @@ extension CheckoutViewController : UITableViewDataSource {
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CheckoutButtonTableViewCell", for: indexPath) as! CheckoutButtonTableViewCell
                 
+                if existingPayment.isEmpty == true || existingReceivers.isEmpty == true {
+                    
+                    cell.pyoButton.backgroundColor = .gray
+                    cell.pyoButton.isUserInteractionEnabled = false
+                    
+                }
+            
+                cell.delegate = self
+            
                 return cell
             
         }
@@ -211,6 +333,18 @@ extension CheckoutViewController : UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        
+        switch indexPath.section {
+            
+            case 4:
+                    return false
+            default:
+                return true
+            
+        }
+        
+    }
 }
 
 extension CheckoutViewController : UITableViewDelegate {
