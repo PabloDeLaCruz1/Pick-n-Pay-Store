@@ -1,4 +1,5 @@
 /// credit to raywenderlich
+//https://www.raywenderlich.com/4503153-how-to-create-a-splash-screen-with-swiftui
 
 import SwiftUI
 
@@ -35,13 +36,20 @@ struct SplashScreen: View {
         .scaleEffect(coverCircleScale)
         .opacity(coverCircleAlpha)
       
-      Text("Sh           PPER")
+      Text("Sh           pper")
         .font(.largeTitle)
         .foregroundColor(.white)
         .opacity(textAlpha)
         .offset(x: 20, y: 0)
         .scaleEffect(textScale)
-      
+
+        Text("Pick n' Pay")
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .opacity(textAlpha)
+            .offset(x: 22, y: 70)
+            .scaleEffect(textScale)
+        
       ShopperO(percent: percent)
         .stroke(Color.white, lineWidth: uLineWidth)
         .rotationEffect(.degrees(-90))
