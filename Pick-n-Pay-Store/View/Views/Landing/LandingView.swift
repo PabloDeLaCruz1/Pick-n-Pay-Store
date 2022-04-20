@@ -11,19 +11,19 @@ struct LandingView: View {
 
 //    @EnvironmentObject private var loggedIn = false
     @Environment(\.loggedInKey) var loggedInKey
- 
+
     var center = CGPoint(x: 100, y: 100)
-    
+
     var body: some View {
 
         if false {
             StoryboardViewController()
                 .background(
-                        Image(DBHelper.db.getImageData())
-                            .resizable()
-                            .ignoresSafeArea()
-                            .opacity(0.1)
-                    )
+                Image(DBHelper.db.getImageData())
+                    .resizable()
+                    .ignoresSafeArea()
+                    .opacity(0.1)
+            )
         } else {
 
             NavigationView {
@@ -51,34 +51,44 @@ struct LandingView: View {
                     Button(action: {
                     }) {
                         NavigationLink(destination: LoginSwiftUIView() .background(
-                            Image(DBHelper.db.getImageData())
+                                Image(DBHelper.db.getImageData())
                                     .resizable()
                                     .ignoresSafeArea()
                                     .opacity(0.1)
                             )) {
                             LoginButtonContent()
                         }
+                            .accessibility(identifier: "loginScreen")
+
                     }
                     Spacer()
                 }
-                .navigationBarTitle("Pick N' Pay")
-                .background(
+                    .navigationBarTitle("Pick N' Pay")
+                    .background(
                     Image(DBHelper.db.getImageData())
-                    .resizable()
-                    .ignoresSafeArea()
-                    .opacity(0.1)
+                        .resizable()
+                        .ignoresSafeArea()
+                        .opacity(0.1)
                 )
-                .navigationBarItems(trailing:
-                    Button(
+                    .navigationBarItems(trailing:
+                        Button(
                         action: {
-                        // Add action
+                            // Add action
                         },
                         label: {
-                            Text("Continue as a Guest")
+
+                            NavigationLink(destination: StoryboardViewController() .background(
+                                    Image(DBHelper.db.getImageData())
+                                        .resizable()
+                                        .ignoresSafeArea()
+                                        .opacity(0.1)
+                                )) {
+                                Text("Continue as a Guest")
+                            }
                         }
                     )
                 )
-                
+
 //                .navigationBarTitleDisplayMode(.inline)
 //                        .toolbar { // <2>
 //                            ToolbarItem(placement: .principal) { // <3>
