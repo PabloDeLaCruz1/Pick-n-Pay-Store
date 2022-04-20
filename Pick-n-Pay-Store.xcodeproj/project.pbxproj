@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		84556A8128072FBC00FDA602 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84556A8028072FBC00FDA602 /* OrdersTableViewController.swift */; };
 		84556A832807312200FDA602 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84556A822807312200FDA602 /* OrdersTableViewCell.swift */; };
+		84556A8B280F200700FDA602 /* OrderDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84556A8A280F200700FDA602 /* OrderDataManager.swift */; };
 		84A05A3128099BD400EB5B3E /* ItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A05A3028099BD400EB5B3E /* ItemHelper.swift */; };
 		84A05A3328099C1C00EB5B3E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A05A3228099C1C00EB5B3E /* Items.swift */; };
 		909848682808756000241A03 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909848632808756000241A03 /* ItemCollectionViewCell.swift */; };
@@ -121,6 +122,7 @@
 /* Begin PBXFileReference section */
 		84556A8028072FBC00FDA602 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		84556A822807312200FDA602 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
+		84556A8A280F200700FDA602 /* OrderDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataManager.swift; sourceTree = "<group>"; };
 		84A05A3028099BD400EB5B3E /* ItemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHelper.swift; sourceTree = "<group>"; };
 		84A05A3228099C1C00EB5B3E /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		909848632808756000241A03 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				9A18C2B927FFA395002221F6 /* CartSaveDataManager.swift */,
 				FE6468A527FB426600795DB2 /* CoreDataManager.swift */,
 				90984877280B8DF600241A03 /* WishListDataManager.swift */,
+				84556A8A280F200700FDA602 /* OrderDataManager.swift */,
 			);
 			path = DataManagers;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				9A88D3B8280DB22B000976C8 /* CheckoutShippingAddressViewController.swift in Sources */,
 				9AA24949280BCFB8003B6E3A /* User+CoreDataClass.swift in Sources */,
 				FEA97F7927FE3BEB00F82B15 /* CustomCurveShape.swift in Sources */,
+				84556A8B280F200700FDA602 /* OrderDataManager.swift in Sources */,
 				9A88D3BE280DB29F000976C8 /* CheckoutAddBillingAddressViewController.swift in Sources */,
 				FE64689527F7536A00795DB2 /* Service.swift in Sources */,
 				9A18C2C827FFC1B7002221F6 /* SavedTableViewCell.swift in Sources */,

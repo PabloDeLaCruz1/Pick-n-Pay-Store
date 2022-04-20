@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jSX-ZF-erR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -58,10 +59,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEe-Wb-nyB">
-                                                    <rect key="frame" x="20" y="11" width="191" height="184"/>
+                                                    <rect key="frame" x="20" y="11" width="192.5" height="184"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="itemTitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6J-rV-FPp">
-                                                    <rect key="frame" x="228" y="25" width="166" height="21"/>
+                                                    <rect key="frame" x="229.5" y="25" width="164.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="g5m-ma-6oL"/>
                                                     </constraints>
@@ -91,7 +92,7 @@
                                                     </buttonConfiguration>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVd-dx-BDs">
-                                                    <rect key="frame" x="228" y="123" width="116" height="31"/>
+                                                    <rect key="frame" x="229.5" y="123" width="114.5" height="31"/>
                                                     <size key="titleShadowOffset" width="5" height="4"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" imagePlacement="trailing" imagePadding="1">
@@ -117,7 +118,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="itemPriceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-pE-2On">
-                                                    <rect key="frame" x="228" y="78" width="116" height="21"/>
+                                                    <rect key="frame" x="229.5" y="78" width="114.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -186,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-8l-U05">
-                                <rect key="frame" x="0.0" y="76" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="32" width="414" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -1093,6 +1094,9 @@
                                                     <color key="tintColor" name="dark"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Track Order"/>
+                                                    <connections>
+                                                        <action selector="trackOrderAction:" destination="2qs-JU-EeR" eventType="touchUpInside" id="IGn-Gh-Yuy"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHQ-1o-Qml">
                                                     <rect key="frame" x="245" y="58" width="149" height="38"/>
@@ -1101,6 +1105,9 @@
                                                     <color key="tintColor" name="dark"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Refund Order"/>
+                                                    <connections>
+                                                        <action selector="refundOrderButton:" destination="2qs-JU-EeR" eventType="touchUpInside" id="b5U-R8-7b3"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-Gq-RLM">
                                                     <rect key="frame" x="245" y="104" width="152" height="38"/>
@@ -1109,6 +1116,9 @@
                                                     <color key="tintColor" name="dark"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Leave a review!"/>
+                                                    <connections>
+                                                        <action selector="reviewOrderBtn:" destination="2qs-JU-EeR" eventType="touchUpInside" id="mLD-wX-wzY"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-hf-KjU">
                                                     <rect key="frame" x="26" y="142" width="357" height="59"/>
@@ -1124,6 +1134,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-IQ-eaD">
+                                                    <rect key="frame" x="160" y="58" width="77" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1131,7 +1148,8 @@
                                             <outlet property="balanceOrder" destination="Nij-Ye-kt2" id="8H7-5M-caw"/>
                                             <outlet property="imageOrder" destination="6MB-OV-oHB" id="FvZ-ju-diS"/>
                                             <outlet property="nameOrder" destination="JiT-hf-KjU" id="IeK-a0-Ypr"/>
-                                            <outlet property="refundOrderButton" destination="IHQ-1o-Qml" id="fqD-2C-iDv"/>
+                                            <outlet property="quantityOrder" destination="wIJ-IQ-eaD" id="m8L-Ol-tlm"/>
+                                            <outlet property="refundBtn" destination="IHQ-1o-Qml" id="sRf-Bz-Zlb"/>
                                             <outlet property="reviewOrder" destination="xPm-Gq-RLM" id="ZHa-Il-MlC"/>
                                         </connections>
                                     </tableViewCell>
@@ -1141,9 +1159,10 @@
                                     <outlet property="delegate" destination="wOG-PY-sS7" id="YpU-yT-Emg"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ook-65-4mv">
-                                <rect key="frame" x="154" y="60" width="106" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ook-65-4mv">
+                                <rect key="frame" x="0.0" y="57" width="414" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="pcolor4"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1152,7 +1171,7 @@
                         <viewLayoutGuide key="safeArea" id="akE-Jw-iMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Orders" image="bag.fill" catalog="system" id="Wlz-w5-8ja"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="bag" catalog="system" id="Wlz-w5-8ja"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cf9-YB-zZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1160,7 +1179,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bag.fill" catalog="system" width="128" height="128"/>
+        <image name="bag" catalog="system" width="128" height="128"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="checkboxUnselected" width="170.5" height="170.5"/>
         <image name="heart" catalog="system" width="128" height="109"/>
