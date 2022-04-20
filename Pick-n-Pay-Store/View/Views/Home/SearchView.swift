@@ -22,8 +22,9 @@ struct SearchView: View {
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-
-                VStack(spacing: 15) {
+Spacer()
+                Spacer()
+                VStack() {
                     //MARK - APP BAR
                     HStack(spacing: 100) {
                         //MARK: DRAWER MENU
@@ -52,8 +53,9 @@ struct SearchView: View {
 
                         Image(systemName: "magnifyingglass")
                         TextField("Search ..", text: $searchText)
-                            .searchable(text: $searchText)
+//                            .searchable(text: $searchText)
                     }
+                    .padding(.top, 50)
                     Spacer()
                     // END SEARCH ICON
 
@@ -132,7 +134,6 @@ struct SearchView: View {
                     .environmentObject(baseData)
             )
         }
-            .padding()
     }
 
     var searchResults: [Product] {
