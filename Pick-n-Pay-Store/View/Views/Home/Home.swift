@@ -239,7 +239,7 @@ struct Home: View {
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
                 DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
-                product.isLiked.toggle()
+               // product.isLiked.toggle()
 
             } label: {
                 if product.isLiked {
