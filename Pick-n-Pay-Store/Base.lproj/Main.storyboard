@@ -1131,6 +1131,9 @@
                                                     <color key="tintColor" name="dark"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Track Order"/>
+                                                    <connections>
+                                                        <action selector="trackOrderAction:" destination="2qs-JU-EeR" eventType="touchUpInside" id="IGn-Gh-Yuy"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHQ-1o-Qml">
                                                     <rect key="frame" x="245" y="58" width="149" height="38"/>
@@ -1139,6 +1142,9 @@
                                                     <color key="tintColor" name="dark"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Refund Order"/>
+                                                    <connections>
+                                                        <action selector="refundOrderButton:" destination="2qs-JU-EeR" eventType="touchUpInside" id="b5U-R8-7b3"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPm-Gq-RLM">
                                                     <rect key="frame" x="245" y="104" width="152" height="38"/>
@@ -1147,6 +1153,9 @@
                                                     <color key="tintColor" name="dark"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Leave a review!"/>
+                                                    <connections>
+                                                        <action selector="reviewOrderBtn:" destination="2qs-JU-EeR" eventType="touchUpInside" id="mLD-wX-wzY"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-hf-KjU">
                                                     <rect key="frame" x="26" y="142" width="357" height="59"/>
@@ -1162,6 +1171,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-IQ-eaD">
+                                                    <rect key="frame" x="160" y="58" width="77" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1169,7 +1185,8 @@
                                             <outlet property="balanceOrder" destination="Nij-Ye-kt2" id="8H7-5M-caw"/>
                                             <outlet property="imageOrder" destination="6MB-OV-oHB" id="FvZ-ju-diS"/>
                                             <outlet property="nameOrder" destination="JiT-hf-KjU" id="IeK-a0-Ypr"/>
-                                            <outlet property="refundOrderButton" destination="IHQ-1o-Qml" id="fqD-2C-iDv"/>
+                                            <outlet property="quantityOrder" destination="wIJ-IQ-eaD" id="m8L-Ol-tlm"/>
+                                            <outlet property="refundBtn" destination="IHQ-1o-Qml" id="sRf-Bz-Zlb"/>
                                             <outlet property="reviewOrder" destination="xPm-Gq-RLM" id="ZHa-Il-MlC"/>
                                         </connections>
                                     </tableViewCell>
@@ -1179,9 +1196,10 @@
                                     <outlet property="delegate" destination="wOG-PY-sS7" id="YpU-yT-Emg"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ook-65-4mv">
-                                <rect key="frame" x="154" y="60" width="106" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ook-65-4mv">
+                                <rect key="frame" x="0.0" y="57" width="414" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="pcolor4"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

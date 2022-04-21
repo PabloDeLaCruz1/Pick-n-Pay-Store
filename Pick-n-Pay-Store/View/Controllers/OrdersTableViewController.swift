@@ -27,7 +27,7 @@ class OrdersTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         reloadOrderView()
-        
+
     }
     
     override func viewWillLayoutSubviews() {
@@ -42,7 +42,6 @@ class OrdersTableViewController: UIViewController {
         orderTableView.dataSource = self
         orderTableView.register(UINib(nibName: "OrdersTableViewCell", bundle: nil), forCellReuseIdentifier: "OrdersTableViewCell")
         
-        
     }
     
     func reloadOrderView() {
@@ -54,7 +53,6 @@ class OrdersTableViewController: UIViewController {
             orderCons.setupOrderItems(orders: orderData!)
             
         }
-        
         
     }
 
@@ -81,10 +79,6 @@ extension OrdersTableViewController : UITableViewDataSource {
         
     }
 
-
-
-
-
 }
 
 extension OrdersTableViewController : UITableViewDelegate {
@@ -92,3 +86,25 @@ extension OrdersTableViewController : UITableViewDelegate {
 
 
 }
+
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        return ODData.savedItems.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Shipping and Billing Details and Balance"
+//
+//                cell.nameOrder.text = ODData.savedItems[indexPath.row]["desc"]!
+//                cell.imageOrder.image = UIImage(named: ODData.savedItems[indexPath.row]["image"]!)
+//                cell.balanceOrder.text = "$" + ODData.savedItems[indexPath.row]["price"]!
+//                cell.quantityOrder.text = "x" + ODData.savedItems[indexPath.row]["quantity"]!
+//                return cell
+//
+//            }
+//            func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//                return 230   }
+//
+//
+//            override func viewDidLoad() {
+//                super.viewDidLoad()
