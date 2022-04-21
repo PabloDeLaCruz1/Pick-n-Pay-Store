@@ -28,12 +28,12 @@ class CheckoutButtonTableViewCell: UITableViewCell {
     
     @IBAction func buyIt(_ sender: UIButton) {
     
-        print("Order appended")
-        ODData.savedItems.append(contentsOf: CSData.cartItems)
-        print(ODData.savedItems)
-        CSData.cartItems.removeAll()
-        print("cart")
-        print(CSData.cartItems)
+//        print("Order appended")
+//        ODData.savedItems.append(contentsOf: CSData.cartItems)
+//        print(ODData.savedItems)
+//        CSData.cartItems.removeAll()
+//        print("cart")
+//        print(CSData.cartItems)
         self.delegate?.placeOrder()
         
     }
