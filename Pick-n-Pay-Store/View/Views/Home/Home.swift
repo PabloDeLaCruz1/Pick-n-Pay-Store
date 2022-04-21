@@ -3,7 +3,7 @@
 //  Pick-n-Pay-Store
 //
 //  Created by Pablo De La Cruz on 4/6/22.
-//
+// changing now?
 
 import SwiftUI
 
@@ -18,7 +18,7 @@ struct Home: View {
     @State var sliders: [Slider] = []
     @State var searchText: String = ""
     @State private var sort: Int = 0
-
+    @State var isLikedLocal: Bool? = false
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -264,30 +264,41 @@ struct Home: View {
                 var isLiked = false
                 if (isLiked == true){
                     DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                switch product.isLiked {
+                case true:
+                    DBHelper.db.removeWishList(email: currentUser.email!, product: product)
                     product.isLiked.toggle()
-                }
-                else if (isLiked == false){
-                   // DBHelper.db. removeWishList(email: currentUser.email!, product: product)
-                    product.isLiked.toggle()
-                }
+                    isLikedLocal = product.isLiked
+                    print(isLikedLocal!)
+                   //fallthrough
+                case false:
                 
+                    DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                    product.isLiked.toggle()
+                    isLikedLocal = product.isLiked
+                    print(isLikedLocal!)
+                }
 
             } label: {
-                if product.isLiked {
+                if product.isLiked == true {
                     Image(systemName: "suit.heart.fill")
                         .font(.system(size: 13))
-                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .foregroundColor(isLikedLocal! ? .red : .red)
                         .padding(5)
                         .background(
-                        Color.red.opacity(0.3), in: Circle()
-                    )
-                } else {
+                        Color.red.opacity(0.5), in: Circle()
+
+                        )
+                   
+                }
+                else if product.isLiked == false{
                     Image(systemName: "suit.heart")
                         .font(.system(size: 13))
-                        .foregroundColor(product.isLiked ? .red : .gray)
+                        .foregroundColor(isLikedLocal! ? .gray : .white)
                         .padding(5)
                         .background(
                         Color.gray.opacity(0.3), in: Circle()
+
                     ) }
 
             } // END LIKED BUTTON
