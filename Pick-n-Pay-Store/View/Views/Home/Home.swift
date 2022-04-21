@@ -17,6 +17,8 @@ struct Home: View {
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
     @State var searchText: String = ""
+    @State private var sort: Int = 0
+
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -62,7 +64,7 @@ struct Home: View {
                 }
                     .foregroundColor(.black)
                     .overlay(
-                    Image("pnpLogonbg")
+                    Image("appLogonbg")
                         .resizable()
                         .frame(width: 150, height: 100)
                         .clipShape(Circle().size(width: 150, height: 100)))
@@ -73,7 +75,7 @@ struct Home: View {
                 VStack() {
 
                     VStack(alignment: .leading, spacing: -1) {
-                        
+
                         Text("Welcome")
                             .font(.title.bold())
                         HomeSlider(trailingSpace: 40, index: $currentSlider, items: sliders) { slider in
@@ -90,16 +92,16 @@ struct Home: View {
                     }
                         .frame(maxHeight: .infinity, alignment: .top)
                         .onAppear {
-                            for index in 1...7 {
-                                sliders.append(Slider(sliderImage: "slider\(index)"))
-                            }
+                        for index in 1...7 {
+                            sliders.append(Slider(sliderImage: "slider\(index)"))
+                        }
 
-                        }
+                    }
                     //prevents sliders from adding infinately
-                        .onDisappear {
-                            sliders.removeAll()
-                        }
-                    
+                    .onDisappear {
+                        sliders.removeAll()
+                    }
+
                 } // END SLIDER
                 .padding(.bottom, 20)
                     .frame(width: 400, height: 200)
@@ -120,7 +122,7 @@ struct Home: View {
                     .frame(width: 50, height: 10)
                     .fixedSize()
                     .padding(.top, 10)
-                
+
                 //MARK: - BODY TOP
                 HStack {
                     Text("Products: \(baseData.category)")
@@ -131,10 +133,16 @@ struct Home: View {
 
                     } label: {
                         HStack(spacing: 3) {
-                            Text("Sort by")
-                                .font(.caption.bold())
-                            Image(systemName: "chevron.down")
-                                .font(.caption.bold())
+                            Menu {
+                                Button("Price: Low to High", action: sortByAscPrice)
+                                Button("Price: High to Low", action: sortByDesPrice)
+                            } label: {
+                                Text("Sort by")
+                                    .font(.caption.bold())
+                                Image(systemName: "chevron.down")
+                                    .font(.caption.bold())
+                            }
+
                         }
                             .foregroundColor(.gray)
                     }
@@ -253,6 +261,7 @@ struct Home: View {
 
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
+
                 var isLiked = false
                 if (isLiked == true){
                     DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
@@ -354,7 +363,7 @@ struct Home: View {
 
         }
             .padding()
-            .background(Color.white, in: RoundedRectangle(cornerRadius: 12))
+            .background(Color.white.opacity(0.4), in: RoundedRectangle(cornerRadius: 12))
     }
 
     //MARK: CATEGORY VIEW Filters by category, can see offers here
@@ -364,9 +373,14 @@ struct Home: View {
             withAnimation { baseData.category = title }
             withAnimation { baseData.homeTab = title }
 
-            let filtered = productsForFiltering.filter { $0.tags?.first == baseData.category }
+            let filtered = productsForFiltering.filter { $0.tags!.contains(baseData.category.lowercased()) }
+            print("Filtered1-------------------------", filtered.count)
+            if filtered.count == 0 {
+                baseData.products = [Product(name: "Out of Stock", comments: [""], offer: false, price: 00.00, tags: ["empty", "error", "out of stock", "out"], image: "emptyError", color: UIColor(Color(.gray).opacity(0.4)), desc: "We are sorry. This item is not available. Please come back another time or call support at 555-555-5555", isLiked: false, rating: 5, isSaved: 0, quantity: 1)]
+            } else {
+                baseData.products = filtered
 
-            baseData.products = filtered
+            }
 
             //To Filter without higher order functions
 //            for (i, product) in baseData.products.enumerated() {
@@ -407,6 +421,19 @@ struct Home: View {
             )
         }
 
+    }
+
+    // MARK: Sort functions
+    func sortByAscPrice() {
+        withAnimation { baseData.category = "Low Price" }
+        let sorted: [Product] = productsForFiltering.sorted { $0.price < $1.price }
+        baseData.products = sorted
+    }
+
+    func sortByDesPrice() {
+        withAnimation { baseData.category = "High Price" }
+        let sorted: [Product] = productsForFiltering.sorted { $0.price > $1.price }
+        baseData.products = sorted
     }
 }
 
