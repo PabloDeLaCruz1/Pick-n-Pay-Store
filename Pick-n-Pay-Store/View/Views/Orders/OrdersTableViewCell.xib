@@ -49,7 +49,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-Pr-oec">
-                                        <rect key="frame" x="50" y="98" width="118" height="30"/>
+                                        <rect key="frame" x="20" y="98" width="178" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="mpy-Ee-Y6C"/>
@@ -64,7 +64,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dML-pt-gHZ">
-                                        <rect key="frame" x="50" y="140" width="118" height="30"/>
+                                        <rect key="frame" x="20" y="140" width="178" height="30"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uUc-1h-VYJ"/>
@@ -80,17 +80,17 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ch1-Pr-oec" firstAttribute="leading" secondItem="HTy-PU-OaR" secondAttribute="leading" constant="50" id="3Tw-LY-hex"/>
+                                    <constraint firstItem="Ch1-Pr-oec" firstAttribute="leading" secondItem="HTy-PU-OaR" secondAttribute="leading" constant="20" id="3Tw-LY-hex"/>
                                     <constraint firstAttribute="trailing" secondItem="GD1-Hn-rnr" secondAttribute="trailing" id="60w-ok-ajS"/>
-                                    <constraint firstAttribute="trailing" secondItem="dML-pt-gHZ" secondAttribute="trailing" constant="50" id="7hd-IQ-dhI"/>
+                                    <constraint firstAttribute="trailing" secondItem="dML-pt-gHZ" secondAttribute="trailing" constant="20" id="7hd-IQ-dhI"/>
                                     <constraint firstItem="GD1-Hn-rnr" firstAttribute="top" secondItem="HTy-PU-OaR" secondAttribute="top" id="Lu1-Wf-Iax"/>
                                     <constraint firstAttribute="trailing" secondItem="sTb-hp-IGH" secondAttribute="trailing" id="Rrp-ft-ug6"/>
                                     <constraint firstItem="sTb-hp-IGH" firstAttribute="top" secondItem="GD1-Hn-rnr" secondAttribute="bottom" constant="12" id="YsS-Sr-VvK"/>
-                                    <constraint firstItem="dML-pt-gHZ" firstAttribute="leading" secondItem="HTy-PU-OaR" secondAttribute="leading" constant="50" id="bY2-Gv-WBh"/>
+                                    <constraint firstItem="dML-pt-gHZ" firstAttribute="leading" secondItem="HTy-PU-OaR" secondAttribute="leading" constant="20" id="bY2-Gv-WBh"/>
                                     <constraint firstItem="sTb-hp-IGH" firstAttribute="leading" secondItem="HTy-PU-OaR" secondAttribute="leading" id="cQN-KP-cqc"/>
                                     <constraint firstItem="GD1-Hn-rnr" firstAttribute="leading" secondItem="HTy-PU-OaR" secondAttribute="leading" id="lr8-D6-pMO"/>
                                     <constraint firstItem="Ch1-Pr-oec" firstAttribute="top" secondItem="sTb-hp-IGH" secondAttribute="bottom" constant="12" id="smQ-jl-jQe"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ch1-Pr-oec" secondAttribute="trailing" constant="50" id="zjQ-uQ-2j3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ch1-Pr-oec" secondAttribute="trailing" constant="20" id="zjQ-uQ-2j3"/>
                                 </constraints>
                             </stackView>
                         </subviews>

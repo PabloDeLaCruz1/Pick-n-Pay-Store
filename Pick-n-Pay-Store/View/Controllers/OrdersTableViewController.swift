@@ -54,6 +54,8 @@ class OrdersTableViewController: UIViewController {
             
         }
         
+        orderTableView.reloadData()
+        
     }
 
 }
@@ -70,8 +72,8 @@ extension OrdersTableViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
         
-        cell.orderDesc.text = MyOrders.myOrders[indexPath.row]["desc"] as! String
-        cell.itemImage.image = UIImage(named: MyOrders.myOrders[indexPath.row]["image"] as! String)
+        cell.orderDesc.text = MyOrders.myOrders[indexPath.row]["desc"]!
+        cell.itemImage.image = UIImage(named: MyOrders.myOrders[indexPath.row]["image"]!)
         cell.trackingStatus.text = "Estimated Delivery: April 28, 2022"
         
         return cell
