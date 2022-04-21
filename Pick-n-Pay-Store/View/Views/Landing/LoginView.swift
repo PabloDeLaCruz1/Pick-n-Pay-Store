@@ -51,7 +51,7 @@ struct LoginSwiftUIView: View {
                     selection: $tag) {
 
                 }
-                HelloText()
+//                HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
                 PasswordSecureField(password: $password)
@@ -88,6 +88,7 @@ struct LoginSwiftUIView: View {
                 }) {
                     LoginButtonContent()
                 }
+                .accessibility(identifier: "loginButton")
                 Spacer()
             }
                 .padding()
@@ -105,15 +106,18 @@ struct LoginSwiftUIView: View {
             .onAppear {
             self.authenticationDidFail = false
             self.authenticationDidSucceed = false
+                print("Guest---------------------------?", currentUser.guest)
         }
-            .navigationBarTitle(Text(currentUser.guest == "True" ? "Log In!" : "Log Out"), displayMode: .inline)
+            .navigationBarTitle(Text(currentUser.guest! == "true" ? "Log In!" : "Log Out"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
+            .accessibility(identifier: "nav")
         // Hide the system back button
         .navigationBarBackButtonHidden(true)
         // Add your custom back button here
         .navigationBarItems(leading:
                 Button(action: {
                 self.presentationMode.wrappedValue.dismiss()
+            
             }) {
                 HStack {
                     Image(systemName: "arrow.left.circle")

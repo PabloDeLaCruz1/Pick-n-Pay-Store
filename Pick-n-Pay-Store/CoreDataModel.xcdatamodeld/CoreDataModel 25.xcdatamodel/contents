@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Billings" representedClassName="Billings" syncable="YES">
+        <attribute name="billingAddress" optional="YES" attributeType="String"/>
+        <attribute name="creditCard" optional="YES" attributeType="String"/>
+        <attribute name="expirationDate" optional="YES" attributeType="String"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="isDefault" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="sender" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Cart" representedClassName="Cart" syncable="YES">
+        <attribute name="saved" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item"/>
+    </entity>
+    <entity name="Carts" representedClassName="Carts" syncable="YES">
+        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Transformable"/>
+        <attribute name="comments" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSaved" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="offer" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES">
+        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="billingAddress" optional="YES" attributeType="String"/>
+        <attribute name="payOption" optional="YES" attributeType="String"/>
+        <attribute name="shippingAddress" optional="YES" attributeType="String"/>
+        <attribute name="shippingOption" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="trackingInfo" optional="YES" attributeType="String"/>
+        <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
+    </entity>
+    <entity name="Orders" representedClassName="Orders" syncable="YES">
+        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="billingAddress" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="payOption" optional="YES" attributeType="String"/>
+        <attribute name="shippingAddress" optional="YES" attributeType="String"/>
+        <attribute name="shippingOption" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="trackingInfo" optional="YES" attributeType="String"/>
+        <relationship name="carts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Carts"/>
+    </entity>
+    <entity name="Receivers" representedClassName="Receivers" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="isDefault" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="sender" optional="YES" attributeType="String"/>
+        <attribute name="shippingAddress" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="creditCard" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="guest" optional="YES" attributeType="String"/>
+        <attribute name="history" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order"/>
+        <relationship name="wishlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wishlist"/>
+    </entity>
+    <entity name="Wishlist" representedClassName="Wishlist" syncable="YES">
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item"/>
+    </entity>
+    <elements>
+        <element name="Billings" positionX="-18" positionY="126" width="128" height="134"/>
+        <element name="Cart" positionX="-36" positionY="45" width="128" height="74"/>
+        <element name="Carts" positionX="-548.1270141601562" positionY="233.1199340820312" width="128" height="58"/>
+        <element name="Item" positionX="-998.1673583984375" positionY="-55.49374389648438" width="128" height="209"/>
+        <element name="Order" positionX="-199.4827270507812" positionY="-263.0272521972656" width="128" height="149"/>
+        <element name="Orders" positionX="-373.2947998046875" positionY="161.2270202636719" width="175.6511840820312" height="164"/>
+        <element name="Receivers" positionX="-10.07415771484375" positionY="-233.4141082763672" width="128" height="119"/>
+        <element name="User" positionX="-303.0086059570312" positionY="-95.70880126953125" width="128" height="164"/>
+        <element name="Wishlist" positionX="136.8983154296875" positionY="-57.73794555664062" width="128" height="44"/>
+    </elements>
+</model>

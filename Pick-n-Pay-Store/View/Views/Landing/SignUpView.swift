@@ -50,7 +50,7 @@ struct SignUpView: View {
             }
             VStack {
                 Spacer()
-                HelloText()
+//                HelloText()
                 UserImage()
                 UsernameTextField(email: $email)
                 PasswordSecureField(password: $password)
@@ -65,9 +65,10 @@ struct SignUpView: View {
                     
                     currentUser.email = email.lowercased()
 //                    currentUser.password = password
-                    
+                    currentUser.guest = "false"
                     DBHelper.db.updateUser(user: currentUser)
                     print("User added to DB")
+                    
                 }) {
                     SignUpButtonContent()
 
@@ -124,12 +125,12 @@ struct HelloText: View {
 
 struct UserImage: View {
     var body: some View {
-        Image("bigCartLogo")
+        Image("appLogonbg")
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: 150, height: 150)
-            .clipped()
-            .cornerRadius(150)
+            .frame(width: 170, height: 400)
+//            .clipped()
+//            .cornerRadius(150)
             .padding(.bottom, 75)
             .shadow(radius: 5)
 

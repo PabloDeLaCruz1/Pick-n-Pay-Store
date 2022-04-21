@@ -58,6 +58,52 @@ class CartHelper {
         
     }
     
+    func addToOrder(email : String, orderInfo : OrderInfo) -> Bool {
+        
+        let order = NSEntityDescription.insertNewObject(forEntityName: "Orders", into: context!) as! Orders
+            
+        //ADD ORDER ENTITY
+        
+        order.billingAddress = orderInfo.billingAddress
+        order.balance = orderInfo.balance
+        order.payOption = orderInfo.payOption
+        order.shippingAddress = orderInfo.shippingAddress
+        order.shippingOption = orderInfo.shippingOption["type"]!+"-"+orderInfo.shippingOption["length"]!
+        order.status = orderInfo.status
+        order.trackingInfo = orderInfo.trackingInfo
+        order.email = email
+            
+        do {
+            
+            for m  in 0...orderInfo.cart.count-1  {
+
+                let item = Item(context: context!)
+
+                item.desc = orderInfo.cart[m]["desc"]!
+                item.image = orderInfo.cart[m]["image"]!
+                item.price = Double(orderInfo.cart[m]["price"]!)!
+                item.quantity = Int16(orderInfo.cart[m]["quantity"]!)!
+                item.name = orderInfo.cart[m]["image"]!
+
+                order.items!.insert(item)
+
+            }
+            
+            
+            try context?.save()
+            
+        } catch let error as NSError {
+            
+            print("ADDING ORDERS ERROR")
+            print(error)
+            return false
+        
+         }
+
+        return true
+        
+    }
+    
     //READ
     
     func fetchUserCart(email : String) -> Set<Item>? {
@@ -208,6 +254,7 @@ class CartHelper {
             payInfo["creditCard"] = rec[0].creditCard
             
         } catch {
+            
             print("Can't fetch any data!")
             
           }
@@ -277,6 +324,66 @@ class CartHelper {
             print("Can't fetch any data!")
             return 2
           }
+        
+    }
+    
+    func fetchOrderInfo(email : String) -> [[String : Any]]? {
+        
+        var orderInfo : [[String:Any]] = []
+        var tempArray : [String:Any] = [:]
+        var cartArray : [[String:String]] = []
+        var tempCart : [String:String] = [:]
+        
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "Orders")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        
+        do {
+            
+            let tempUser = try context?.fetch(fReq) as! [Orders]
+            if tempUser.count != 0 {
+                print("WITH EMAIL")
+                for k in 0...tempUser.count-1 {
+
+                    tempArray["billingAddress"] = tempUser[k].billingAddress
+                    tempArray["balance"] = String(tempUser[k].balance)
+                    tempArray["payOption"] = tempUser[k].payOption
+                    tempArray["email"] = tempUser[k].email
+                    tempArray["shippingAddress"] = tempUser[k].shippingAddress
+                    tempArray["shippingOptions"] = tempUser[k].shippingOption
+                    tempArray["trackingInfo"] = tempUser[k].trackingInfo
+
+                    //CART ITEMS
+                    for j in tempUser[k].items! {
+
+                        tempCart["desc"] = j.desc
+                        tempCart["image"] = j.image
+                        tempCart["price"] = String(j.price)
+                        tempCart["quantity"] = String(j.quantity)
+                        cartArray.append(tempCart)
+                        tempCart.removeAll()
+
+                    }
+
+                    tempArray["cart"] = cartArray
+                    orderInfo.append(tempArray)
+                    tempArray.removeAll()
+
+                }
+
+                print("ORDERS: \(orderInfo)")
+                
+            }
+            
+            
+            
+        } catch {
+            
+            print("FETCH ORDERS ERROR")
+            return nil
+            
+          }
+        
+        return orderInfo
         
     }
     
@@ -410,31 +517,69 @@ class CartHelper {
         var deleted = false
 
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
-        fReq.predicate = NSPredicate(format: "email == %@", email)
+        fReq.predicate = NSPredicate(format: "email==%@", email)
 
         do {
-            let tempUser = try context?.fetch(fReq)
-            if(tempUser?.count != 0) {
-                user = tempUser?.first as! User
-            }
+            let tempUser = try context?.fetch(fReq) as! [User]
             
-            for uci in user.cart!.items! {
-                if uci.desc == itemCart["desc"]{
-                    print("DELETE FROM MAIN: \(uci.desc)")
-                    print("DELETE MAIN: \(user.email!)")
-                    user.cart!.items!.remove(uci)
-                    deleted = true
+            if(tempUser.count != 0) { //for protection of multiple users
+                
+                //user = tempUser?.first as! User
+            
+                for k in 0...tempUser.count-1 {
+                    
+                    user = tempUser[k] as! User
+                    
+                    for uci in tempUser[k].cart!.items! {
+                        
+                        if uci.desc == itemCart["desc"]{
+                        
+                            user.cart!.items!.remove(uci)
+                            deleted = true
+                            
+                        }
+                        
+                    }
+                    
                 }
+            
             }
             
             try context?.save()
-            printData()
+            //printData()
             return deleted
             
         } catch {
             print("DELETE ITEM IN CART / SAVED ERROR")
             return false
           }
+        
+    }
+    
+    func deleteAllFromCart(email : String, itemCart: [[String:String]]) -> Bool? {
+
+        var deleted = false
+        var temp = itemCart
+            
+        for j in 0...itemCart.count {
+            
+            deleted = deleteFromCartSaved(email: email, itemCart: itemCart[j])!
+            
+            if deleted == true {
+                
+                temp.remove(at: j)
+                
+            }
+            
+        }
+        
+        if temp.isEmpty == true {
+            
+            deleted = true
+            
+        }
+        
+        return deleted
         
     }
     
@@ -483,6 +628,26 @@ class CartHelper {
     func emergencyDeleteAllBillings() -> Bool {
         
         let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Billings")
+        //fReq.predicate = NSPredicate(format: "email!=''")
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)
+
+        do {
+            try context?.execute(deleteRequest)
+            try context?.save()
+            //printData()
+            return true
+            //try myPersistentStoreCoordinator.execute(deleteRequest, with: myContext)
+        } catch let error as NSError {
+            print(error)
+            return false
+        }
+        
+    }
+    
+    func emergencyDeleteAllOrders() -> Bool {
+        
+        let fReq: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Orders")
         //fReq.predicate = NSPredicate(format: "email!=''")
         
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fReq)

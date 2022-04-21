@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jSX-ZF-erR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -58,10 +58,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kEe-Wb-nyB">
-                                                    <rect key="frame" x="20" y="11" width="192.5" height="184"/>
+                                                    <rect key="frame" x="20" y="11" width="191" height="184"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="itemTitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6J-rV-FPp">
-                                                    <rect key="frame" x="229.5" y="25" width="164.5" height="21"/>
+                                                    <rect key="frame" x="228" y="25" width="166" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="g5m-ma-6oL"/>
                                                     </constraints>
@@ -91,7 +91,7 @@
                                                     </buttonConfiguration>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVd-dx-BDs">
-                                                    <rect key="frame" x="229.5" y="123" width="114.5" height="31"/>
+                                                    <rect key="frame" x="228" y="123" width="116" height="31"/>
                                                     <size key="titleShadowOffset" width="5" height="4"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" imagePlacement="trailing" imagePadding="1">
@@ -117,7 +117,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="itemPriceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-pE-2On">
-                                                    <rect key="frame" x="229.5" y="78" width="114.5" height="21"/>
+                                                    <rect key="frame" x="228" y="78" width="116" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -186,7 +186,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eP7-8l-U05">
-                                <rect key="frame" x="0.0" y="32" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -329,7 +329,7 @@
                         <segue destination="RXy-19-3qc" kind="relationship" relationship="viewControllers" id="RtY-TI-BkN"/>
                         <segue destination="7GC-x7-xfm" kind="relationship" relationship="viewControllers" id="vbl-Gp-CMQ"/>
                         <segue destination="Y6W-Hg-yEb" kind="relationship" relationship="viewControllers" id="OMp-lW-CLd"/>
-                        <segue destination="wOG-PY-sS7" kind="relationship" relationship="viewControllers" id="75u-0W-zW3"/>
+                        <segue destination="Moh-z9-sgi" kind="relationship" relationship="viewControllers" id="f00-Ev-8Fb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKz-lf-8Zd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -580,13 +580,49 @@
                                     <action selector="deleteBillings:" destination="jSX-ZF-erR" eventType="touchUpInside" id="bO4-Pv-DER"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMr-Yj-p2O">
+                                <rect key="frame" x="97" y="413" width="222" height="55"/>
+                                <color key="backgroundColor" name="DustyRose"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="K9l-Io-qS3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="222" id="Ti3-vt-I9q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Delete Orders">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteOrders:" destination="jSX-ZF-erR" eventType="touchUpInside" id="vLD-Q9-yxP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0E-0m-ZfS">
+                                <rect key="frame" x="97" y="476" width="222" height="55"/>
+                                <color key="backgroundColor" name="DustyRose"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="kAn-Xf-2wk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="222" id="ton-Cd-znU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Fetch Orders">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="getOrders:" destination="jSX-ZF-erR" eventType="touchUpInside" id="IFQ-lt-Ee0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zpn-y5-h6a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vMr-Yj-p2O" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" constant="1" id="4ji-dK-XaD"/>
                             <constraint firstItem="Gxm-A0-U6a" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" constant="1" id="A1k-Qi-PMO"/>
                             <constraint firstItem="WJs-kZ-Qkz" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" constant="1" id="C5o-9P-ndM"/>
+                            <constraint firstItem="vMr-Yj-p2O" firstAttribute="centerY" secondItem="5HB-Sy-iFx" secondAttribute="centerY" constant="-7.5" id="Ex0-nK-22O"/>
                             <constraint firstItem="hrU-Rh-u9A" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" id="G0y-LE-cu5"/>
+                            <constraint firstItem="t0E-0m-ZfS" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" constant="1" id="LkS-09-9GS"/>
+                            <constraint firstItem="t0E-0m-ZfS" firstAttribute="centerY" secondItem="5HB-Sy-iFx" secondAttribute="centerY" constant="55.5" id="NaS-rz-pLl"/>
                             <constraint firstItem="cFp-16-OU3" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" constant="1" id="be9-Ne-WBG"/>
                             <constraint firstItem="wWP-pm-IwL" firstAttribute="centerY" secondItem="5HB-Sy-iFx" secondAttribute="centerY" constant="-341.5" id="gDC-NF-eNR"/>
                             <constraint firstItem="wWP-pm-IwL" firstAttribute="centerX" secondItem="5HB-Sy-iFx" secondAttribute="centerX" id="kor-qJ-G0h"/>
@@ -598,8 +634,10 @@
                     </view>
                     <connections>
                         <outlet property="deleteAllUsersButton" destination="hrU-Rh-u9A" id="ir5-FW-bft"/>
-                        <outlet property="deleteBillingsButton" destination="Gxm-A0-U6a" id="JUw-Gx-YUL"/>
+                        <outlet property="deleteBillingsButton" destination="Gxm-A0-U6a" id="c1Q-I9-IHm"/>
+                        <outlet property="deleteOrdersButton" destination="vMr-Yj-p2O" id="bS4-i0-b5i"/>
                         <outlet property="deleteReceiversButton" destination="WJs-kZ-Qkz" id="vfb-wa-dpj"/>
+                        <outlet property="fetchOrdersButton" destination="t0E-0m-ZfS" id="Tv9-gP-zRa"/>
                         <outlet property="getAllUsersButton" destination="cFp-16-OU3" id="spE-xw-WA6"/>
                     </connections>
                 </viewController>
@@ -1170,15 +1208,74 @@
                         <viewLayoutGuide key="safeArea" id="akE-Jw-iMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Orders" image="bag" catalog="system" id="Wlz-w5-8ja"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="bag.fill" catalog="system" id="Wlz-w5-8ja"/>
+                    <navigationItem key="navigationItem" id="hp9-jF-8g4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cf9-YB-zZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4328.985507246377" y="2328.3482142857142"/>
+            <point key="canvasLocation" x="3064" y="2381"/>
+        </scene>
+        <!--Orders Table View Controller-->
+        <scene sceneID="MHa-A9-OM7">
+            <objects>
+                <viewController id="ROk-FH-J2V" customClass="OrdersTableViewController" customModule="Pick_n_Pay_Store" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rqX-fU-Hiy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-TM-eLt" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J5W-Bw-Ic4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hw2-Y4-rMF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r7M-TM-eLt" firstAttribute="leading" secondItem="hw2-Y4-rMF" secondAttribute="leading" id="C55-eP-apF"/>
+                            <constraint firstItem="r7M-TM-eLt" firstAttribute="bottom" secondItem="hw2-Y4-rMF" secondAttribute="bottom" id="Hiy-0N-Dg1"/>
+                            <constraint firstItem="r7M-TM-eLt" firstAttribute="trailing" secondItem="hw2-Y4-rMF" secondAttribute="trailing" id="MwQ-9K-Y6m"/>
+                            <constraint firstItem="r7M-TM-eLt" firstAttribute="top" secondItem="hw2-Y4-rMF" secondAttribute="top" id="lnb-st-WcL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Eat-Gr-1H9"/>
+                    <connections>
+                        <outlet property="orderTableView" destination="J5W-Bw-Ic4" id="EYd-sw-WA0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2M-y3-D9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5170" y="3063"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="ftL-kk-bTn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Moh-z9-sgi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Orders" image="bag" catalog="system" id="7FB-4q-zbD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ycc-pX-f13">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" name="pcolor4"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ROk-FH-J2V" kind="relationship" relationship="rootViewController" id="x7k-mR-bDQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIS-CI-qUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4348" y="3063"/>
         </scene>
     </scenes>
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="checkboxUnselected" width="170.5" height="170.5"/>
         <image name="heart" catalog="system" width="128" height="109"/>
