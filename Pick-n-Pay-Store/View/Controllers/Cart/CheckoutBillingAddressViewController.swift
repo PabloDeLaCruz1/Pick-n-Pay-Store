@@ -47,13 +47,17 @@ class CheckoutBillingAddressViewController: UIViewController, PaymentCellFunctio
         
         //this function is for the recipients tableview cell, to be in their default before the button is clicked
         
-        for j in 0...CSData.paymentsInfo.count-1 {
+        if CSData.paymentsInfo.isEmpty == false {
             
-            let indexPath = IndexPath(row: j, section: 0)
-            let cell = paymentInformationTableView.cellForRow(at: indexPath) as? CheckoutPaymentInformationTableViewCell
-            cell?.paymentMethodButton.isHidden = true
-            cell?.circleButton.setBackgroundImage(UIImage(named: "circleUnselected"), for: .normal)
+            for j in 0...CSData.paymentsInfo.count-1 {
+                
+                let indexPath = IndexPath(row: j, section: 0)
+                let cell = paymentInformationTableView.cellForRow(at: indexPath) as? CheckoutPaymentInformationTableViewCell
+                cell?.paymentMethodButton.isHidden = true
+                cell?.circleButton.setBackgroundImage(UIImage(named: "circleUnselected"), for: .normal)
 
+            }
+            
         }
         
         for j in 0...4 {

@@ -36,7 +36,7 @@
         <attribute name="shippingOption" optional="YES" attributeType="String"/>
         <attribute name="status" optional="YES" attributeType="String"/>
         <attribute name="trackingInfo" optional="YES" attributeType="String"/>
-        <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
+        <relationship name="cart" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cart"/>
     </entity>
     <entity name="Receivers" representedClassName="Receivers" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String"/>

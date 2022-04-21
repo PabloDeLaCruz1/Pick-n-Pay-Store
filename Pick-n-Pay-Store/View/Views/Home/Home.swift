@@ -261,9 +261,17 @@ struct Home: View {
 
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
-                let item = DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
-                baseData.currentUser.wishlist?.items?.insert(item)
-                product.isLiked.toggle()
+
+                var isLiked = false
+                if (isLiked == true){
+                    DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                    product.isLiked.toggle()
+                }
+                else if (isLiked == false){
+                   // DBHelper.db. removeWishList(email: currentUser.email!, product: product)
+                    product.isLiked.toggle()
+                }
+                
 
             } label: {
                 if product.isLiked {

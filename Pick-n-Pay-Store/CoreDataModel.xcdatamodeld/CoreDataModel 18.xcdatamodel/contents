@@ -54,7 +54,7 @@
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
-        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order"/>
+        <relationship name="orders" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order"/>
         <relationship name="wishlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wishlist"/>
     </entity>
     <entity name="Wishlist" representedClassName="Wishlist" syncable="YES">

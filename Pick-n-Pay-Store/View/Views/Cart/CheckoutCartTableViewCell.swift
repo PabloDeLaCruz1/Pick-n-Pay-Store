@@ -19,6 +19,8 @@ class CheckoutCartTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         // Initialization code
+        checkoutStepper.isHidden = true
+        //checkoutStepperLabel.isHidden = true
         
     }
 

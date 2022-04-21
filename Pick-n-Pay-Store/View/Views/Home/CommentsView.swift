@@ -9,10 +9,11 @@ import SwiftUI
 
 struct CommentsView: View {
     
-    @EnvironmentObject var baseData: HomeViewModel
+    @StateObject var baseData = HomeViewModel()
+    @Environment(\.currentUser) var currentUser
     var body: some View {
-        
-        if var product = baseData.currentProduct{
+        //var product = Product.self
+        if let product = baseData.currentProduct{
         VStack{
             
         HStack{
@@ -35,7 +36,7 @@ struct CommentsView: View {
         }
             //comment string
             HStack{
-                Text("This beauty product is amazing! and the shipping was fast!").padding()
+                Text(product.comments![0]).padding()
             }
         }
         .background(Color.white)
