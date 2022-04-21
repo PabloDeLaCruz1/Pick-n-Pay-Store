@@ -175,7 +175,6 @@ struct Home: View {
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
-
                             .onTapGesture {
                             withAnimation {
                                 baseData.currentProduct = product
@@ -230,7 +229,6 @@ struct Home: View {
                     }
                 }
                     .id(UUID())
-
             }
                 .padding()
                 .background(

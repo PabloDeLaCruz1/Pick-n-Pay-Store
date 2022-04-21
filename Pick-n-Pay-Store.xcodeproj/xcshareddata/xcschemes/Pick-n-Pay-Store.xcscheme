@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE879501281092E900BB757D"
+               BuildableName = "Pick-n-Pay-StoreUITests.xctest"
+               BlueprintName = "Pick-n-Pay-StoreUITests"
+               ReferencedContainer = "container:Pick-n-Pay-Store.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
