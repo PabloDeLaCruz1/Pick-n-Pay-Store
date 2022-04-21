@@ -42,14 +42,47 @@ class WishListViewController: UIViewController, UITableViewDataSource, UITableVi
         return WishListCell
 
     }
-
-    //useful to save core data
-    @IBAction func saveWishList(_ sender: Any) {
-
-//        DBHelper.db.addWishListItem( itemName: <#String#>, itemImage: <#String#>, itemPrice: <#Double#> )
-//        print("data saved")
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        @Namespace var animation
+        switch indexPath.section{
+        case 0:
+            switch indexPath.item {
+            case 0 :
+                var detailItem = DetailView(animation: animation)
+                var uiHosting = UIHostingController(rootView: detailItem)
+                addChild(uiHosting)
+                uiHosting.view.frame = view.bounds
+                view.addSubview(uiHosting.view)
+                uiHosting.didMove(toParent: self)
+               // DetailView(animation: animation)
+                print("inside indexPath.item")
+//        for item in currentUser.wishlist!.items!{
+//            didTapItem()
+//            print("inside the for loop")
+//
+//        switch item {
+//        case item:
+//        print(" in case item")
+//        default:
+//            print("in default")
+//        }
+            default:
+                print("in default")
+            }
+        default:
+            print("outside of section switch case")
+        }
+    
+    
+    func didTapItem(){
+        @Namespace var animation
+        //SwiftUI intersep
+        //let itemsViewController = UIviewcontrollerty
+        let vc = UIHostingController(rootView: DetailView(animation: animation))
+        present(vc, animated: true)
+        }
     }
-
 
 
 }
