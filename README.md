@@ -41,31 +41,45 @@ This project is a single base application that behaves like e-commerce applicati
 Below are screenshots of the project in action:
 
 <h3 align="center">LANDING PAGES</h3>
+
 ![End Product](Documentation/landings.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Home Page • Middle Image: Sign-Up Page • Right Image: Login Page</i></p>
 
 <h3 align="center">HOME FEATURE</h3>
+
 ![End Product](Documentation/homePage.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Regular View • Right Image: Detail View</i></p>
 
 <h3 align="center">CART FEATURE</h3>
+
 ![End Product](Documentation/cartFeature.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Empty Cart View • Right Image: Cart With Items</i></p>
 
 <h3 align="center">CART FEATURE: SHIPPING INFORMATION</h3>
+
 ![End Product](Documentation/shippingInformation.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Available Shipping Addresses • Right Image: Adding Shipping Address Form</i></p>
 
 <h3 align="center">CART FEATURE: PAYMENT INFORMATION</h3>
+
 ![End Product](Documentation/paymentMethods.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Available Payment Methods • Right Image: Adding Payment Method Form For Debit / Credit Cards</i></p>
 
 <h3 align="center">CART FEATURE: SAVED ITEMS</h3>
+
 ![End Product](Documentation/savedItems.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Empty Saved Cart • Right Image: Cart With Saved Items</i></p>
 
 <h3 align="center">ORDERS FEATURE</h3>
+
 ![End Product](Documentation/ordersFeature.png)
+
 <p align="center" style="color:gray;font-size:12px;"><i>Left Image: Place Your Order Page • Right Image: Orders Page</i></p>
 
 ## Contributors
