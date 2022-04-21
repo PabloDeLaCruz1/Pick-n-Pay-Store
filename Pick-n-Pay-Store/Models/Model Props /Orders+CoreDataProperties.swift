@@ -1,8 +1,8 @@
 //
-//  Order+CoreDataProperties.swift
+//  Orders+CoreDataProperties.swift
 //  Pick-n-Pay-Store
 //
-//  Created by Pablo De La Cruz on 4/5/22.
+//  Created by Maricel Sumulong on 4/20/22.
 //
 //
 
@@ -10,24 +10,26 @@ import Foundation
 import CoreData
 
 
-extension Order {
+extension Orders {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Order> {
-        return NSFetchRequest<Order>(entityName: "Order")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Orders> {
+        return NSFetchRequest<Orders>(entityName: "Orders")
     }
 
     @NSManaged public var balance: Double
     @NSManaged public var billingAddress: String?
-    @NSManaged public var payOption: String?
     @NSManaged public var shippingAddress: String?
+    @NSManaged public var email: String?
     @NSManaged public var shippingOption: String?
-    @NSManaged public var status: String?
+    @NSManaged public var payOption: String?
     @NSManaged public var trackingInfo: String?
-    @NSManaged public var cart: Cart?
+    @NSManaged public var status: String?
+    @NSManaged public var items: Set<Item>?
 
 }
 
-extension Order {
+// MARK: Generated accessors for items
+extension Orders {
 
     @objc(addItemsObject:)
     @NSManaged public func addToItems(_ value: Item)
@@ -43,6 +45,6 @@ extension Order {
 
 }
 
-extension Order : Identifiable {
+extension Orders : Identifiable {
 
 }

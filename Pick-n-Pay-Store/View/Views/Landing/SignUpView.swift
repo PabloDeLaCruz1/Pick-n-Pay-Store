@@ -65,9 +65,10 @@ struct SignUpView: View {
                     
                     currentUser.email = email.lowercased()
 //                    currentUser.password = password
-                    
+                    currentUser.guest = "false"
                     DBHelper.db.updateUser(user: currentUser)
                     print("User added to DB")
+                    
                 }) {
                     SignUpButtonContent()
 

@@ -306,10 +306,10 @@ extension DBHelper {
                 user = tempUser?.first as! User
             }
 
-            user.orders?.insert(order)
-            for i in user.orders! {
-                print("Orders----------", i)
-            }
+//            user.orders?.insert(order)
+//            for i in user.orders! {
+//                print("Orders----------", i)
+//            }
             try context?.save()
         } catch {
             print("issues updating data")

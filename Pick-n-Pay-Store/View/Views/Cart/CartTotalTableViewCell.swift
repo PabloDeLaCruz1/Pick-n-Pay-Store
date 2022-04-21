@@ -81,6 +81,9 @@ class CartTotalTableViewCell: UITableViewCell {
         overallTotal = Float(String(format: "%.2f", overallTotal))!
         orderLabel.text = "$\(overallTotal)"
         
+        //SET orderInfo FOR TOTAL
+        CSData.cartTotal = Double(overallTotal)
+        
     }
     
 }
