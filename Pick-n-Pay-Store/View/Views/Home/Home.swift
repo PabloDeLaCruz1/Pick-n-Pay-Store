@@ -261,6 +261,9 @@ struct Home: View {
 
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
+                var isLiked = false
+                if (isLiked == true){
+                    DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
                 switch product.isLiked {
                 case true:
                     DBHelper.db.removeWishList(email: currentUser.email!, product: product)
