@@ -38,6 +38,17 @@
         <attribute name="trackingInfo" optional="YES" attributeType="String"/>
         <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart"/>
     </entity>
+    <entity name="Orders" representedClassName="Orders" syncable="YES">
+        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="billingAddress" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="payOption" optional="YES" attributeType="String"/>
+        <attribute name="shippingAddress" optional="YES" attributeType="String"/>
+        <attribute name="shippingOption" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="trackingInfo" optional="YES" attributeType="String"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item"/>
+    </entity>
     <entity name="Receivers" representedClassName="Receivers" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="isDefault" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -68,5 +79,6 @@
         <element name="Receivers" positionX="-27" positionY="117" width="128" height="119"/>
         <element name="User" positionX="-54" positionY="-9" width="128" height="164"/>
         <element name="Wishlist" positionX="-18" positionY="54" width="128" height="44"/>
+        <element name="Orders" positionX="-9" positionY="135" width="128" height="164"/>
     </elements>
 </model>

@@ -21,6 +21,19 @@ struct CSData {
     static var defaultAddress : [String:String] = [:]
     static var selectedPayment : [String:String] = [:]
     static var defaultPayment : [String:String] = [:]
+    static var shippingOptions = [
+        ["type" : "Standard",
+         "length" : "7"
+        ],
+        ["type" : "Express",
+         "length" : "3"
+        ],
+        ["type" : "Overnight",
+         "length" : "1"
+        ]
+    ]
+    static var selectedShippingOption : [String:String] = [:]
+    static var cartTotal : Double = 0.00
     
     func drawEmptyCartSavedPage(view : UIView, segment : String) {
         
