@@ -89,6 +89,9 @@
                                                             <color key="strokeColor" systemColor="systemGray3Color"/>
                                                         </backgroundConfiguration>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="itemOffWishList:" destination="ROw-eH-gfv" eventType="touchUpInside" id="AFX-p0-ZzC"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVd-dx-BDs">
                                                     <rect key="frame" x="228" y="123" width="116" height="31"/>
