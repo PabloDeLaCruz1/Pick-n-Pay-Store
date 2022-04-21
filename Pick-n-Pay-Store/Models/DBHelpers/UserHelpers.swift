@@ -196,7 +196,7 @@ extension DBHelper {
     // MARK: - UPDATE USER WISH-LIST  DATA
 
 
-    func updateUserWishList(email: String, product: Product) {
+    func updateUserWishList(email: String, product: Product) -> Item{
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
         fReq.predicate = NSPredicate(format: "email == %@", email)
@@ -226,9 +226,13 @@ extension DBHelper {
                 print("Item----------", i)
             }
             try context?.save()
+            return item
+
         } catch {
             print("issues updating data")
         }
+        return Item()
+
     }
     // MARK: - WISH LIST ADD ITEM DATA
     func updateUserCart(email: String, product: Product) {

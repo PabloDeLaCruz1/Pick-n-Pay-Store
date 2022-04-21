@@ -58,7 +58,7 @@ struct DetailView: View {
                 }
                         .foregroundColor(.black)
                         .overlay(
-                        Image("pnpLogonbg")
+                        Image("appLogonbg")
                             .resizable()
                             .frame(width: 150, height: 100)
                             .clipShape(Circle().size(width: 150, height: 100)))

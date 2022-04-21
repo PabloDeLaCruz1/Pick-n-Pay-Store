@@ -124,7 +124,7 @@ struct HelloText: View {
 
 struct UserImage: View {
     var body: some View {
-        Image("pnpLogonbg")
+        Image("appLogonbg")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 170, height: 400)
