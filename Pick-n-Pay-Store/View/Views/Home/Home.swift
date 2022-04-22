@@ -95,7 +95,6 @@ struct Home: View {
                         for index in 1...7 {
                             sliders.append(Slider(sliderImage: "slider\(index)"))
                         }
-
                     }
                     //prevents sliders from adding infinately
                     .onDisappear {
@@ -128,7 +127,9 @@ struct Home: View {
                     Text("Products: \(baseData.category)")
                         .font(.title.bold())
                         .frame(width: 300, height: 0, alignment: .leading)
+                    
                     Spacer()
+                    
                     Button {
 
                     } label: {
@@ -177,8 +178,9 @@ struct Home: View {
                 let columns = Array(repeating: GridItem(.fixed(190), spacing: 15), count: 2)
 
                 // MARK: - GRID VIEW
-                // Lazy View Stacks are used to improve performance. Grid is native solution for collection vire Also look into List or https://www.youtube.com/watch?v=BD9vzG0qUXc
+                // Lazy View Stacks are used to improve performance. Grid is native solution for collection view Also look into List or https://www.youtube.com/watch?v=BD9vzG0qUXc
                 //Lazy Grid details https://www.appcoda.com/learnswiftui/swiftui-gridlayout.html
+                //TODO: Reserch why CardView cannot use inout syntax
                 LazyVGrid(columns: columns, spacing: 18) {
                     ForEach(baseData.products) { product in
                         CardView(product: product)
@@ -242,7 +244,6 @@ struct Home: View {
                     .ignoresSafeArea()
                     .opacity(0.1))
             //MARK: - Bottom Tab Bar Approx Padding
-//            .padding(.bottom, 100)
         }
             .overlay(
             DetailView(animation: animation)
@@ -368,7 +369,8 @@ struct Home: View {
             withAnimation { baseData.homeTab = title }
 
             let filtered = productsForFiltering.filter { $0.tags!.contains(baseData.category.lowercased()) }
-            print("Filtered1-------------------------", filtered.count)
+
+            //MARK: Out of Stock placeholder Product
             if filtered.count == 0 {
                 baseData.products = [Product(name: "Out of Stock", comments: [""], offer: false, price: 00.00, tags: ["empty", "error", "out of stock", "out"], image: "emptyError", color: UIColor(Color(.gray).opacity(0.4)), desc: "We are sorry. This item is not available. Please come back another time or call support at 555-555-5555", isLiked: false, rating: 5, isSaved: 0, quantity: 1)]
             } else {
@@ -376,7 +378,7 @@ struct Home: View {
 
             }
 
-            //To Filter without higher order functions
+            //To Filter without higher order functions, kinda
 //            for (i, product) in baseData.products.enumerated() {
 //
 //                if filtered.indices.contains(i) {
