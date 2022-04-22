@@ -105,8 +105,8 @@ struct LoginSwiftUIView: View {
                 print("Guest---------------------------?", currentUser.guest)
         }
             .navigationBarTitle(Text(currentUser.guest! == "true" ? "Log In!" : "Log Out"), displayMode: .inline)
-            .edgesIgnoringSafeArea(.bottom)
-            .accessibility(identifier: "nav")
+//            .edgesIgnoringSafeArea(.bottom)
+//            .accessibility(identifier: "nav")
         // Hide the system back button
         .navigationBarBackButtonHidden(true)
         // Add your custom back button here

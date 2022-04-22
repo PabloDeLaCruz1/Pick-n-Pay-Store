@@ -24,6 +24,7 @@ class HomeViewModel: ObservableObject {
     // MARK: - DETAIL VIEW
     @Published var currentProduct: Product?
     @Published var showDetail = false
+    @Published var liked = isLiked()
     @Published var products: [Product] = [// FOR TESTING PURPOSES, Products will come from API
         //Products to be on Offer scroll view
         Product(name: "E.Bundle", comments: ["Thank you for this awesome offer!", "Comment 2", "Comment 3", "Comment 4"], offer: true, price: 13.37, tags: ["offers", "tag2", "tag3"], image: "slider1", color: UIColor(Color("pcolor2")), desc: "This is E. Bundle's description. It does this and that.", isLiked: false, rating: 5, isSaved: 0, quantity: 1),

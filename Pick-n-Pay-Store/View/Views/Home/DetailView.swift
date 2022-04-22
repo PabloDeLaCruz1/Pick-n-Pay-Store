@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     @EnvironmentObject var baseData: HomeViewModel
+    @Environment(\.currentUser) var currentUser
     @State var commentText: String = ""
     //FOR HERO EFFECT
     var animation: Namespace.ID
@@ -46,15 +47,27 @@ struct DetailView: View {
                     } // END DRAWER MENU
                     Spacer()
 
-                    //MARK: HEART ICON
-                    Button {
-                        isLiked.toggle()
-                    } label: {
-                        Image(systemName: isLiked ? "suit.heart.fill" : "suit.heart")
-                            .foregroundColor(isLiked ? .red : .white)
-                            .padding(8)
-                            .background( Color.gray.opacity( 0.3) , in: Circle())
-                    } // END HEART ICON
+                        //MARK: HEART ICON
+                        Button {
+                            switch product.isLiked {
+                            case true:
+                                DBHelper.db.removeWishList(email: currentUser.email!, product: product)
+                                product.isLiked.toggle()
+                                isLiked = product.isLiked
+                                print(isLiked)
+                            case false:
+                                DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                                product.isLiked.toggle()
+                                isLiked = product.isLiked
+                                print(isLiked)
+                            }
+                            
+                        } label: {
+                            Image(systemName: product.isLiked ? "suit.heart.fill" : "suit.heart")
+                                .foregroundColor(isLiked ? .red : .white)
+                                .padding(8)
+                                .background( Color.gray.opacity( 0.3) , in: Circle())
+                        } // END HEART ICON
                 }
                         .foregroundColor(.black)
                         .overlay(
