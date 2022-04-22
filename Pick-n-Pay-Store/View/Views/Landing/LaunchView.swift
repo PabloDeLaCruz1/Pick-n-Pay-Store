@@ -16,16 +16,16 @@ struct LaunchView: View {
             LandingView()
 
 // MARK: Use for presentation/production
-//            SplashScreen()
-//                .opacity(showSplash ? 1 : 0)
-//                .onAppear {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//                    SplashScreen.shouldAnimate = false
-//                    withAnimation() {
-//                        self.showSplash = false
-//                    }
-//                }
-//            }
+            SplashScreen()
+                .opacity(showSplash ? 1 : 0)
+                .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    SplashScreen.shouldAnimate = false
+                    withAnimation() {
+                        self.showSplash = false
+                    }
+                }
+            }
         }
             .onDisappear {
         }
@@ -34,12 +34,16 @@ struct LaunchView: View {
 
 var guestUser = User()
 
+//EnvironmentKeys for easy access throughout the app for user status
 private struct LoggedInKey: EnvironmentKey {
     static let defaultValue = false
 }
+
+//MARK: We give all users a guest user account on App launch. In the future, we use this to save their information on UserDefaults if they do not register.
 private struct CurrentUser: EnvironmentKey {
     static let defaultValue = DBHelper.db.setAndGetGuest()
 }
+
 extension EnvironmentValues {
     var loggedInKey: Bool {
         get { self[LoggedInKey.self] }

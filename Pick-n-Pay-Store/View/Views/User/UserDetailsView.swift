@@ -15,11 +15,11 @@ struct UserDetailsView: View {
 //    var animation: Namespace.ID
     @State var size = "Order 2"
     @State var itemColor: Color = .red
-  
+
     var body: some View {
-        
+
         //MARK: SAFE CHECK
-        if  true {
+        if true {
             VStack(spacing: 0) {
                 //MARK: - APP BAR
                 HStack {
@@ -51,7 +51,7 @@ struct UserDetailsView: View {
                     Image("appLogonbg")
                         .resizable()
                         .frame(width: 150, height: 100)
-                        .clipShape(Circle().size(width: 150, height: 100)))              .padding()
+                        .clipShape(Circle().size(width: 150, height: 100))) .padding()
                 // END APP BAR
 
                 //MARK: - PRODUCT IMAGE
@@ -60,7 +60,7 @@ struct UserDetailsView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 220, height: 220)
 //                    .matchedGeometryEffect(id: user.image, in: animation)
-                    .rotationEffect(.init(degrees: -20))
+                .rotationEffect(.init(degrees: -20))
                     .background(
                     ZStack {
                         Circle()
@@ -186,12 +186,11 @@ struct UserDetailsView: View {
                 .background(Color.white)
                 .transition(.opacity)
         }
-    }
+        }
     }
 
-
-struct UserDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentDetailView()
+    struct UserDetailsView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentDetailView()
+        }
     }
-}
