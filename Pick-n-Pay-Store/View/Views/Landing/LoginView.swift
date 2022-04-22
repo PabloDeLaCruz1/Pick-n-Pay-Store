@@ -14,10 +14,6 @@ struct LoginSwiftUIView: View {
 
     @State var email: String = ""
     @State var password: String = ""
-//    @State var email: String = "mllsumulong@gmail.com"
-//    @State var password: String = "azhelle!"
-//    @State var email: String = "yoyo"
-//    @State var password: String = "123"
     @State var tag: Int? = nil
 
     @State var authenticationDidFail: Bool = false

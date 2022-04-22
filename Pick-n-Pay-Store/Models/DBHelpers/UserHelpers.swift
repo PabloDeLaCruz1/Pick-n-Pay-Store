@@ -195,7 +195,7 @@ extension DBHelper {
     
     // MARK: - UPDATE USER WISH-LIST  DATA
 
-
+    //Return Item for easy access. Dont always need. should make product to item mapper. 
     func updateUserWishList(email: String, product: Product) -> Item{
         var user = User()
         let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")

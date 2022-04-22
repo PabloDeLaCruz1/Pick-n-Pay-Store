@@ -9,13 +9,13 @@ import SwiftUI
 
 struct LandingView: View {
 
-//    @EnvironmentObject private var loggedIn = false
     @Environment(\.loggedInKey) var loggedInKey
 
     var center = CGPoint(x: 100, y: 100)
 
     var body: some View {
 
+        //TODO: Use loggedInKey logic
         if false {
             StoryboardViewController()
                 .background(
@@ -25,7 +25,7 @@ struct LandingView: View {
                     .opacity(0.1)
             )
         } else {
-
+            //MARK: Navigation View
             NavigationView {
                 VStack(alignment: .center) {
                     Spacer()
@@ -38,6 +38,7 @@ struct LandingView: View {
                     Spacer()
                     Button(action: {
                     }) {
+                        //MARK: Navigate to Sign Up Screen
                         NavigationLink(destination: SignUpView() .background(
                                 Image(DBHelper.db.getImageData())
                                     .resizable()
@@ -50,6 +51,7 @@ struct LandingView: View {
 
                     Button(action: {
                     }) {
+                        //MARK: Navigate to Log In Screen
                         NavigationLink(destination: LoginSwiftUIView() .background(
                                 Image(DBHelper.db.getImageData())
                                     .resizable()
@@ -76,7 +78,7 @@ struct LandingView: View {
                             // Add action
                         },
                         label: {
-
+                            //MARK: User Continue as Guest Nav Link
                             NavigationLink(destination: StoryboardViewController() .background(
                                     Image(DBHelper.db.getImageData())
                                         .resizable()
@@ -88,19 +90,8 @@ struct LandingView: View {
                         }
                     )
                 )
-
-//                .navigationBarTitleDisplayMode(.inline)
-//                        .toolbar { // <2>
-//                            ToolbarItem(placement: .principal) { // <3>
-//                                VStack {
-//                                    Text("Pick N' Pay").font(.largeTitle.bold()).padding()
-//                                }
-//                            }
-//                        }
-
-//                   .navigationBarHidden(true)
-            } //NavigationView
-
+            }
+            //MARK: END NavigationView
         }
     }
 }
@@ -111,6 +102,7 @@ struct LandingView_Previews: PreviewProvider {
     }
 }
 
+//MARK: Custom Button for Login
 struct LoginButtonContent: View {
     var body: some View {
         HStack(spacing: 15) {
@@ -119,7 +111,6 @@ struct LoginButtonContent: View {
                 .renderingMode(.template)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 20, height: 20)
-
             Text("Login")
                 .fontWeight(.bold)
         }
@@ -128,6 +119,5 @@ struct LoginButtonContent: View {
             .frame(maxWidth: .infinity)
             .background(Color("Btnbg").opacity(0.06))
             .clipShape(Capsule())
-
     }
 }

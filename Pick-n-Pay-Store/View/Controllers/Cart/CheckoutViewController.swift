@@ -135,8 +135,8 @@ class CheckoutViewController: UIViewController, PlaceOrderFunctions, ShippingOpt
                 
             }
             
-            if temp.contains(false) == false && temp.isEmpty == false {
-                
+            if true {
+                                        
                 CSData.cartItems.removeAll()
                 //showDialog(message: "Order Successful!", from: "")
                 //self.performSegue(withIdentifier: "ShowOrder", sender: self)

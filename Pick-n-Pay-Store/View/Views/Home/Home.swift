@@ -14,16 +14,17 @@ struct Home: View {
     @StateObject var baseData: HomeViewModel = HomeViewModel()
     @Environment(\.currentUser) var currentUser
 
+    //Scroll view sliders
     @State var currentSlider: Int = 0
     @State var sliders: [Slider] = []
+    
+    //Search and Sort variables
     @State var searchText: String = ""
     @State private var sort: Int = 0
 
-
     var body: some View {
+        
         ScrollView(.vertical, showsIndicators: false) {
-
-
             VStack() {
                 Spacer()
                 //MARK - APP BAR
@@ -70,18 +71,17 @@ struct Home: View {
                         .clipShape(Circle().size(width: 150, height: 100)))
                     .padding(.top, 15)
                 // END APP BAR
-//                Text("Hello! \(currentUser)")
+                
                 //MARK: SLIDER
                 VStack() {
-
                     VStack(alignment: .leading, spacing: -1) {
-
                         Text("Welcome")
                             .font(.title.bold())
                         HomeSlider(trailingSpace: 40, index: $currentSlider, items: sliders) { slider in
                             GeometryReader { proxy in
+                                
                                 let sliderSize = proxy.size
-
+                                
                                 Image(slider.sliderImage)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -105,7 +105,7 @@ struct Home: View {
                 } // END SLIDER
                 .padding(.bottom, 20)
                     .frame(width: 400, height: 200)
-                    .fixedSize()
+                    .fixedSize() // Prevents side effects of infinite zoom when switching tabs.
                     .padding(.top, 5)
 
                 //MARK: - SLIDER INDICATOR
@@ -142,7 +142,6 @@ struct Home: View {
                                 Image(systemName: "chevron.down")
                                     .font(.caption.bold())
                             }
-
                         }
                             .foregroundColor(.gray)
                     }
@@ -197,8 +196,6 @@ struct Home: View {
                     // bug with laggy screen transition seem to be something else
                     //https://www.hackingwithswift.com/articles/210/how-to-fix-slow-list-updates-in-swiftui
                     .id(UUID())
-
-
                 }
 
                 Spacer()
@@ -251,7 +248,6 @@ struct Home: View {
             DetailView(animation: animation)
                 .environmentObject(baseData))
             .padding(1)
-
     }
 
     //MARK: PRODUCT VIEW
@@ -261,8 +257,7 @@ struct Home: View {
 
             //MARK: LIKED BUTTON Adds to Wishlist ---
             Button {
-
-                var isLiked = false
+                let isLiked = false
                 if (isLiked == true){
                     DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
                     product.isLiked.toggle()
@@ -271,7 +266,6 @@ struct Home: View {
                    // DBHelper.db. removeWishList(email: currentUser.email!, product: product)
                     product.isLiked.toggle()
                 }
-                
 
             } label: {
                 if product.isLiked {
