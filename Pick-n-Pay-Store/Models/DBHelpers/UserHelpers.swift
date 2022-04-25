@@ -234,6 +234,27 @@ extension DBHelper {
         return Item()
 
     }
+    
+    // MARK: - WISH LIST REMOVE ITEM DATA
+    func removeWishList(email: String, product: Product){
+        var user = User()
+        let fReq = NSFetchRequest<NSManagedObject>.init(entityName: "User")
+        fReq.predicate = NSPredicate(format: "email == %@", email)
+        print("Hello User deleting item from Wishlist ")
+        do {
+            let tempUser = try context?.fetch(fReq)
+            if(tempUser?.count != 0) {
+                user = tempUser?.first as! User
+            }
+            context?.delete((user.wishlist!.items?.first)! )
+            try context?.save()
+            print("data deleted")
+        }
+        catch{
+            
+        }
+    }
+    
     // MARK: - WISH LIST ADD ITEM DATA
     func updateUserCart(email: String, product: Product) {
         var user = User()
