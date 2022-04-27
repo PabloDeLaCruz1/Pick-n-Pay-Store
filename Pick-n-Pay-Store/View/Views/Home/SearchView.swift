@@ -10,9 +10,8 @@ import SwiftUI
 struct SearchView: View {
     //MARK: - GEOMETRY EFFECT
     @Namespace var animation
-//    @EnvironmentObject var baseData: HomeViewModel
+
     @StateObject var baseData: HomeViewModel = HomeViewModel()
-    @Environment(\.currentUser) var currentUser
 
     @State private var searchText = ""
 
@@ -22,8 +21,10 @@ struct SearchView: View {
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-Spacer()
+                
                 Spacer()
+                Spacer()
+                
                 VStack() {
                     //MARK - APP BAR
                     HStack(spacing: 100) {
@@ -55,7 +56,7 @@ Spacer()
                         TextField("Search ..", text: $searchText)
 //                            .searchable(text: $searchText)
                     }
-                    .padding(.top, 50)
+                        .padding(.top, 50)
                     Spacer()
                     // END SEARCH ICON
 
@@ -67,7 +68,7 @@ Spacer()
                         Button {
 
                         } label: {
-                      
+
                         }
                     } // END BODY TOP
                     .padding(.top, 10)
@@ -117,7 +118,6 @@ Spacer()
 
                     Spacer()
 
-
                 }
                     .padding()
                     .background(
@@ -136,6 +136,7 @@ Spacer()
         }
     }
 
+    //MARK: Searches by Filtering by Item tags containing.
     var searchResults: [Product] {
         if searchText.isEmpty {
             return baseData.products
@@ -152,7 +153,7 @@ Spacer()
 
             //MARK: LIKED BUTTON Adds to Wishlist
             Button {
-                DBHelper.db.updateUserWishList(email: currentUser.email!, product: product)
+                DBHelper.db.updateUserWishList(email: baseData.currentUser.email!, product: product)
                 self.baseData.currentProduct?.isLiked = true
             } label: {
                 Image(systemName: "suit.heart.fill")
