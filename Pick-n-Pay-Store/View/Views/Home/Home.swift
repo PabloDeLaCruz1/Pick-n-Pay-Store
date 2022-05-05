@@ -280,7 +280,7 @@ struct Home: View {
                     print(isLikedLocal!)
                 }
 
-            } label: {
+              } }label: {
                 if product.isLiked == true {
                     Image(systemName: "suit.heart.fill")
                         .font(.system(size: 13))
